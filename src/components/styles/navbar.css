@@ -1,0 +1,127 @@
+.navbar {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* flex-direction: row-reverse; */
+  gap: 10px;
+  background-color: #333;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.navbar-toggle {
+  background-color: transparent;
+  border: none;
+  /* padding: 10px; */
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  /* background-color: #1a5276; */
+}
+
+/* .navbar-toggle-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  /* border-radius: 50%; */
+/* position: relative;
+  color: #333;
+  font-size: xx-large; */
+/* }  */
+
+/* .navbar-toggle-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 50%;
+} */
+
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  display: none;
+  background-color: #333;
+}
+.navbar-menu .navbar-toggle {
+  margin-bottom: 10px;
+}
+
+.navbar-menu.open {
+  display: block;
+}
+
+.navbar-menu li {
+  margin-bottom: 10px;
+  transition: all 1s;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-menu a:hover {
+  color: var(--accent-color);
+}
+.active a {
+  color: var(--accent-color);
+  font-size: large;
+}
+/* Responsive styles */
+
+@media (min-width: 768px) {
+  .navbar-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    background-color: transparent;
+    padding: 0;
+    border-bottom: none;
+  }
+  .navbar-menu li {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+  .navbar {
+    flex-direction: row;
+  }
+  .navbar-toggle {
+    display: none;
+  }
+  .navbar-menu.open {
+    display: flex;
+  }
+}
+.tools {
+  color: #fff;
+}
