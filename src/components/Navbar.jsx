@@ -33,13 +33,13 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      {/* <div className="navbar-brand">
+      <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img src={logo} alt="" width={"100%"} height={"100%"} />
+            <img src={"/img/yacht.png"} alt="" width={"100"} height={"50"} />
           </Link>
         </div>
-      </div> */}
+      </div>
       <button className="navbar-toggle" onClick={handleToggle}>
         <i className="fa-solid fa-bars">:</i>{" "}
       </button>
