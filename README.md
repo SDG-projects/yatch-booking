@@ -1,6 +1,7 @@
-# `
-git clone https://github.com/SDG-projects/yatch-booking.git`
-`cd yatch-booking.git `
-`npm install ``
-npm run dev`
+# 
+`
+git clone https://github.com/SDG-projects/yatch-booking.git`<br>
+`cd yatch-booking.git `<br>
+`npm install `<br>
+`npm run dev`
 
