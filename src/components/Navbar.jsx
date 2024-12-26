@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img src={"/img/yacht.png"} alt="" width={"100"} height={"50"} />
+            <img src={"./img/yatchlogo.png"} alt="" width={"100"} height={"50"} />
           </Link>
         </div>
       </div>
