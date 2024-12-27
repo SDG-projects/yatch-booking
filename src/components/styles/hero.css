@@ -1,54 +1,52 @@
-.hero {
-  /* background: ; */
-  height: 90vh;
-  background-image: url("/img/img32.webp");
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: start;
-}
-.heroText {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  /* justify-content: center; */
-  /* align-items: center; */
-  width: 65%;
-  padding: 10px;
-}
-.slogan {
-  font-size: xx-large;
-  font-weight: 500;
-  /* font-family: "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
-}
-.heroText .description {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-.heroText .CTA {
-  display: flex;
-  gap: 10px;
-}
-.heroText .CTA button {
-  padding: 10px;
-  cursor: pointer;
-}
-.heroText .CTA :nth-last-child(1) {
-  background-color: rgb(182, 36, 36);
-  border-radius: 50%;
-  color: aliceblue;
-  border: none;
-  width: 50px;
-}
-.heroLinks {
-  display: flex;
-  justify-content: end;
+/* Background Video Styles */
+.video-container {
+  position: relative;
   width: 100%;
-  gap: 20px;
+  height: 100vh;
+  overflow: hidden;
 }
-@media (min-width: 768px) {
-  .slogan {
-    font-size: 70px;
-  }
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+.content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.content-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.content-overlay p {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cta-button:hover {
+  background-color: #d40813;
 }
