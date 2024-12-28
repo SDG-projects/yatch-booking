@@ -21,8 +21,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         <a href="#" className="navbar-logo">
-          <img src="./img/yatchlogo.png" alt="Website Logo" />
-          <span>GYR</span>
+          <img src="./img/gyrlogo.png" alt="Website Logo"/>
         </a>
         <button
           className="mobile-menu-icon"
