@@ -1,0 +1,104 @@
+/* General Styling */
+.product-section {
+  padding: 50px 20px;
+  background: rgb(0, 0, 0);
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ff005d;
+  text-transform: uppercase;
+}
+
+/* Grid Layout */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  perspective: 1000px; 
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+/* Hover Effect */
+.product-card:hover {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7); 
+  z-index: 10; 
+}
+
+/* Slider Styling */
+.product-slider .slick-slide img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product-slider .slick-dots li button:before {
+  color: #ffd700;
+}
+
+.product-slider .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #ffdd00; 
+}
+
+/* Product Info */
+.product-info {
+  margin-top: 20px;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-detail {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 10px 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ffd700;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #ffdd00;
+}
+
+.btn-secondary {
+  background-color: #333;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #555;
+}

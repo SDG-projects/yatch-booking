@@ -1,0 +1,165 @@
+/* General Navbar Styling */
+.navbar {
+  
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  font-family: "Poppins", sans-serif; /* Clean and modern font */
+  transition: background-color 0.3s ease; /* Smooth transition for scroll effect */
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 1);
+ /* Solid black when scrolled */
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 100px;
+}
+
+/* Navbar Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.navbar-logo span {
+  font-size: 1.2rem;
+  color: #ffd700; /* Netflix red */
+}
+
+/* Desktop Navbar Menu */
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  list-style: none;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #ffd700; /* Highlight effect */
+}
+
+.navbar-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ffd700;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* Mobile Menu */
+.mobile-menu-icon {
+  font-size: 1.8rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* Hidden by default on larger screens */
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu-icon:hover {
+  transform: rotate(360deg);
+}
+
+/* Mobile Navbar Menu */
+.navbar-menu-mobile {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95); /* Dark background */
+  width: 100%;
+  padding: 1rem;
+  list-style: none;
+  margin: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-20%);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.navbar-menu-mobile.menu-active {
+  display: flex; /* Show mobile menu */
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+.menu-active {
+  visibility: visible;
+  transform: translateY(0);
+  padding: 10px 0; 
+  background-color: rgba(0, 0, 0, 0.9);
+  height: cover;
+}
+.menu-active li{
+  margin-bottom: 20px;
+}
+
+/* Hover Effect for Navbar Links */
+.navbar-link {
+  position: relative;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .mobile-menu-icon {
+    display: block; /* Show the menu icon on smaller screens */
+  }
+
+  .navbar-menu {
+    display: none; /* Hide desktop menu on smaller screens */
+  }
+
+  .navbar-logo img {
+    height: 40px;
+  }
+
+  .navbar-logo span {
+    font-size: 1rem;
+  }
+
+  .navbar-link {
+    font-size: 1.2rem;
+  }
+}
