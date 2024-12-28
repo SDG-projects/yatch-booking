@@ -4,6 +4,14 @@
   background: rgb(0, 0, 0);
   color: #fff;
   text-align: center;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.product-section.visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .section-title {

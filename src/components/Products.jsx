@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import "./styles/products.css";
 
 const ProductSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const productSection = document.querySelector(".product-section");
+      if (productSection) {
+        const rect = productSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8) {
+          setIsVisible(true);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const products = [
-    {
-      id: 1,
-      name: "Luxury Yacht A",
-      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
-      price: "$5000",
-      feet: "85 ft",
-      capacity: "20 People",
-    },
     {
       id: 1,
       name: "Luxury Yacht A",
@@ -49,7 +60,7 @@ const ProductSection = () => {
   };
 
   return (
-    <section className="product-section">
+    <section className={`product-section ${isVisible ? "visible" : ""}`}>
       <h2 className="section-title">Our Yachts</h2>
       <div className="product-grid">
         {products.map((product) => (
@@ -69,7 +80,7 @@ const ProductSection = () => {
             </div>
             <div className="product-actions">
               <button className="btn btn-primary">Book Now</button>
-              <button className="btn btn-secondary">Book Now</button>
+              <button className="btn btn-secondary">Details</button>
             </div>
           </div>
         ))}
@@ -79,4 +90,3 @@ const ProductSection = () => {
 };
 
 export default ProductSection;
-
