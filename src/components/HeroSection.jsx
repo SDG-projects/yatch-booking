@@ -1,29 +1,20 @@
 import React from "react";
 import "./styles/hero.css";
-function HeroSection() {
+const BackgroundVideo = () => {
   return (
-    <section className="hero" style={{ backgroundColor: "blue" }}>
-      {/* HeroSection */}
-      {/* <img src="/img/img32.webp" alt="" /> */}
-      <div className="heroText">
-        <div className="slogan">Where luxury meets endless horizons</div>
-        <div className="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, ducimus
-          voluptate?
-        </div>
-        <div className="CTA">
-          <button>Discover More</button>
-          <button>{"!>"} </button>
-        </div>
+    <div className="video-container">
+      <video autoPlay loop muted className="background-video">
+        <source src="./video/yatchvideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="content-overlay">
+        <h1>Welcome to Golden Yatch Rentals</h1>
+        <p>Experience the ultimate yacht adventure.</p>
+        <button className="cta-button">Explore Now</button>
       </div>
-      <div className="heroLinks">
-        <span>FB</span>
-        <span>TW</span>
-        <span>IG</span>
-        <span>YT</span>
-      </div>
-    </section>
+    </div>
   );
-}
+};
 
-export default HeroSection;
+
+export default BackgroundVideo;

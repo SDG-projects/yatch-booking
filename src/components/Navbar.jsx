@@ -3,73 +3,82 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./styles/navbar.css";
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activePage, setActivePage] = useState("/home");
-  const location = useLocation();
-  const menu = useRef();
+  const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Add scroll listener to change navbar background on scroll
   useEffect(() => {
-    const path = location.pathname.toLowerCase();
-    setActivePage(path);
-    // console.log(activePage);
-  }, [location]);
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-  // useEffect(() => {
-  //   const eventL = document.body.addEventListener("click", (e) => {
-  //     console.log(
-  //       e.target,
-  //       menu.current,
-  //       menu.current.children.includes(e.target)
-  //     );
-  //   });
-  //   return () => {
-  //     removeEventListener("click", eventL);
-  //   };
-  // }, []);
-  //   const handlePageChange = (page) => {
-  //     setActivePage(page);
-  //   };
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <div className="logo">
-          <Link to={"/"}>
-            <img src={"./img/yatchlogo.png"} alt="" width={"100"} height={"50"} />
-          </Link>
-        </div>
-      </div>
-      <button className="navbar-toggle" onClick={handleToggle}>
-        <i className="fa-solid fa-bars">:</i>{" "}
-      </button>
-      <ul
-        className={`navbar-menu ${isOpen ? "open" : ""}`}
-        ref={menu}
-        onMouseLeave={() => {
-          setIsOpen(false);
-        }}
-      >
-        <button className="navbar-toggle" onClick={handleToggle}>
-          <i className="fa-solid fa-xmark">x</i>
-        </button>
-        <li
-          className={
-            activePage === "/home" || activePage === "/" ? "active" : ""
-          }
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-container">
+        <a href="#" className="navbar-logo">
+          <img src="./img/yatchlogo.png" alt="Website Logo" />
+          <span>GYR</span>
+        </a>
+        <button
+          className="mobile-menu-icon"
+          onClick={() => setIsMobile(!isMobile)}
         >
-          <Link to={"/home"}>Home</Link>
-        </li>
-        <li className={activePage === "/about" ? "active" : ""}>
-          <Link to={"/about"}>About</Link>
-        </li>
-        <li className={activePage === "/products" ? "active" : ""}>
-          <Link to={"/products"}>Products</Link>
-        </li>
-        <li className={activePage === "/contact" ? "active" : ""}>
-          <Link to={"/contact"}>Contact</Link>
-        </li>
-      </ul>
+          {isMobile ? "✖" : "☰"}
+        </button>
+        {/* Desktop Menu */}
+        <ul className="navbar-menu">
+          <li className="navbar-item">
+            <a href="#vip-yacht" className="navbar-link">
+              VIP Yacht Rental
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="#packages" className="navbar-link">
+              Packages
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="#services" className="navbar-link">
+              Services
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="#extras" className="navbar-link">
+              Extras
+            </a>
+          </li>
+        </ul>
+        {/* Mobile Menu */}
+        <ul
+          className={`navbar-menu-mobile ${isMobile ? "menu-active" : ""}`}
+        >
+          <li className="navbar-item">
+            <a href="#vip-yacht" className="navbar-link" onClick={() => setIsMobile(false)}>
+              VIP Yacht Rental
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="#packages" className="navbar-link" onClick={() => setIsMobile(false)}>
+              Packages
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="#services" className="navbar-link" onClick={() => setIsMobile(false)}>
+              Services
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="#extras" className="navbar-link" onClick={() => setIsMobile(false)}>
+              Extras
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
