@@ -5,11 +5,11 @@
 }
 :root {
   /* Colors */
-  --primary-color: #333333; /* Deep gray */
-  --secondary-color: #f7f7f7; /* Cream */
-  --accent-color: #9a8300; /* Gold */
+  --primary-color: #101010; /* Deep gray */
+  --secondary-color: #c90303; /* Cream */
+  --accent-color: #bd990a; /* Gold */
   --background-color: #ffffff00; /* White */
-  --text-color: #333333; /* Deep gray */
+  --text-color: #ffffff; /* Deep gray */
 
   /* Typography */
   --font-family: "Montserrat", sans-serif;

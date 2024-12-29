@@ -10,7 +10,8 @@ const Error404 = lazy(() => import("./pages/Errors"));
 const Home = lazy(() => import("./pages/Home"));
 // const Products = lazy(() => import("./pages/Products"));
 // const CartPage = lazy(() => import("./pages/CartPage"));
-
+const Packages = lazy(() => import("./pages/Packages"));
+const CustomPackage = lazy(() => import("./pages/CustomPackage"));
 function App() {
   return (
     <>
@@ -34,12 +35,27 @@ function App() {
                 </Suspense>
               }
             />
-
+            <Route
+              path="/packages"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Packages />
+                </Suspense>
+              }
+            />
             <Route
               path="index"
               element={
                 <Suspense fallback={<Loading />}>
                   <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/customPack"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <CustomPackage />
                 </Suspense>
               }
             />

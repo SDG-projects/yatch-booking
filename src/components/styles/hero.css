@@ -1,11 +1,3 @@
-/* Background Video Styles */
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
 .background-video {
   position: absolute;
   top: 0;
@@ -16,24 +8,28 @@
   z-index: -1;
 }
 
-
-.content-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  text-align: center;
+.heroContainer {
+  /* background-color: var(--primary-color); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  color: var(--text-color);
 }
 
-.content-overlay h1 {
+.heroText h1 {
   font-size: 3rem;
   font-weight: bold;
 }
 
-.content-overlay p {
+.heroText p {
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+.heroText {
+  background-color: rgba(0, 0, 0, 0.529);
+  padding: 10px;
+  border-radius: 9px;
 }
 
 .cta-button {
