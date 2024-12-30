@@ -1,44 +1,16 @@
 import React from "react";
-import Slider from "react-slick";
-import "./styles/products.css";
- // Include styles for this component
+import "./styles/products.css"; // Include styles for this component
 
 const ProductSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const productSection = document.querySelector(".product-section");
-      if (productSection) {
-        const rect = productSection.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.8) {
-          setIsVisible(true);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const products = [
     {
-      id: 1,
-      name: "Luxury Yacht A",
-      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
-      price: "$5000",
-      feet: "85 ft",
-      capacity: "20 People",
-    },
-    {
-      id: 1,
-      name: "Luxury Yacht A",
-      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
-      price: "$5000",
-      feet: "85 ft",
-      capacity: "20 People",
+      name: "Product 1",
+      image: "../img/img32webp",
+      price: "$100",
+      feet: "30ft",
+      capacity: "10 people",
+      whatsappNumber: "1234567890",
+      email: "email1@example.com",
     },
     {
       name: "Product 2",
@@ -61,34 +33,40 @@ const ProductSection = () => {
   ];
 
   return (
-    <section className="product-section">
-      <h2 className="section-title">Our Yachts</h2>
-      <div className="product-grid">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <Slider {...sliderSettings} className="product-slider">
-              {product.images.map((img, index) => (
-                <div key={index}>
-                  <img src={img} alt={product.name} className="product-image" />
-                </div>
-              ))}
-            </Slider>
-            <div className="product-info">
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-detail">Price: {product.price}</p>
-              <p className="product-detail">Size: {product.feet}</p>
-              <p className="product-detail">Capacity: {product.capacity}</p>
-            </div>
-            <div className="product-actions">
-              <button className="btn btn-primary">Book Now</button>
-              <button className="btn btn-secondary">Book Now</button>
-            </div>
+    <div className="product-section" style={{ backgroundColor: "black", padding: "20px" }}>
+      {products.map((product, index) => (
+        <div className="product" key={index}>
+          <h3 className="product-name" style={{ color: "white" }}>{product.name}</h3>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="product-image"
+          width={200} height={200}/>
+          <div className="product-details" style={{ color: "white" }}>
+            <p>Price per day: {product.price}</p>
+            <p>Feet: {product.feet}</p>
+            <p>Capacity: {product.capacity}</p>
           </div>
-        ))}
-      </div>
-    </section>
+          <div className="product-actions">
+            <a
+              href={`https://wa.me/${product.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="product-button whatsapp-button"
+            >
+              <i className="fa fa-whatsapp"></i> Book Now
+            </a>
+            <a
+              href={`mailto:${product.email}`}
+              className="product-button email-button"
+            >
+              <i className="fa fa-envelope"></i> Book Now
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 
 export default ProductSection;
-
