@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Slider from "react-slick";
+import React from "react";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import "./styles/products.css";
 
 const ProductSection = () => {
@@ -34,33 +34,35 @@ const ProductSection = () => {
       capacity: "20 People",
     },
     {
-      id: 2,
-      name: "Premium Yacht B",
+      id: 1,
+      name: "Luxury Yacht A",
       images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
-      price: "$7000",
-      feet: "100 ft",
-      capacity: "30 People",
+      price: "$5000",
+      feet: "85 ft",
+      capacity: "20 People",
     },
     {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "Product 2",
+      image: "path/to/image2.jpg",
+      price: "$120",
+      feet: "35ft",
+      capacity: "12 people",
+      whatsappNumber: "1234567891",
+      email: "email2@example.com",
+    },
+    {
+      name: "Product 3",
+      image: "path/to/image3.jpg",
+      price: "$150",
+      feet: "40ft",
+      capacity: "15 people",
+      whatsappNumber: "1234567892",
+      email: "email3@example.com",
     },
   ];
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
-    <section className={`product-section ${isVisible ? "visible" : ""}`}>
+    <section className="product-section">
       <h2 className="section-title">Our Yachts</h2>
       <div className="product-grid">
         {products.map((product) => (
@@ -80,7 +82,7 @@ const ProductSection = () => {
             </div>
             <div className="product-actions">
               <button className="btn btn-primary">Book Now</button>
-              <button className="btn btn-secondary">Details</button>
+              <button className="btn btn-secondary">Book Now</button>
             </div>
           </div>
         ))}
@@ -90,3 +92,4 @@ const ProductSection = () => {
 };
 
 export default ProductSection;
+
