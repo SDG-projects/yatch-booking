@@ -138,6 +138,29 @@
 .navbar-link {
   position: relative;
 }
+/* Contact Button Styling */
+.navbar-button {
+  background-color: #f1d173;
+  color: #000;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-button:hover {
+  background-color: #ffd700;
+  color: #21243D;
+}
+
+/* Ensure spacing in the navbar */
+.navbar-item .navbar-button {
+  margin-left: 10px; /* Adjust spacing as needed */
+}
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
