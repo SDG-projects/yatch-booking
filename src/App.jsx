@@ -12,6 +12,7 @@ const Home = lazy(() => import("./pages/Home"));
 // const CartPage = lazy(() => import("./pages/CartPage"));
 const Packages = lazy(() => import("./pages/Packages"));
 const CustomPackage = lazy(() => import("./pages/CustomPackage"));
+
 function App() {
   return (
     <>
@@ -44,6 +45,14 @@ function App() {
               }
             />
             <Route
+              path="/packages/:id"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Packages />
+                </Suspense>
+              }
+            />
+            <Route
               path="index"
               element={
                 <Suspense fallback={<Loading />}>
@@ -59,6 +68,7 @@ function App() {
                 </Suspense>
               }
             />
+
             {/* <Route
               path="/products"
               element={

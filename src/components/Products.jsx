@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "./styles/products.css";
 import { useNavigate } from "react-router-dom";
 
-const Product = ({ product, sliderSettings }) => {
+export const Product = ({ product, sliderSettings }) => {
   const nav = useNavigate();
   return (
     <div key={product.id} className="product-card">
@@ -19,7 +19,7 @@ const Product = ({ product, sliderSettings }) => {
       <div
         className="product-info"
         onClick={() => {
-          nav("/product?" + product.id);
+          nav("/package/" + product.id);
         }}
       >
         <h3 className="product-name">{product.name}</h3>

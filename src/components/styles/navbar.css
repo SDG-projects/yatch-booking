@@ -7,6 +7,9 @@
   align-items: center;
   /* flex-direction: row-reverse; */
   gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 .navbar-brand {
@@ -98,7 +101,8 @@
 .serviceList {
   position: absolute;
   right: 100%;
-  width: max-content;
+
+  width: 50vw;
   background-color: var(--primary-color);
   padding: 10px;
   max-height: 80vh;
@@ -127,6 +131,9 @@
     background-color: transparent;
     padding: 0;
     border-bottom: none;
+  }
+  .serviceList {
+    width: max-content;
   }
   .navbar-menu li {
     margin-bottom: 0;

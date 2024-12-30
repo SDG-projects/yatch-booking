@@ -8,7 +8,7 @@
   --primary-color: #101010; /* Deep gray */
   --secondary-color: #c90303; /* Cream */
   --accent-color: #bd990a; /* Gold */
-  --background-color: #ffffff00; /* White */
+  --background-color: #ffffffc4; /* White */
   --text-color: #ffffff; /* Deep gray */
 
   /* Typography */
@@ -27,4 +27,8 @@
 
   /* Shadows */
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+body {
+  background-color: black;
+  color: var(--text-color);
 }

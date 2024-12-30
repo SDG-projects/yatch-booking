@@ -11,7 +11,7 @@
 /* General Styling */
 .product-section {
   padding: 50px 20px;
-  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.612);
   color: #fff;
   text-align: center;
 }
@@ -37,15 +37,15 @@
 }
 
 .product-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(31, 30, 30, 0.822);
   border-radius: 15px;
   padding: 5px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.6);
+
+  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.757);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
 }
 
 /* Hover Effect */
@@ -125,7 +125,7 @@
 
 .product-slider .slick-slide img {
   width: 100%;
-
+  position: relative;
   border-radius: 10px;
 }
 
