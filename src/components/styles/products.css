@@ -1,6 +1,23 @@
 .product-section {
-  display: flex;
-  flex-wrap: wrap;
+  padding: 50px 20px;
+  background: rgb(0, 0, 0);
+  color: #fff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ff005d;
+  text-transform: uppercase;
+}
+
+/* Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 3 in a row on larger screens, auto-adjust for smaller ones */
+  gap: 30px;
   justify-content: center;
   gap: 20px;
   padding: 0 20px;
