@@ -1,11 +1,12 @@
 import React from "react";
-import "./styles/products.css"; // Include styles for this component
+import "./styles/products.css";
+ // Include styles for this component
 
 const ProductSection = () => {
   const products = [
     {
       name: "Product 1",
-      image: "../img/img32webp",
+      image: "./img/yatch.png",
       price: "$100",
       feet: "30ft",
       capacity: "10 people",
