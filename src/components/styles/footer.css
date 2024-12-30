@@ -1,0 +1,18 @@
+footer {
+  display: flex;
+  /* flex-direction: column; */
+  gap: 10px;
+  /* margin: 10px; */
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  flex-wrap: wrap;
+}
+footer span {
+  color: red;
+}
+li {
+  list-style: none;
+  padding: 10px;
+}
