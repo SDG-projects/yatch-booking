@@ -1,72 +1,82 @@
 import React from "react";
-import "./styles/products.css"; // Include styles for this component
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import "./styles/products.css";
 
 const ProductSection = () => {
   const products = [
     {
-      name: "Product 1",
-      image: "../img/img32webp",
-      price: "$100",
-      feet: "30ft",
-      capacity: "10 people",
-      whatsappNumber: "1234567890",
-      email: "email1@example.com",
+      id: 1,
+      name: "Luxury Yacht A",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$5000",
+      feet: "85 ft",
+      capacity: "20 People",
     },
     {
-      name: "Product 2",
-      image: "path/to/image2.jpg",
-      price: "$120",
-      feet: "35ft",
-      capacity: "12 people",
-      whatsappNumber: "1234567891",
-      email: "email2@example.com",
+      id: 1,
+      name: "Luxury Yacht A",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$5000",
+      feet: "85 ft",
+      capacity: "20 People",
     },
     {
-      name: "Product 3",
-      image: "path/to/image3.jpg",
-      price: "$150",
-      feet: "40ft",
-      capacity: "15 people",
-      whatsappNumber: "1234567892",
-      email: "email3@example.com",
+      id: 2,
+      name: "Premium Yacht B",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$7000",
+      feet: "100 ft",
+      capacity: "30 People",
+    },
+    {
+      id: 3,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
     },
   ];
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
-    <div className="product-section" style={{ backgroundColor: "black", padding: "20px" }}>
-      {products.map((product, index) => (
-        <div className="product" key={index}>
-          <h3 className="product-name" style={{ color: "white" }}>{product.name}</h3>
-          <img
-            src={product.image}
-            alt={product.name}
-            className="product-image"
-          width={200} height={200}/>
-          <div className="product-details" style={{ color: "white" }}>
-            <p>Price per day: {product.price}</p>
-            <p>Feet: {product.feet}</p>
-            <p>Capacity: {product.capacity}</p>
+    <section className="product-section">
+      <h2 className="section-title">Our Yachts</h2>
+      <div className="product-grid">
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <Slider {...sliderSettings} className="product-slider">
+              {product.images.map((img, index) => (
+                <div key={index}>
+                  <img src={img} alt={product.name} className="product-image" />
+                </div>
+              ))}
+            </Slider>
+            <div className="product-info">
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-detail">Price: {product.price}</p>
+              <p className="product-detail">Size: {product.feet}</p>
+              <p className="product-detail">Capacity: {product.capacity}</p>
+            </div>
+            <div className="product-actions">
+              <button className="btn btn-primary">Book Now</button>
+              <button className="btn btn-secondary">Book Now</button>
+            </div>
           </div>
-          <div className="product-actions">
-            <a
-              href={`https://wa.me/${product.whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="product-button whatsapp-button"
-            >
-              <i className="fa fa-whatsapp"></i> Book Now
-            </a>
-            <a
-              href={`mailto:${product.email}`}
-              className="product-button email-button"
-            >
-              <i className="fa fa-envelope"></i> Book Now
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </section>
   );
 };
 
 export default ProductSection;
+

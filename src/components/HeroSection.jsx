@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./styles/hero.css";
-
-const BackgroundVideo = ({ isScrolled }) => {
+const BackgroundVideo = ({isScrolled}) => {
   return (
+  
     <div className={`video-container ${isScrolled ? "scrolled" : ""}`}>
       <div className="video-overlay"></div>
       <video autoPlay loop muted className="background-video">
@@ -17,5 +17,4 @@ const BackgroundVideo = ({ isScrolled }) => {
     </div>
   );
 };
-
 export default BackgroundVideo;
