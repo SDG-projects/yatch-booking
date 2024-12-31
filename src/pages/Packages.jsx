@@ -7,7 +7,7 @@ import Package from "../components/Package";
 
 function Packages() {
   // console.log(useParams());
-  const { id } = useParams();
+  const { packName } = useParams();
   const config = {
     type: "equirectangular",
     panorama: "/img/df.jpg",
@@ -33,7 +33,7 @@ function Packages() {
         <ProductSection />
       )} */}
       {/* <PannellumViewer config={config} /> */}
-      <Package />
+      <Package details={true} />
     </div>
   );
 }

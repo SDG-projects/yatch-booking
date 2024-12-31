@@ -12,7 +12,7 @@ function Home() {
       {/* <Products /> */}
       <ProductSection />
       <div>
-        <Package />
+        <Package details={false} />
       </div>
     </div>
   );
