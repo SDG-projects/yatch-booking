@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--primary-color);
+  background-color: #120d31;
   color: #fff;
   /* padding: 1em; */
   display: flex;
@@ -10,6 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 5;
+  font-weight: bold
 }
 
 .navbar-brand {
