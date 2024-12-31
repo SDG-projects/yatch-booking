@@ -23,9 +23,15 @@ export const Product = ({ product, sliderSettings }) => {
         }}
       >
         <h3 className="product-name">{product.name}</h3>
-        <p className="product-detail">Price: {product.price}</p>
-        <p className="product-detail">Size: {product.feet}</p>
-        <p className="product-detail">Capacity: {product.capacity}</p>
+        <p className="product-detail">
+          Price:<span> {product.price}</span>
+        </p>
+        <p className="product-detail">
+          Size:<span> {product.feet}</span>
+        </p>
+        <p className="product-detail">
+          Capacity: <span>{product.capacity}</span>
+        </p>
       </div>
       <div className="product-actions">
         <button className="btn btn-primary">Book Now</button>
@@ -81,7 +87,7 @@ const ProductSection = () => {
 
   return (
     <section className="product-section">
-      <h2 className="section-title">Our Yachts</h2>
+      {/* <h2 className="section-title">Our Yachts</h2> */}
       <div className="product-grid">
         {products.map((product, i) => (
           <Product key={i} product={product} sliderSettings={sliderSettings} />

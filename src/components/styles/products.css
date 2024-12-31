@@ -11,7 +11,7 @@
 /* General Styling */
 .product-section {
   padding: 50px 20px;
-  background: rgba(0, 0, 0, 0.612);
+  background: rgba(11, 58, 84, 0.89);
   color: #fff;
   text-align: center;
 }
@@ -20,7 +20,7 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 30px;
-  color: #ff005d;
+  color: #dbcdd2;
   text-transform: uppercase;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .product-card {
-  background: rgba(31, 30, 30, 0.822);
+  background: var(--secondary-color);
   border-radius: 15px;
   padding: 5px;
   text-align: center;
@@ -50,8 +50,8 @@
 
 /* Hover Effect */
 .product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 5px 35px rgba(226, 165, 10, 0.8);
+  transform: scale(1.02);
+  box-shadow: 0px 5px 15px rgba(226, 165, 10, 0.8);
   /* z-index: 10; */
 }
 
@@ -76,15 +76,17 @@
 }
 
 .product-name {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #f1d173;
 }
 
 .product-detail {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 5px 0;
   color: #fff;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* Buttons */
@@ -100,7 +102,7 @@
 }
 
 .btn-primary {
-  background-color: #f1d173;
+  background-color: var(--accent-color);
   color: #000;
 }
 

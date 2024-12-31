@@ -3,6 +3,7 @@ import PannellumViewer from "../components/PannellumViewer";
 import CustomPackage from "./CustomPackage";
 import { Link, useParams } from "react-router-dom";
 import ProductSection, { Product } from "../components/Products";
+import Package from "../components/Package";
 
 function Packages() {
   // console.log(useParams());
@@ -16,7 +17,7 @@ function Packages() {
   return (
     <div>
       Packages
-      <Link to={"/customPack"}>Custom Package</Link>
+      {/* <Link to={"/customPack"}>Custom Package</Link>
       {id ? (
         <Product
           product={{
@@ -30,8 +31,9 @@ function Packages() {
         />
       ) : (
         <ProductSection />
-      )}
+      )} */}
       {/* <PannellumViewer config={config} /> */}
+      <Package />
     </div>
   );
 }
