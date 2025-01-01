@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("/home");
+  const [isScrolled, setIsScrolled] = useState(false);
   const service = [
     "Romantic Private Dinner",
     "Private chef",
@@ -37,69 +38,48 @@ const Navbar = () => {
   ];
   const location = useLocation();
   const menu = useRef();
+
   useEffect(() => {
     const path = location.pathname.toLowerCase();
     setActivePage(path);
-    // console.log(activePage);
   }, [location]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const handleToggle = () => {
     setIsOpen(!isOpen);
-    a;
   };
-  // useEffect(() => {
-  //   const eventL = document.body.addEventListener("click", (e) => {
-  //     console.log(
-  //       e.target,
-  //       menu.current,
-  //       menu.current.children.includes(e.target)
-  //     );
-  //   });
-  //   return () => {
-  //     removeEventListener("click", eventL);
-  //   };
-  // }, []);
-  //   const handlePageChange = (page) => {
-  //     setActivePage(page);
-  //   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img
-              src={"/img/yatchlogo.png"}
-              alt=""
-              width={"100"}
-              height={"100"}
-            />
-            <h3>GYR</h3>
+            <img src={"/img/yatchlogo.png"} alt="" width={100} height={100} />
           </Link>
         </div>
       </div>
-      <button className="navbar-toggle" onClick={handleToggle}>
-        <i className="fa-solid fa-bars"></i>{" "}
+      <button
+        className={`navbar-toggle ${isOpen ? "open" : ""}`}
+        onClick={handleToggle}
+      >
+        <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
       <ul
         className={`navbar-menu ${isOpen ? "open" : ""}`}
         ref={menu}
-        // onMouseLeave={() => {
-        //   setIsOpen(false);
-        // }}
       >
-        <button className="navbar-toggle" onClick={handleToggle}>
-          <i className="fa-solid fa-xmark"></i>
-        </button>
-        <li
-          className={
-            activePage === "/home" || activePage === "/" ? "active" : ""
-          }
-        >
+        <li className={activePage === "/home" || activePage === "/" ? "active" : ""}>
           <Link to={"/home"}>Home</Link>
         </li>
-        {/* <li className={activePage === "/products" ? "active" : ""}>
-          <Link to={"/products"}>Products</Link>
-        </li> */}
         <li className={activePage === "/vipRental" ? "active" : ""}>
           <Link to={"/vipRental"}>VIP Yacht Rental</Link>
         </li>
@@ -113,11 +93,11 @@ const Navbar = () => {
             <summary>Services</summary>
             <ul className="serviceList">
               {service.map((value, i) => (
-                <Link to={"/services"}>
-                  <li key={i} className="service">
+                <li key={i} className="service">
+                  <Link to={"/services"} className="navbar-link">
                     {value}
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               ))}
             </ul>
           </details>

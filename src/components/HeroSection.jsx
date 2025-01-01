@@ -8,6 +8,7 @@ const BackgroundVideo = () => {
         <p>Experience the ultimate yacht adventure.</p>
         <button className="cta-button">Explore Now</button>
       </div>
+      <div className="bgvd-overlay"></div>
       <Suspense fallback={<div className="background-video">loading</div>}>
         <video autoPlay loop muted className="background-video">
           <source src="/video/yacht.mp4" type="video/mp4" />
