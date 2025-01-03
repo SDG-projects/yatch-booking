@@ -101,7 +101,13 @@ const Navbar = () => {
                   }`}
                 >
                   <Link
-                    to={"/services/" + value.toLowerCase().replaceAll(" ", "_")}
+                    to={
+                      "/services/" +
+                      value
+                        .toLowerCase()
+                        .replaceAll(" ", "_")
+                        .replaceAll("/", "-")
+                    }
                     className="navbar-link"
                   >
                     {value}

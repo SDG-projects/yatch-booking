@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import "./styles/hero.css";
-const BackgroundVideo = () => {
+const HeroSection = () => {
   return (
     <div className="heroContainer">
       <div className="heroText">
@@ -19,4 +19,4 @@ const BackgroundVideo = () => {
   );
 };
 
-export default BackgroundVideo;
+export default HeroSection;

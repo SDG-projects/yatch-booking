@@ -158,7 +158,10 @@ function Services() {
         return (
           <div
             key={i}
-            id={service.name.toLowerCase().replaceAll(" ", "_")}
+            id={service.name
+              .toLowerCase()
+              .replaceAll(" ", "_")
+              .replaceAll("/", "-")}
             className="serviceCon"
           >
             <div className="serviceImgCon">
