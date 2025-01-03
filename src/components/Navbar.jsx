@@ -73,11 +73,12 @@ const Navbar = () => {
       >
         <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
-      <ul
-        className={`navbar-menu ${isOpen ? "open" : ""}`}
-        ref={menu}
-      >
-        <li className={activePage === "/home" || activePage === "/" ? "active" : ""}>
+      <ul className={`navbar-menu ${isOpen ? "open" : ""}`} ref={menu}>
+        <li
+          className={
+            activePage === "/home" || activePage === "/" ? "active" : ""
+          }
+        >
           <Link to={"/home"}>Home</Link>
         </li>
         <li className={activePage === "/vipRental" ? "active" : ""}>
@@ -93,8 +94,16 @@ const Navbar = () => {
             <summary>Services</summary>
             <ul className="serviceList">
               {service.map((value, i) => (
-                <li key={i} className="service">
-                  <Link to={"/services"} className="navbar-link">
+                <li
+                  key={i}
+                  className={`service ${
+                    activePage === "/" + value ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    to={"/services/" + value.toLowerCase().replaceAll(" ", "_")}
+                    className="navbar-link"
+                  >
                     {value}
                   </Link>
                 </li>

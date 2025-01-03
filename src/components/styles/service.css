@@ -1,0 +1,37 @@
+.servicesCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.serviceCon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-evenly;
+  align-items: center;
+  animation-timeline: view(block 50% 100%);
+  animation-name: servAnim;
+  animation-fill-mode: both;
+
+  animation-duration: 1ms;
+  animation-timing-function: linear;
+}
+.servicesCon :nth-last-child(even) {
+  /* background-color: red; */
+  flex-direction: row-reverse;
+}
+.serviceImg {
+  width: 40vw;
+  height: 70vh;
+}
+.serviceImgCon {
+  overflow: hidden;
+}
+@keyframes servAnim {
+  to {
+    opacity: 0.3;
+    transform: scale(1.3);
+  }
+}

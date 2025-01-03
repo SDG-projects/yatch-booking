@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./styles/products.css";
 import { useNavigate } from "react-router-dom";
-import { FaWhatsapp } from 'react-icons/fa'; // For WhatsApp icon
+// import { FaWhatsapp } from 'react-icons/fa'; // For WhatsApp icon
 
 export const Product = ({ product, sliderSettings }) => {
   const nav = useNavigate();
@@ -36,7 +36,8 @@ export const Product = ({ product, sliderSettings }) => {
       </div>
       <div className="product-actions">
         <button className="btn btn-primary">
-          <FaWhatsapp /> Book Now
+          {/* <FaWhatsapp /> */}
+          Book Now
         </button>
       </div>
     </div>
@@ -84,7 +85,11 @@ const ProductSection = () => {
     <section className="product-section">
       <div className="product-grid">
         {products.map((product) => (
-          <Product key={product.id} product={product} sliderSettings={sliderSettings} />
+          <Product
+            key={product.id}
+            product={product}
+            sliderSettings={sliderSettings}
+          />
         ))}
       </div>
     </section>
