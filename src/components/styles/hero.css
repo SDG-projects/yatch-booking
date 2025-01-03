@@ -25,9 +25,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 95vh;
   color: #fff;
-  font-family: "Oswald", serif;
+  font-family: "Popins", serif;
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
@@ -38,13 +38,15 @@
   font-size: 3rem;
   font-weight: bold;
 }
-
+.heroText span{
+  color: #ffc100;
+}
 .heroText p {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
 .heroText {
-  background-color: rgba(0, 0, 0, 0.529);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 10px;
   border-radius: 9px;
 }
@@ -52,8 +54,8 @@
 .cta-button {
   margin-top: 2rem;
   padding: 0.75rem 1.5rem;
-  background-color:#0d1321;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--accent-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;

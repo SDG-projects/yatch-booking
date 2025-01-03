@@ -4,12 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./styles/products.css";
 import { useNavigate } from "react-router-dom";
-import { FaWhatsapp } from 'react-icons/fa'; // For WhatsApp icon
+import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 export const Product = ({ product, sliderSettings }) => {
   const nav = useNavigate();
   return (
     <div key={product.id} className="product-card">
+      <h3 className="product-name">{product.name}</h3>
       <Slider {...sliderSettings} className="product-slider">
         {product.images.map((img, index) => (
           <div key={index}>
@@ -21,9 +22,8 @@ export const Product = ({ product, sliderSettings }) => {
         className="product-info"
         onClick={() => {
           nav("/package/" + product.id);
-        }}
-      >
-        <h3 className="product-name">{product.name}</h3>
+        }}>
+
         <p className="product-detail">
           Price: <span> {product.price}</span>
         </p>
@@ -38,9 +38,13 @@ export const Product = ({ product, sliderSettings }) => {
         <button className="btn btn-primary">
           <FaWhatsapp /> Book Now
         </button>
+        <button className="btn btn-primary">
+          <FaEnvelope /> Book Now
+        </button>
       </div>
     </div>
   );
+
 };
 
 const ProductSection = () => {
@@ -69,6 +73,78 @@ const ProductSection = () => {
       feet: "120 ft",
       capacity: "50 People",
     },
+    {
+      id: 4,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 5,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 6,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 7,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 8,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 9,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 10,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 11,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
+    {
+      id: 12,
+      name: "Elite Yacht C",
+      images: ["./img/img32.webp", "./img/img32.webp", "./img/img32.webp"],
+      price: "$10,000",
+      feet: "120 ft",
+      capacity: "50 People",
+    },
   ];
 
   const sliderSettings = {
@@ -82,6 +158,9 @@ const ProductSection = () => {
 
   return (
     <section className="product-section">
+      <h2 className="section-title">
+        One of the Best Yacht Rentals in Dubai
+      </h2>
       <div className="product-grid">
         {products.map((product) => (
           <Product key={product.id} product={product} sliderSettings={sliderSettings} />

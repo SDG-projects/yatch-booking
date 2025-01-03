@@ -4,7 +4,7 @@ const BackgroundVideo = () => {
   return (
     <div className="heroContainer">
       <div className="heroText">
-        <h1>Welcome to Golden Yatch Rentals</h1>
+        <h1>Welcome to <span className="golden">GoldenYatch Rentals</span></h1>
         <p>Experience the ultimate yacht adventure.</p>
         <button className="cta-button">Explore Now</button>
       </div>
