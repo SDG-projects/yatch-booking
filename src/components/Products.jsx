@@ -22,8 +22,8 @@ export const Product = ({ product, sliderSettings }) => {
         className="product-info"
         onClick={() => {
           nav("/package/" + product.id);
-        }}>
-
+        }}
+      >
         <p className="product-detail">
           Price: <span> {product.price}</span>
         </p>
@@ -35,8 +35,46 @@ export const Product = ({ product, sliderSettings }) => {
         </p>
       </div>
       <div className="product-actions">
-        <button className="btn btn-primary">
-          <FaWhatsapp /> Book Now
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            const phoneNumber = "971555930716"; // Correct phone number without "+" sign
+    const message = `Hi, I am interested in booking the product: ${product.name}. Price: ${product.price}, Size: ${product.feet}, Capacity: ${product.capacity}`;
+
+    // Properly encode the message to handle spaces and special characters
+    const encodedMessage = encodeURIComponent(message);
+
+    // WhatsApp URLs for different platforms
+    const whatsappAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+    const whatsappDesktopUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+
+    // Detect if the user is on mobile or desktop
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const isDesktop = /Windows|Macintosh/i.test(navigator.userAgent);
+
+    // Open WhatsApp App or WhatsApp Web based on the platform
+    if (isMobile) {
+      window.location.href = whatsappAppUrl; // Open WhatsApp app on mobile
+    } else if (isDesktop) {
+      // Check if WhatsApp Desktop App is installed (but can't check directly from the browser)
+      const appCheck = window.navigator.msLaunchUri || window.navigator.mozApps;
+
+      if (appCheck) {
+        // Try opening the WhatsApp Desktop App directly
+        window.location.href = whatsappDesktopUrl;
+      } else {
+        // If not installed, open WhatsApp Web
+        const newWindow = window.open(whatsappWebUrl, "_blank");
+        if (!newWindow) {
+          // If pop-ups are blocked, show an alert or use the fallback URL
+          alert("Please allow pop-ups or click here: " + whatsappWebUrl);
+        }
+      }
+    }
+          }}
+        >
+          <FaWhatsapp /> Book on WhatsApp
         </button>
         <button className="btn btn-primary">
           <FaEnvelope /> Book Now
@@ -44,7 +82,6 @@ export const Product = ({ product, sliderSettings }) => {
       </div>
     </div>
   );
-
 };
 
 const ProductSection = () => {
@@ -163,7 +200,11 @@ const ProductSection = () => {
       </h2>
       <div className="product-grid">
         {products.map((product) => (
-          <Product key={product.id} product={product} sliderSettings={sliderSettings} />
+          <Product
+            key={product.id}
+            product={product}
+            sliderSettings={sliderSettings}
+          />
         ))}
       </div>
     </section>

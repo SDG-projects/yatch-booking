@@ -1,5 +1,5 @@
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 10;
@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  height: 135px;
+  /* height: 135px; */
   font-family: "Poppins", sans-serif;
   background-color: transparent;
   transition: background-color 0.3s ease-in-out;
@@ -17,8 +17,8 @@
   background-color: var(--primary-color);
   transition: -2s ease;
 }
-
 .navbar-link, summary {
+  color: #fffefb;
   text-decoration: none;
   transition: all 500ms ease-in-out;
   cursor: pointer;
@@ -32,7 +32,6 @@
   color: var(--accent-color);
 }
 
-
 .navbar-menu li {
   margin: 0 15px;
   position: relative;
@@ -40,7 +39,7 @@
 }
 
 .navbar-menu li:hover {
-  transform: translateY(-3px);  
+  transform: translateY(-3px);
 }
 
 
@@ -52,10 +51,12 @@
   
 }
 
-.navbar-menu a:hover, summary:hover {
+.navbar-menu a:hover,
+.active a,
+.active,
+summary:hover {
   color: var(--accent-color);
 }
-
 
 .navbar-toggle {
   font-size: 2rem;
@@ -78,7 +79,6 @@
   align-items: center;
   justify-content: flex-end;
 }
-
 
 .services {
   position: relative;
@@ -107,7 +107,7 @@
   visibility: visible;
   transform: translateY(0);
 }
-.serviceList:hover{
+.serviceList:hover {
   background: black;
   color: #fff;
 }
@@ -124,7 +124,6 @@
 .serviceList::-webkit-scrollbar-track {
   background: #333;
 }
-
 
 .navbar-toggle {
   font-size: 2rem;
@@ -184,8 +183,7 @@
   .navbar-menu li:hover {
     transform: translateY(-3px);
   }
-  
-  
+
   .navbar-toggle {
     display: block;
   }

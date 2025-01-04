@@ -9,23 +9,23 @@
   animation-timeline: view(block 50% 100%);
   animation-name: slide-in;
   animation-fill-mode: both;
-  animation-duration: 1ms; 
+  animation-duration: 1ms;
   animation-timing-function: linear;
 }
-.bgvd-overlay{
+.bgvd-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.678);
   z-index: -1;
 }
 .heroContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 95vh;
+  height: 75vh;
   color: #fff;
   font-family: "Popins", serif;
   font-optical-sizing: auto;
@@ -54,8 +54,8 @@
 .cta-button {
   margin-top: 2rem;
   padding: 0.75rem 1.5rem;
-  background-color: var(--primary-color);
-  color: var(--accent-color);
+  background-color:#0d1321;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -64,5 +64,5 @@
 }
 
 .cta-button:hover {
-  background: #18206f;
+  background: var(--accent-color);
 }

@@ -7,7 +7,7 @@
   /* Colors */
   --primary-color: #0e1428;
   --secondary-color: #037dc9;
-  --accent-color: #ffc100;
+  --accent-color: #ffc100; 
   --background-color: #ffffffc4;
   --text-color: #ffffff;
 
@@ -29,6 +29,6 @@
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 body {
-  background-color: white;
+  background-color: rgb(2, 52, 70);
   /* color: var(--text-color); */
 }

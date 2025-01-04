@@ -11,9 +11,6 @@ function Home() {
       <BackgroundVideo />
       {/* <Products /> */}
       <ProductSection />
-      <div>
-        <Package details={false} />
-      </div>
     </div>
   );
 }
