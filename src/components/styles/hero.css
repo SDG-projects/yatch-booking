@@ -18,16 +18,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.678);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: -1;
 }
 .heroContainer {
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  height: 70vh;
   color: #fff;
-  font-family: "Popins", serif;
+  font-family: var(--font-family);
   font-optical-sizing: auto;
   font-weight: bold;
   font-style: normal;
@@ -38,31 +39,76 @@
   font-size: 3rem;
   font-weight: bold;
 }
-.heroText span{
-  color: #ffc100;
+.heroText span {
+  font-size: 3rem; 
+  font-weight: bold;
+  font-family: "Poppins", serif;
+  background: goldenrod;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
 }
+
+
 .heroText p {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
 .heroText {
-  background-color: rgba(0, 0, 0, 0.4);
+ 
   padding: 10px;
   border-radius: 9px;
 }
-
 .cta-button {
   margin-top: 2rem;
+  margin-right: 1rem;
   padding: 0.75rem 1.5rem;
-  background-color:#0d1321;
   color: #fff;
+  background: linear-gradient(
+  to right,
+  #1e3a8a, /* Sapphire Blue */
+  #3b82f6, /* Bright Blue */
+  #1e40af /* Indigo */
+);
+
+  
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: all 500ms ease-in-out;
+  font-family: "Poppins";
+  transition: all 600ms ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-button:hover {
-  background: var(--accent-color);
+  background: linear-gradient(
+    to right,
+    #011f38 20%, 
+    #01256d 50%, 
+    #021537 80%
+  ); 
+  color:#E28413; 
+
 }
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: rgba(0, 166, 255, 0.2); /* Soft gold highlight */
+  transform: skewX(-45deg);
+  transition: left 0.5s ease-out;
+}
+
+.cta-button:hover::before {
+  left: 100%; /* Move the shine effect across the button */
+}
+
+
+

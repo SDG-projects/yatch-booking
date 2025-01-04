@@ -1,15 +1,13 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useState ,useEffect} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./pages/Layout";
 import Loading from "./components/Loading";
-// const AdminPage = lazy(() => import("./pages/AdminPage"));
-// const About = lazy(() => import("./pages/About"));
-// const Contact = lazy(() => import("./pages/Contact"));
+import ProductSection from "./components/Products";
+import HeroSection from './components/HeroSection'; 
+import About from "./pages/about";
 const Error404 = lazy(() => import("./pages/Errors"));
 const Home = lazy(() => import("./pages/Home"));
-// const Products = lazy(() => import("./pages/Products"));
-// const CartPage = lazy(() => import("./pages/CartPage"));
 const Packages = lazy(() => import("./pages/Packages"));
 const CustomPackage = lazy(() => import("./pages/CustomPackage"));
 const Services = lazy(() => import("./pages/Services"));
@@ -19,23 +17,35 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route
-              path="/"
-              index
-              element={
+            <Route path="/" indexelement={
+                <Suspense fallback={<Loading />}>
+                  <Home />
+                </Suspense>
+              }/>
+            <Route path="/home" element={
                 <Suspense fallback={<Loading />}>
                   <Home />
                 </Suspense>
               }
             />
-            <Route
-              path="/home"
-              element={
+              <Route path="/about" element={
                 <Suspense fallback={<Loading />}>
-                  <Home />
+                  <About />
                 </Suspense>
               }
             />
+            
+            <Route
+              path="/Products"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <ProductSection />
+                </Suspense>
+              }
+            />
+            <Route path="/" element={<Suspense fallback={<Loading />}>
+            <HeroSection />
+            </Suspense>} /> 
             <Route
               path="/packages"
               element={

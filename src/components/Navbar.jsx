@@ -36,6 +36,7 @@ const Navbar = () => {
     "Roses/Flower decorations",
     "VIP Transport",
   ];
+  const packs = ["Birthday pack", "wedding", "honeymoon"];
   const location = useLocation();
   const menu = useRef();
 
@@ -46,7 +47,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 125);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -84,8 +85,38 @@ const Navbar = () => {
         <li className={activePage === "/vipRental" ? "active" : ""}>
           <Link to={"/vipRental"}>VIP Yacht Rental</Link>
         </li>
-        <li className={activePage === "/packages" ? "active" : ""}>
+        {/* <li className={activePage === "/packages" ? "active" : ""}>
           <Link to={"/packages"}>Packages</Link>
+        </li> */}
+        <li>
+          <details
+            className={`services ${activePage === "/packages" ? "active" : ""}`}
+          >
+            <summary>Packages</summary>
+            <ul className="serviceList">
+              {packs.map((value, i) => (
+                <li
+                  key={i}
+                  className={`service ${
+                    activePage === "/" + value ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    to={
+                      "/packages/" +
+                      value
+                        .toLowerCase()
+                        .replaceAll(" ", "_")
+                        .replaceAll("/", "-")
+                    }
+                    className="navbar-link"
+                  >
+                    {value}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </details>
         </li>
         <li>
           <details
@@ -101,7 +132,13 @@ const Navbar = () => {
                   }`}
                 >
                   <Link
-                    to={"/services/" + value.toLowerCase().replaceAll(" ", "_").replaceAll("/","-")}
+                    to={
+                      "/services/" +
+                      value
+                        .toLowerCase()
+                        .replaceAll(" ", "_")
+                        .replaceAll("/", "-")
+                    }
                     className="navbar-link"
                   >
                     {value}
@@ -111,9 +148,9 @@ const Navbar = () => {
             </ul>
           </details>
         </li>
-        <li className={activePage === "/extras" ? "active" : ""}>
+        {/* <li className={activePage === "/extras" ? "active" : ""}>
           <Link to={"/extras"}>Extras</Link>
-        </li>
+        </li> */}
         <li className={activePage === "/about" ? "active" : ""}>
           <Link to={"/about"}>About</Link>
         </li>

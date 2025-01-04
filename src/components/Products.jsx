@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./styles/products.css";
 import { useNavigate } from "react-router-dom";
-import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 
 export const Product = ({ product, sliderSettings }) => {
   const nav = useNavigate();
@@ -39,13 +39,13 @@ export const Product = ({ product, sliderSettings }) => {
           className="btn btn-primary"
           onClick={() => {
             const phoneNumber = "971555930716"; 
-    const message = `Hi, I am interested in booking the product: ${product.name}. Price: ${product.price}, Size: ${product.feet}, Capacity: ${product.capacity}`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
-    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
-    const whatsappDesktopUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-    const isDesktop = /Windows|Macintosh/i.test(navigator.userAgent);
+            const message = `Hi, I am interested in booking the Yatch: ${product.name}. Price: ${product.price}, Size: ${product.feet}, Capacity: ${product.capacity}`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappAppUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+            const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+            const whatsappDesktopUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+            const isDesktop = /Windows|Macintosh/i.test(navigator.userAgent);
     if (isMobile) {
       window.location.href = whatsappAppUrl;
     } else if (isDesktop) {
@@ -63,9 +63,6 @@ export const Product = ({ product, sliderSettings }) => {
           }}
         >
           <FaWhatsapp /> Book on WhatsApp
-        </button>
-        <button className="btn btn-primary">
-          <FaEnvelope /> Book Now
         </button>
       </div>
     </div>
