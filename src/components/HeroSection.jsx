@@ -4,9 +4,20 @@ const HeroSection = () => {
   return (
     <div className="heroContainer">
       <div className="heroText">
-        <h1>Welcome to Golden Yatch Rentals</h1>
-        <p>Experience the ultimate yacht adventure.</p>
-        <button className="cta-button">Explore Now</button>
+        <h1>
+          Experience the ultimate in luxury and freedom with{" "}
+          <span className="companyName">Golden Yacht Rentals.</span>
+        </h1>
+        <p>
+          Indulge in unparalleled luxury, personalized experiences, and
+          unforgettable adventures
+          {/* Our expertly curated yacht rentals, tailored to your every need,
+          ensure an unforgettable journey on the open waters */}
+        </p>
+        <div>
+          <button className="cta-button">Explore Our Yachts</button>
+          <button className="cta-button">Plan Your Journey</button>
+        </div>
       </div>
       <div className="bgvd-overlay"></div>
       <Suspense fallback={<div className="background-video">loading</div>}>

@@ -38,13 +38,13 @@ function Footer() {
         <h1>Welcome to Golden Yatch Rentals</h1>
         <p>Experience the ultimate yacht adventure.</p>
       </div>
-      <div>
+      {/* <div>
         {service.map((value, i) => (
           <li key={i} className="service">
             {value}
           </li>
         ))}
-      </div>
+      </div> */}
       <div>
         This website is build and host by <span>SDG</span> infoTech
         <div>Contact:info@SDGinfoTech</div>
