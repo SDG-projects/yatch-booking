@@ -18,14 +18,9 @@ export const Product = ({ product, sliderSettings }) => {
           </div>
         ))}
       </Slider>
-      <div
-        className="product-info"
-        onClick={() => {
-          nav("/package/" + product.id);
-        }}
-      >
+      <div className="product-info">
         <p className="product-detail">
-          Price: <span> {product.price}</span>
+          Price: <span className="pr-price"> {product.price}</span>
         </p>
         <p className="product-detail">
           Size: <span> {product.feet}</span>
@@ -46,29 +41,29 @@ export const Product = ({ product, sliderSettings }) => {
             const whatsappDesktopUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
             const isMobile = /Mobi|Android/i.test(navigator.userAgent);
             const isDesktop = /Windows|Macintosh/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = whatsappAppUrl;
-    } else if (isDesktop) {
-      const appCheck = window.navigator.msLaunchUri || window.navigator.mozApps;
+            if (isMobile) {
+              window.location.href = whatsappAppUrl;
+            } else if (isDesktop) {
+              const appCheck = window.navigator.msLaunchUri || window.navigator.mozApps;
 
-      if (appCheck) {
-        window.location.href = whatsappDesktopUrl;
-      } else {
-        const newWindow = window.open(whatsappWebUrl, "_blank");
-        if (!newWindow) {
-          alert("Please allow pop-ups or click here: " + whatsappWebUrl);
-        }
-      }
-    }
+              if (appCheck) {
+                window.location.href = whatsappDesktopUrl;
+              } else {
+                const newWindow = window.open(whatsappWebUrl, "_blank");
+                if (!newWindow) {
+                  alert("Please allow pop-ups or click here: " + whatsappWebUrl);
+                }
+              }
+            }
           }}
         >
-          <FaWhatsapp /> Book on WhatsApp
+          Book by
+          <span><FaWhatsapp /></span> 
         </button>
       </div>
     </div>
   );
 };
-
 const ProductSection = () => {
   const products = [
     {
@@ -196,4 +191,4 @@ const ProductSection = () => {
   );
 };
 
-export default ProductSection;
+export default ProductSection;   

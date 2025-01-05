@@ -12,7 +12,7 @@ const BackgroundVideo = () => {
     <div className="heroContainer">
       <div className="heroText">
         <h1>Welcome to <span className="golden">GoldenYatch Rentals</span></h1>
-        <p>Experience the ultimate yacht adventure.</p>
+        <p>Experience the ultimate luxury yacht rental experience<br/>inDubai with Golden Yatch Rentals Dubai.</p>
         <button className="cta-button" onClick={handleRedirect}>Explore Now</button>
         <button className="cta-button">Plan Your Journey</button>
       </div>

@@ -5,9 +5,14 @@
 }
 :root {
   /* Colors */
-    --primary-color: #ffffff;
+    --primary-color: linear-gradient(
+      to right,
+      #030b2b 20%, 
+      #041943 50%, 
+      #02112c 80%
+    ); ;
     --secondary-color: #037dc9;
-    --accent-color: #bd990a;
+    --accent-color: #FFD082;
     --background-color: #ffffffc4;
     --text-color: #030303;
 

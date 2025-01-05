@@ -22,11 +22,11 @@
   z-index: -1;
 }
 .heroContainer {
-
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 75vh;
+  width: 100%;
   color: #fff;
   font-family: var(--font-family);
   font-optical-sizing: auto;
@@ -67,9 +67,9 @@
   color: #fff;
   background: linear-gradient(
   to right,
-  #1e3a8a, /* Sapphire Blue */
-  #3b82f6, /* Bright Blue */
-  #1e40af /* Indigo */
+  #1e3a8a,
+  #3b82f6, 
+  #1e40af 
 );
 
   
@@ -101,13 +101,13 @@
   left: -100%;
   width: 200%;
   height: 100%;
-  background: rgba(0, 166, 255, 0.2); /* Soft gold highlight */
+  background: rgba(0, 166, 255, 0.2);
   transform: skewX(-45deg);
   transition: left 0.5s ease-out;
 }
 
 .cta-button:hover::before {
-  left: 100%; /* Move the shine effect across the button */
+  left: 100%; 
 }
 
 
