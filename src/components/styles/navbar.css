@@ -8,13 +8,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  font-family: var(--font-family);
+  font-family: "Roboto Mono", serif;;
   transition: background-color 0.3s ease-in-out;
   font-weight: bold;
   background: transparent;
+  letter-spacing: 1.5px;
 }
 .navbar.scrolled {
-  background-color: #0d1321;
+  background: var(--primary-color);
 }
 
 .navbar-link,
@@ -95,6 +96,8 @@ summary:hover {
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   z-index: 100;
+  font-family: "Poppins","serif";
+  font-weight: lighter;
 }
 
 .services:hover .serviceList {

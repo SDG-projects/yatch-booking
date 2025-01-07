@@ -16,7 +16,6 @@ function Packages() {
 
   return (
     <div>
-      Packages
       {/* <Link to={"/customPack"}>Custom Package</Link>
       {id ? (
         <Product

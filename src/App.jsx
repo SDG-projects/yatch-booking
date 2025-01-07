@@ -1,51 +1,45 @@
-import { lazy, Suspense, useState ,useEffect} from "react";
+import { lazy, Suspense, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./pages/Layout";
 import Loading from "./components/Loading";
-import ProductSection from "./components/Products";
-import HeroSection from './components/HeroSection'; 
-import About from "./pages/about";
+// const AdminPage = lazy(() => import("./pages/AdminPage"));
+// const About = lazy(() => import("./pages/About"));
+// const Contact = lazy(() => import("./pages/Contact"));
 const Error404 = lazy(() => import("./pages/Errors"));
 const Home = lazy(() => import("./pages/Home"));
+// const Products = lazy(() => import("./pages/Products"));
+// const CartPage = lazy(() => import("./pages/CartPage"));
 const Packages = lazy(() => import("./pages/Packages"));
 const CustomPackage = lazy(() => import("./pages/CustomPackage"));
 const Services = lazy(() => import("./pages/Services"));
+import ProductDetail from "./components/productdetail";
+import ProductSection from "./components/Products";
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+        <Route path="/" element={<ProductSection />} />
+        <Route path="/productdetail/:id" element={<ProductDetail />} />
           <Route path="/" element={<Layout />}>
-            <Route path="/" indexelement={
-                <Suspense fallback={<Loading />}>
-                  <Home />
-                </Suspense>
-              }/>
-            <Route path="/home" element={
-                <Suspense fallback={<Loading />}>
-                  <Home />
-                </Suspense>
-              }
-            />
-              <Route path="/about" element={
-                <Suspense fallback={<Loading />}>
-                  <About />
-                </Suspense>
-              }
-            />
-            
             <Route
-              path="/Products"
+              path="/"
+              index
               element={
                 <Suspense fallback={<Loading />}>
-                  <ProductSection />
+                  <Home />
                 </Suspense>
               }
             />
-            <Route path="/" element={<Suspense fallback={<Loading />}>
-            <HeroSection />
-            </Suspense>} /> 
+            <Route
+              path="/home"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Home />
+                </Suspense>
+              }
+            />
             <Route
               path="/packages"
               element={
@@ -62,8 +56,9 @@ function App() {
                 </Suspense>
               }
             />
+
             <Route
-              path="/packages/:id"
+              path="/packages/:pack"
               element={
                 <Suspense fallback={<Loading />}>
                   <Packages />
@@ -86,7 +81,6 @@ function App() {
                 </Suspense>
               }
             />
-
             {/* <Route
               path="/products"
               element={

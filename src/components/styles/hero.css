@@ -7,11 +7,12 @@
   object-fit: cover;
   z-index: -2;
   animation-timeline: view(block 50% 100%);
-  animation-name: slide-in;
+  animation-name: slideVideo;
   animation-fill-mode: both;
   animation-duration: 1ms;
   animation-timing-function: linear;
 }
+
 .bgvd-overlay {
   position: absolute;
   top: 0;
@@ -21,94 +22,110 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: -1;
 }
+
 .heroContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
-  width: 100%;
+  height: 70vh;
   color: #fff;
-  font-family: var(--font-family);
-  font-optical-sizing: auto;
+  font-family: "Playwrite AU SA", serif;
   font-weight: bold;
-  font-style: normal;
   z-index: 4;
 }
 
-.heroText h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-.heroText span {
-  font-size: 3rem; 
-  font-weight: bold;
-  font-family: "Poppins", serif;
-  background: goldenrod;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: relative;
-  display: inline-block;
-}
-
-
-.heroText p {
-  font-size: 1.5rem;
-  margin-top: 1rem;
-}
 .heroText {
- 
+  width: 50vw;
+  background-color: rgba(0, 0, 0, 0.529);
   padding: 10px;
   border-radius: 9px;
 }
+
+.heroText h1 {
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+.heroText p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.golden {
+  color: var(--accent-color);
+}
+
 .cta-button {
   margin-top: 2rem;
   margin-right: 1rem;
   padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
   color: #fff;
-  background: linear-gradient(
-  to right,
-  #1e3a8a,
-  #3b82f6, 
-  #1e40af 
-);
-
-  
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
   font-family: "Poppins";
   transition: all 600ms ease-in-out;
-  position: relative;
-  overflow: hidden;
 }
 
 .cta-button:hover {
-  background: linear-gradient(
-    to right,
-    #011f38 20%, 
-    #01256d 50%, 
-    #021537 80%
-  ); 
-  color:#E28413; 
-
+  color: var(--accent-color);
 }
 
-.cta-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: rgba(0, 166, 255, 0.2);
-  transform: skewX(-45deg);
-  transition: left 0.5s ease-out;
+.companyName {
+  color: rgba(249, 189, 38, 0.672);
+  font-size: 2.3rem;
+  animation: blink 500ms ease-in 0 infinite;
 }
 
-.cta-button:hover::before {
-  left: 100%; 
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column; 
+    padding: 20px;
+    text-align: center;
+  }
+
+  .heroText {
+    width: 80%; 
+    padding: 15px;
+  }
+
+  .heroText h1 {
+    font-size: 2rem; 
+  }
+
+  .heroText p {
+    font-size: 1rem; 
+  }
+
+  .cta-button {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+  }
 }
 
+@media (max-width: 480px) {
+  .heroText {
+    width: 90%;
+    padding: 10px;
+  }
 
+  .heroText h1 {
+    font-size: 1.8rem;
+  }
 
+  .heroText p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem; 
+  }
+}

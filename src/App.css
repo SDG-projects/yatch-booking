@@ -5,12 +5,7 @@
 }
 :root {
   /* Colors */
-    --primary-color: linear-gradient(
-      to right,
-      #030b2b 20%, 
-      #041943 50%, 
-      #02112c 80%
-    ); ;
+    --primary-color: linear-gradient(135deg, #000000 0%, #0f172a 100%);
     --secondary-color: #037dc9;
     --accent-color: #FFD082;
     --background-color: #ffffffc4;

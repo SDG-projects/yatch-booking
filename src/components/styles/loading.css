@@ -8,12 +8,12 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 9999;  /* To ensure it stays on top of other elements */
+    z-index: 9999;  
   }
   
   .spinner {
-    border: 8px solid #f3f3f3; /* Light background */
-    border-top: 8px solid #101010; /* Blue color for the spinner */
+    border: 8px solid var(--accent-color); 
+    border-top: 8px solid #101010; 
     border-radius: 50%;
     width: 60px;
     height: 60px;

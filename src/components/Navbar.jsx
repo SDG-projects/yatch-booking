@@ -1,42 +1,45 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles/navbar.css";
 import { Link, useLocation } from "react-router-dom";
+import { getPackages, getServices } from "../data/Services";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("/home");
   const [isScrolled, setIsScrolled] = useState(false);
-  const service = [
-    "Romantic Private Dinner",
-    "Private chef",
-    "Yacht Catering",
-    "Live BBQ with private chef",
-    "Private DJ",
-    "Private Fishing",
-    "Luxury video and photoshoot",
-    "Private Artist Singer",
-    "Private Saxophone Artist",
-    "Private Dancers",
-    "Private Bartender",
-    "Private Magician",
-    "Private Professional Massage Therapists",
-    "Private Tour Guide",
-    "Private Hostesses",
-    "Private Waiters",
-    "Professional Hospitality Crew",
-    "Live Seafood BBQ and Private Chef",
-    "Sushi Menus and a Private Chef",
-    "Vegetarian Menus Crafted by a Private Chef",
-    "Premium Alcoholic Drinks",
-    "Exclusive Champagnes",
-    "Open Bar",
-    "Yacht Decorations",
-    "Birthday Decorations",
-    "Proposal and Anniversary Decorations",
-    "Roses/Flower decorations",
-    "VIP Transport",
-  ];
-  const packs = ["Birthday pack", "wedding", "honeymoon"];
+  // const service = [
+  //   "Romantic Private Dinner",
+  //   "Private chef",
+  //   "Yacht Catering",
+  //   "Live BBQ with private chef",
+  //   "Private DJ",
+  //   "Private Fishing",
+  //   "Luxury video and photoshoot",
+  //   "Private Artist Singer",
+  //   "Private Saxophone Artist",
+  //   "Private Dancers",
+  //   "Private Bartender",
+  //   "Private Magician",
+  //   "Private Professional Massage Therapists",
+  //   "Private Tour Guide",
+  //   "Private Hostesses",
+  //   "Private Waiters",
+  //   "Professional Hospitality Crew",
+  //   "Live Seafood BBQ and Private Chef",
+  //   "Sushi Menus and a Private Chef",
+  //   "Vegetarian Menus Crafted by a Private Chef",
+  //   "Premium Alcoholic Drinks",
+  //   "Exclusive Champagnes",
+  //   "Open Bar",
+  //   "Yacht Decorations",
+  //   "Birthday Decorations",
+  //   "Proposal and Anniversary Decorations",
+  //   "Roses/Flower decorations",
+  //   "VIP Transport",
+  // ];
+  // const packs = ["Birthday pack", "wedding", "honeymoon", "custom pack"];
+  const services = getServices();
+  const packs = getPackages();
   const location = useLocation();
   const menu = useRef();
 
@@ -104,14 +107,14 @@ const Navbar = () => {
                   <Link
                     to={
                       "/packages/" +
-                      value
+                      value.name
                         .toLowerCase()
                         .replaceAll(" ", "_")
                         .replaceAll("/", "-")
                     }
                     className="navbar-link"
                   >
-                    {value}
+                    {value.name}
                   </Link>
                 </li>
               ))}
@@ -124,25 +127,26 @@ const Navbar = () => {
           >
             <summary>Services</summary>
             <ul className="serviceList">
-              {service.map((value, i) => (
+              {services.map((value, i) => (
                 <li
-                  key={i}
-                  className={`service ${
-                    activePage === "/" + value ? "active" : ""
-                  }`}
+                key={i}
+                className={`service ${
+                  activePage === "/services/" + value.name.toLowerCase().replaceAll(" ", "_").replaceAll("/", "-") ? "active" : ""
+                }`}
                 >
-                  <Link
-                    to={
-                      "/services/" +
-                      value
-                        .toLowerCase()
-                        .replaceAll(" ", "_")
-                        .replaceAll("/", "-")
-                    }
-                    className="navbar-link"
-                  >
-                    {value}
-                  </Link>
+             <Link
+                  to={
+                    "/services/" +
+                    value.name
+                      .toLowerCase()
+                      .replaceAll(" ", "_")
+                      .replaceAll("/", "-")
+                  }
+                  className="navbar-link"
+                >
+                  {value.name}
+                </Link>
+
                 </li>
               ))}
             </ul>
