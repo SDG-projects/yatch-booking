@@ -247,17 +247,17 @@ function Pack({
             )}
           </div>
           <div className="pack-action">
-            <button className="pack-book-now" onClick={() => genBookLink()}>
+            <button className="pack-book-now btn" onClick={() => genBookLink()}>
               Book now
             </button>{" "}
             {filteredServices.length > 0 && editable && (
               <button
-                className="pack-book-now"
+                className="addServ-btn"
                 onClick={() => {
                   setShowServices(!showServices);
                 }}
               >
-                {showServices ? "close" : " Add Service"}
+                {showServices ? "close" : "+ Add Service"}
               </button>
             )}
           </div>

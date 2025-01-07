@@ -178,7 +178,8 @@
   height: 80vh;
   position: relative;
   /* overflow: hidden; */
-
+  color: aliceblue;
+  font-family: "Times New Roman", Times, serif;
   z-index: 2;
 }
 .pack-container {
@@ -199,6 +200,11 @@
   height: 100%;
   border-radius: 50px 50px 0 0;
   z-index: -1;
+}
+.pack-description {
+  font-size: large;
+  font-style: italic;
+  font-weight: bolder;
 }
 .pack-title {
   font-style: italic;
@@ -245,8 +251,10 @@
   gap: 10px;
 }
 .pack-service details summary {
-  color: black;
+  /* color: black; */
+  color: antiquewhite;
   cursor: pointer;
+  user-select: none;
 }
 .pack-service button {
   content: "X";
@@ -256,6 +264,7 @@
   padding: 1px;
   border-radius: 50px;
   border: none;
+  user-select: none;
 }
 .pack-price {
   display: flex;
@@ -271,6 +280,7 @@
   cursor: pointer;
   margin-top: 5px;
   background-color: rgb(7, 73, 73);
+  user-select: none;
 }
 .remainServ {
   position: absolute;
@@ -286,6 +296,16 @@
   padding: 5px;
   border-radius: 50%;
   color: white;
+  cursor: pointer;
+}
+.addServ-btn {
+  background: rgb(8, 130, 8);
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 @keyframes slide-in {

@@ -232,7 +232,7 @@ export function getPackages(id) {
     {
       id: 1,
       name: "Birthday Pack",
-      imgs: "/img/img32.webp",
+      imgs: "/img/yacht.png",
       description: `
             Birthday pack so enought to celebrate your Birthday its inculdes the
             followings :
