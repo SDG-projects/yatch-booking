@@ -178,6 +178,8 @@
   height: 80vh;
   position: relative;
   /* overflow: hidden; */
+
+  z-index: 2;
 }
 .pack-container {
   /* background-color: rgba(0, 255, 255, 0.348); */
@@ -195,6 +197,7 @@
   left: 0;
   position: absolute;
   height: 100%;
+  border-radius: 50px 50px 0 0;
   z-index: -1;
 }
 .pack-title {
@@ -202,14 +205,18 @@
   color: var(--accent-color);
   font-size: xx-large;
   text-align: center;
-  /* background-color: aquamarine; */
+  background: linear-gradient(
+    100deg,
+    rgb(3, 3, 37) 40%,
+    rgba(0, 0, 0, 0.263) 100%
+  );
   border: 10px solid rgb(5, 16, 57);
   border-radius: 50px 50px 0 0;
   padding: 10px;
 }
 
 .pack-info {
-  background-color: blanchedalmond;
+  background-color: rgb(26, 30, 66);
   width: 50%;
   display: flex;
   padding: 10px;
@@ -229,6 +236,8 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  overflow: scroll;
+  height: 200px;
 }
 .pack-service {
   width: 150px;
@@ -236,6 +245,7 @@
   gap: 10px;
 }
 .pack-service details summary {
+  color: black;
   cursor: pointer;
 }
 .pack-service button {
@@ -266,7 +276,8 @@
   position: absolute;
   right: 0;
   top: 10%;
-  max-height: 80%;
+  height: 80%;
+  /* overflow: scroll; */
 }
 .cancelBtn,
 .pack-service button {
@@ -280,7 +291,7 @@
 @keyframes slide-in {
   from {
     opacity: 0;
-    /* transform: translateX(-100px); */
+    transform: translateX(-200px) scale(0);
   }
 }
 @media (max-width: 700px) {
@@ -292,7 +303,8 @@
     height: auto;
   }
   .pack-image img {
-    /* height: 50%; */
+    border-radius: 0;
+    height: 200px;
     position: relative;
   }
 }

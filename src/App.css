@@ -5,11 +5,11 @@
 }
 :root {
   /* Colors */
-    --primary-color: linear-gradient(135deg, #000000 0%, #0f172a 100%);
-    --secondary-color: #037dc9;
-    --accent-color: #FFD082;
-    --background-color: #ffffffc4;
-    --text-color: #030303;
+  --primary-color: linear-gradient(135deg, #000000 0%, #0f172a 100%);
+  --secondary-color: #037dc9;
+  --accent-color: #ffd082;
+  --background-color: #ffffffc4;
+  --text-color: #030303;
 
   /* Typography */
   --font-family: "Montserrat", sans-serif;
@@ -29,6 +29,6 @@
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 body {
-  background-color: rgb(2, 52, 70);
+  /* background-color: var(--primary-color); */
   /* color: var(--text-color); */
 }

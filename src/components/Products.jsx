@@ -16,16 +16,21 @@ export const Product = ({ product, sliderSettings }) => {
   };
 
   return (
-    <div key={product.id} className="product-card" onClick={handleProductClick}>
+    <div key={product.id} className="product-card">
       <h3 className="product-name">{product.name}</h3>
       <Slider {...sliderSettings} className="product-slider">
         {product.images.map((img, index) => (
           <div key={index}>
-            <img src={img} alt={product.name} className="product-image" />
+            <img
+              src={img}
+              alt={product.name}
+              className="product-image"
+              onClick={handleProductClick}
+            />
           </div>
         ))}
       </Slider>
-      <div className="product-info">
+      <div className="product-info" onClick={handleProductClick}>
         <p className="product-detail">
           Price: <span>{product.price}</span>
         </p>
@@ -58,7 +63,7 @@ const ProductSection = () => {
   };
 
   return (
-    <section className="product-section">
+    <section id="products" className="product-section">
       <h1 className="section-title">Best Yatch Rental Dubai</h1>
       <p>Unforgettable Yachting Experiences at Your Fingertips</p>
       <hr className="styled-line" />
@@ -76,5 +81,3 @@ const ProductSection = () => {
 };
 
 export default ProductSection;
-
-

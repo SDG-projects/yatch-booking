@@ -5,9 +5,10 @@ footer {
   /* margin: 10px; */
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
-  color: var(--text-color);
+  background: var(--primary-color);
+  color: white;
   flex-wrap: wrap;
+  padding: 30px;
 }
 footer span {
   color: red;

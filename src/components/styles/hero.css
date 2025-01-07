@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
+  /* z-index: -1; */
   animation-timeline: view(block 50% 100%);
   animation-name: slideVideo;
   animation-fill-mode: both;
@@ -20,7 +20,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: -1;
+  z-index: 1;
 }
 
 .heroContainer {
@@ -31,7 +31,7 @@
   color: #fff;
   font-family: "Playwrite AU SA", serif;
   font-weight: bold;
-  z-index: 4;
+  /* z-index: 4; */
 }
 
 .heroText {
@@ -39,6 +39,7 @@
   background-color: rgba(0, 0, 0, 0.529);
   padding: 10px;
   border-radius: 9px;
+  z-index: 2;
 }
 
 .heroText h1 {
@@ -85,22 +86,22 @@
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
   .heroContainer {
-    flex-direction: column; 
+    flex-direction: column;
     padding: 20px;
     text-align: center;
   }
 
   .heroText {
-    width: 80%; 
+    width: 80%;
     padding: 15px;
   }
 
   .heroText h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   .heroText p {
-    font-size: 1rem; 
+    font-size: 1rem;
   }
 
   .cta-button {
@@ -126,6 +127,6 @@
 
   .cta-button {
     font-size: 0.8rem;
-    padding: 0.4rem 1rem; 
+    padding: 0.4rem 1rem;
   }
 }

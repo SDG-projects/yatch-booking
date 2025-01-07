@@ -300,8 +300,7 @@ function Package({ imgs, services, details }) {
   const { pack } = useParams();
   useEffect(() => {
     const section = document.getElementById(pack);
-
-    section
+    pack && section
       ? section.scrollIntoView({ behavior: "smooth", block: "end" })
       : nav("/packageNotFound");
   });

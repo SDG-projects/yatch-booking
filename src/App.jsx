@@ -20,8 +20,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-        <Route path="/" element={<ProductSection />} />
-        <Route path="/productdetail/:id" element={<ProductDetail />} />
+          {/* <Route path="/" element={<ProductSection />} /> */}
           <Route path="/" element={<Layout />}>
             <Route
               path="/"
@@ -53,6 +52,14 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Services />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/productdetail/:id"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <ProductDetail />
                 </Suspense>
               }
             />
