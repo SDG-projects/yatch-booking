@@ -1,17 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import "./styles/products.css";
-import { useNavigate } from "react-router-dom";
 import { getProducts } from "../data/Services";
 import { FaWhatsapp } from "react-icons/fa";
+import "./styles/products.css";
+
+export const handleWhatsAppRedirect = (product) => {
+  const phoneNumber = "971555930716";
+  const message = `Hi, I am interested in booking the Yacht: ${product.name}. 
+  Price: ${product.price}, Size: ${product.feet}, Capacity: ${product.capacity}`;
+  const encodedMessage = encodeURIComponent(message);
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const whatsappUrl = isMobile
+    ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+  const newWindow = window.open(whatsappUrl, "_blank");
+  if (!newWindow) {
+    alert("Unable to open WhatsApp. Please enable pop-ups or copy this link: " + whatsappUrl);
+  } 
+};
 
 export const Product = ({ product, sliderSettings }) => {
   const navigate = useNavigate();
 
   const handleProductClick = () => {
-    // Navigate to the product detail page
+    sessionStorage.setItem("scrollPosition", window.scrollY);
     navigate(`/productdetail/${product.id}`);
   };
 
@@ -32,21 +47,26 @@ export const Product = ({ product, sliderSettings }) => {
       </Slider>
       <div className="product-info" onClick={handleProductClick}>
         <p className="product-detail">
-          Price: <span>{product.price}</span>
+        <i class="fa-solid fa-money-bill-wave"></i>
+          Price: <span className="pd-price">{product.price}</span>
         </p>
         <p className="product-detail">
-          Size: <span>{product.feet}</span>
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          Size: <span className="pd-ft">{product.feet}</span>
         </p>
         <p className="product-detail">
-          Capacity: <span>{product.capacity}</span>
+        <i class="fa-solid fa-ship"></i>
+          Capacity: <span className="pd-cap">{product.capacity}</span>
         </p>
+        <div className="product-actions">
+         <button className="btn btn-primary" onClick={(e) => { e.stopPropagation();  handleWhatsAppRedirect(product);
+          }}>
+            <span>Book By</span>
+            <img src="./img/whatsapp2.png" alt="" />
+          </button>
       </div>
-      <div className="product-actions">
-        <button className="btn btn-primary">
-          Book By <span>{<FaWhatsapp />}</span>
-        </button>
       </div>
-    </div>
+      </div>
   );
 };
 
@@ -79,5 +99,4 @@ const ProductSection = () => {
     </section>
   );
 };
-
 export default ProductSection;

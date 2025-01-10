@@ -1,42 +1,224 @@
-.product-detail-section {
+.product-detail-container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  height: auto; 
+  box-sizing: border-box;
 }
 
 .product-detail-content {
   display: flex;
   gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap; 
 }
 
-.product-image {
-  width: 300px;
+.product-detail-image-container {
+  flex: 2;
+  max-width: 700px;
+  width: 100%; 
+}
+
+.product-detail-image {
+  width: 100%;
   height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.product-info {
-  max-width: 600px;
-}
-
-.product-info p {
-  font-size: 16px;
+.product-detail-info {
+  flex: 1;
+  max-width: 400px;
+  width: 100%; 
   margin-bottom: 10px;
+  font-size: 1.5rem;
+  background: var(--secondary-color);
+  padding: 20px;
+  border-radius: 8px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.product-name {
-  font-size: 30px;
+.product-title {
+  font-size: 2rem;
   margin-bottom: 20px;
+  color: var(--accent-color);
 }
 
-.btn-primary {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
+.product-detail-info p {
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.pd-detail-price {
+  margin-left: 5px;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.book-now-btn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.book-now-button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  background: var(--accent-color);
+  padding: 12px;
+  font-family: "Poppins", "serif";
+  font-weight: bold;
+  border-radius: 40px;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.btn-primary:hover {
-  background-color: #218838;
+.book-now-button img {
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+
+.book-now-button:hover {
+  background-color: #f3d853;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background-color: var(--accent-color);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Poppins","serif";
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.back-button:hover {
+  color: #fff;
+}
+
+.product-detail-slider .slick-prev,
+.product-detail-slider .slick-next {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.product-detail-slider .slick-prev {
+  left: 15px;
+}
+
+.product-detail-slider .slick-next {
+  right: 15px;
+}
+
+.product-detail-slider .slick-prev:hover,
+.product-detail-slider .slick-next:hover {
+  background: rgba(5, 5, 5, 0.9);
+  transform: scale(1.1);
+}
+@media (max-width: 1024px) {
+  .product-detail-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-detail-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .product-title {
+    font-size: 28px;
+  }
+
+  .book-now-button {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .product-title {
+    font-size: 24px;
+  }
+
+  .product-detail-info p {
+    font-size: 1rem;
+  }
+
+  .book-now-button {
+    font-size: 1rem;
+  }
+
+  .back-button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail-container {
+    padding: 10px;
+  }
+
+  .product-detail-image-container {
+    max-width: 100%;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .product-detail-info {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .product-detail-info p {
+    font-size: 0.9rem;
+  }
+
+  .book-now-button {
+    font-size: 0.9rem;
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .back-button {
+    font-size: 0.8rem;
+  }
 }

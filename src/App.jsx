@@ -15,6 +15,8 @@ const CustomPackage = lazy(() => import("./pages/CustomPackage"));
 const Services = lazy(() => import("./pages/Services"));
 import ProductDetail from "./components/productdetail";
 import ProductSection from "./components/Products";
+import ContactPage from "./pages/Contact";
+import About from "./pages/about";
 function App() {
   return (
     <>
@@ -129,6 +131,22 @@ function App() {
                 </Suspense>
               }
             /> */}
+             <Route
+              path="/about"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <About />
+                </Suspense>
+              }
+            />
+              <Route
+              path="/contact"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <ContactPage />
+                </Suspense>
+              }
+            />
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>

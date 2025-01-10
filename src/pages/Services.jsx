@@ -1,4 +1,3 @@
-// In Services.jsx
 
 import React, { useEffect, useState } from "react";
 import "../components/styles/service.css";
@@ -7,7 +6,7 @@ import { getServices } from "../data/Services";
 
 function Services() {
   const [services, setServices] = useState([]);
-  const { service } = useParams(); // Get the service name from the URL
+  const { service } = useParams();
 
   useEffect(() => {
     const fetchedServices = getServices(); 

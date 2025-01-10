@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import ProductSection, { Product } from "../components/Products";
 import Package from "../components/Package";
 
+
 function Packages() {
   // console.log(useParams());
   const { packName } = useParams();

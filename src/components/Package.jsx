@@ -159,10 +159,10 @@ function Pack({
         );
       })
     );
-    console.log(packServices);
+    // console.log(packServices);
   }, [packServices]);
 
-  console.log(filteredServices);
+  // console.log(filteredServices);
   function removeService(serviceName) {
     // const alterPack=packServices.filter
     setPackServices(packServices.filter((v) => !(v.name == serviceName)));
@@ -172,7 +172,7 @@ function Pack({
     ${packServices.map((value) => value.name)}
     is that any negosiation to get best price ?
     `;
-    console.log(template);
+    // console.log(template);
   }
   return (
     <section
@@ -234,6 +234,7 @@ function Pack({
                 )}
               </div>
             ))}
+            {packServices.length <= 0 && "empty"}
           </div>
           <div className="pack-price">
             <div
@@ -299,10 +300,16 @@ function Package({ imgs, services, details }) {
   const nav = useNavigate();
   const { pack } = useParams();
   useEffect(() => {
-    const section = document.getElementById(pack);
-    pack && section
-      ? section.scrollIntoView({ behavior: "smooth", block: "end" })
-      : nav("/packageNotFound");
+    if (pack) {
+      const elementId = pack
+        .toLowerCase()
+        .replaceAll(" ", "_")
+        .replaceAll("/", "-");
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } // : nav("/packageNotFound");
   });
   const packages = getPackages();
   return (
@@ -346,6 +353,7 @@ function Package({ imgs, services, details }) {
       /> */}
       {packages.map((pack) => (
         <Pack
+          key={pack.id}
           name={pack.name}
           imgs={pack.imgs}
           description={pack.description}

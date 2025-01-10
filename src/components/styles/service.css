@@ -7,7 +7,10 @@
   padding: 20px;
   background: var(--primary-color);
   color: white;
+  width: 100%;
+  overflow-x: hidden; 
 }
+
 .serviceCon {
   display: flex;
   justify-content: space-evenly;
@@ -15,7 +18,7 @@
   flex-wrap: wrap;
   width: 90%;
   gap: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  
   border-radius: 12px;
   overflow: hidden;
   height: 75vh;
@@ -54,7 +57,7 @@
 .serviceDet {
   flex: 1;
   max-width: 45%;
-  /* height: 40vh; */
+  height: 50vh; 
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -62,8 +65,10 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   backdrop-filter: blur(10px);
-  overflow: scroll;
-  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
 }
 
 .serviceDet h2 {
@@ -82,7 +87,27 @@
   font-size: 1rem;
   line-height: 1.6;
   color: #eeeeee;
+  max-width: 100%;
 }
+
+
+.serviceDet::-webkit-scrollbar {
+  width: 10px;
+}
+
+.serviceDet::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px; 
+  
+}
+
+
+
+.serviceDet::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px; 
+}
+
 @media (max-width: 768px) {
   .serviceCon {
     flex-direction: column;
@@ -113,3 +138,4 @@
     flex-direction: column;
   }
 }
+

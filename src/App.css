@@ -6,10 +6,10 @@
 :root {
   /* Colors */
   --primary-color: linear-gradient(135deg, #000000 0%, #0f172a 100%);
-  --secondary-color: #037dc9;
+  --secondary-color: #090809;
   --accent-color: #ffd082;
   --background-color: #ffffffc4;
-  --text-color: #030303;
+  --text-color: #ffffff;
 
   /* Typography */
   --font-family: "Montserrat", sans-serif;
@@ -28,7 +28,4 @@
   /* Shadows */
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-body {
-  /* background-color: var(--primary-color); */
-  /* color: var(--text-color); */
-}
+
