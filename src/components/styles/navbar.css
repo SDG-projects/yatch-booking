@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  font-family: "Roboto Mono", serif;;
+  font-family: "Roboto Mono", serif;
   transition: background-color 0.3s ease-in-out;
   font-weight: bold;
   background: transparent;
@@ -31,7 +31,7 @@ summary {
 }
 
 .navbar-menu li {
-  margin: 0 15px;
+  margin: 15px;
   position: relative;
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -98,7 +98,7 @@ summary:hover {
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   z-index: 100;
-  font-family: "Poppins","serif";
+  font-family: "Poppins", "serif";
   font-weight: lighter;
 }
 
@@ -122,6 +122,10 @@ summary:hover {
 
 .serviceList::-webkit-scrollbar-track {
   background: #333;
+}
+.serviceList .service {
+  padding: 5px;
+  margin: 5px;
 }
 
 .navbar-toggle {

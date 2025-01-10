@@ -11,7 +11,7 @@ function Layout() {
       <div style={{ minHeight: "50vh", background: "var(--primary-color)" }}>
         <Outlet />
       </div>
-      <AIChat />
+      {/* <AIChat /> */}
       <Footer />
     </div>
   );

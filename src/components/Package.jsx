@@ -274,7 +274,7 @@ function Pack({
               setShowServices(!showServices);
             }}
           >
-            X
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
           </button>
           <ul>
             {filteredServices.map((value, i) => {
@@ -299,6 +299,10 @@ function Pack({
 function Package({ imgs, services, details }) {
   const nav = useNavigate();
   const { pack } = useParams();
+  const [packages, setPackages] = useState();
+  useEffect(() => {
+    setPackages(getPackages());
+  }, []);
   useEffect(() => {
     if (pack) {
       const elementId = pack
@@ -311,7 +315,7 @@ function Package({ imgs, services, details }) {
       }
     } // : nav("/packageNotFound");
   });
-  const packages = getPackages();
+
   return (
     <div className="packages">
       {/* <Pack
@@ -351,7 +355,7 @@ function Package({ imgs, services, details }) {
         ]}
         price={{ rate: 10000, discountRate: 9000, type: "negosiable" }}
       /> */}
-      {packages.map((pack) => (
+      {packages?.map((pack) => (
         <Pack
           key={pack.id}
           name={pack.name}

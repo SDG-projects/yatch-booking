@@ -58,6 +58,14 @@ function App() {
               }
             />
             <Route
+              path="/services"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Services />
+                </Suspense>
+              }
+            />
+            <Route
               path="/productdetail/:id"
               element={
                 <Suspense fallback={<Loading />}>
@@ -131,7 +139,7 @@ function App() {
                 </Suspense>
               }
             /> */}
-             <Route
+            <Route
               path="/about"
               element={
                 <Suspense fallback={<Loading />}>
@@ -139,7 +147,7 @@ function App() {
                 </Suspense>
               }
             />
-              <Route
+            <Route
               path="/contact"
               element={
                 <Suspense fallback={<Loading />}>

@@ -18,8 +18,11 @@ export const handleWhatsAppRedirect = (product) => {
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
   const newWindow = window.open(whatsappUrl, "_blank");
   if (!newWindow) {
-    alert("Unable to open WhatsApp. Please enable pop-ups or copy this link: " + whatsappUrl);
-  } 
+    alert(
+      "Unable to open WhatsApp. Please enable pop-ups or copy this link: " +
+        whatsappUrl
+    );
+  }
 };
 
 export const Product = ({ product, sliderSettings }) => {
@@ -47,26 +50,30 @@ export const Product = ({ product, sliderSettings }) => {
       </Slider>
       <div className="product-info" onClick={handleProductClick}>
         <p className="product-detail">
-        <i class="fa-solid fa-money-bill-wave"></i>
+          <i class="fa-solid fa-money-bill-wave"></i>
           Price: <span className="pd-price">{product.price}</span>
         </p>
         <p className="product-detail">
-        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
           Size: <span className="pd-ft">{product.feet}</span>
         </p>
         <p className="product-detail">
-        <i class="fa-solid fa-ship"></i>
-          Capacity: <span className="pd-cap">{product.capacity}</span>
+          Capacity: Up to <span>{product.capacity}</span>
         </p>
         <div className="product-actions">
-         <button className="btn btn-primary" onClick={(e) => { e.stopPropagation();  handleWhatsAppRedirect(product);
-          }}>
+          <button
+            className="btn btn-primary"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleWhatsAppRedirect(product);
+            }}
+          >
             <span>Book By</span>
             <img src="./img/whatsapp2.png" alt="" />
           </button>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
   );
 };
 

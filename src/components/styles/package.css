@@ -121,7 +121,7 @@ body {
   border-radius: 30px;
   font-size: 1.3rem;
   font-weight: bold;
-  font-family: "Poppins","serif";
+  font-family: "Poppins", "serif";
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-left: 20px;
@@ -137,7 +137,7 @@ body {
   color: var(--primary-color);
   padding: 12px 25px;
   border-radius: 30px;
-  font-family: "Poppins","serif";
+  font-family: "Poppins", "serif";
   margin-right: 20px;
 }
 
@@ -148,36 +148,45 @@ body {
 
 .remainServ {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--secondary-color);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  max-width: 400px; 
-  width: 80%; 
-  height: 300px; 
-  overflow-y: auto; 
+  height: 100%;
+  border-radius: 50px 50px 0 0;
+  z-index: -1;
+}
+.pack-description {
+  font-size: large;
+  font-style: italic;
+  font-weight: bolder;
+}
+.pack-title {
+  font-style: italic;
+  color: var(--accent-color);
+  font-size: xx-large;
+  text-align: center;
+  background: linear-gradient(
+    100deg,
+    rgb(2, 13, 34) 40%,
+    rgba(0, 0, 0, 0.263) 100%
+  );
+  border: 10px solid rgb(5, 16, 57);
+  border-radius: 50px 50px 0 0;
+  padding: 10px;
 }
 
-.remainServ ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.pack-info {
+  background-color: rgb(3, 29, 29);
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: 250px; 
-  overflow-y: auto; 
+  max-height: 250px;
+  overflow-y: auto;
 }
 
 .remainServ li {
   background: var(--secondary-color);
   color: var(--primary-color);
   padding: 10px;
-  border-radius: 8px; 
+  border-radius: 8px;
   cursor: pointer;
   text-align: center;
   font-weight: bold;

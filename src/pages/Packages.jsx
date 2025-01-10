@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import ProductSection, { Product } from "../components/Products";
 import Package from "../components/Package";
 
-
 function Packages() {
   // console.log(useParams());
   const { packName } = useParams();
@@ -16,8 +15,9 @@ function Packages() {
   };
 
   return (
-    <div>
-      {/* <Link to={"/customPack"}>Custom Package</Link>
+    <>
+      <div>
+        {/* <Link to={"/customPack"}>Custom Package</Link>
       {id ? (
         <Product
           product={{
@@ -32,9 +32,10 @@ function Packages() {
       ) : (
         <ProductSection />
       )} */}
-      {/* <PannellumViewer config={config} /> */}
-      <Package details={true} />
-    </div>
+        {/* <PannellumViewer config={config} /> */}
+        <Package details={true} />
+      </div>
+    </>
   );
 }
 

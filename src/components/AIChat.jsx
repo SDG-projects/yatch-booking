@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./styles/aichat.css"
+import "./styles/aichat.css";
 
 async function ChatwithAI(messages) {
   const COHERE_API_KEY = "39c6b7ifZgKuyydjmgs6bs0kNJlKR0t8ZHAqpRmN";
@@ -63,14 +63,19 @@ function AIChat() {
         className={`chat-toggle-btn ${chatOpen ? "chat-toggle-btn-open" : ""}`}
         onClick={() => setChatOpen(!chatOpen)}
       >
-        {chatOpen ? "x" : <i class="fa-solid fa-headset"></i>}
+        {chatOpen ? "x" : <i className="fa-solid fa-headset"></i>}
       </button>
       {chatOpen && (
         <div className="chat-box">
           <div className="chat-disclaimer">
             <div className="chat-disclaimer-content">
-              AI assistant may make mistakes or mislead you. Please contact us directly:
-              <a href="https://web.whatsapp.com/send?phone=971555930716&text=Hello%20I%20have%20a%20question%20about%20your%20service." target="_blank"className="chat-contact-link">
+              AI assistant may make mistakes or mislead you. Please contact us
+              directly:
+              <a
+                href="https://web.whatsapp.com/send?phone=971555930716&text=Hello%20I%20have%20a%20question%20about%20your%20service."
+                target="_blank"
+                className="chat-contact-link"
+              >
                 <span className="chat-contact-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +97,9 @@ function AIChat() {
               <div
                 key={index}
                 className={`chat-message ${
-                  value.role === "user" ? "chat-message-user" : "chat-message-ai"
+                  value.role === "user"
+                    ? "chat-message-user"
+                    : "chat-message-ai"
                 }`}
               >
                 {value.content[0].text}
