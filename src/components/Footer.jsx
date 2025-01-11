@@ -88,6 +88,10 @@ function Footer() {
             </li>
           </ul>
         </div>
+        <div className="footer-payment">
+          <h3>Payment We Accept</h3>
+          <p><i class="fa-brands fa-cc-visa"></i></p>
+        </div>
         <div className="footer-info">
           <h3>Information</h3>
           <p>Copyright 2024 My Website</p>

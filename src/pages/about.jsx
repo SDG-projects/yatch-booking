@@ -32,12 +32,12 @@ const About = () => {
         </ul>
       </div>
 
-      <div className="aboutContact">
+      <div className="aboutContact" >
         <h3>Contact Us</h3>
         <p>If you're ready to make your dream yacht experience come true, feel free to reach out to us:</p>
         <p><strong>Owner: Arun Kumar</strong></p>
         <p><strong>Address: Dubai Marina, Marina Suits 1001</strong></p>
-        <p><strong>Phone: 971555930716</strong></p>
+        <p><strong>Phone: +971555930716</strong></p>
       </div>
     </div>
   );

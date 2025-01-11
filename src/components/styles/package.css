@@ -1,249 +1,191 @@
-.packages {
-  display: flex;
-  gap: 50px;
-  flex-direction: column;
-}
-.package {
-  display: flex;
-  position: relative;
-  min-height: 70vh;
-}
-.pack-container {
-  /* background-color: aqua; */
-  /* padding: 10px; */
-  width: 100%;
-  height: 100%;
-}
-.pack-title {
-  /* background-color: antiquewhite; */
-}
-.pack-image {
-  height: 100%;
-}
-.pack-image img {
-  width: 100%;
-  overflow: hidden;
-  z-index: -1;
-  min-height: 200px;
-  height: 100%;
-}
-.pack-info {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  width: 50%;
-  background-color: #0e1b2bd2;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-radius: 12px;
-  height: 90%;
-  border-right: 10px solid saddlebrown;
-  transition: all 500ms ease-in-out;
-  /* transform: translateY(-100px); */
-}
-.pack-action {
-  flex-wrap: wrap;
-  /* justify-content: center; */
-  /* align-items: center; */
-}
-.pack-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--accent-color);
-  text-align: center;
-  font-style: italic;
-  padding: 5px;
-}
-
-.pack-description p {
-  font-size: 1.5rem;
-  line-height: 1.6;
+/* Global Styles */
+* {
+  box-sizing: border-box;
   margin: 0;
-  color: wheat;
+  padding: 0;
 }
 
-.pack-services {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: space-evenly;
-  align-items: center;
-  /* height: 70%; */
-  overflow-y: scroll;
-  font-size: large;
-  font-weight: bold;
-  /* padding-top: 50px; */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #333;
 }
 
-.pack-service {
-  /* background: #0f3460; */
-  color: var(--text-color);
-  padding: 10px;
-  border-radius: 10px;
+/* Package Container */
+.package-container {
   display: flex;
-  justify-content: space-between;
-  position: relative;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Package Card */
+.package-card {
   width: 100%;
-  /* max-height: 100%; */
-}
-.pack-service details {
-  width: 100%;
-}
-.pack-service summary {
-  background-color: saddlebrown;
-  width: 100%;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-}
-
-.pack-price {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.pack-price-rate {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--text-color);
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-.pack-price-discount {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--accent-color);
-}
-
-.pack-action {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 10px;
-}
-
-.pack-book-now {
-  background: var(--accent-color);
-  color: var(--secondary-color);
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-size: 1.3rem;
-  font-weight: bold;
-  font-family: "Poppins", "serif";
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  margin-left: 20px;
-}
-
-.pack-book-now:hover {
-  background: var(--button-hover);
-  transform: scale(1.05);
-}
-
-.addServ-btn {
-  background: #505055;
-  color: var(--primary-color);
-  /* padding: 12px 25px; */
-  border-radius: 30px;
-  font-family: "Poppins", "serif";
-  /* margin-right: 20px; */
-}
-.addServ-btn .addServ-btn:hover {
-  background: #000000;
-  transform: scale(1.05);
-}
-
-.remainServ {
-  position: absolute;
-  /* height: 100%; */
-  border-radius: 10px;
-  /* z-index: -1; */
-  top: 0;
-  right: 0;
-  background-color: #0f3460;
+  max-width: 320px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 20px;
-  height: 100%;
-}
-.remainServ ul {
-  list-style: none;
-  overflow-y: scroll;
-  height: 100%;
-}
-.remainServ ul li {
-  padding: 10px;
-  margin: 10px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.pack-description {
-  font-size: large;
-  font-style: italic;
-  font-weight: bolder;
-}
-.pack-title {
-  /* font-style: italic;
-  color: var(--accent-color);
-  font-size: xx-large;
-  text-align: center;
-  background: linear-gradient(
-    100deg,
-    rgb(2, 13, 34) 40%,
-    rgba(0, 0, 0, 0.263) 100%
-  );
-  border: 10px solid rgb(5, 16, 57);
-  border-radius: 50px 50px 0 0;
-  padding: 10px; */
 }
 
-.remainServ li {
-  /* background: var(--secondary-color);
-  color: var(--primary-color);
-  padding: 10px;
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Package Header */
+.package-card-header {
+  text-align: center;
+}
+
+.package-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.package-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Package Body */
+.package-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.package-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.service-list {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.service-item {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.remove-service-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  text-align: center;
-  font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease; */
-}
-
-.remainServ li:hover {
-  background: var(--accent-color);
-  color: var(--sec0ndary-color);
-}
-
-.cancelBtn {
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  background: var(--accent-color);
-  color: var(--secondary-color);
-  border: none;
-  border-radius: 50%;
-  padding: 8px 12px;
-  cursor: pointer;
-  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
-.cancelBtn:hover {
-  background: #ff5252;
+.remove-service-btn:hover {
+  background-color: #c0392b;
 }
-@media (max-width: 400px) {
-  .package :hover .pack-info {
-    transform: translateY(-10%);
-  }
-  .pack-image img {
-  }
-  .pack-info {
-    border: 0;
-    border-top: 10px solid saddlebrown;
-    position: relative;
-    width: 100%;
-    height: 70%;
-  }
+
+/* Pricing Section */
+.price-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
+
+.price-rate {
+  font-size: 1.4rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.price-discount {
+  font-size: 1.5rem;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Buttons */
+.book-now-btn {
+  background-color: transparent;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  border: none;
+}
+
+.book-now-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Floating Action Buttons */
+.add-service-btn-container {
+  position: sticky;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.add-service-btn {
+  background-color: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-service-btn:hover {
+  background-color: #27ae60;
+}
+
+/* Service Dropdown */
+.service-dropdown {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.service-dropdown ul {
+  list-style: none;
+  padding: 0;
+}
+
+.service-dropdown li {
+  font-size: 1.2rem;
+  color: #555;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.service-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+

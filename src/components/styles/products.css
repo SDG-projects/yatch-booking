@@ -112,7 +112,7 @@
   border-radius: 25px;
 }
 
-.btn {
+.btn1 {
   display: flex;
   height: 7vh;
   width: 160px;
@@ -131,22 +131,23 @@
   font-size: 16px; 
   cursor: pointer;
 }
-.btn span{
+.btn1 span{
   margin-right: 5px;
   font-family: "Poppins", serif;
   font-weight: bold;
   font-size: 1.2rem;
 }
-.btn img {
+.btn1 img {
   width: 25px;
   height: 20px;
   margin-right: 5px;
   object-fit: contain;
 }
 
-.btn:hover{
+.btn1:hover{
   transform: translateY(-1px);
-  color: var(--accent-color);
+  background: var(--accent-color);
+  color: #0d0354;
   transition: 1s;
 }
 

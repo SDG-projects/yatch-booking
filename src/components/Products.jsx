@@ -62,7 +62,7 @@ export const Product = ({ product, sliderSettings }) => {
         </p>
         <div className="product-actions">
           <button
-            className="btn btn-primary"
+            className="btn1 btn-primary"
             onClick={(e) => {
               e.stopPropagation();
               handleWhatsAppRedirect(product);

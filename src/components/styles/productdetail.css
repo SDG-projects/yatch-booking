@@ -62,14 +62,14 @@
   font-size: 1.7rem;
 }
 
-.book-now-btn {
+.book-now-btn1 {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
 
-.book-now-button {
+.book-now-button2 {
   display: block;
   width: 100%;
   max-width: 300px;
@@ -86,15 +86,15 @@
   text-align: center;
 }
 
-.book-now-button img {
+.book-now-button2 img {
   width: 25px;
   height: 25px;
   margin-left: 10px;
   object-fit: contain;
 }
 
-.book-now-button:hover {
-  background-color: #f3d853;
+.book-now-button2:hover {
+  background: var(--accent-color);
 }
 
 .back-button {
@@ -114,6 +114,7 @@
 }
 .back-button:hover {
   color: #fff;
+  background: var(--accent-color);
 }
 
 .product-detail-slider .slick-prev,

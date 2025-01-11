@@ -82,9 +82,9 @@ const ProductDetail = () => {
           <p>
             <strong>Description:</strong> {product.description}
           </p>
-          <div className="book-now-btn">
+          <div className="book-now-btn1">
             <button
-              className="book-now-button"
+              className="book-now-button2"
               onClick={()=>handleWhatsAppRedirect(product)}
             >
               <span>Book By</span>

@@ -7,44 +7,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("/home");
   const [isScrolled, setIsScrolled] = useState(false);
-  // const service = [
-  //   "Romantic Private Dinner",
-  //   "Private chef",
-  //   "Yacht Catering",
-  //   "Live BBQ with private chef",
-  //   "Private DJ",
-  //   "Private Fishing",
-  //   "Luxury video and photoshoot",
-  //   "Private Artist Singer",
-  //   "Private Saxophone Artist",
-  //   "Private Dancers",
-  //   "Private Bartender",
-  //   "Private Magician",
-  //   "Private Professional Massage Therapists",
-  //   "Private Tour Guide",
-  //   "Private Hostesses",
-  //   "Private Waiters",
-  //   "Professional Hospitality Crew",
-  //   "Live Seafood BBQ and Private Chef",
-  //   "Sushi Menus and a Private Chef",
-  //   "Vegetarian Menus Crafted by a Private Chef",
-  //   "Premium Alcoholic Drinks",
-  //   "Exclusive Champagnes",
-  //   "Open Bar",
-  //   "Yacht Decorations",
-  //   "Birthday Decorations",
-  //   "Proposal and Anniversary Decorations",
-  //   "Roses/Flower decorations",
-  //   "VIP Transport",
-  // ];
-  // const packs = ["Birthday pack", "wedding", "honeymoon", "custom pack"];
+  const [isServiceOpen, setIsServiceOpen] = useState(false);
   const services = getServices();
   const packs = getPackages();
   const location = useLocation();
   const menu = useRef();
   const packagesRef = useRef();
   const serviceRef = useRef();
-  // console.log((packagesRef.current.open = true));
+
   useEffect(() => {
     const path = location.pathname.toLowerCase();
     setActivePage(path);
@@ -62,6 +32,25 @@ const Navbar = () => {
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleServiceToggle = () => {
+    setIsServiceOpen(!isServiceOpen);
+    // When services are opened, close the packages
+    if (packagesRef.current) {
+      packagesRef.current.open = false;
+    }
+  };
+
+  const handlePackagesToggle = () => {
+    // When packages are opened, close the services
+    if (serviceRef.current) {
+      serviceRef.current.open = false;
+    }
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the menu on link click
   };
 
   return (
@@ -85,17 +74,14 @@ const Navbar = () => {
             activePage === "/home" || activePage === "/" ? "active" : ""
           }
         >
-          <Link to={"/home"}>Home</Link>
+          <Link to={"/home"} onClick={handleLinkClick}>Home</Link>
         </li>
         <li className={activePage === "/vipRental" ? "active" : ""}>
-          <Link to={"/vipRental"}>VIP Yacht Rental</Link>
+          <Link to={"/vipRental"} onClick={handleLinkClick}>VIP Yacht Rental</Link>
         </li>
-        {/* <li className={activePage === "/packages" ? "active" : ""}>
-          <Link to={"/packages"}>Packages</Link>
-        </li> */}
         <li>
           <details
-            onClick={(e) => (serviceRef.current.open = false)}
+            onClick={handlePackagesToggle}
             ref={packagesRef}
             className={`services ${activePage === "/packages" ? "active" : ""}`}
           >
@@ -117,6 +103,7 @@ const Navbar = () => {
                         .replaceAll("/", "-")
                     }
                     className="navbar-link"
+                    onClick={handleLinkClick}
                   >
                     {value.name}
                   </Link>
@@ -128,12 +115,11 @@ const Navbar = () => {
         <li>
           <details
             ref={serviceRef}
-            onClick={(e) => (packagesRef.current.open = false)}
-            // onToggle={(e) => console.log(e?.nativeEvent.newState)}
+            onClick={handleServiceToggle}
             className={`services ${activePage === "/services" ? "active" : ""}`}
           >
             <summary>Services</summary>
-            <ul className="serviceList">
+            <ul className={`serviceList ${isServiceOpen ? "open" : ""}`}>
               {services.map((value, i) => (
                 <li
                   key={i}
@@ -157,6 +143,7 @@ const Navbar = () => {
                         .replaceAll("/", "-")
                     }
                     className="navbar-link"
+                    onClick={handleLinkClick}
                   >
                     {value.name}
                   </Link>
@@ -165,14 +152,11 @@ const Navbar = () => {
             </ul>
           </details>
         </li>
-        {/* <li className={activePage === "/extras" ? "active" : ""}>
-          <Link to={"/extras"}>Extras</Link>
-        </li> */}
         <li className={activePage === "/about" ? "active" : ""}>
-          <Link to={"/about"}>About</Link>
+          <Link to={"/about"} onClick={handleLinkClick}>About</Link>
         </li>
         <li className={activePage === "/contact" ? "active" : ""}>
-          <Link to={"/contact"}>Contact</Link>
+          <Link to={"/contact"} onClick={handleLinkClick}>Contact</Link>
         </li>
       </ul>
     </nav>
@@ -180,3 +164,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

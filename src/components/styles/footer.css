@@ -20,7 +20,8 @@
 .footer-links,
 .footer-social,
 .footer-contact,
-.footer-info {
+.footer-info 
+.footer-payment{
   flex: 1 1 200px;
   min-width: 200px;
 }
@@ -28,7 +29,8 @@
 .footer-links h3,
 .footer-social h3,
 .footer-contact h3,
-.footer-info h3 {
+.footer-info
+.footer-payment h3 {
   font-size: 18px;
   margin-bottom: 15px;
   text-transform: uppercase;

@@ -25,7 +25,8 @@ const BackgroundVideo = () => {
         <button className="cta-button" onClick={handleRedirect}>
           Explore Now
         </button>
-        <button className="cta-button" onClick={() => navigate("/packages")}>
+        <button className="cta-button"
+         >
           Plan Your Journey
         </button>
       </div>

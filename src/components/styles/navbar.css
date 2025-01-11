@@ -14,6 +14,7 @@
   background: transparent;
   letter-spacing: 1.5px;
 }
+
 .navbar.scrolled {
   background: var(--primary-color);
 }
@@ -34,10 +35,6 @@ summary {
   margin: 15px;
   position: relative;
   transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.navbar-menu li:hover {
-  /* transform: translateZ(-1px); */
 }
 
 .navbar-menu a {
@@ -63,8 +60,13 @@ summary:hover {
   display: none;
   transition: transform 0.3s ease;
 }
+
+.navbar-toggle:hover {
+  background-color: transparent;
+}
+
 .navbar-toggle.open {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 .navbar-menu {
@@ -73,18 +75,20 @@ summary:hover {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-.services {
-  position: relative;
+.navbar-menu li {
+  list-style: none;
+  margin: 15px;
+  text-align: center;
 }
-
 .serviceList {
   position: absolute;
-  top: 150%;
+  top: 100%;  
+  left: 50%;  
+  transform: translateX(-50%);  
   list-style: none;
-  left: -60px;
   background-color: #191919;
   letter-spacing: 2px;
   border-radius: 8px;
@@ -93,25 +97,16 @@ summary:hover {
   width: 350px;
   max-height: 500px;
   overflow-y: auto;
-  /* opacity: 0; */
-  /* visibility: hidden; */
-  /* transform: translateY(-10px); */
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-  z-index: 10;
   font-family: "Poppins", "serif";
   font-weight: lighter;
+  z-index: 10;
 }
-
-.services:hover .serviceList {
+.services.open .serviceList {
   opacity: 1;
-  /* z-index: 100; */
-  /* visibility: visible; */
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
+  visibility: visible;
 }
-.serviceList:hover {
-  color: #fff;
-}
-
 .serviceList::-webkit-scrollbar {
   width: 8px;
 }
@@ -124,76 +119,133 @@ summary:hover {
 .serviceList::-webkit-scrollbar-track {
   background: #333;
 }
+
 .serviceList .service {
   padding: 5px;
   margin: 5px;
 }
 
-.navbar-toggle {
-  font-size: 2rem;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
-  transition: transform 0.3s ease;
-}
 
-.navbar-menu {
-  flex-direction: row;
-}
 
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
     padding: 0 10px;
     height: 90px;
+    z-index: 20000;
+    transition: background-color 0.3s ease;
   }
-
-  .navbar-brand {
-    font-size: 20px;
-  }
-
-  .navbar-menu {
-    align-items: start;
-    gap: 10px;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
+  
+  .navbar.menu-open {
     background-color: #0d1321;
-    width: 100%;
-    display: none;
-
-    padding: 10px 0;
   }
-
-  .navbar-menu.open {
+  
+  .navbar-menu {
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0d1321;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-10%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    z-index: -999;
   }
-
+  
+  .navbar-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
   .navbar-menu li {
-    margin: 0 15px;
-    /* position: absolute; */
-    padding: 10px;
-    /* background-color: #333; */
-    /* text-align: end; */
-    transition: transform 0.3s ease, color 0.3s ease;
+    margin: 20px 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeSlideIn 0.5s ease forwards;
+    animation-delay: var(--animation-delay, 0s);
   }
-  .navbar-menu li:hover {
-    /* transform: translateY(-3px); */
+  
+  .navbar-menu.open li {
+    --animation-delay: calc(var(--index, 0) * 0.1s);
   }
-
+  
+  .navbar-menu a ,summary{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-menu a:hover {
+    color: var(--accent-color);
+  }
+  
   .navbar-toggle {
     display: block;
+    font-size: 2rem;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
+  
+  .navbar-toggle:hover {
+    transform: scale(1.1);
+  }
+  
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
 
   .serviceList {
-    /* position: relative; */
-    top: auto;
-    left: auto;
-    /* width: 100%; */
-    max-height: 200px;
-    overflow-y: auto;
+    position: relative;
+    width: 70%;  
+    max-height: 40vh; 
+    top: 0;  
+    left: 50%;  
+    transform: translateX(-50%);  
+    padding: 15px; 
+    box-shadow: none; 
+    border-radius: 8px;  
+    font-size: 14px; 
+    z-index: 100; 
+  }
+  .serviceList li:hover{
+    background-color: #000000;
+    border-radius: 8px;
+    transition: 1s ease;
+
+  }
+
+  .services.open .serviceList {
+    
+    transform: translateX(-50%) translateY(0);  
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .serviceList .service {
+    font-size: 14px; 
+    padding: 10px; 
+    margin: 5px 0; 
   }
 }
+
+
