@@ -221,6 +221,7 @@ function Pack({
                     </details>
                     {editable && (
                       <button
+                        className="cancelBtn"
                         onClick={() => {
                           removeService(service.name);
                         }}
@@ -258,7 +259,13 @@ function Pack({
                   setShowServices(!showServices);
                 }}
               >
-                {showServices ? "close" : "+ Add Service"}
+                {showServices ? (
+                  "close"
+                ) : (
+                  <span>
+                    <i>+</i> Service
+                  </span>
+                )}
               </button>
             )}
           </div>
@@ -274,7 +281,7 @@ function Pack({
               setShowServices(!showServices);
             }}
           >
-            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            <i className="fa-solid fa-xmark" aria-hidden="true"></i>
           </button>
           <ul>
             {filteredServices.map((value, i) => {
@@ -369,9 +376,9 @@ function Package({ imgs, services, details }) {
       <Pack
         details={details}
         name={"custom pack"}
-        imgs={"/img/yacht.png"}
+        imgs={"/img/df.jpg"}
         editable
-        description={<div>customise your own pack</div>}
+        description={"customise your own pack"}
         services={[]}
         price
       />

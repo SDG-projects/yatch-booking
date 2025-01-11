@@ -42,7 +42,9 @@ const Navbar = () => {
   const packs = getPackages();
   const location = useLocation();
   const menu = useRef();
-
+  const packagesRef = useRef();
+  const serviceRef = useRef();
+  // console.log((packagesRef.current.open = true));
   useEffect(() => {
     const path = location.pathname.toLowerCase();
     setActivePage(path);
@@ -93,6 +95,8 @@ const Navbar = () => {
         </li> */}
         <li>
           <details
+            onClick={(e) => (serviceRef.current.open = false)}
+            ref={packagesRef}
             className={`services ${activePage === "/packages" ? "active" : ""}`}
           >
             <summary>Packages</summary>
@@ -123,30 +127,39 @@ const Navbar = () => {
         </li>
         <li>
           <details
+            ref={serviceRef}
+            onClick={(e) => (packagesRef.current.open = false)}
+            // onToggle={(e) => console.log(e?.nativeEvent.newState)}
             className={`services ${activePage === "/services" ? "active" : ""}`}
           >
             <summary>Services</summary>
             <ul className="serviceList">
               {services.map((value, i) => (
                 <li
-                key={i}
-                className={`service ${
-                  activePage === "/services/" + value.name.toLowerCase().replaceAll(" ", "_").replaceAll("/", "-") ? "active" : ""
-                }`}
-                >
-             <Link
-                  to={
+                  key={i}
+                  className={`service ${
+                    activePage ===
                     "/services/" +
-                    value.name
-                      .toLowerCase()
-                      .replaceAll(" ", "_")
-                      .replaceAll("/", "-")
-                  }
-                  className="navbar-link"
+                      value.name
+                        .toLowerCase()
+                        .replaceAll(" ", "_")
+                        .replaceAll("/", "-")
+                      ? "active"
+                      : ""
+                  }`}
                 >
-                  {value.name}
-                </Link>
-
+                  <Link
+                    to={
+                      "/services/" +
+                      value.name
+                        .toLowerCase()
+                        .replaceAll(" ", "_")
+                        .replaceAll("/", "-")
+                    }
+                    className="navbar-link"
+                  >
+                    {value.name}
+                  </Link>
                 </li>
               ))}
             </ul>

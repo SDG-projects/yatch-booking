@@ -50,11 +50,11 @@ export const Product = ({ product, sliderSettings }) => {
       </Slider>
       <div className="product-info" onClick={handleProductClick}>
         <p className="product-detail">
-          <i class="fa-solid fa-money-bill-wave"></i>
+          <i className="fa-solid fa-money-bill-wave"></i>
           Price: <span className="pd-price">{product.price}</span>
         </p>
         <p className="product-detail">
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          <i className="fa-solid fa-up-right-and-down-left-from-center"></i>
           Size: <span className="pd-ft">{product.feet}</span>
         </p>
         <p className="product-detail">

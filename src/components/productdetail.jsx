@@ -5,7 +5,7 @@ import { getProducts } from "../data/Services";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/productdetail.css";
-import {handleWhatsAppRedirect} from "../components/Products"
+import { handleWhatsAppRedirect } from "../components/Products";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -50,7 +50,7 @@ const ProductDetail = () => {
           navigate(-1);
         }}
       >
-        <i class="fa-solid fa-backward"></i>
+        <i className="fa-solid fa-backward"></i>
         Go Back
       </button>
       <div className="product-detail-content">
@@ -71,7 +71,7 @@ const ProductDetail = () => {
           <h1 className="product-title">{product.name}</h1>
           <p>
             <strong>Price:</strong>
-            <span className="pd-detail-price">{product.price}</span> 
+            <span className="pd-detail-price">{product.price}</span>
           </p>
           <p>
             <strong>Size:</strong> {product.feet}
@@ -83,11 +83,14 @@ const ProductDetail = () => {
             <strong>Description:</strong> {product.description}
           </p>
           <div className="book-now-btn">
-          <button className="book-now-button" onClick={handleWhatsAppRedirect}>
-            <span>Book By</span>
-            <img src="../img/whatsapp2.png" alt="" />
-          </button>
-        </div>
+            <button
+              className="book-now-button"
+              onClick={()=>handleWhatsAppRedirect(product)}
+            >
+              <span>Book By</span>
+              <img src="../img/whatsapp2.png" alt="" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
