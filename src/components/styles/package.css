@@ -6,31 +6,74 @@
 .package {
   display: flex;
   position: relative;
-  min-height: 70vh;
+  /* min-height: 70vh; */
 }
 .pack-container {
   /* background-color: aqua; */
   /* padding: 10px; */
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  /* height: 100vh; */
+  perspective: 1000px;
+  perspective-origin: center;
+  overflow: hidden;
 }
+
 .pack-title {
-  /* background-color: antiquewhite; */
 }
+/* background-color: antiquewhite; */
+/* body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #333;
+} */
 .pack-image {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-100px) rotateY(-20deg);
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+}
+/* Package Container */
+.package-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
 }
 .pack-image img {
+  /* transform: rotate(30deg); */
+  height: 80%;
+  width: 80%;
+}
+.pack-image h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%) translateY(-50%) scale(2);
+}
+/* Package Card */
+/* .package-card {
   width: 100%;
+  max-width: 320px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   z-index: -1;
   min-height: 200px;
   height: 100%;
-}
+} */
 .pack-info {
-  position: absolute;
+  /* position: absolute;
   top: 10%;
-  left: 0;
+  left: 0; */
   width: 50%;
   background-color: #0e1b2bd2;
   padding: 10px;
@@ -38,24 +81,35 @@
   flex-direction: column;
   gap: 10px;
   border-radius: 12px;
-  height: 90%;
-  border-right: 10px solid saddlebrown;
+  /* height: 90%; */
+  /* border-right: 10px solid saddlebrown; */
   transition: all 500ms ease-in-out;
   /* transform: translateY(-100px); */
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+  padding: 20px;
 }
 .pack-action {
   flex-wrap: wrap;
   /* justify-content: center; */
   /* align-items: center; */
 }
+/* .package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+} */
 .pack-title {
   font-size: 2.5rem;
   font-weight: bold;
   color: var(--accent-color);
   text-align: center;
+  background-color: #00000086;
+}
+/* Package Header */
+/* .package-card-header {
+  text-align: center;
   font-style: italic;
   padding: 5px;
-}
+} */
 
 .pack-description p {
   font-size: 1.5rem;
@@ -63,33 +117,46 @@
   margin: 0;
   color: wheat;
 }
+/* .pack-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+} */
 
 .pack-services {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: space-evenly;
-  align-items: center;
-  /* height: 70%; */
-  overflow-y: scroll;
-  font-size: large;
-  font-weight: bold;
-  /* padding-top: 50px; */
 }
+/* padding-top: 50px; */
+/* .package-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+} */
 
 .pack-service {
   /* background: #0f3460; */
   color: var(--text-color);
   padding: 10px;
   border-radius: 10px;
+  position: relative;
+}
+/* Package Body */
+/* .package-card-body {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   position: relative;
   width: 100%;
-  /* max-height: 100%; */
-}
+  max-height: 100%;
+} */
 .pack-service details {
   width: 100%;
+}
+.pack-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
 }
 .pack-service summary {
   background-color: saddlebrown;
@@ -98,6 +165,12 @@
   padding: 10px;
   margin: 10px;
 }
+.service-list {
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
 
 .pack-price {
   display: flex;
@@ -105,6 +178,11 @@
   align-items: center;
   gap: 10px;
 }
+/* .service-item {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 8px;
+} */
 
 .pack-price-rate {
   font-size: 1.8rem;
@@ -113,18 +191,40 @@
   text-decoration: line-through;
   opacity: 0.7;
 }
+/* .remove-service-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+} */
 
 .pack-price-discount {
   font-size: 2rem;
   font-weight: bold;
   color: var(--accent-color);
 }
+/* .remove-service-btn:hover {
+  background-color: #c0392b;
+} */
 
 .pack-action {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* Pricing Section */
+.price-section {
+  display: flex;
+  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .pack-book-now {
@@ -139,23 +239,45 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-left: 20px;
 }
+.price-rate {
+  font-size: 1.4rem;
+  color: #999;
+  text-decoration: line-through;
+}
 
 .pack-book-now:hover {
   background: var(--button-hover);
   transform: scale(1.05);
 }
+.price-discount {
+  font-size: 1.5rem;
+  color: #27ae60;
+  font-weight: bold;
+}
 
 .addServ-btn {
-  background: #505055;
-  color: var(--primary-color);
+  /* background: #505055; */
+  /* color: var(--primary-color); */
   /* padding: 12px 25px; */
   border-radius: 30px;
-  font-family: "Poppins", "serif";
+  /* font-family: "Poppins", "serif"; */
   /* margin-right: 20px; */
 }
 .addServ-btn .addServ-btn:hover {
   background: #000000;
   transform: scale(1.05);
+}
+/* Buttons */
+.book-now-btn {
+  background-color: transparent;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  border: none;
 }
 
 .remainServ {
@@ -169,21 +291,43 @@
   padding: 20px;
   height: 100%;
 }
+.book-now-btn:hover {
+  background-color: #2980b9;
+}
 .remainServ ul {
   list-style: none;
   overflow-y: scroll;
   height: 100%;
 }
+/* Floating Action Buttons */
+/* .add-service-btn-container {
+  position: sticky;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+} */
 .remainServ ul li {
   padding: 10px;
   margin: 10px;
+}
+.add-service-btn {
+  background-color: #2ecc71;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
   cursor: pointer;
   border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 .pack-description {
   font-size: large;
   font-style: italic;
   font-weight: bolder;
+}
+.add-service-btn:hover {
+  background-color: #27ae60;
 }
 .pack-title {
   /* font-style: italic;
@@ -199,22 +343,38 @@
   border-radius: 50px 50px 0 0;
   padding: 10px; */
 }
-
 .remainServ li {
-  /* background: var(--secondary-color);
+  background: var(--secondary-color);
   color: var(--primary-color);
   padding: 10px;
+  cursor: pointer;
+}
+/* Service Dropdown */
+/* .service-dropdown {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
   font-weight: bold;
-  transition: background-color 0.3s ease, color 0.3s ease; */
-}
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+} */
 
 .remainServ li:hover {
   background: var(--accent-color);
   color: var(--sec0ndary-color);
 }
+/* .service-dropdown ul {
+  list-style: none;
+  padding: 0;
+} */
 
 .cancelBtn {
   position: absolute;
@@ -225,6 +385,12 @@
   border: none;
   border-radius: 50%;
   padding: 8px 12px;
+}
+.service-dropdown li {
+  font-size: 1.2rem;
+  color: #555;
+  padding: 10px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
@@ -241,9 +407,12 @@
   }
   .pack-info {
     border: 0;
-    border-top: 10px solid saddlebrown;
+    /* border-top: 10px solid saddlebrown; */
     position: relative;
     width: 100%;
     height: 70%;
+  }
+  .service-dropdown li:hover {
+    background-color: #f0f0f0;
   }
 }

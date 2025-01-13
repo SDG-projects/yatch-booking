@@ -17,6 +17,9 @@ import ProductDetail from "./components/productdetail";
 import ProductSection from "./components/Products";
 import ContactPage from "./pages/Contact";
 import About from "./pages/about";
+// import Package from "./components/Package";
+const Package = lazy(() => import("./components/Package"));
+
 function App() {
   return (
     <>
@@ -78,7 +81,7 @@ function App() {
               path="/packages/:pack"
               element={
                 <Suspense fallback={<Loading />}>
-                  <Packages />
+                  <Package details={true} />
                 </Suspense>
               }
             />

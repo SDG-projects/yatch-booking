@@ -172,7 +172,7 @@ function Pack({
     ${packServices.map((value) => value.name)}
     is that any negosiation to get best price ?
     `;
-    // console.log(template);
+    console.log(template);
   }
   return (
     <section
@@ -181,28 +181,29 @@ function Pack({
     >
       {" "}
       <div className="pack-container">
-        <h1 className="pack-title">Pack: {name}</h1>
         <div className="pack-image">
+          <h1 className="pack-title">Pack: {name}</h1>
           <img src={imgs} alt="" />
         </div>
-        <div className="pack-info">
-          {details && (
-            <div className="pack-description">
-              <p>{description}</p>
-            </div>
-          )}
-          <div className="pack-services">
-            {packServices.map((service, i) => (
-              <div key={i} className="pack-service">
-                {details ? (
-                  <>
-                    {" "}
-                    <details>
-                      <summary>{service.name}</summary>
-                      <div>
-                        <p>{service.description}</p>
-                      </div>
-                      {/* <div>
+        {details && (
+          <div className="pack-info">
+            {details && (
+              <div className="pack-description">
+                <p>{description}</p>
+              </div>
+            )}
+            <div className="pack-services">
+              {packServices.map((service, i) => (
+                <div key={i} className="pack-service">
+                  {details ? (
+                    <>
+                      {" "}
+                      <details>
+                        <summary>{service.name}</summary>
+                        <div>
+                          <p>{service.description}</p>
+                        </div>
+                        {/* <div>
                {service.price && service.price.discountRate ? (
                  <div>
                    <span className="pack-service-discount">
@@ -218,58 +219,62 @@ function Pack({
                  </span>
                )}
              </div> */}
-                    </details>
-                    {editable && (
-                      <button
-                        className="cancelBtn"
-                        onClick={() => {
-                          removeService(service.name);
-                        }}
-                      >
-                        x
-                      </button>
-                    )}
-                  </>
-                ) : (
-                  <div>{service.name}</div>
-                )}
-              </div>
-            ))}
-            {packServices.length <= 0 && "empty"}
-          </div>
-          <div className="pack-price">
-            <div
-              className="pack-price-rate"
-              style={price.discountRate && { textDecoration: "line-through" }}
-            >
-              {price?.rate}
+                      </details>
+                      {editable && (
+                        <button
+                          className="cancelBtn"
+                          onClick={() => {
+                            removeService(service.name);
+                          }}
+                        >
+                          x
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <div>{service.name}</div>
+                  )}
+                </div>
+              ))}
+              {packServices.length <= 0 && "empty"}
             </div>
-            {price.discountRate && (
-              <div className="pack-price-discount">{price?.discountRate}</div>
-            )}
-          </div>
-          <div className="pack-action">
-            <button className="pack-book-now btn" onClick={() => genBookLink()}>
-              Book now
-            </button>{" "}
-            {filteredServices.length > 0 && editable && (
-              <button
-                className="addServ-btn"
-                onClick={() => {
-                  setShowServices(!showServices);
-                }}
+            <div className="pack-price">
+              <div
+                className="pack-price-rate"
+                style={price.discountRate && { textDecoration: "line-through" }}
               >
-                {showServices ? (
-                  "close"
-                ) : (
-                  <span>
-                    <i>+</i> Service
-                  </span>
-                )}
-              </button>
-            )}
+                {price?.rate}
+              </div>
+              {price.discountRate && (
+                <div className="pack-price-discount">{price?.discountRate}</div>
+              )}
+            </div>
+            <div className="pack-action">
+              <button
+                className="pack-book-now btn"
+                onClick={() => genBookLink()}
+              >
+                Book now
+              </button>{" "}
+              {filteredServices.length > 0 && editable && (
+                <button
+                  className="addServ-btn"
+                  onClick={() => {
+                    setShowServices(!showServices);
+                  }}
+                >
+                  {showServices ? (
+                    "close"
+                  ) : (
+                    <span>
+                      <i>+</i> Service
+                    </span>
+                  )}
+                </button>
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         {children}
       </div>
@@ -281,7 +286,9 @@ function Pack({
               setShowServices(!showServices);
             }}
           >
-            <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+            <i className="fa-solid fa-xmark" aria-hidden="true">
+              x
+            </i>
           </button>
           <ul>
             {filteredServices.map((value, i) => {
@@ -306,22 +313,34 @@ function Pack({
 function Package({ imgs, services, details }) {
   const nav = useNavigate();
   const { pack } = useParams();
-  const [packages, setPackages] = useState();
-  useEffect(() => {
-    setPackages(getPackages());
-  }, []);
+  const [packages, setPackages] = useState([]);
+  const [packageDis, setPackage] = useState({});
+  // useEffect(() => {
+  //   setPackages(getPackages());
+  //   setPackage()
+  // }, []);
   useEffect(() => {
     if (pack) {
-      const elementId = pack
+      const packName = pack
         .toLowerCase()
         .replaceAll(" ", "_")
         .replaceAll("/", "-");
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
+
+      // setPackages();
+      setPackages([...getPackages(Number(packName.split("&")[1]))]);
+      console.log(packages);
+      // const element = document.getElementById(elementId);
+      // if (element) {
+      //   element.scrollIntoView({ behavior: "smooth", block: "center" });
+      // } else {
+      //   nav("/packages");
+      // }
     } // : nav("/packageNotFound");
-  });
+    else {
+      nav("/packages");
+      // setPackages(getPackages());
+    }
+  }, [pack]);
 
   return (
     <div className="packages">
@@ -370,18 +389,20 @@ function Package({ imgs, services, details }) {
           description={pack.description}
           services={pack.services}
           price={pack.price}
-          details
+          details={details}
         />
       ))}
-      <Pack
-        details={details}
-        name={"custom pack"}
-        imgs={"/img/df.jpg"}
-        editable
-        description={"customise your own pack"}
-        services={[]}
-        price
-      />
+      {pack == "custom_pack&-1" && (
+        <Pack
+          details={details}
+          name={"custom pack"}
+          imgs={"/img/df.jpg"}
+          editable
+          description={"customise your own pack"}
+          services={[]}
+          price
+        />
+      )}
       {/* <Pack>Custom pack</Pack> */}
     </div>
   );

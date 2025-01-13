@@ -90,9 +90,10 @@ summary:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px 15px;
-  width: 350px;
+  width: 300px;
   max-height: 500px;
   overflow-y: auto;
+  /* max-width: fit-content; */
   /* opacity: 0; */
   /* visibility: hidden; */
   /* transform: translateY(-10px); */

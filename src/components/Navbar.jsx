@@ -100,7 +100,10 @@ const Navbar = () => {
             className={`services ${activePage === "/packages" ? "active" : ""}`}
           >
             <summary>Packages</summary>
-            <ul className="serviceList">
+            <ul
+              className="serviceList"
+              onMouseLeave={(e) => (packagesRef.current.open = false)}
+            >
               {packs.map((value, i) => (
                 <li
                   key={i}
@@ -115,6 +118,9 @@ const Navbar = () => {
                         .toLowerCase()
                         .replaceAll(" ", "_")
                         .replaceAll("/", "-")
+                        .replaceAll("&", "-") +
+                      "&" +
+                      i
                     }
                     className="navbar-link"
                   >
@@ -122,6 +128,11 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link className="navbar-link" to={"/packages/custom_pack&-1"}>
+                  Custom Package
+                </Link>
+              </li>
             </ul>
           </details>
         </li>
@@ -133,7 +144,10 @@ const Navbar = () => {
             className={`services ${activePage === "/services" ? "active" : ""}`}
           >
             <summary>Services</summary>
-            <ul className="serviceList">
+            <ul
+              className="serviceList"
+              onMouseLeave={(e) => (serviceRef.current.open = false)}
+            >
               {services.map((value, i) => (
                 <li
                   key={i}
