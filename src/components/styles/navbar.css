@@ -94,9 +94,12 @@ summary:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px 15px;
-  width: 350px;
+  width: 300px;
   max-height: 500px;
   overflow-y: auto;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  /* transform: translateY(-10px); */
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   font-family: "Poppins", "serif";
   font-weight: lighter;

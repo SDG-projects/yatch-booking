@@ -17,7 +17,6 @@ import ProductDetail from "./components/productdetail";
 import ProductSection from "./components/Products";
 import ContactPage from "./pages/Contact";
 import About from "./pages/about";
-import AIChat from "./components/AIChat";
 function App() {
   return (
     <>
@@ -87,7 +86,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Packages />
-                 
                 </Suspense>
               }
             />
