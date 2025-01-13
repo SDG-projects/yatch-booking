@@ -7,6 +7,7 @@
   font-family: "Poppins", sans-serif;
   border-radius: 15px;
   z-index: 2;
+  overflow: hidden;
   position: relative;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
@@ -64,7 +65,7 @@
 
 .product-info {
   padding: 20px;
-  border-radius: 0 0 15px 15px; 
+  border-radius: 0 0 15px 15px;
   color: #e5e7eb;
   letter-spacing: 2px;
   background: var(--secondary-color);

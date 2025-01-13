@@ -201,124 +201,120 @@ export function getProducts(id) {
   const Products = [
     {
       id: 1,
-      name: "Luxury Yacht A",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$5000",
-      feet: "85 ft",
-      capacity: "20 People",
+      name: "Seashell Luxury Yacht ",
+      images: ["/img/yatch/luxury-yatch-dubai-1_4.webp", "/img/yatch/luxury-yatch-dubai-1_3.webp", "/img/yatch/lxuury-yatch-dubai-1_5.webp","/img/yatch/luxury-yatch-dubai-1_2.webp","/img/yatch/luxury-yatch-dubai-1_1.webp","/img/yatch/luxury-yatch-dubai-1_6.webp"
+      ],
+      price:"550",
+      feet: "42ft ",
+      capacity: "10 People",
     },
     {
       id: 2,
-      name: "Premium Yacht B",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$7000",
-      feet: "100 ft",
-      capacity: "30 People",
+      name: "As Marine Luxury Yatch ",
+      images: ["/img/yatch/P2/luxury-yatch-dubai-2_1.jpg", "/img/yatch/P2/luxury-yatch-dubai-2_2.jpg", "/img/yatch/P2/luxury-yatch-dubai-2_3.jpg","/img/yatch/P2/luxury-yatch-dubai-2_4.jpg","/img/yatch/P2/luxury-yatch-dubai-2_5.jpg","/img/yatch/P2/luxury-yatch-dubai-2_6.jpg","/img/yatch/P2/luxury-yatch-dubai-2_7.jpg","/img/yatch/P2/luxury-yatch-dubai-2_8.jpg","/img/yatch/P2/luxury-yatch-dubai-2_9.jpg","/img/yatch/P2/luxury-yatch-dubai-2_10.jpg"
+      ],
+      price:"850",
+      feet: "50ft ",
+      capacity: "15 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
     {
       id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "Trignity Luxury Yatch ",
+      images: ["/img/yatch/P3/luxury-yatch-dubai-3_1.jpg", "/img/yatch/P3/luxury-yatch-dubai-3_2.jpg", "/img/yatch/P3/luxury-yatch-dubai-3_3.jpg","/img/yatch/P3/luxury-yatch-dubai-3_4.jpg","/img/yatch/P3/luxury-yatch-dubai-3_5.jpg","/img/yatch/P3/luxury-yatch-dubai-3_6.jpg","/img/yatch/P3/luxury-yatch-dubai-3_7.jpg"
+      ],
+      price:"4699",
+      feet: "135ft ",
+      capacity: "120 People",
     },
     {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      id: 4,
+      name: "Rich Boss Luxury Yatch",
+      images: ["/img/yatch/P4/luxury-yatch-dubai-4_1.jpg", "/img/yatch/P4/luxury-yatch-dubai-4_2.jpg", "/img/yatch/P4/luxury-yatch-dubai-4_3.jpg","/img/yatch/P4/luxury-yatch-dubai-4_4.jpg","/img/yatch/P4/luxury-yatch-dubai-4_5.jpg","/img/yatch/P4/luxury-yatch-dubai-4_6.jpg"
+      ],
+      price:"1799",
+      feet: "90ft ",
+      capacity: "55 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
+    },  
+    {
+      id: 5,
+      name: "Jetsky ",
+      images: ["/img/yatch/P5/luxury-yatch-dubai-5_1.jpg", "/img/yatch/P5/luxury-yatch-dubai-5_2.jpg", "/img/yatch/P5/luxury-yatch-dubai-5_3.webp"
+      ],
+      price:"750",
+      feet: "16ft ",
+      capacity: "2 Person",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
+  
+    {
+      id: 6,
+      name: "Jetcar ",
+      images: ["/img/yatch/P6/Luxury-yatch-dubai-6_1.jpg", "/img/yatch/P6/Luxury-yatch-dubai-6_2.jpg"],
+      price:"1550",
+      feet: "20ft ",
+      capacity: "3 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
+    },
+  
     {
       id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "As Marine Luxury Yatch ",
+      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      ],
+      price:"850",
+      feet: "50ft ",
+      capacity: "20 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
+  
     {
       id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "As Marine Luxury Yatch ",
+      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      ],
+      price:"850",
+      feet: "50ft ",
+      capacity: "20 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
+  
     {
       id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "As Marine Luxury Yatch ",
+      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      ],
+      price:"850",
+      feet: "50ft ",
+      capacity: "20 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
+  
     {
       id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "As Marine Luxury Yatch ",
+      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      ],
+      price:"850",
+      feet: "50ft ",
+      capacity: "20 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
+  
     {
       id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
+      name: "As Marine Luxury Yatch ",
+      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      ],
+      price:"850",
+      feet: "50ft ",
+      capacity: "20 People",
+      Extras:"Water / SoftDrinks / Chips / Nuts"
     },
-    {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
-    },
-    {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
-    },
-    {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
-    },
-    {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
-    },
-    {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
-    },
-    {
-      id: 3,
-      name: "Elite Yacht C",
-      images: ["/img/img32.webp", "/img/img32.webp", "/img/img32.webp"],
-      price: "$10,000",
-      feet: "120 ft",
-      capacity: "50 People",
-    },
+  
+  
+    
   ];
   const Data = !id ? Products : Products.filter((product) => product.id == id);
   return Data;

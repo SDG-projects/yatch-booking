@@ -1,4 +1,4 @@
-/* Footer Styles */
+
 .footer {
   background-color: #090809;
   color: #fff;
@@ -20,7 +20,7 @@
 .footer-links,
 .footer-social,
 .footer-contact,
-.footer-info 
+.footer-info,
 .footer-payment{
   flex: 1 1 200px;
   min-width: 200px;
@@ -29,7 +29,7 @@
 .footer-links h3,
 .footer-social h3,
 .footer-contact h3,
-.footer-info
+.footer-info,
 .footer-payment h3 {
   font-size: 18px;
   margin-bottom: 15px;
@@ -71,8 +71,10 @@
   margin-right: 10px;
 }
 
-.footer-social i {
+.footer-social i ,
+.payment-icons i{
   font-size: 20px;
+  margin-bottom: 15px;
 }
 
 .footer-info p {
@@ -83,8 +85,12 @@
   font-size: 18px;
   margin-bottom: 10px;
 }
+.payment-icons i{
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
