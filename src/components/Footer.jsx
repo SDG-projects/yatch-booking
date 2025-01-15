@@ -33,7 +33,6 @@ function Footer() {
     "Roses/Flower decorations",
     "VIP Transport",
   ];
-
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -53,7 +52,7 @@ function Footer() {
               <Link to="/packages">Packages</Link>
             </li>
             <li>
-              <Link to="/services">Services</Link>
+              <Link to="/services">service</Link>
             </li>
           </ul>
         </div>
@@ -72,17 +71,12 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <Link
-                to="https://www.instagram.com/golden_yatch_rentals_dubai?igsh=MTI5dmJtODloMnoybA=="
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link to="https://www.instagram.com/golden_yatch_rentals_dubai?igsh=MTI5dmJtODloMnoybA==" target="_blank" rel="noopener noreferrer">
                 <i className="fa fa-instagram" />
               </Link>
             </li>
           </ul>
         </div>
-
         <div className="footer-contact">
           <h3>Contact</h3>
           <ul>
@@ -94,16 +88,6 @@ function Footer() {
             </li>
           </ul>
         </div>
-
-        <div className="footer-payment">
-          <h3>Payment We Accept</h3>
-          <div className="payment-icons">
-            <i className="fa-brands fa-cc-visa" title="Visa"></i>
-            <i className="fa-brands fa-cc-mastercard" title="Mastercard"></i>
-          </div>
-          <p>ONLINE TRANSACTION EXACTRA</p>
-        </div>
-
         <div className="footer-info">
           <h3>Information</h3>
           <p>Copyright 2024 My Website</p>
@@ -115,4 +99,3 @@ function Footer() {
 }
 
 export default Footer;
-

@@ -35,8 +35,7 @@ export const Product = ({ product, sliderSettings }) => {
 
   return (
     <div key={product.id} className="product-card">
-      <h3 className="product-name">{product.name}</h3>
-      <div className="image-wrapper">
+      <h3 className="product-name"><span> GOLDEN YATCH- </span><br></br>{product.name}</h3>
       <Slider {...sliderSettings} className="product-slider">
         {product.images.map((img, index) => (
           <div key={index}>
@@ -45,15 +44,14 @@ export const Product = ({ product, sliderSettings }) => {
               alt={product.name}
               className="product-image"
               onClick={handleProductClick}
-            width={300} height={300}/> 
+            width={300} height={300}/>
           </div>
         ))}
       </Slider>
-      </div>
       <div className="product-info" onClick={handleProductClick}>
         <p className="product-detail">
           <i className="fa-solid fa-money-bill-wave"></i>
-          Price Per Hour: <span className="pd-price">{product.price} AED</span>
+          Price: <span className="pd-price">{product.price} AED</span>
         </p>
         <p className="product-detail">
           <i className="fa-solid fa-up-right-and-down-left-from-center"></i>
@@ -64,7 +62,7 @@ export const Product = ({ product, sliderSettings }) => {
         </p>
         <div className="product-actions">
           <button
-            className="btn1 btn-primary"
+            className="btn btn-primary"
             onClick={(e) => {
               e.stopPropagation();
               handleWhatsAppRedirect(product);

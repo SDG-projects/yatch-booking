@@ -6,8 +6,8 @@
 :root {
   /* Colors */
   --primary-color: #000000;
-  --secondary-color:linear-gradient(135deg, #000000 30%, #0f172a 100%);
-  --accent-color: #ffc971;
+  --secondary-color: linear-gradient(135deg, #000000 20%, #0f172a 100%);
+  --accent-color: #ffd082;
   --background-color: #ffffffc4;
   --text-color: #ffffff;
 
@@ -23,9 +23,12 @@
   /* Border */
   --border-width: 1px;
   --border-style: solid;
-  --border-color:  linear-gradient(135deg, #0a0a0a 20%, #0f172a 100%); /* Light gray */
+  --border-color: #dddddd; /* Light gray */
 
   /* Shadows */
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+body {
+  /* background-color: var(--primary-color); */
+  /* color: var(--text-color); */
+}

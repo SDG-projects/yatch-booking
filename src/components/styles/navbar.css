@@ -14,7 +14,6 @@
   background: transparent;
   letter-spacing: 1.5px;
 }
-
 .navbar.scrolled {
   background: var(--primary-color);
 }
@@ -35,6 +34,10 @@ summary {
   margin: 15px;
   position: relative;
   transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-menu li:hover {
+  /* transform: translateZ(-1px); */
 }
 
 .navbar-menu a {
@@ -60,13 +63,8 @@ summary:hover {
   display: none;
   transition: transform 0.3s ease;
 }
-
-.navbar-toggle:hover {
-  background-color: transparent;
-}
-
 .navbar-toggle.open {
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
 }
 
 .navbar-menu {
@@ -75,41 +73,42 @@ summary:hover {
   padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
-.navbar-menu li {
-  list-style: none;
-  margin: 15px;
-  text-align: center;
+.services {
+  position: relative;
 }
+
+/* Service List (Desktop and Mobile) */
 .serviceList {
   position: absolute;
-  top: 100%;  
-  left: 50%;  
-  transform: translateX(-50%);  
+  top: 100%;  /* Align it directly below the Services button */
+  left: 50%;  /* Center it horizontally */
+  transform: translateX(-50%);  /* Center it based on its width */
   list-style: none;
   background-color: #191919;
   letter-spacing: 2px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px 15px;
-  width: 300px;
+  width: 250px;  /* Default width on desktop */
   max-height: 500px;
   overflow-y: auto;
-  /* opacity: 0; */
-  /* visibility: hidden; */
-  /* transform: translateY(-10px); */
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
   font-family: "Poppins", "serif";
   font-weight: lighter;
   z-index: 10;
 }
+
+/* Show service list when open */
 .services.open .serviceList {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
   visibility: visible;
 }
+
+/* Scrollbar styling */
 .serviceList::-webkit-scrollbar {
   width: 8px;
 }
@@ -128,23 +127,37 @@ summary:hover {
   margin: 5px;
 }
 
+.navbar-toggle {
+  font-size: 2rem;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: none;
+  transition: transform 0.3s ease;
+}
+.navbar-toggle:hover{
+  background-color: transparent;
+}
 
-
+.navbar-menu {
+  flex-direction: row;
+}
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
     padding: 0 10px;
     height: 90px;
-    z-index: 20000;
-    transition: background-color 0.3s ease;
+    background-color: var(--primary-color);
+    z-index: 10000;
   }
-  
-  .navbar.menu-open {
-    background-color: #0d1321;
+
+  .navbar-brand {
+    font-size: 20px;
+    z-index: 10001;
   }
-  
+
   .navbar-menu {
-    display: flex;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -154,101 +167,83 @@ summary:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px 0;
+    z-index: 9999;
     opacity: 0;
-    transform: translateY(-10%);
+    transform: translateY(-100%);
     transition: opacity 0.5s ease, transform 0.5s ease;
-    pointer-events: none;
-    z-index: -999;
   }
-  
+
   .navbar-menu.open {
+    display: flex;
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
   }
-  
+
   .navbar-menu li {
-    margin: 20px 0;
+    margin: 15px 0;
     text-align: center;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeSlideIn 0.5s ease forwards;
-    animation-delay: var(--animation-delay, 0s);
+    transition: transform 0.3s ease, color 0.3s ease;
   }
-  
-  .navbar-menu.open li {
-    --animation-delay: calc(var(--index, 0) * 0.1s);
-  }
-  
-  .navbar-menu a ,summary{
+
+  .navbar-menu a {
     color: #fff;
     font-size: 20px;
     text-decoration: none;
     transition: color 0.3s ease;
   }
-  
+
   .navbar-menu a:hover {
     color: var(--accent-color);
   }
-  
+
   .navbar-toggle {
     display: block;
     font-size: 2rem;
     color: #fff;
-    background: none;
     border: none;
     cursor: pointer;
+    z-index: 10001;
     transition: transform 0.3s ease;
   }
-  
-  .navbar-toggle:hover {
-    transform: scale(1.1);
+
+  .navbar-toggle.open {
+    transform: rotate(90deg);
   }
-  
-  @keyframes fadeSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+
 
   .serviceList {
-    position: relative;
-    width: 70%;  
-    max-height: 40vh; 
-    top: 0;  
-    left: 50%;  
-    transform: translateX(-50%);  
-    padding: 15px; 
-    box-shadow: none; 
-    border-radius: 8px;  
-    font-size: 14px; 
-    z-index: 100; 
-  }
-  .serviceList li:hover{
-    background-color: #000000;
+    width: 60%;
+    max-height: 50vh;
+    position: static;
+    transform: none; 
+    padding: 15px;
+    box-shadow: none;
     border-radius: 8px;
-    transition: 1s ease;
-
+    font-size: 14px;
+    background-color: #191919;
   }
 
   .services.open .serviceList {
-    
-    transform: translateX(-50%) translateY(0);  
     opacity: 1;
     visibility: visible;
   }
 
   .serviceList .service {
-    font-size: 14px; 
-    padding: 10px; 
-    margin: 5px 0; 
+    font-size: 14px;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-menu.open {
+    animation: slideDown 0.5s ease forwards;
   }
 }
-
-

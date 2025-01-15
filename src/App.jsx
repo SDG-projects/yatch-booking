@@ -17,10 +17,12 @@ import ProductDetail from "./components/productdetail";
 import ProductSection from "./components/Products";
 import ContactPage from "./pages/Contact";
 import About from "./pages/about";
+// import Package from "./components/Package";
+const Package = lazy(() => import("./components/Package"));
+
 function App() {
   return (
     <>
-     <AIChat />
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<ProductSection />} /> */}
@@ -31,7 +33,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Home />
-                  
                 </Suspense>
               }
             />
@@ -40,7 +41,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Home />
-                  
                 </Suspense>
               }
             />
@@ -49,7 +49,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Packages />
-                  
                 </Suspense>
               }
             />
@@ -58,7 +57,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Services />
-                 
                 </Suspense>
               }
             />
@@ -67,7 +65,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Services />
-                 
                 </Suspense>
               }
             />
@@ -76,7 +73,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <ProductDetail />
-               
                 </Suspense>
               }
             />
@@ -85,7 +81,7 @@ function App() {
               path="/packages/:pack"
               element={
                 <Suspense fallback={<Loading />}>
-                  <Packages />
+                  <Package details={true} />
                 </Suspense>
               }
             />
@@ -94,7 +90,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <Home />
-                 
                 </Suspense>
               }
             />
@@ -103,7 +98,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <CustomPackage />
-                 
                 </Suspense>
               }
             />
@@ -153,7 +147,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <About />
-                
                 </Suspense>
               }
             />
@@ -162,7 +155,6 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <ContactPage />
-                
                 </Suspense>
               }
             />

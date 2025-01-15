@@ -62,7 +62,7 @@ const ProductDetail = () => {
                   src={img}
                   alt={`${product.name} ${index + 1}`}
                   className="product-detail-image"
-                  />
+                />
               </div>
             ))}
           </Slider>
@@ -70,8 +70,8 @@ const ProductDetail = () => {
         <div className="product-detail-info">
           <h1 className="product-title">{product.name}</h1>
           <p>
-            <strong>Price Per Hour:</strong>
-            <span className="pd-detail-price">{product.price} AED</span>
+            <strong>Price:</strong>
+            <span className="pd-detail-price">{product.price}</span>
           </p>
           <p>
             <strong>Size:</strong> {product.feet}
@@ -80,11 +80,11 @@ const ProductDetail = () => {
             <strong>Capacity:</strong> {product.capacity}
           </p>
           <p>
-            <strong>Extras: </strong> {product.Extras}
+            <strong>Description:</strong> {product.description}
           </p>
-          <div className="book-now-btn1">
+          <div className="book-now-btn">
             <button
-              className="book-now-button2"
+              className="book-now-button"
               onClick={()=>handleWhatsAppRedirect(product)}
             >
               <span>Book By</span>

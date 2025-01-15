@@ -30,10 +30,10 @@ function prompt() {
 
 function AIChat() {
   const [chatOpen, setChatOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [messages, setMessages] = useState([]);
   const userMsg = useRef();
   const chatEndRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [messages, setMessages] = useState([]);
 
   const handleSendMessage = async () => {
     const userMessage = userMsg.current.value;
@@ -58,7 +58,7 @@ function AIChat() {
   }, [messages]);
 
   return (
-    <div>
+    <div className="chat-container">
       <button
         className={`chat-toggle-btn ${chatOpen ? "chat-toggle-btn-open" : ""}`}
         onClick={() => setChatOpen(!chatOpen)}
@@ -77,7 +77,7 @@ function AIChat() {
                 className="chat-contact-link"
               >
                 <span className="chat-contact-icon">
-                <svg
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
                     y="0px"
@@ -126,5 +126,3 @@ function AIChat() {
 }
 
 export default AIChat;
-
-
