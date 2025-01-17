@@ -19,7 +19,6 @@ const BackgroundVideo = () => {
         </h1>
         <p>
           Experience the ultimate luxury yacht rental experience
-          <br />
           in Dubai with Golden Yatch Rentals Dubai.
         </p>
         <button className="cta-button" onClick={handleRedirect}>

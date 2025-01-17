@@ -203,25 +203,29 @@ const Services = [
       price:"9999",
       feet: "151ft ",
       capacity: "10 People",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+      isVIP: true,
     },
     {
       id: 2,
-      name: "As Marine Luxury",
+      name: "As Marine ",
       images: ["/img/yatch/P2/luxury-yatch-dubai-2_1.jpg", "/img/yatch/P2/luxury-yatch-dubai-2_2.jpg", "/img/yatch/P2/luxury-yatch-dubai-2_3.jpg","/img/yatch/P2/luxury-yatch-dubai-2_4.jpg","/img/yatch/P2/luxury-yatch-dubai-2_5.jpg","/img/yatch/P2/luxury-yatch-dubai-2_6.jpg","/img/yatch/P2/luxury-yatch-dubai-2_7.jpg","/img/yatch/P2/luxury-yatch-dubai-2_8.jpg","/img/yatch/P2/luxury-yatch-dubai-2_9.jpg","/img/yatch/P2/luxury-yatch-dubai-2_10.jpg"
       ],
       price:"850",
       feet: "50ft ",
       capacity: "15 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
     },
     {
       id: 3,
-      name: "Trignity Luxury",
+      name: "Trignity",
       images: ["/img/yatch/P3/luxury-yatch-dubai-3_1.jpg", "/img/yatch/P3/luxury-yatch-dubai-3_2.jpg", "/img/yatch/P3/luxury-yatch-dubai-3_3.jpg","/img/yatch/P3/luxury-yatch-dubai-3_4.jpg","/img/yatch/P3/luxury-yatch-dubai-3_5.jpg","/img/yatch/P3/luxury-yatch-dubai-3_6.jpg","/img/yatch/P3/luxury-yatch-dubai-3_7.jpg"
       ],
       price:"4699",
       feet: "135ft ",
       capacity: "120 People",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+      isVIP: true,
     },
     {
       id: 4,
@@ -231,7 +235,8 @@ const Services = [
       price:"1799",
       feet: "90ft ",
       capacity: "55 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+      isVIP: true,
     },  
     {
       id: 5,
@@ -241,7 +246,7 @@ const Services = [
       price:"750",
       feet: "16ft ",
       capacity: "2 Person",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
     },
   
     {
@@ -251,18 +256,18 @@ const Services = [
       price:"1550",
       feet: "20ft ",
       capacity: "3 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
     },
   
     {
       id: 7,
-      name: "As Marine Luxury Yatch ",
+      name: "Serena ",
       images: ["/img/yatch/P7/luxury-yatch-dubai-7_1.jpg","/img/yatch/P7/luxury-yatch-dubai-7_2.jpg", "/img/yatch/P7/luxury-yatch-dubai-7_3.jpg","/img/yatch/P7/luxury-yatch-dubai-7_4.jpg","/img/yatch/P7/luxury-yatch-dubai-7_5.jpg","/img/yatch/P7/luxury-yatch-dubai-7_6.jpg"
       ],
       price:"850",
       feet: "50ft ",
       capacity: "20 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
     },
   
     {
@@ -270,43 +275,56 @@ const Services = [
       name: "Seashell ",
       images: ["/img/yatch/P8/luxury-yatch-dubai-1_4.webp", "/img/yatch/P8/luxury-yatch-dubai-1_3.webp", "/img/yatch/P8/luxury-yatch-dubai-1_2.webp","/img/yatch/P8/luxury-yatch-dubai-1_1.webp","/img/yatch/P8/luxury-yatch-dubai-1_5.webp","/img/yatch/P8/luxury-yatch-dubai-1_6.webp"
       ],
-      price:"850",
-      feet: "50ft ",
-      capacity: "20 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      price:"550",
+      feet: "42ft ",
+      capacity: "10 Persons",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)"
     },
   
     {
-      id: 3,
-      name: "As Marine Luxury Yatch ",
-      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      id: 9,
+      name: "Ali Luxury ",
+      images: ["/img/yatch/P9/luxury-yatch-dubai-9_1.jpg", "/img/yatch/P9/luxury-yatch-dubai-9_2.jpg", "/img/yatch/P9/luxury-yatch-dubai-9_3.jpg","/img/yatch/P9/luxury-yatch-dubai-9_4.jpg","/img/yatch/P9/luxury-yatch-dubai-9_5.jpg","/img/yatch/P9/luxury-yatch-dubai-9_6.jpg","/img/yatch/P9/luxury-yatch-dubai-9_7.jpg"
       ],
-      price:"850",
+      price:"1550",
       feet: "50ft ",
-      capacity: "20 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      capacity: "40 Persons",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)"
     },
   
     {
-      id: 3,
-      name: "As Marine Luxury Yatch ",
-      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      id: 10,
+      name: "Black Pearl ",
+      images: ["/img/yatch/p10/luxury-yatch-dubai-10_1.jpg", "/img/yatch/p10/luxury-yatch-dubai-10_2.jpg", "/img/yatch/p10/luxury-yatch-dubai-10_3.jpg","/img/yatch/p10/luxury-yatch-dubai-10_4.jpg","/img/yatch/p10/luxury-yatch-dubai-10_5.jpg","/img/yatch/p10/luxury-yatch-dubai-10_6.jpg","/img/yatch/p10/luxury-yatch-dubai-10_7.jpg"
       ],
-      price:"850",
-      feet: "50ft ",
-      capacity: "20 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      price:"1800",
+      feet: "95ft ",
+      capacity: "50 Persons",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)"
     },
   
     {
-      id: 3,
-      name: "As Marine Luxury Yatch ",
-      images: ["/img/yatch/Luxury-yatch-dubai-2_1.jpg", "/img/yatch/Luxury-yatch-dubai-2_2.jpg", "/img/yatch/Luxury-yatch-dubai-2_3.jpg","/img/yatch/Luxury-yatch-dubai-2_4.jpg","/img/yatch/Luxury-yatch-dubai-2_5.jpg","/img/yatch/Luxury-yatch-dubai-2_6.jpg"
+      id: 11,
+      name: "DOMINATOR ",
+      images: ["/img/yatch/P11/luxury-yatch-dubai-11_1.jpg", "/img/yatch/P11/luxury-yatch-dubai-11_2.jpg", "/img/yatch/P11/luxury-yatch-dubai-11_3.jpg","/img/yatch/P11/luxury-yatch-dubai-11_4.jpg","/img/yatch/P11/luxury-yatch-dubai-11_5.jpg","/img/yatch/P11/luxury-yatch-dubai-11_6.jpg"
       ],
-      price:"850",
-      feet: "50ft ",
-      capacity: "20 People",
-      Extras:"Water / SoftDrinks / Chips / Nuts"
+      price:"1200",
+      feet: "65ft ",
+      capacity: "25 Persons",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)"
+    },
+    {
+      id: 12,
+      name: "BB Marine ",
+      images: ["/img/yatch/P12/luxury-yatch-dubai-12_1.jpg", "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg", "/img/yatch/P12/luxury-yatch-dubai-12_3.jpg","/img/yatch/P12/luxury-yatch-dubai-12_4.jpg","/img/yatch/P12/luxury-yatch-dubai-12_5.jpg","/img/yatch/P12/luxury-yatch-dubai-12_6.jpg"
+      ,"/img/yatch/P12/luxury-yatch-dubai-12_7.jpg"
+      ,"/img/yatch/P12/luxury-yatch-dubai-12_8.jpg"
+      ,"/img/yatch/P12/luxury-yatch-dubai-12_9.jpg"
+      ],
+      price:"3000",
+      feet: "110ft ",
+      capacity: "70 Persons",
+      Complementary:"Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)"
     },
  ];
 

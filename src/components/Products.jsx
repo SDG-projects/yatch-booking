@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { getProducts } from "../data/Services";
@@ -25,7 +24,7 @@ export const handleWhatsAppRedirect = (product) => {
   }
 };
 
-export const Product = ({ product, sliderSettings }) => {
+export const Product = ({ product }) => {
   const navigate = useNavigate();
 
   const handleProductClick = () => {
@@ -35,23 +34,20 @@ export const Product = ({ product, sliderSettings }) => {
 
   return (
     <div key={product.id} className="product-card">
-      <h3 className="product-name"><span> GOLDEN YATCH- </span><br></br>{product.name}</h3>
-      <Slider {...sliderSettings} className="product-slider">
-        {product.images.map((img, index) => (
-          <div key={index}>
-            <img
-              src={img}
-              alt={product.name}
-              className="product-image"
-              onClick={handleProductClick}
-            width={300} height={300}/>
-          </div>
-        ))}
-      </Slider>
+      <h3 className="product-name">{product.name}<span> - GOLDEN YATCH</span></h3>
+      <div>
+        <img
+          src={product.images[0]}
+          alt={product.name}
+          className="product-image"
+          onClick={handleProductClick}
+          width={300} height={300}
+        />
+      </div>
       <div className="product-info" onClick={handleProductClick}>
         <p className="product-detail">
           <i className="fa-solid fa-money-bill-wave"></i>
-          Price: <span className="pd-price">{product.price} AED</span>
+          Price: <span className="pd-price">{product.price} AED</span> Per Hour
         </p>
         <p className="product-detail">
           <i className="fa-solid fa-up-right-and-down-left-from-center"></i>
@@ -80,15 +76,6 @@ export const Product = ({ product, sliderSettings }) => {
 const ProductSection = () => {
   const products = getProducts();
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-  };
-
   return (
     <section id="products" className="product-section">
       <h1 className="section-title">Best Yatch Rental Dubai</h1>
@@ -99,7 +86,6 @@ const ProductSection = () => {
           <Product
             key={product.id}
             product={product}
-            sliderSettings={sliderSettings}
           />
         ))}
       </div>

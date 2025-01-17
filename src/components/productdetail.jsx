@@ -80,7 +80,7 @@ const ProductDetail = () => {
             <strong>Capacity:</strong> {product.capacity}
           </p>
           <p>
-            <strong>Description:</strong> {product.description}
+            <strong>Complementary:</strong> {product.Complementary}
           </p>
           <div className="book-now-btn">
             <button

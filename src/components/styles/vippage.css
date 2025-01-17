@@ -1,0 +1,150 @@
+.vip-rental-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .vip-title {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .vip-yachts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .vip-yacht-card {
+    background: var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .vip-yacht-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .vip-yacht-image-container {
+    width: 100%;
+    height: auto;
+  }
+  
+  .vip-yacht-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 4px solid var(--accent-color);
+  }
+  
+  .vip-yacht-info {
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .vip-yacht-name {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+  }
+  
+  .vip-yacht-price {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .view-details-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+  }
+  
+  .view-details-button:hover {
+    background-color: #f3d853;
+  }
+  
+  .product-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: -10px;
+    border-radius: 25px;
+  }
+  
+  .btn {
+    display: flex;
+    height: 7vh;
+    width: 160px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: center; 
+    justify-content: center; 
+    padding: 10px 20px; 
+    background-color: var(--accent-color);      
+    color: black;  
+    font-weight: 100;
+    font-family: "Kanit", serif;
+    border: none;  
+    border-radius: 40px;
+    letter-spacing: 0px;
+    font-size: 16px; 
+    cursor: pointer;
+  }
+  .btn span{
+    margin-right: 5px;
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .btn img {
+    width: 25px;
+    height: 20px;
+    margin-right: 5px;
+    object-fit: contain;
+  }
+  .btn:hover{
+    transform: translateY(-1px);
+    color: var(--accent-color);
+    transition: 1s;
+  }
+  @media (max-width: 768px) {
+    .vip-yacht-card {
+      max-width: 100%;
+    }
+  
+    .vip-yacht-name {
+      font-size: 1.5rem;
+    }
+  
+    .vip-yacht-price {
+      font-size: 1.2rem;
+    }
+  
+    .view-details-button {
+      font-size: 1rem;
+    }
+  }
+  

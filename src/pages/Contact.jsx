@@ -52,7 +52,7 @@ const ContactPage = () => {
         <h2>Contact Information</h2>
         <div className="info">
           <p><strong>Address:</strong> Dubai Marina ,Marina suits 1001</p>
-          <p><strong>Phone:</strong> +971 55 593 0716</p>
+          <p><strong>Phone:</strong> + 971 55 593 0716</p>
           <p><strong>Email:</strong> goldenyatchrentals@gmail.com</p>
           <p><strong>Time:</strong> Sun - Sat: 8 AM - 12 PM</p>
         </div>

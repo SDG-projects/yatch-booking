@@ -183,7 +183,7 @@ summary:hover {
   .navbar-menu li {
     margin: 15px 0;
     text-align: center;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease; 
   }
 
   .navbar-menu a {
@@ -221,6 +221,7 @@ summary:hover {
     box-shadow: none;
     border-radius: 8px;
     font-size: 14px;
+    margin-left: 350px;
     background-color: #191919;
   }
 

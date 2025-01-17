@@ -32,8 +32,8 @@
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 45px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
+  gap: 30px;
   justify-content: center;
 }
 
@@ -58,6 +58,7 @@
   min-height: 300px;
   object-fit: cover;
   border-radius: 15px 15px 0px 0px;  
+  border-bottom: 4px solid var(--accent-color);
 }
 
 
@@ -154,7 +155,7 @@
 
 .product-slider .slick-prev,
 .product-slider .slick-next {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.1);
   color: #fff;
   border-radius: 5px;
   width: 50px;

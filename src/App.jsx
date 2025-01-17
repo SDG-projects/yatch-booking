@@ -17,12 +17,15 @@ import ProductDetail from "./components/productdetail";
 import ProductSection from "./components/Products";
 import ContactPage from "./pages/Contact";
 import About from "./pages/about";
+import AIChat from "./components/AIChat";
+import VIPRental from "./components/vipRental";
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
 
 function App() {
   return (
     <>
+    <AIChat />
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<ProductSection />} /> */}
@@ -44,6 +47,7 @@ function App() {
                 </Suspense>
               }
             />
+            <Route path="/vipRental" element={<VIPRental />} />
             <Route
               path="/packages"
               element={
