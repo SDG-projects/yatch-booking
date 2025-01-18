@@ -141,10 +141,11 @@
   font-size: 1.2rem;
 }
 .btn img {
-  width: 25px;
-  height: 20px;
-  margin-right: 5px;
-  object-fit: contain;
+  /* width: 25px; */
+  /* height: 20px; */
+  /* margin-right: 5px; */
+  /* object-fit: contain; */
+  border:none;
 }
 
 .btn:hover{
