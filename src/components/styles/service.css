@@ -1,33 +1,14 @@
-.servicesCon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  padding: 20px;
-  background: var(--primary-color);
-  color: white;
-  width: 100%;
-  overflow-x: hidden;
-}
-
 .serviceCon {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 90%;
   gap: 30px;
-  /* border: 5px solid var(--accent-color); */
   border-radius: 12px;
   overflow: hidden;
-  height: 75vh;
+  height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.serviceCon:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
 .serviceCon:nth-child(even) {
@@ -35,59 +16,42 @@
 }
 
 .serviceImgCon {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  max-width: 60%;
-  position: relative;
+  max-width: 45%;
+  gap: 10px;
   border-radius: 12px;
   overflow: hidden;
-  height: 100%;
+  height: auto;
 }
 
 .serviceImg {
   width: 100%;
-  height: 100%;
+  height: 240px;
   object-fit: cover;
+  border-radius: 8px;
   transition: transform 0.5s ease;
 }
 
 .serviceImgCon:hover .serviceImg {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .serviceDet {
   flex: 1;
-  max-width: 45%;
-  height: 50vh;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
   gap: 15px;
   padding: 20px;
-  /* background: rgba(255, 255, 255, 0.1); */
   border-radius: 12px;
-  backdrop-filter: blur(10px);
-  overflow-y: scroll;
-  height: 100%;
-}
-
-.serviceDet h2 {
-  font-size: 2rem;
-  color: var(--accent-color);
-}
-
-.serviceDet .detail-heading {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #ffd700;
-}
-
-.serviceDet p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #eeeeee;
-  max-width: 100%;
+  background: linear-gradient(145deg, #222, #1a1a1a);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  height: 350px;
+  overflow-y: auto;
 }
 
 .serviceDet::-webkit-scrollbar {
@@ -95,20 +59,46 @@
 }
 
 .serviceDet::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
+  background: var(--secondary-color);
   border-radius: 5px;
 }
 
 .serviceDet::-webkit-scrollbar-track {
-  background-color: rgba(240, 144, 1, 0.2);
+  background-color: var(--accent-color);
   border-radius: 5px;
 }
 
+.serviceDet h2 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.serviceDet p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.serviceDet h3 {
+  font-size: 1.3rem;
+  color: #ff8c00;
+  font-weight: bold;
+}
+
+
+
+
+.bookNowBtn:hover {
+  background-color: #e67e00;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   .serviceCon {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
 
   .serviceImgCon,
@@ -117,20 +107,37 @@
     width: 100%;
   }
 
+  .serviceCon:nth-child(even) {
+    flex-direction: column;
+  }
+
   .serviceDet {
-    text-align: justify;
     padding: 15px;
+    text-align: justify;
+    height: 300px;
   }
 
   .serviceDet h2 {
     font-size: 1.5rem;
+    margin-bottom: 10px;
   }
 
   .serviceDet p {
     font-size: 0.9rem;
   }
 
-  .serviceCon:nth-child(even) {
-    flex-direction: column;
+  .serviceDet h3 {
+    font-size: 1.1rem;              
+  }
+
+  .serviceImg {
+    height: 200px;
+  }
+
+  .bookNowBtn {
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin-top: 15px;
   }
 }
+

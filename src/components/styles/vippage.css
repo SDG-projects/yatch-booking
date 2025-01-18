@@ -6,29 +6,37 @@
   }
   
   .vip-title {
-    font-size: 2.5rem;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
     color: var(--accent-color);
+    margin-top: -50px;
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 30px;
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+  }
+  .styled-line {
+    border: 0;
+    border-top: 2px solid var(--accent-color);
+    margin: 20px 0;
   }
   
   .vip-yachts-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 2fr));
+    gap: 30px;
     justify-content: center;
   }
   
   .vip-yacht-card {
-    background: var(--secondary-color);
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    text-align: start;
+    background: none; 
+    box-shadow: none; 
+    border-radius: 0;
+    margin-top: 30px; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
   }
   
   .vip-yacht-card:hover {
@@ -36,36 +44,38 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
   
-  .vip-yacht-image-container {
-    width: 100%;
-    height: auto;
-  }
-  
   .vip-yacht-image {
     width: 100%;
-    height: auto;
+    min-height: 300px;
     object-fit: cover;
+    border-radius: 15px 15px 0px 0px;  
     border-bottom: 4px solid var(--accent-color);
   }
   
   .vip-yacht-info {
     padding: 20px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    border-radius: 0 0 15px 15px; 
+    color: #e5e7eb;
+    letter-spacing: 2px;
+    background: var(--secondary-color);
   }
   
   .vip-yacht-name {
-    font-size: 1.8rem;
-    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
   }
   
   .vip-yacht-price {
     color: var(--accent-color);
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.5rem;
   }
+ 
+  
   
   .view-details-button {
     display: inline-block;

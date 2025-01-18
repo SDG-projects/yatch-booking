@@ -1,7 +1,9 @@
 const Services = [
   {
+    img: "/img/services/romantic.jpg",
+    img2: "/img/services/romantic2.jpg",
     name: "Romantic Private Dinner",
-    description: "the private Chef will alote to prepare foods for your party ",
+    description: "Immerse yourself in the ultimate romantic experience with Elite Rentals Dubai. Our luxury yacht rentals offer an exquisite setting for an intimate and unforgettable dinner with your loved one. Unlike any other yacht rental company in Dubai, Elite Rentals boasts a prestigious fleet of Diamond Yachts Category A vessels, ensuring an unparalleled level of elegance and opulence. Discover the epitome of luxury and create lifelong memories aboard our exclusive yachts.",
     info: { Name: "Dote", rating: 4, price: 1000 },
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },

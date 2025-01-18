@@ -13,6 +13,7 @@ const VIPRental = () => {
   return (
     <div className="vip-rental-container">
       <h1 className="vip-title">VIP Yachts</h1>
+      <hr className="styled-line"/>
       <div className="vip-yachts-list">
         {products.map((product) => (
           <div key={product.id} className="vip-yacht-card">

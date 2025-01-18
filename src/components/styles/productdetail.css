@@ -29,10 +29,10 @@
 
 .product-detail-info {
   flex: 1;
-  max-width: 400px;
+  max-width: 700px;
   width: 100%;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   background: var(--secondary-color);
   padding: 20px;
   border-radius: 8px;
@@ -47,12 +47,14 @@
   font-size: 2rem;
   margin-bottom: 20px;
   color: var(--accent-color);
+  font-family: "Poppins","serif";
+  letter-spacing: 3px;
 }
 
 .product-detail-info p {
   margin-bottom: 20px;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .pd-detail-price {
@@ -117,7 +119,7 @@
   color: #fff;
 }
 .book-now-btn:hover{
-  background-color: transparent;
+  background-color: none;
 }
 
 .product-detail-slider .slick-prev,
@@ -158,8 +160,9 @@
   }
 
   .product-detail-info {
-    text-align: center;
+    text-align: start;
     margin-top: 20px;
+
   }
 
   .product-title {

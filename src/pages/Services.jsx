@@ -23,7 +23,7 @@ function Services() {
         element.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
-  });
+  }, [service]);
 
   return (
     <div className="servicesCon">
@@ -40,9 +40,14 @@ function Services() {
         >
           <div className="serviceImgCon">
             <img
-              src="/img/yacht.png"
+              src={service.img}
               className="serviceImg"
-              alt={service.name}
+              alt={`${service.name} Image 1`}
+            />
+            <img
+              src={service.img2}
+              className="serviceImg"
+              alt={`${service.name} Image 2`}
             />
           </div>
           <div className="serviceDet">
@@ -50,7 +55,8 @@ function Services() {
             <p>{service.description}</p>
             <p>Price: ${service.price.rate}</p>
             <p>Discount Price: ${service.price.discountRate}</p>
-            <h3>Rating:{service.info.rating}</h3>
+            <h3>Rating: {service.info.rating}</h3>
+            <button className="bookNowBtn">Book Now</button>
           </div>
         </div>
       ))}
