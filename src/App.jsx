@@ -1,5 +1,5 @@
 import { lazy, Suspense, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import "./App.css";
 import Layout from "./pages/Layout";
 import Loading from "./components/Loading";
@@ -26,7 +26,7 @@ function App() {
   return (
     <>
     <AIChat />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {/* <Route path="/" element={<ProductSection />} /> */}
           <Route path="/" element={<Layout />}>
@@ -165,7 +165,7 @@ function App() {
             <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
