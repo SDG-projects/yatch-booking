@@ -52,7 +52,17 @@ function Services() {
           </div>
           <div className="serviceDet">
             <h2>{service.name}</h2>
-            <p>{service.description}</p>
+            <h3>{service.heading}</h3>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: service.description.replace(/\n/g, "<br />"),
+              }}
+            />
+            <h3>We Offer:</h3>
+            <p>{service.weoffer1}</p>
+            <p>{service.weoffer2}</p>
+            <p>{service.weoffer3}</p>
+            <p>{service.weoffer4}</p>
             <p>Price: ${service.price.rate}</p>
             <p>Discount Price: ${service.price.discountRate}</p>
             <h3>Rating: {service.info.rating}</h3>
@@ -65,3 +75,4 @@ function Services() {
 }
 
 export default Services;
+

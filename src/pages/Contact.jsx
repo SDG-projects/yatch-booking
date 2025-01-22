@@ -28,10 +28,10 @@ const ContactPage = () => {
     };
     emailjs
       .send(
-        "yatch-booking", 
-        "template_fac7cek", 
+        "service_lwaukmh", 
+        "template_u2hooha", 
         templateParams,
-        "0VluMGvJ2_BKGF-RZ"
+        "NbkN4OM23omF2CKKi"
       )
       .then(
         (response) => {

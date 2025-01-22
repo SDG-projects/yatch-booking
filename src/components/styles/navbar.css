@@ -37,7 +37,7 @@ summary {
 }
 
 .navbar-menu li:hover {
-  /* transform: translateZ(-1px); */
+   transform: translateZ(-1px); 
 }
 
 .navbar-menu a {

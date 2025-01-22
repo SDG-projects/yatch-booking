@@ -182,8 +182,10 @@ function Pack({
       {" "}
       <div className="pack-container">
         <div className="pack-image">
-          <h1 className="pack-title">Pack: {name}</h1>
-          <img src={imgs} alt="" />
+          <h1 className="pack-title" style={{ backgroundImage: `url(${imgs}` }}>
+            {name}
+          </h1>
+          {/* <img src={imgs} alt="" /> */}
         </div>
         {details && (
           <div className="pack-info">
@@ -193,6 +195,32 @@ function Pack({
               </div>
             )}
             <div className="pack-services">
+              {showServices && filteredServices.length > 0 && (
+                <div className="remainServ">
+                  <button
+                    className="cancelBtn"
+                    onClick={() => {
+                      setShowServices(!showServices);
+                    }}
+                  >
+                    <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+                  </button>
+                  <ul>
+                    {filteredServices.map((value, i) => {
+                      return (
+                        <li
+                          key={i}
+                          onClick={() => {
+                            setPackServices([...packServices, value]);
+                          }}
+                        >
+                          {value.name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
               {packServices.map((service, i) => (
                 <div key={i} className="pack-service">
                   {details ? (
@@ -278,34 +306,6 @@ function Pack({
 
         {children}
       </div>
-      {showServices && filteredServices.length > 0 && (
-        <div className="remainServ">
-          <button
-            className="cancelBtn"
-            onClick={() => {
-              setShowServices(!showServices);
-            }}
-          >
-            <i className="fa-solid fa-xmark" aria-hidden="true">
-              x
-            </i>
-          </button>
-          <ul>
-            {filteredServices.map((value, i) => {
-              return (
-                <li
-                  key={i}
-                  onClick={() => {
-                    setPackServices([...packServices, value]);
-                  }}
-                >
-                  {value.name}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
     </section>
   );
 }
