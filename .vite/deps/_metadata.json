@@ -1,0 +1,55 @@
+{
+  "hash": "0b3f5820",
+  "configHash": "37b0d1e5",
+  "lockfileHash": "73acdb6c",
+  "browserHash": "b9508527",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "34f7465f",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "03e4906d",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "13da6012",
+      "needsInterop": false
+    },
+    "emailjs-com": {
+      "src": "../../node_modules/emailjs-com/es/index.js",
+      "file": "emailjs-com.js",
+      "fileHash": "ba1ad6fe",
+      "needsInterop": false
+    },
+    "react-slick": {
+      "src": "../../node_modules/react-slick/lib/index.js",
+      "file": "react-slick.js",
+      "fileHash": "6d587bc3",
+      "needsInterop": true
+    },
+    "react-icons/fa": {
+      "src": "../../node_modules/react-icons/fa/index.mjs",
+      "file": "react-icons_fa.js",
+      "fileHash": "89a3ae5d",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-JUWM2LYA": {
+      "file": "chunk-JUWM2LYA.js"
+    },
+    "chunk-W4EHDCLL": {
+      "file": "chunk-W4EHDCLL.js"
+    },
+    "chunk-EWTE5DHJ": {
+      "file": "chunk-EWTE5DHJ.js"
+    }
+  }
+}
