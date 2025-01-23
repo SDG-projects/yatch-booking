@@ -98,8 +98,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #33323254;
-  /* filter: blur(3px); */
+  background-color: rgb(40, 36, 36);
+
+  filter: blur(3px);
   z-index: -1;
 }
 .pack-action {
@@ -182,11 +183,30 @@
 } */
 
 .pack-services {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   color: var(--text-color);
+}
+
+.pack-service-name {
+  display: inline;
+  font-weight: bolder;
+  font-size: larger;
+  color: var(--accent-color);
+  text-transform: capitalize;
+}
+.pack-service-name::after {
+  content: ":";
+  padding: 10px;
+}
+.pack-service-description {
+  /* display: inline; */
+  text-transform: capitalize;
+}
+.pack-service-price {
+  padding: 5px;
 }
 /* padding-top: 50px; */
 /* .package-image {
@@ -205,6 +225,10 @@
   flex-basis: 30%;
   flex-basis: calc(100% / 3);
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 5px;
 }
 /* Package Body */
 /* .package-card-body {
@@ -305,7 +329,7 @@
   margin-left: 20px;
 }
 .price-rate {
-  font-size: 1.4rem;
+  /* font-size: 1.4rem; */
   color: #999;
   text-decoration: line-through;
 }
@@ -352,9 +376,10 @@
   z-index: 3;
   top: 0;
   right: 0;
-  background-color: #0f3460;
+  background-color: #0e161edd;
   padding: 20px;
   height: 100%;
+  transition: all 500ms ease-in-out;
 }
 .book-now-btn:hover {
   background-color: #2980b9;
@@ -363,6 +388,7 @@
   list-style: none;
   overflow-y: scroll;
   height: 100%;
+  transition: all 500ms ease-in-out;
 }
 /* Floating Action Buttons */
 /* .add-service-btn-container {
@@ -374,6 +400,8 @@
 .remainServ ul li {
   padding: 10px;
   margin: 10px;
+
+  transition: all 500ms ease-in-out;
 }
 .add-service-btn {
   background-color: #2ecc71;
@@ -413,6 +441,7 @@
   color: var(--text-color);
   padding: 10px;
   cursor: pointer;
+  transition: all 500ms ease-in-out;
 }
 /* Service Dropdown */
 /* .service-dropdown {
@@ -433,8 +462,8 @@
 } */
 
 .remainServ li:hover {
-  background: var(--accent-color);
-  color: var(--sec0ndary-color);
+  background: linear-gradient(-135deg, #000000 20%, #0f172a 100%);
+  /* color: var(--sec0ndary-color); */
 }
 /* .service-dropdown ul {
   list-style: none;
@@ -478,7 +507,7 @@
     /* border-top: 10px solid saddlebrown; */
     position: relative;
     width: 100%;
-    height: 70%;
+    /* height: 70%; */
   }
   .service-dropdown li:hover {
     background-color: #f0f0f0;

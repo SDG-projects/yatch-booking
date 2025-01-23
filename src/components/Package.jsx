@@ -72,6 +72,7 @@ function Pack({
   price,
   details,
   editable,
+  packIncludes,
   children,
   ...props
 }) {
@@ -225,29 +226,32 @@ function Pack({
                 <div key={i} className="pack-service">
                   {details ? (
                     <>
-                      {" "}
-                      <details>
-                        <summary>{service.name}</summary>
-                        <div>
-                          <p>{service.description}</p>
-                        </div>
-                        {/* <div>
-               {service.price && service.price.discountRate ? (
-                 <div>
-                   <span className="pack-service-discount">
-                     {service.price.rate}
-                   </span>
-                   <span className="pack-service-price">
-                     {service.price.discountRate}
-                   </span>
-                 </div>
-               ) : (
-                 <span className="pack-service-price">
-                   {service.price.rate}
-                 </span>
-               )}
-             </div> */}
-                      </details>
+                      <span className="pack-service-name">{service.name}</span>
+
+                      <p className="pack-service-description">
+                        {service.description}
+                      </p>
+
+                      <div>
+                        {service.price && service.price.discountRate ? (
+                          <div>
+                            <span
+                              className="pack-service-discount"
+                              style={{ textDecoration: "line-through" }}
+                            >
+                              {service.price.rate}
+                            </span>
+                            <span className="pack-service-price">
+                              {service.price.discountRate}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="pack-service-price">
+                            {service.price.rate}
+                          </span>
+                        )}
+                      </div>
+
                       {editable && (
                         <button
                           className="cancelBtn"
@@ -266,7 +270,7 @@ function Pack({
               ))}
               {packServices.length <= 0 && "empty"}
             </div>
-            <div className="pack-price">
+            {/* <div className="pack-price">
               <div
                 className="pack-price-rate"
                 style={price.discountRate && { textDecoration: "line-through" }}
@@ -276,6 +280,13 @@ function Pack({
               {price.discountRate && (
                 <div className="pack-price-discount">{price?.discountRate}</div>
               )}
+            </div> */}
+            <div className="pack-includes">
+              <ul>
+                {packIncludes?.map((include, i) => {
+                  return <li key={i}>{include}</li>;
+                })}
+              </ul>
             </div>
             <div className="pack-action">
               <button
@@ -390,6 +401,11 @@ function Package({ imgs, services, details }) {
           services={pack.services}
           price={pack.price}
           details={details}
+          packIncludes={[
+            "6-hour yacht rental",
+            "Personalized wedding decorations",
+            "Complimentary champagne and cake",
+          ]}
         />
       ))}
       {pack == "custom_pack&-1" && (
