@@ -54,7 +54,7 @@ const Navbar = () => {
       <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" width={200} height={200} />
+            <img src={"/img/yatchlogo.png.png"} alt="Yacht Logo" width={300} height={300} />
           </Link>
         </div>
       </div>

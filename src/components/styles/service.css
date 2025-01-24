@@ -1,57 +1,70 @@
-
 .serviceCon {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 90%;
-  margin: 20px auto; 
+  margin: 60px auto; 
   gap: 30px;
   border-radius: 12px;
   overflow: hidden;
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-
-.serviceCon:nth-child(even) {
-  flex-direction: row-reverse;
+.styled-line {
+  border: 0;
+  border-top: 2px solid var(--accent-color);
+  margin: 20px 50px;
 }
-.serviceImgCon {
+.service-h1,.service-p{
+  text-align: center;
+}
+.service-h1{
+  color: var(--accent-color);
+  font-family: "Poppins","serif";
+  font-size: 3rem;
+  letter-spacing: 5px;
+}
+
+.service-p{
+  color: #ffffff;
+  font-family: "Poppins","serif";
+}
+.serviceContent {
   display: flex;
-  flex-direction: column;
-  flex: 1;
-  max-width: 45%;
-  gap: 10px;
+  flex-direction: row;
+  background: linear-gradient(145deg, #222, #1a1a1a); /* Same background as .serviceDet */
   border-radius: 12px;
   overflow: hidden;
-  height: auto;
+  width: 100%;
+  gap: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  color: #fff;
 }
 
-.serviceImg {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.5s ease;
+.serviceImgCon {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
 .serviceDet {
   flex: 1;
   max-width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   gap: 15px;
-  padding: 20px;
-  border-radius: 12px;
-  background: linear-gradient(145deg, #222, #1a1a1a);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   color: #fff;
-  height: auto;
-  font-family: "Poppins","serif";
-  overflow-y: auto;
+  font-family: "Poppins", "serif";
 }
 
+.serviceCon:nth-child(even) .serviceContent {
+  flex-direction: row-reverse;
+}
 
 .serviceDet::-webkit-scrollbar {
   width: 8px;
@@ -66,22 +79,26 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
 }
+
 .serviceDet h2 {
   font-size: 1.8rem;
   color: var(--accent-color);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
 .serviceDet p {
   font-size: 1rem;
   line-height: 1.6;
   color: #ccc;
 }
+
 .serviceDet h3 {
   font-size: 1.3rem;
   color: #ffffff;
   font-weight: bold;
 }
+
 .bookNowBtn {
   background-color: #ff8c00;
   color: #fff;
@@ -99,49 +116,77 @@
 .bookNowBtn:hover {
   background-color: #e67e00;
 }
+
 @media (max-width: 768px) {
   .serviceCon {
     flex-direction: column;
     align-items: center;
   }
 
-  .serviceImgCon,
-  .serviceDet {
-    max-width: 100%;
+  .serviceContent {
+    flex-direction: column; 
+    gap: 20px;
     width: 100%;
   }
-
-  .serviceCon:nth-child(even) {
+  .serviceCon:nth-child(even) .serviceContent {
     flex-direction: column;
   }
 
-  .serviceDet {
-    padding: 15px;
-    text-align: justify;
+  .serviceImgCon {
+    max-width: 100%;
+    width: 100%; 
+    gap: 10px;
+  }
+
+  .serviceImg {
+    width: 100%;
     height: auto;
+    border-radius: 8px;
+  }
+
+  .serviceDet {
+    max-width: 100%;
+    width: 100%; 
+    padding: 20px;
+    color: #fff;
+    font-family: "Poppins", "serif";
+    text-align: justify;
   }
 
   .serviceDet h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-  }
-
-  .serviceDet p {
-    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .serviceDet h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
   }
 
-  .serviceImg {
-    height: 200px;
+  .serviceDet p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
   }
 
   .bookNowBtn {
     font-size: 1rem;
     padding: 10px 15px;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
     margin-top: 15px;
-    width: 80%; 
+  }
+
+  .bookNowBtn:hover {
+    background-color: #e67e00;
   }
 }

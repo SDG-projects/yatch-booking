@@ -124,7 +124,7 @@
   align-items: center; 
   justify-content: center; 
   padding: 10px 20px; 
-  background-color: var(--accent-color);      
+  background: var(--button-color);      
   color: black;  
   font-weight: 100;
   font-family: "Kanit", serif;
@@ -149,7 +149,7 @@
 
 .btn:hover{
   transform: translateY(-1px);
-  color: var(--accent-color);
+  color: var(--secondary-color);
   transition: 1s;
 }
 
