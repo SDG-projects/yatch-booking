@@ -37,7 +37,7 @@ summary {
 }
 
 .navbar-menu li:hover {
-   transform: translateZ(-1px); 
+  transform: translateZ(-1px);
 }
 
 .navbar-menu a {
@@ -83,16 +83,16 @@ summary:hover {
 /* Service List (Desktop and Mobile) */
 .serviceList {
   position: absolute;
-  top: 100%;  /* Align it directly below the Services button */
-  left: 50%;  /* Center it horizontally */
-  transform: translateX(-50%);  /* Center it based on its width */
+  top: 100%; /* Align it directly below the Services button */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Center it based on its width */
   list-style: none;
   background-color: #191919;
   letter-spacing: 2px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 10px 15px;
-  width: 250px;  /* Default width on desktop */
+  width: 250px; /* Default width on desktop */
   max-height: 500px;
   overflow-y: auto;
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
@@ -135,7 +135,7 @@ summary:hover {
   display: none;
   transition: transform 0.3s ease;
 }
-.navbar-toggle:hover{
+.navbar-toggle:hover {
   background-color: transparent;
 }
 
@@ -148,12 +148,12 @@ summary:hover {
     padding: 0 10px;
     height: 90px;
     background-color: var(--primary-color);
-    z-index: 10000;
+    /* z-index: 10000; */
   }
 
   .navbar-brand {
     font-size: 20px;
-    z-index: 10001;
+    /* z-index: 10001; */
   }
 
   .navbar-menu {
@@ -168,7 +168,7 @@ summary:hover {
     align-items: center;
     justify-content: center;
     padding: 20px 0;
-    z-index: 9999;
+    /* z-index: 9999; */
     opacity: 0;
     transform: translateY(-100%);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -183,7 +183,7 @@ summary:hover {
   .navbar-menu li {
     margin: 15px 0;
     text-align: center;
-    transition: transform 0.3s ease, color 0.3s ease; 
+    transition: transform 0.3s ease, color 0.3s ease;
   }
 
   .navbar-menu a {
@@ -203,7 +203,7 @@ summary:hover {
     color: #fff;
     border: none;
     cursor: pointer;
-    z-index: 10001;
+    /* z-index: 10001; */
     transition: transform 0.3s ease;
   }
 
@@ -211,12 +211,11 @@ summary:hover {
     transform: rotate(90deg);
   }
 
-
   .serviceList {
     width: 60%;
     max-height: 50vh;
     position: static;
-    transform: none; 
+    transform: none;
     padding: 15px;
     box-shadow: none;
     border-radius: 8px;
