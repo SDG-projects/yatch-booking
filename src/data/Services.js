@@ -563,7 +563,7 @@ const Packages = [
           followings :
           `,
 
-    services: [getServices(1)[0], getServices(2)[0], getServices(3)[0]],
+          services: [getServices(1)[0], getServices(2)[0], getServices(3)[0]],
     //     {
     //       name: "Private DJ",
     //       description: "the private DJ will alote to your birthday party ",

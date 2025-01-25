@@ -85,7 +85,7 @@ const ProductDetail = () => {
           <div className="book-now-btn">
             <button
               className="book-now-button"
-              onClick={()=>handleWhatsAppRedirect(product)}
+              onClick={() => handleWhatsAppRedirect(product)}
             >
               <span>Book By</span>
               <img src="../img/whatsapp2.png" alt="" />
