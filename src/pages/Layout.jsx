@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./style.css";
 import AIChat from "../components/AIChat";
+import { getOffers } from "../data/Services";
+import Offers from "../components/Offers";
+
 function Layout() {
   return (
     <div className="layout">
@@ -12,6 +15,7 @@ function Layout() {
         <Outlet />
       </div>
       {/* <AIChat /> */}
+      <Offers />
       <Footer />
     </div>
   );

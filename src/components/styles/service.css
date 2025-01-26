@@ -33,7 +33,9 @@
 .serviceContent {
   display: flex;
   flex-direction: row;
-  background: linear-gradient(145deg, #222, #1a1a1a); /* Same background as .serviceDet */
+  background: linear-gradient(145deg, #222, #1a1a1a); 
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 12px;
   overflow: hidden;
   width: 100%;
@@ -100,17 +102,23 @@
 }
 
 .bookNowBtn {
-  background-color: #ff8c00;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
+  display: flex;
+  height: 7vh;
+  width: 160px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center; 
+  justify-content: center; 
+  padding: 10px 20px; 
+  background: var(--button-color);      
+  color: black;  
+  font-weight: 100;
+  font-family: "Kanit", serif;
+  border: none;  
+  border-radius: 40px;
+  letter-spacing: 0px;
+  font-size: 16px; 
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
-  width: 50%; 
 }
 
 .bookNowBtn:hover {

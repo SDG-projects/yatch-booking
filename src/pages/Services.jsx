@@ -66,7 +66,7 @@ function Services() {
             <img
               src={service.img2}
               className="serviceImg"
-              alt={`${service.name} Image 2`}
+              alt={`${service.name} Image 2`} 
             />
           </div>
           <div className="serviceDet">
