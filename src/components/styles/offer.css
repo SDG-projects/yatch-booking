@@ -1,23 +1,23 @@
- /* Main Offer Button (Always visible at the bottom-right of the page) */
 .offerBtn {
-  position: fixed; /* Fixed position */
-  right: 20px; /* Positioned at the right side */
-  bottom: 20px; /* Positioned at the bottom */
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
   padding: 15px 20px;
-  background-color: orange;
+  background: linear-gradient(145deg, orange, darkorange);
   color: white;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  z-index: 100; /* High z-index to ensure visibility */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
+  z-index: 100;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .offerBtn:hover {
-  background-color: darkorange;
+  background: linear-gradient(145deg, darkorange, orange);
+  transform: scale(1.1);
 }
 
 /* Popup Container */
@@ -26,94 +26,102 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10; /* Lower than the offer button */
-  background: transparent;
-  width: 90%; /* Full width for smaller screens */
-  max-width: 800px; /* Limit width for larger screens */
-  height: auto; /* Adjust height dynamically */
-  border-radius: 12px;
-  overflow: hidden; /* Remove scrollbars */
+  z-index: 10;
+  background: rgba(15, 16, 32, 0.95);
+  width: 90%;
+  max-width: 800px;
+  border-radius: 16px;
+  overflow: hidden;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Vertical layout */
+  flex-direction: column;
   gap: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Close Button Inside Popup */
 .offerCloseBtn {
-  position: absolute; /* Positioned relative to the container */
-  top: 10px; /* At the top-right corner */
+  position: absolute;
+  top: 10px;
   right: 10px;
   padding: 10px;
-  background-color: orange;
+  background: linear-gradient(145deg, orange, darkorange);
   color: white;
   border: none;
   border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  z-index: 11; /* Slightly above the popup container */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 11;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .offerCloseBtn:hover {
-  background-color: darkorange;
+  background: linear-gradient(145deg, darkorange, orange);
+  transform: scale(1.1);
 }
 
 /* Offer Section (Container for offers inside the popup) */
 .offerSection {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content at the top */
+  justify-content: flex-start;
   align-items: center;
-  width: 100%; /* Full width */
-  height: auto; /* Adjust height dynamically */
+  width: 100%;
   gap: 20px;
 }
 
 /* Individual Offer List */
 .offers {
   display: flex;
-  flex-direction: column; /* Vertical layout for offers */
+  flex-direction: column;
   gap: 20px;
-  width: 100%; /* Full width of container */
+  width: 100%;
 }
 
 /* Single Offer Styling */
 .offer {
   display: flex;
-  flex-direction: column; /* Ensure vertical layout */
-  gap: 10px;
-  background-color: #0F1020; /* Light background for contrast */
-  border-radius: 12px;
+  flex-direction: column;
+  gap: 15px;
+  background: linear-gradient(145deg, #1a1a2e, #0f1020);
+  border-radius: 16px;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  width: 100%; /* Take full width of container */
+  padding: 20px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.offer:hover {
+  transform: translateY(-10px);
 }
 
 /* Image Styling */
 .offerImg {
-  width: 100%; /* Full width of container */
-  max-width: 400px; /* Limit max width for responsiveness */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
   overflow: hidden;
-  display: inline;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Offer Name */
 .offerName {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: var(--accent-color);
+  text-align: center;
 }
 
 /* Offer Description */
 .offerDescription {
   font-size: 1rem;
   color: aliceblue;
+  text-align: center;
 }
 
 /* Offer Features */
@@ -124,30 +132,33 @@
 
 /* Remaining Time Section */
 .offerTime span {
-  background-color: orange;
+  background: linear-gradient(145deg, orange, darkorange);
   padding: 10px;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
   font-size: 1rem;
   font-weight: bold;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Call-to-Action Button (Book Now) */
 .offerCTC button {
   padding: 10px 20px;
-  background-color: orange;
+  background: linear-gradient(145deg, orange, darkorange);
   color: white;
   font-size: 1rem;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .offerCTC button:hover {
-  background-color: darkorange;
+  background: linear-gradient(145deg, darkorange, orange);
+  transform: scale(1.1);
 }
 
 /* Remove Scrollbars */
@@ -157,6 +168,45 @@
 }
 
 .offerContainer {
-  -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .offerContainer {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .offer {
+    padding: 15px;
+  }
+
+  .offerName {
+    font-size: 1.5rem;
+  }
+
+  .offerDescription {
+    font-size: 0.9rem;
+  }
+
+  .offerCTC button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .offerName {
+    font-size: 1.3rem;
+  }
+
+  .offerDescription {
+    font-size: 0.85rem;
+  }
+
+  .offerCTC button {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
 }

@@ -13,7 +13,9 @@ function Pack({ name, description,detail1,detail2,detail3,detail4, imgs, editabl
       
       <div className="pack-container">
         <div className="pack-left-column">
+          
           <img src={imgs} alt={name} width={500} height={300} />
+      
         </div>
         <div className="pack-left-column">
           <img src={imgs} alt={name} width={500} height={300} />
