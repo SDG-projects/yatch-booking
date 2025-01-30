@@ -14,7 +14,6 @@ const BackgroundVideo = () => {
   return (
     <div className="heroContainer">
       <div className="heroText">
-        <span>usersFeedback</span>
         <h1>
           Welcome to <span className="golden">Golden Yatch Rentals</span>
         </h1>

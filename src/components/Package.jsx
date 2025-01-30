@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { getPackages, getServices } from "../data/Services";
+import { useNavigate, useParams } from "react-router-dom";
 import "./styles/package.css";
 
 import { useNavigate, useParams } from "react-router-dom";
@@ -195,153 +194,52 @@ function Pack({
         </div>
         {details && (
           <div className="pack-info">
-            <div className="infoOverlay"></div>
-            {details && (
-              <div className="pack-description">
-                <p>{description}</p>
-              </div>
-            )}
-            {packIncludes && (
-              <div className="pack-Includes">
-                <h1>Includes</h1>
-                {packIncludes?.map((value) => {
-                  return <p>{value}</p>;
-                })}
-              </div>
-            )}
-
-            {packServices.length > 0 && (
-              <div className="pack-services">
-                <h1>Services</h1>
-                {packServices.map((service, i) => (
-                  <div key={i} className="pack-service">
-                    {details ? (
-                      <>
-                        {" "}
-                        <details>
-                          <summary>{service.name}</summary>
-                          <div>
-                            <p>{service.description}</p>
-                          </div>
-                          {/* <div>
-               {service.price && service.price.discountRate ? (
-                 <div>
-                   <span className="pack-service-discount">
-                     {service.price.rate}
-                   </span>
-                   <span className="pack-service-price">
-                     {service.price.discountRate}
-                   </span>
-                 </div>
-               ) : (
-                 <span className="pack-service-price">
-                   {service.price.rate}
-                 </span>
-               )}
-             </div> */}
-                        </details>
-                        {editable && (
-                          <button
-                            className="cancelBtn"
-                            onClick={() => {
-                              removeService(service.name);
-                            }}
-                          >
-                            x
-                          </button>
-                        )}
-                      </>
-                    ) : (
-                      <div>{service.name}</div>
-                    )}
-                  </div>
-                ))}
-                {packServices.length <= 0 && "empty"}
-              </div>
-            )}
-
-            <div className="pack-price">
-              <div
-                className="pack-price-rate"
-                style={
-                  price?.discountRate && { textDecoration: "line-through" }
-                }
-              >
-                {price?.rate}
-              </div>
-              {price?.discountRate && (
-                <div className="pack-price-discount">{price?.discountRate}</div>
-              )}
+            <div className="pack-description">
+              <p>{description}</p>
+              <h3>Package Includes:</h3>
+              <p>{detail1}</p>
+              <p>{detail2}</p>
+              <p>{detail3}</p>
+              <p>{detail4}</p>
             </div>
-            <div className="pack-action">
-              <button
-                className="pack-book-now btn"
-                onClick={() => genBookLink()}
-              >
-                Book now
-              </button>{" "}
-              {filteredServices.length > 0 && editable && (
-                <button
-                  className="addServ-btn btn"
-                  onClick={() => {
-                    setShowServices(!showServices);
-                  }}
-                >
-                  {showServices ? (
-                    "close"
-                  ) : (
-                    <span>
-                      <i>+</i> Service
-                    </span>
-                  )}
+            {editable && (
+              <div className="pack-includes">
+                <ul>
+                  {packIncludes?.map((include, i) => (
+                    <li key={i}>{include}</li>
+                  ))}
+                  {services?.map((service, i) => (
+                    <li key={`service-${i}`} className="added-service">
+                      <span>{service.name}</span>
+                      <button
+                        className="remove-service-btn"
+                        onClick={() => removeService(service.name)}
+                      >
+                        ✖
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                {/* Button to trigger Add Service - ONLY for Custom Pack */}
+                <button className="addServ-btn" onClick={addServiceButtonClick}>
+                  <i>+</i> Add Service
                 </button>
-              )}
-              {showServices && (
-                <div className="remainServ">
-                  <button
-                    className="cancelBtn"
-                    onClick={() => {
-                      setShowServices(!showServices);
-                    }}
-                  >
-                    <i className="fa-solid fa-xmark" aria-hidden="true"></i>
-                  </button>
-                  <ul>
-                    {filteredServices.map((value, i) => {
-                      return (
-                        <li
-                          key={i}
-                          onClick={() => {
-                            setPackServices([...packServices, value]);
-                          }}
-                        >
-                          {value.name}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
-        )}
-
-        {children}
+        </div>
       </div>
     </section>
   );
 }
 
-function Package({ imgs, services, details }) {
+function Package({ details }) {
   const nav = useNavigate();
   const { pack } = useParams();
   const [packages, setPackages] = useState([]);
-  const [packageDis, setPackage] = useState({});
-  const [packReviews, setPackReviews] = useState([]);
-  // useEffect(() => {
-  //   setPackages(getPackages());
-  //   setPackage()
-  // }, []);
+  const [showServiceOverlay, setShowServiceOverlay] = useState(false);
+  const [customPackServices, setCustomPackServices] = useState([]); // Store selected services for Custom Pack
+  const allServices = getServices(); // Get all available services
 
   useEffect(() => {
     if (pack) {
@@ -349,95 +247,85 @@ function Package({ imgs, services, details }) {
         .toLowerCase()
         .replaceAll(" ", "_")
         .replaceAll("/", "-");
-
-      // setPackages();
-      setPackages([...getPackages(Number(packName.split("&")[1]))]);
-      console.log(packages);
-      // const element = document.getElementById(elementId);
-      // if (element) {
-      //   element.scrollIntoView({ behavior: "smooth", block: "center" });
-      // } else {
-      //   nav("/packages");
-      // }
-    } // : nav("/packageNotFound");
-    else {
+      const selectedPackage = getPackages(Number(packName.split("&")[1]));
+      setPackages(selectedPackage);
+    } else {
       nav("/packages");
-      // setPackages(getPackages());
     }
-  }, [pack]);
-  useEffect(() => {
-    packages[0]?.id > 0 && setPackReviews(getPackReviews(packages[0]?.id));
-    console.log(packReviews);
-  }, [packages]);
+  }, [pack, nav]);
+
+  // Open the service overlay when "Add Service" is clicked
+  const openAddServiceOverlay = () => {
+    setShowServiceOverlay(true);
+  };
+
+  // Add a service to the Custom Pack
+  const addServiceToCustomPack = (service) => {
+    // Avoid duplicate services
+    if (!customPackServices.some((s) => s.name === service.name)) {
+      setCustomPackServices((prevServices) => [...prevServices, service]);
+    }
+  };
+
+  // Remove a service from the Custom Pack
+  const removeServiceFromCustomPack = (serviceName) => {
+    setCustomPackServices((prevServices) =>
+      prevServices.filter((service) => service.name !== serviceName)
+    );
+  };
+
   return (
     <div className="packages">
-      {/* <Pack
-        details={details}
-        name={"Birthday Pack"}
-        imgs={"/img/yacht.png"}
-        description={
-          <div>
-            Birthday pack so enought to celebrate your Birthday its inculdes the
-            followings :
-          </div>
-        }
-        services={[
-          {
-            name: "Private DJ",
-            description: "the private DJ will alote to your birthday party ",
-            info: { Name: "Ditto", rating: 3, price: 1000 },
-            timing: 2,
-            price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-          },
-          {
-            name: "Romantic Private Dinner",
-            description:
-              "the private Chef will alote to prepare foods for your party ",
-            info: { Name: "Dote", rating: 4, price: 1000 },
-            timing: 2,
-            price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-          },
-          {
-            name: "Roses/Flower decorations",
-            description:
-              "Designer and planners will decurate our Yacht to your party",
-            info: { Name: "Yacht Designers", rating: 4, price: 1000 },
-            timing: 2,
-            price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-          },
-        ]}
-        price={{ rate: 10000, discountRate: 9000, type: "negosiable" }}
-      /> */}
       {packages?.map((pack) => (
         <Pack
           key={pack.id}
           name={pack.name}
           imgs={pack.imgs}
           description={pack.description}
-          services={pack.services ? pack.services : []}
-          price={pack.price}
-          details={details}
+          detail1={pack.detail1}
+          detail2={pack.detail2}
+          detail3={pack.detail3}
+          detail4={pack.detail4}
+          editable={false} // No "Add Service" for standard packages
+          services={pack.services}
           packIncludes={pack.packIncludes}
         />
       ))}
-      {pack == "custom_pack&-1" && (
+
+      {/* Custom Pack */}
+      {pack === "custom_pack&-1" && (
         <Pack
           details={details}
-          name={"custom pack"}
+          name={"Custom Pack"}
           imgs={"/img/df.jpg"}
-          editable
-          description={"customise your own pack"}
-          services={[]}
-          price
+          editable={true} // Enable "Add Service" for the Custom Pack only
+          description={"Customize your own pack"}
+          services={customPackServices} // Use custom services for the Custom Pack
+          packIncludes={[]}
+          addServiceButtonClick={openAddServiceOverlay} // Enable the "Add Service" button
+          removeService={removeServiceFromCustomPack} // Enable removing services
         />
       )}
-      {/* <Pack>Custom pack</Pack> */}
-      <div className="feedBacks">
-        <h2>user feedbacks</h2>
-        {packReviews?.map((review) => (
-          <Review review={review} style={{ maxWidth: "30%" }} />
-        ))}
-      </div>
+
+      {/* Service Overlay for Adding Services */}
+      {showServiceOverlay && (
+        <div className="service-overlay">
+          <button className="close-overlay" onClick={() => setShowServiceOverlay(false)}>
+            <i className="fa-solid fa-xmark"></i>
+          </button>
+          <ul className="service-list">
+            {allServices.map((service, i) => (
+              <li
+                key={i}
+                className={customPackServices.some((s) => s.name === service.name) ? "service-active" : ""}
+                onClick={() => addServiceToCustomPack(service)}
+              >
+                {service.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

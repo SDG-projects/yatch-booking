@@ -10,9 +10,10 @@
   border-radius: 50px;
   border: none;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1000;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
+  animation: rainbowBg 3s linear infinite;
 }
 
 .offerBtn:hover {
@@ -20,30 +21,48 @@
   transform: scale(1.1);
 }
 
-/* Popup Container */
 .offerContainer {
-  position: fixed;
+  position: fixed; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
-  background: rgba(15, 16, 32, 0.95);
-  width: 90%;
-  max-width: 800px;
-  border-radius: 16px;
-  overflow: hidden;
-  padding: 20px;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
 }
 
-/* Close Button Inside Popup */
+
+.offerSection {
+  background: var(--secondary-color);
+  padding: 25px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+.offerContainer::-webkit-scrollbar,
+.offerSection::-webkit-scrollbar {
+  display: none;
+}
+
+.offerContainer {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
 .offerCloseBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   padding: 10px;
   background: linear-gradient(145deg, orange, darkorange);
   color: white;
@@ -52,26 +71,15 @@
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  z-index: 11;
+  z-index: 105;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .offerCloseBtn:hover {
-  background: linear-gradient(145deg, darkorange, orange);
+  background-color: #e67e00;
   transform: scale(1.1);
 }
-
-/* Offer Section (Container for offers inside the popup) */
-.offerSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  gap: 20px;
-}
-
 /* Individual Offer List */
 .offers {
   display: flex;
@@ -85,24 +93,18 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: linear-gradient(145deg, #1a1a2e, #0f1020);
+  background: var(--secondary-color);
   border-radius: 16px;
   justify-content: center;
+  text-align: center;
   align-items: center;
   padding: 20px;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
   width: 100%;
   transition: transform 0.3s ease;
 }
-
-.offer:hover {
-  transform: translateY(-10px);
-}
-
-/* Image Styling */
 .offerImg {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   height: auto;
   border-radius: 12px;
   overflow: hidden;
@@ -111,28 +113,29 @@
 
 /* Offer Name */
 .offerName {
-  font-size: 1.8rem;
+  font-size: 2.8rem;
   font-weight: bold;
   color: var(--accent-color);
+  font-family: "Playwrite AU SA", serif;
   text-align: center;
 }
 
 /* Offer Description */
 .offerDescription {
-  font-size: 1rem;
+  font-size: 2rem;
   color: aliceblue;
   text-align: center;
 }
 
 /* Offer Features */
 .offerFeatures li {
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   color: aliceblue;
 }
 
 /* Remaining Time Section */
 .offerTime span {
-  background: linear-gradient(145deg, orange, darkorange);
+  background: rgba(42, 40, 40, 0.6);
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
@@ -142,18 +145,17 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Call-to-Action Button (Book Now) */
 .offerCTC button {
-  padding: 10px 20px;
-  background: linear-gradient(145deg, orange, darkorange);
-  color: white;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: 1.2rem;
   font-weight: bold;
+  color: white;
+  text-transform: uppercase;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .offerCTC button:hover {
@@ -171,7 +173,16 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
+@keyframes rainbowBg {
+  0% { background: #ff0000; } /* Red */
+  14% { background: #ff7f00; } /* Orange */
+  28% { background: #ffff00; } /* Yellow */
+  42% { background: #00ff00; } /* Green */
+  57% { background: #0000ff; } /* Blue */
+  71% { background: #4b0082; } /* Indigo */
+  85% { background: #9400d3; } /* Violet */
+  100% { background: #ff0000; } /* Back to Red */
+}
 @media (max-width: 768px) {
   .offerContainer {
     width: 95%;
@@ -208,5 +219,8 @@
   .offerCTC button {
     font-size: 0.85rem;
     padding: 8px 12px;
+  }
+  .offerContainer{
+    padding: 0%;
   }
 }
