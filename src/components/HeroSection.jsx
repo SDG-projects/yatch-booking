@@ -18,8 +18,8 @@ const BackgroundVideo = () => {
           Welcome to <span className="golden">Golden Yatch Rentals</span>
         </h1>
         <p>
-          Experience the ultimate luxury yacht rental experience
-          in Dubai with Golden Yatch Rentals Dubai.
+          Experience the ultimate luxury yacht rental experience in Dubai with
+          Golden Yatch Rentals Dubai.
         </p>
         <button className="cta-button" onClick={handleRedirect}>
           Explore Now

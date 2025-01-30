@@ -18,7 +18,6 @@
   background: var(--primary-color);
 }
 
-
 .navbar-link,
 summary {
   color: #fffefb;
@@ -54,7 +53,23 @@ summary {
 summary:hover {
   color: var(--accent-color);
 }
-
+.logo {
+  width: 100px;
+  /* background-color: #0d1321; */
+  height: 80px;
+}
+.logo a {
+  /* background-color: #810606; */
+  align-items: center;
+  height: 100%;
+  /* z-index: 10; */
+  display: flex;
+  /* text-align: center; */
+}
+.logo a img {
+  width: 100%;
+  height: 100%;
+}
 .navbar-toggle {
   font-size: 2rem;
   color: #fff;
@@ -79,6 +94,9 @@ summary:hover {
 
 .services {
   position: relative;
+  /* text-align: start;
+  display: flex;
+  background-color: black; */
 }
 
 /* Service List (Desktop and Mobile) */
@@ -124,6 +142,8 @@ summary:hover {
 }
 
 .serviceList .service {
+  text-align: start;
+
   padding: 5px;
   margin: 5px;
 }
@@ -183,13 +203,13 @@ summary:hover {
 
   .navbar-menu li {
     margin: 15px 0;
-    text-align: center;
+    text-align: start;
     transition: transform 0.3s ease, color 0.3s ease;
   }
 
   .navbar-menu a {
     color: #fff;
-    font-size: 20px;
+    /* font-size: 20px; */
     text-decoration: none;
     transition: color 0.3s ease;
   }
@@ -213,15 +233,16 @@ summary:hover {
   }
 
   .serviceList {
-    width: 60%;
+    /* width: 60%; */
     max-height: 50vh;
     position: static;
-    transform: none;
+    transform: translateX(-50%);
     padding: 15px;
     box-shadow: none;
     border-radius: 8px;
-    font-size: 14px;
-    margin-left: 350px;
+    /* font-size: 14px; */
+
+    margin-left: 300px;
     background-color: #191919;
   }
 

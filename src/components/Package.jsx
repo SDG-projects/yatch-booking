@@ -160,4 +160,3 @@ function Package({ details }) {
 }
 
 export default Package;
-
