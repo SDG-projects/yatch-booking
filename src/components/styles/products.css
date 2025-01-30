@@ -12,7 +12,7 @@
 }
 
 .section-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Austria", serif;
   font-weight: bold;
   color: var(--accent-color);
   margin-top: -50px;
@@ -202,3 +202,149 @@
 .product-slider .slick-next:after {
   content: "\f105";
 }
+@media (max-width: 1200px) {
+  .product-section {
+    padding: 50px 8%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin-top: 8px;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-card {
+    margin-top: 20px;
+  }
+
+  .btn {
+    width: 140px;
+    height: 6vh;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-section {
+    padding: 40px 5%;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-top: 8px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .product-info {
+    padding: 15px;
+  }
+
+  .btn {
+    width: 130px;
+    height: 5.5vh;
+    font-size: 14px;
+  }
+
+  .product-slider .slick-prev,
+  .product-slider .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-section {
+    padding: 30px 5%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-top: 8px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+  }
+
+  .product-info {
+    font-size: 0.9rem;
+  }
+
+  .product-name {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    width: 120px;
+    height: 5vh;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-section {
+    padding: 20px 5%;
+  }
+  .section-title {
+    font-size: 2.8rem;
+    margin-top: 8px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+
+  .product-card img {
+    min-height: 250px;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .product-detail {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    width: 110px;
+    height: 4.5vh;
+    font-size: 12px;
+  }
+
+  .product-slider .slick-prev,
+  .product-slider .slick-next {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 400px) {
+  .section-title {
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    margin-top: 8px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .btn {
+    width: 100px;
+    height: 4vh;
+    font-size: 11px;
+  }
+}
+

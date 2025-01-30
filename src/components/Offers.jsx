@@ -88,15 +88,12 @@ function Offers() {
       {/* Popup Container */}
       {offerOpen && (
         <div className="offerContainer">
-          {/* Close Button Inside Popup */}
           <button
             className="offerCloseBtn"
             onClick={() => setOfferOpen(false)}
           >
             X
           </button>
-
-          {/* Offers Section */}
           <div className="offerSection">
             <div className="offers">
               {offers.map((offer, i) => (
