@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 .product-section {
   padding: 60px 10%;
   background: var(--primary-color);
@@ -199,6 +201,7 @@
 .product-slider .slick-next:after {
   content: "\f105";
 }
+<<<<<<< HEAD
 @media (max-width: 1200px) {
   .product-section {
     padding: 50px 8%;
@@ -345,3 +348,6 @@
   }
 }
 
+=======
+>>>>>>> deva
+>>>>>>> dev

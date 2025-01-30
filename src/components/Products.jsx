@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
@@ -93,3 +95,4 @@ const ProductSection = () => {
   );
 };
 export default ProductSection;
+>>>>>>> deva
