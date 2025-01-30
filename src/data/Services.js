@@ -759,35 +759,39 @@ const Packages = [
     imgs: "/img/birthday.png",
     bgimgs: "/img/birthday.png",
     description: `Make your birthday unforgettable by celebrating on a luxurious yacht with Golden Yacht Rentals Dubai. Our exclusive birthday package offers the perfect setting for an extraordinary celebration. Cruise through Dubai's stunning waters while enjoying breathtaking views of iconic landmarks like the Burj Khalifa, Palm Jumeirah, and the Dubai Marina skyline`,
-    detail1: `A private yacht with spacious decks and elegant interiors`,
-    detail2: "Personalized decorations to suit your theme",
-    detail3: "A gourmet catering service with a variety of delicious dishes",
-    detail4: "Professional crew to ensure a smooth and memorable experience",
-    //     {
-    //       name: "Private DJ",
-    //       description: "the private DJ will alote to your birthday party ",
-    //       ino: { Name: "Ditto", rating: 3, price: 1000 },
-    //       timing: 2,
-    //       price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-    //     },
-    //     {
-    //       name: "Romantic Private Dinner",
-    //       description:
-    //         "the private Chef will alote to prepare foods for your party ",
-    //       info: { Name: "Dote", rating: 4, price: 1000 },
-    //       timing: 2,
-    //       price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-    //     },
-    //     {
-    //       name: "Roses/Flower decorations",
-    //       description:
-    //         "Designer and planners will decurate our Yacht to your party",
-    //       info: { Name: "Yacht Designers", rating: 4, price: 1000 },
-    //       timing: 2,
-    //       price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-    //     },
-    //   ],
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+    // services: [
+    //   {
+    //     name: "Private DJ",
+    //     description: "the private DJ will alote to your birthday party ",
+    //     ino: { Name: "Ditto", rating: 3, price: 1000 },
+    //     timing: 2,
+    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    //   },
+    //   {
+    //     name: "Romantic Private Dinner",
+    //     description:
+    //       "the private Chef will alote to prepare foods for your party ",
+    //     info: { Name: "Dote", rating: 4, price: 1000 },
+    //     timing: 2,
+    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    //   },
+    //   {
+    //     name: "Roses/Flower decorations",
+    //     description:
+    //       "Designer and planners will decurate our Yacht to your party",
+    //     info: { Name: "Yacht Designers", rating: 4, price: 1000 },
+    //     timing: 2,
+    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    //   },
+    // ],
   },
+
   {
     id: 1,
     name: "party Pack",
@@ -796,7 +800,114 @@ const Packages = [
     description: `
           Make your birthday unforgettable by celebrating on a luxurious yacht with Golden Yacht Rentals Dubai. Our exclusive birthday package offers the perfect setting for an extraordinary celebration. Cruise through Dubai's stunning waters while enjoying breathtaking views of iconic landmarks like the Burj Khalifa, Palm Jumeirah, and the Dubai Marina skyline :
           `,
-  }
+    services: [
+      {
+        name: "Private DJ",
+        description: "the private DJ will alote to your birthday party ",
+        ino: { Name: "Ditto", rating: 3, price: 1000 },
+        timing: 2,
+        price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+      },
+      {
+        name: "Romantic Private Dinner",
+        description:
+          "the private Chef will alote to prepare foods for your party ",
+        info: { Name: "Dote", rating: 4, price: 1000 },
+        timing: 2,
+        price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+      },
+      {
+        name: "Roses/Flower decorations",
+        description:
+          "Designer and planners will decurate our Yacht to your party",
+        info: { Name: "Yacht Designers", rating: 4, price: 1000 },
+        timing: 2,
+        price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Honeymoon Package",
+    imgs: "/img/birthday.png",
+    imgs: "/img/pack/honeyMoonPack.jpeg",
+    description: `Make your honeymoon unforgettable with our Love at Sea package! Enjoy a romantic getaway on our luxurious yacht, complete with stunning views, delicious food, and exceptional service. Let us take care of every detail, so you can focus on each other`,
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+  },
+  {
+    id: 3,
+    name: " Anniversary/Proposal Package",
+    imgs: "/img/pack/anvesaryPack.jpeg",
+    description:
+      "Celebrate your anniversary or propose to your loved one in style with our Forever at Sea package! Enjoy a romantic dinner cruise on our luxurious yacht, complete with stunning views, delicious food, and exceptional service. Let us help you create unforgettable memories.",
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+  },
+  {
+    id: 4,
+    name: " Burj Al Arab Package",
+    imgs: "/img/birthday.png",
+    imgs: "/img/pack/burjPack.png",
+    description:
+      "Experience the ultimate in luxury and exclusivity with our Burj Al Arab package! Sail around the iconic Burj Al Arab hotel on our luxurious yacht, complete with stunning views, delicious food, and exceptional service. Let us take you on an unforgettable journey.",
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+  },
+  {
+    id: 5,
+    name: " Atlantis The Palm Tree Package",
+    imgs: "/img/birthday.png",
+    imgs: "/img/pack/atlantisPack.png",
+    description:
+      "Escape to a world of luxury and adventure with our Atlantis The Palm Tree package! Sail around the iconic Palm Island on our luxurious yacht, complete with stunning views, delicious food, and exceptional service. Let us take you on an unforgettable journey.",
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+  },
+  {
+    id: 6,
+    name: "Moon Island Trip Package",
+    imgs: "/img/birthday.png",
+    imgs: "/img/pack/moonIslandPack.png",
+    description:
+      "Experience the ultimate island-hopping adventure with our Moon Island Trip package! Sail to a stunning island on our luxurious yacht, complete with crystal-clear waters, pristine beaches, and exceptional service. Let us take you on an unforgettable journey.",
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+  },
+  {
+    id: 7,
+    name: "Bachelor/Bachelorette Package",
+    imgs: "/img/birthday.png",
+    imgs: "/img/pack/bachelorPack.png",
+    description:
+      "Celebrate your last days of freedom in style with our Bachelor/Bachelorette package! Enjoy a day of sun, sea, and fun with your friends on our luxurious yacht. Our experienced crew will take care of everything, so you can focus on making unforgettable memories.",
+    packIncludes: [
+      `A private yacht with spacious decks and elegant interiors`,
+      "Personalized decorations to suit your theme",
+      "Professional crew to ensure a smooth and memorable experience",
+      "A gourmet catering service with a variety of delicious dishes",
+    ],
+  },
 ];
 const Offers = [
   {
@@ -834,6 +945,151 @@ const Offers = [
     endTime: new Date(2026, 1 - 1, 25, 17, 0, 0),
   },
 ];
+
+const Reviews = {
+  productReviews: [
+    {
+      id: 1,
+      productId: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+  ],
+  packReviews: [
+    {
+      id: 1,
+      packId: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+  ],
+  serviceReviews: [
+    {
+      id: 1,
+      serviceId: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+  ],
+  companyReviews: [
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the suppper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the suppper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the suppper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the supper trip by golden Yacht rental",
+      reviewImgs: [
+        "/img/yatch/P12/luxury-yatch-dubai-12_1.jpg",
+        "/img/yatch/P12/luxury-yatch-dubai-12_2.jpg",
+      ],
+      ratings: 5,
+    },
+    {
+      id: 1,
+      userName: "rogith",
+      reviewText: "the suppper trip by golden Yacht rental",
+      reviewImgs: [],
+      ratings: 5,
+    },
+  ],
+};
+
 export function getServices(params) {
   return Services;
 }
@@ -856,6 +1112,36 @@ export function getPackagesByName(name) {
 
 export function getOffers(id) {
   const Data = id ? Offers.filter((v) => v.id == id) : Offers;
+
+  return Data;
+}
+
+export function getReviews(id) {
+  const Data = id
+    ? Reviews.companyReviews.filter((v) => v.id == id)
+    : Reviews.companyReviews;
+
+  return Data;
+}
+
+export function getPackReviews(id) {
+  const Data = id
+    ? Reviews.packReviews.filter((v) => v.packId == id)
+    : Reviews.packReviews;
+
+  return Data;
+}
+export function getServiceReviews(id) {
+  const Data = id
+    ? Reviews.serviceReviews.filter((v) => v.serviceId == id)
+    : Reviews.serviceReviews;
+
+  return Data;
+}
+export function getProductReviews(id) {
+  const Data = id
+    ? Reviews.productReviews.filter((v) => v.productId == id)
+    : Reviews.productReviews;
 
   return Data;
 }

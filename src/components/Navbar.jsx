@@ -54,7 +54,7 @@ const Navbar = () => {
       <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" width={200} height={200} />
+            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" />
           </Link>
         </div>
       </div>
@@ -65,16 +65,22 @@ const Navbar = () => {
         <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
       <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
-        <li className={activePage === "/home" || activePage === "/" ? "active" : ""}>
-          <Link to={"/home"} onClick={handleLinkClick}>Home</Link>
+        <li
+          className={
+            activePage === "/home" || activePage === "/" ? "active" : ""
+          }
+        >
+          <Link to={"/home"} onClick={handleLinkClick}>
+            Home
+          </Link>
         </li>
         <li className={activePage === "/vipRental" ? "active" : ""}>
-          <Link to={"/vipRental"} onClick={handleLinkClick}>VIP Yacht Rental</Link>
+          <Link to={"/vipRental"} onClick={handleLinkClick}>
+            VIP Yacht Rental
+          </Link>
         </li>
         <li>
-          <div
-            className={`services ${isPackagesOpen ? "open" : ""}`}
-          >
+          <div className={`services ${isPackagesOpen ? "open" : ""}`}>
             <summary onClick={handlePackagesClick}>Packages</summary>
             {isPackagesOpen && (
               <ul className="serviceList">
@@ -98,7 +104,10 @@ const Navbar = () => {
                   </li>
                 ))}
                 <li>
-                  <Link to={"/packages/custom_pack&-1"} onClick={handleLinkClick}>
+                  <Link
+                    to={"/packages/custom_pack&-1"}
+                    onClick={handleLinkClick}
+                  >
                     Custom Package
                   </Link>
                 </li>
@@ -107,9 +116,7 @@ const Navbar = () => {
           </div>
         </li>
         <li>
-          <div
-            className={`services ${isServicesOpen ? "open" : ""}`}
-          >
+          <div className={`services ${isServicesOpen ? "open" : ""}`}>
             <summary onClick={handleServicesClick}>Services</summary>
             {isServicesOpen && (
               <ul className="serviceList">
@@ -134,10 +141,14 @@ const Navbar = () => {
           </div>
         </li>
         <li className={activePage === "/about" ? "active" : ""}>
-          <Link to={"/about"} onClick={handleLinkClick}>About</Link>
+          <Link to={"/about"} onClick={handleLinkClick}>
+            About
+          </Link>
         </li>
         <li className={activePage === "/contact" ? "active" : ""}>
-          <Link to={"/contact"} onClick={handleLinkClick}>Contact</Link>
+          <Link to={"/contact"} onClick={handleLinkClick}>
+            Contact
+          </Link>
         </li>
       </ul>
     </nav>

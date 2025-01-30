@@ -38,33 +38,31 @@
 }
 
 .product-card {
-  position: relative;
+  /* position: relative; */
   text-align: start;
-  background: none; 
-  box-shadow: none; 
+  background: none;
+  box-shadow: none;
   border-radius: 0;
-  margin-top: 30px; 
+  /* margin-top: 30px;  */
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.02); 
+  transform: scale(1.02);
 }
-
 
 .product-card img {
   width: 100%;
   min-height: 300px;
   object-fit: cover;
-  border-radius: 15px 15px 0px 0px;  
+  border-radius: 15px 15px 0px 0px;
   border-bottom: none;
 }
 
-
 .product-info {
   padding: 20px;
-  border-radius: 0 0 15px 15px; 
+  border-radius: 0 0 15px 15px;
   color: #e5e7eb;
   letter-spacing: 2px;
   background: var(--secondary-color);
@@ -78,11 +76,11 @@
   font-weight: 500;
   font-size: 1.5rem;
 }
-.pd-ft ,.pd-cap{
-   font-size: 25px;
-   font-weight: 500;
+.pd-ft,
+.pd-cap {
+  font-size: 25px;
+  font-weight: 500;
 }
-
 
 .product-name {
   font-size: 1.5rem;
@@ -92,7 +90,7 @@
   align-items: center;
   color: var(--text-color);
 }
-.product-name span{
+.product-name span {
   color: var(--accent-color);
 }
 
@@ -100,9 +98,8 @@
   font-size: 1rem;
   color: #94a3b8;
   margin-bottom: 10px;
-
 }
-.product-detail i{
+.product-detail i {
   margin-right: 10px;
 }
 
@@ -121,20 +118,20 @@
   width: 160px;
   margin-bottom: 10px;
   margin-top: 10px;
-  align-items: center; 
-  justify-content: center; 
-  padding: 10px 20px; 
-  background: var(--button-color);      
-  color: black;  
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: var(--button-color);
+  color: black;
   font-weight: 100;
   font-family: "Kanit", serif;
-  border: none;  
+  border: none;
   border-radius: 40px;
   letter-spacing: 0px;
-  font-size: 16px; 
+  font-size: 16px;
   cursor: pointer;
 }
-.btn span{
+.btn span {
   margin-right: 5px;
   font-family: "Poppins", serif;
   font-weight: bold;
@@ -147,7 +144,7 @@
   object-fit: contain;
 }
 
-.btn:hover{
+.btn:hover {
   transform: translateY(-1px);
   color: var(--secondary-color);
   transition: 1s;

@@ -3,7 +3,6 @@ import "../components/styles/service.css";
 import { useParams } from "react-router-dom";
 import { getServices } from "../data/Services";
 
-
 export const serviceWhatsAppRedirect = (service) => {
   const phoneNumber = "971555930716";
   const message = `Hi, I am interested in booking (${service.name}) in your golden yatch rentals`;
@@ -37,7 +36,7 @@ function Services() {
         .replaceAll("/", "-");
       const element = document.getElementById(elementId);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }, [service]);
@@ -46,52 +45,52 @@ function Services() {
     <div className="servicesCon">
       <h1 className="service-h1">Our Services</h1>
       <p className="service-p">Explore the exclusive services we offer</p>
-      <hr className="styled-line"/>
-          {services.map((service, index) => (
-      <div
-        key={index}
-        id={service.name
-          .toLowerCase()
-          .replaceAll(" ", "_")
-          .replaceAll("/", "-")}
-        className="serviceCon"
-      >
-        <div className="serviceContent">
-          <div className="serviceImgCon">
-            <img
-              src={service.img}
-              className="serviceImg"
-              alt={`${service.name} Image 1`}
-            />
-            <img
-              src={service.img2}
-              className="serviceImg"
-              alt={`${service.name} Image 2`} 
-            />
-          </div>
-          <div className="serviceDet">
-            <h2>{service.name}</h2>
-            <h3>{service.heading}</h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: service.description.replace(/\n/g, "<br />"),
-              }}
-            />
-            <h3>We Offer:</h3>
-            <p>{service.weoffer1}</p>
-            <p>{service.weoffer2}</p>
-            <p>{service.weoffer3}</p>
-            <p>{service.weoffer4}</p>
-            <h3>Rating: {service.info.rating}</h3>
-            <button className="bookNowBtn" onClick={serviceWhatsAppRedirect}>Book Now</button>
+      <hr className="styled-line" />
+      {services.map((service, index) => (
+        <div
+          key={index}
+          id={service.name
+            .toLowerCase()
+            .replaceAll(" ", "_")
+            .replaceAll("/", "-")}
+          className="serviceCon"
+        >
+          <div className="serviceContent">
+            <div className="serviceImgCon">
+              <img
+                src={service.img}
+                className="serviceImg"
+                alt={`${service.name} Image 1`}
+              />
+              <img
+                src={service.img2}
+                className="serviceImg"
+                alt={`${service.name} Image 2`}
+              />
+            </div>
+            <div className="serviceDet">
+              <h2>{service.name}</h2>
+              <h3>{service.heading}</h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: service.description.replace(/\n/g, "<br />"),
+                }}
+              />
+              <h3>We Offer:</h3>
+              <p>{service.weoffer1}</p>
+              <p>{service.weoffer2}</p>
+              <p>{service.weoffer3}</p>
+              <p>{service.weoffer4}</p>
+              <h3>Rating: {service.info.rating}</h3>
+              <button className="bookNowBtn" onClick={serviceWhatsAppRedirect}>
+                Book Now
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-
+      ))}
     </div>
   );
 }
 
 export default Services;
-
