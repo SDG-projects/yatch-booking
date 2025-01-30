@@ -118,9 +118,9 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Luxury Video and Photoshoot Services at Golden Yacht Rentals",
+    img: "/img/services/photo1.jpg",
+    img2: "/img/services/photo2.jpg",
+    name: "Luxury Video and Photoshoot",
     heading:
       "At Golden Yacht Rentals, we offer an unparalleled experience for capturing your special moments in the most luxurious setting on the water. Our fleet of exclusive yachts provides the perfect backdrop for luxury photoshoots and videography. Whether you're planning a wedding, corporate event, private party, or a high-end photoshoot, our yachts create the ideal atmosphere for stunning photos and cinematic videos.",
     description:
@@ -138,9 +138,9 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Golden Yacht Rentals - Exclusive Private Artist & Singer Experience",
+    img: "/img/services/artists1.jpg",
+    img2: "/img/services/artists2.jpg",
+    name: "Exclusive Private Artist & Singer Experience",
     heading: "Experience Luxury and Elegance on the High Seas",
     description:
       "At Golden Yacht Rentals, we offer you an unparalleled experience with our Private Artist and Singer entertainment package. Imagine cruising on the serene waters of the ocean while being serenaded by live music, creating the perfect backdrop for your private celebration, corporate event, or romantic evening.",
@@ -156,7 +156,7 @@ const Services = [
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
-  {
+ /* {
     img: "/img/services/romantic.jpg",
     img2: "/img/services/romantic2.jpg",
     name: "Private Saxophone Artist",
@@ -175,10 +175,10 @@ const Services = [
     info: { Name: "Dote", rating: 4, price: 1000 },
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-  },
+  },*/
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/dancers1.jpg",
+    img2: "/img/services/dancers2.jpg",
     name: "Private Dancers",
     heading:
       "At Golden Yacht Rentals, we provide an unforgettable experience with our Private Dancers service, offering world-class entertainment while you enjoy the luxury and tranquility of cruising on the open sea. Whether you're celebrating a special occasion, hosting a corporate event, or simply seeking a unique way to unwind, our private dancers will elevate your event to an entirely new level of sophistication and excitement.",
@@ -196,7 +196,7 @@ const Services = [
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
-  {
+ /* {
     img: "/img/services/romantic.jpg",
     img2: "/img/services/romantic2.jpg",
     name: "Private Bartender Service - Golden Yacht Rentals",
@@ -215,11 +215,11 @@ const Services = [
     info: { Name: "Dote", rating: 4, price: 1000 },
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-  },
+  },*/
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Private Magician Experience on the Golden Yacht",
+    img: "/img/services/magician1.jpg",
+    img2: "/img/services/magician2.jpg",
+    name: "Private Magician",
     heading:
       "Golden Yacht Rentals is excited to offer an exclusive Private Magician experience onboard our luxurious yachts. Whether you're hosting a special event, celebrating an occasion, or simply looking for a unique form of entertainment during your yacht charter, our professional magician will add a touch of wonder and excitement to your experience.",
     description:
@@ -237,9 +237,9 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Private Professional Massage Therapists on Golden Yacht Rentals",
+    img: "/img/services/massage1.jpg",
+    img2: "/img/services/massage2.jpg",
+    name: "Private Professional Massage Therapists",
     heading:
       "At Golden Yacht Rentals, we believe that relaxation and luxury should go hand in hand. That's why we offer the exclusive experience of having Private Professional Massage Therapists onboard, providing a serene atmosphere where you can unwind, rejuvenate, and enjoy a truly relaxing escape.",
     description:
@@ -257,9 +257,9 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Private Yacht Tour Guide at Golden Yacht Rentals: Explore the Sea in Style",
+    img: "/img/services/guide1.jpg",
+    img2: "/img/services/guide2.jpg",
+    name: "Private Yacht Tour Guide",
     heading:
       "Experience Luxury and Personalization with Our Private Yacht Tours",
     description:
@@ -276,7 +276,7 @@ const Services = [
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
-  {
+ /* {
     img: "/img/services/romantic.jpg",
     img2: "/img/services/romantic2.jpg",
     name: "Private Tour Hostesses – Golden Yacht Rentals ",
@@ -295,11 +295,11 @@ const Services = [
     info: { Name: "Dote", rating: 4, price: 1000 },
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-  },
+  },*/
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Water Waiters: Premium Service for an Unforgettable Yacht Experience",
+    img: "/img/services/waiters1.jpg",
+    img2: "/img/services/waiters2.jpg",
+    name: "Water Waiters",
     heading:
       "At Golden Yacht Rentals, we elevate your boating experience with our exclusive Water Waiters service. Whether you're cruising along serene coastlines or enjoying a luxurious day at sea, our professional Water Waiters ensure that your every need is met with exceptional service and attention to detail.",
     description:
@@ -317,9 +317,9 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
-    name: "Private Hospitality at Golden Yacht Rentals",
+    img: "/img/services/hospital1.jpg",
+    img2: "/img/services/hospital2.jpg",
+    name: "Private Hospitality",
 
     heading: "Experience Unmatched Luxury and Comfort",
     description:
@@ -336,9 +336,9 @@ const Services = [
     timing: 1,
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
-  {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+ {
+    img: "/img/services/seafood1.jpg",
+    img2: "/img/services/seafood2.jpg",
     name: "Golden Yacht Rentals - Luxury Yachts with Live Seafood BBQ and Private Chef Experience",
     heading:
       "Welcome to Golden Yacht Rentals, your premier destination for luxury yacht charters, offering a unique combination of breathtaking views and gourmet dining experiences. Whether you’re celebrating a special occasion, hosting an event, or just looking to relax on the water, we provide a selection of world-class yachts tailored to your needs.",
@@ -353,8 +353,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/sushi1.jpg",
+    img2: "/img/services/sushi2.jpg",
     name: "Sushi Menus on Your Yacht Experience in Dubai",
     heading:
       "Golden Yacht Rentals offers an exquisite sushi dining experience, crafted by expert chefs, right on board our luxury yachts. Whether you're hosting a private party or enjoying a romantic evening, our sushi menus are tailored to delight every palate.",
@@ -373,8 +373,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/veg1.jpg",
+    img2: "/img/services/veg2.jpg",
     name: "Vegetarian Menus Crafted by a Private Chef",
     heading:
       "Exclusive Vegetarian Menus Crafted by a Private Chef – Golden Yacht Rentals Dubai",
@@ -393,8 +393,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/alcoholic1.jpg",
+    img2: "/img/services/alcoholic2.jpg",
     name: "Premium Alcoholic Drinks for Yacht Parties in Dubai - Golden Yacht Rentals",
     heading:
       "At Golden Yacht Rentals Dubai, we offer an exclusive selection of premium alcoholic drinks to elevate your yacht experience. Whether you’re planning a romantic evening, a corporate event, or a celebration on the high seas, our curated menu ensures an unforgettable experience.",
@@ -412,8 +412,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/champagnes1.jpg",
+    img2: "/img/services/champagnes2.jpg",
     name: "Exclusive Champagnes at Golden Yacht Rentals Dubai",
     heading:
       "Experience unparalleled luxury on the water with Golden Yacht Rentals Dubai, where we elevate your journey with a curated selection of exclusive champagnes. Whether you are celebrating a special occasion or simply indulging in the finer things in life, our collection of world-class champagnes adds a sparkling touch to your yachting experience.",
@@ -432,8 +432,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/bar1.jpg",
+    img2: "/img/services/bar2.jpg",
     name: "Open Bar",
     heading: "Experience Luxury with Our Exclusive Open Bar Service in Dubai",
     description:
@@ -451,10 +451,10 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/yatchdc.jpg",
+    img2: "/img/services/yatchdc2.jpg",
     name: "Yacht Decorations",
-    heading: "Yacht Decorations for Memorable Celebrations in Dubai",
+    heading: "Yacht Decorations",
     description:
       "Golden Yacht Rentals Dubai takes your special occasions to the next level with exquisite yacht decorations. Whether it’s a birthday bash, a wedding anniversary, or a corporate event, our team of experts ensures your yacht experience is both luxurious and unforgettable.",
     weoffer1:
@@ -470,8 +470,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/birthday1.jpg",
+    img2: "/img/services/birthday2.jpg",
     name: "Birthday Decorations",
     heading:
       " Celebrate Your Birthday in Style with Golden Yacht Rentals in Dubai",
@@ -489,8 +489,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/proposal1.jpg",
+    img2: "/img/services/proposal2.jpg",
     name: "Proposal and Anniversary Decorations",
     heading:
       "Golden Yacht Rentals Dubai offers luxurious and bespoke yacht experiences in the heart of Dubai. To make your special moments unforgettable, we specialize in customized proposal and anniversary decorations designed to suit your unique preferences and style. Here, we showcase why Golden Yacht Rentals is the perfect choice for celebrating love and milestones aboard a luxury yacht.",
@@ -509,8 +509,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/romantic.jpg",
-    img2: "/img/services/romantic2.jpg",
+    img: "/img/services/viptransport1.jpg",
+    img2: "/img/services/viptransport2.jpg",
     name: "VIP Transport",
     heading:
       " Discover luxurious VIP transport services in Dubai with Golden Yacht Rentals. Enjoy comfort, style, and premium experiences as we cater to all your luxury travel needs.",
@@ -617,6 +617,8 @@ const Products = [
       "/img/yatch/P5/luxury-yatch-dubai-5_1.jpg",
       "/img/yatch/P5/luxury-yatch-dubai-5_2.jpg",
       "/img/yatch/P5/luxury-yatch-dubai-5_3.webp",
+      "/img/yatch/P5/luxury-yatch-dubai-5_4.jpg",
+      "/img/yatch/P5/luxury-yatch-dubai-5_5.jpg",
     ],
     price: "750",
     feet: "16ft ",
@@ -629,8 +631,9 @@ const Products = [
     id: 6,
     name: "Jetcar ",
     images: [
-      "/img/yatch/P6/Luxury-yatch-dubai-6_1.jpg",
-      "/img/yatch/P6/Luxury-yatch-dubai-6_2.jpg",
+      "/img/yatch/P6/luxury-yatch-dubai-6_1.jpg",
+      "/img/yatch/P6/luxury-yatch-dubai-6_2.jpg",
+      "/img/yatch/P6/luxury-yatch-dubai-6_3.jpg",
     ],
     price: "1550",
     feet: "20ft ",
@@ -750,6 +753,144 @@ const Products = [
     Complementary:
       "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
   },
+  {
+    id: 13,
+    name: "Luxury Marine ",
+    images: [
+      "/img/yatch/P13/luxury-yatch-dubai-13_1.jpg",
+      "/img/yatch/P13/luxury-yatch-dubai-13_2.jpg",
+      "/img/yatch/P13/luxury-yatch-dubai-13_3.jpg",
+      "/img/yatch/P13/luxury-yatch-dubai-13_4.jpg",
+      "/img/yatch/P13/luxury-yatch-dubai-13_5.jpg",
+      "/img/yatch/P13/luxury-yatch-dubai-13_6.jpg",
+    ],
+    price: "3000",
+    feet: "60ft ",
+    capacity: "10 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 14,
+    name: "Luxury Marine ",
+    images: [
+      "/img/yatch/P14/luxury-yatch-dubai-14_1.jpg",
+      "/img/yatch/P14/luxury-yatch-dubai-14_2.jpg",
+      "/img/yatch/P14/luxury-yatch-dubai-14_3.jpg",
+      "/img/yatch/P14/luxury-yatch-dubai-14_4.jpg",
+      "/img/yatch/P14/luxury-yatch-dubai-14_5.jpg",
+      "/img/yatch/P14/luxury-yatch-dubai-14_6.jpg",
+    ],
+    price: "550",
+    feet: "50ft ",
+    capacity: "15 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 15,
+    name: "luxury Marine ",
+    images: [
+      "/img/yatch/P15/luxury-yatch-dubai-15_1.jpg",
+      "/img/yatch/P15/luxury-yatch-dubai-15_2.jpg",
+      "/img/yatch/P15/luxury-yatch-dubai-15_3.jpg",
+      "/img/yatch/P15/luxury-yatch-dubai-15_4.jpg",
+      "/img/yatch/P15/luxury-yatch-dubai-15_5.jpg",
+      "/img/yatch/P15/luxury-yatch-dubai-15_6.jpg",
+    ],
+    price: "2000",
+    feet: "95ft ",
+    capacity: "70 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 16,
+    name: "Luxury Marine ",
+    images: [
+      "/img/yatch/P16/luxury-yatch-dubai-16_1.jpg",
+      "/img/yatch/P16/luxury-yatch-dubai-16_2.jpg",
+      "/img/yatch/P16/luxury-yatch-dubai-16_3.jpg",
+      "/img/yatch/P16/luxury-yatch-dubai-16_4.jpg",
+      "/img/yatch/P16/luxury-yatch-dubai-16_5.jpg",
+      "/img/yatch/P16/luxury-yatch-dubai-16_6.jpg",
+    ],
+    price: "500",
+    feet: "50ft ",
+    capacity: "12 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 17,
+    name: "Luxury Marine ",
+    images: [
+      "/img/yatch/P17/luxury-yatch-dubai-17_1.jpg",
+      "/img/yatch/P17/luxury-yatch-dubai-17_2.jpg",
+      "/img/yatch/P17/luxury-yatch-dubai-17_3.jpg",
+      "/img/yatch/P17/luxury-yatch-dubai-17_4.jpg",
+      "/img/yatch/P17/luxury-yatch-dubai-17_5.jpg",
+      "/img/yatch/P17/luxury-yatch-dubai-17_6.jpg",
+    ],
+    price: "1000",
+    feet: "70ft ",
+    capacity: "35 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 18,
+    name: "Luxury Marine ",
+    images: [
+      "/img/yatch/P18/luxury-yatch-dubai-18_1.jpg",
+      "/img/yatch/P18/luxury-yatch-dubai-18_2.jpg",
+      "/img/yatch/P18/luxury-yatch-dubai-18_3.jpg",
+      "/img/yatch/P18/luxury-yatch-dubai-18_4.jpg",
+      "/img/yatch/P18/luxury-yatch-dubai-18_5.jpg",
+      "/img/yatch/P18/luxury-yatch-dubai-18_6.jpg",
+    ],
+    price: "3799",
+    feet: "120ft ",
+    capacity: "125 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+  id: 19,
+  name: "Seray ",
+  images: [
+    "/img/yatch/P19/luxury-yatch-dubai-19_1.jpg",
+    "/img/yatch/P19/luxury-yatch-dubai-19_2.jpg",
+    "/img/yatch/P19/luxury-yatch-dubai-19_3.jpg",
+    "/img/yatch/P19/luxury-yatch-dubai-19_4.jpg",
+    "/img/yatch/P19/luxury-yatch-dubai-19_5.jpg",
+    "/img/yatch/P19/luxury-yatch-dubai-19_6.jpg",
+  ],
+  price: "750",
+  feet: "60ft ",
+  capacity: "15 Persons",
+  Complementary:
+    "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+},
+{
+  id: 20,
+  name: "Dream 100",
+  images: [
+    "/img/yatch/P20/luxury-yatch-dubai-20_1.jpg",
+    "/img/yatch/P20/luxury-yatch-dubai-20_2.jpg",
+    "/img/yatch/P20/luxury-yatch-dubai-20_3.jpg",
+    "/img/yatch/P20/luxury-yatch-dubai-20_4.jpg",
+    "/img/yatch/P20/luxury-yatch-dubai-20_5.jpg",
+    "/img/yatch/P20/luxury-yatch-dubai-20_6.jpg",
+  ],
+  price: "100",
+  feet: "100ft ",
+  capacity: "100 Persons",
+  Complementary:
+    "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+},
+
+
 ];
 
 const Packages = [
