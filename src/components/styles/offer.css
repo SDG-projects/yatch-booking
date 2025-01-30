@@ -1,0 +1,162 @@
+ /* Main Offer Button (Always visible at the bottom-right of the page) */
+.offerBtn {
+  position: fixed; /* Fixed position */
+  right: 20px; /* Positioned at the right side */
+  bottom: 20px; /* Positioned at the bottom */
+  padding: 15px 20px;
+  background-color: orange;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  z-index: 100; /* High z-index to ensure visibility */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.offerBtn:hover {
+  background-color: darkorange;
+}
+
+/* Popup Container */
+.offerContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* Lower than the offer button */
+  background: transparent;
+  width: 90%; /* Full width for smaller screens */
+  max-width: 800px; /* Limit width for larger screens */
+  height: auto; /* Adjust height dynamically */
+  border-radius: 12px;
+  overflow: hidden; /* Remove scrollbars */
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Vertical layout */
+  gap: 20px;
+}
+
+/* Close Button Inside Popup */
+.offerCloseBtn {
+  position: absolute; /* Positioned relative to the container */
+  top: 10px; /* At the top-right corner */
+  right: 10px;
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 11; /* Slightly above the popup container */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.offerCloseBtn:hover {
+  background-color: darkorange;
+}
+
+/* Offer Section (Container for offers inside the popup) */
+.offerSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content at the top */
+  align-items: center;
+  width: 100%; /* Full width */
+  height: auto; /* Adjust height dynamically */
+  gap: 20px;
+}
+
+/* Individual Offer List */
+.offers {
+  display: flex;
+  flex-direction: column; /* Vertical layout for offers */
+  gap: 20px;
+  width: 100%; /* Full width of container */
+}
+
+/* Single Offer Styling */
+.offer {
+  display: flex;
+  flex-direction: column; /* Ensure vertical layout */
+  gap: 10px;
+  background-color: #0F1020; /* Light background for contrast */
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  width: 100%; /* Take full width of container */
+}
+
+/* Image Styling */
+.offerImg {
+  width: 100%; /* Full width of container */
+  max-width: 400px; /* Limit max width for responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px;
+  overflow: hidden;
+  display: inline;
+}
+
+/* Offer Name */
+.offerName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* Offer Description */
+.offerDescription {
+  font-size: 1rem;
+  color: aliceblue;
+}
+
+/* Offer Features */
+.offerFeatures li {
+  font-size: 0.9rem;
+  color: aliceblue;
+}
+
+/* Remaining Time Section */
+.offerTime span {
+  background-color: orange;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Call-to-Action Button (Book Now) */
+.offerCTC button {
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.offerCTC button:hover {
+  background-color: darkorange;
+}
+
+/* Remove Scrollbars */
+.offerContainer::-webkit-scrollbar,
+.offerSection::-webkit-scrollbar {
+  display: none;
+}
+
+.offerContainer {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}

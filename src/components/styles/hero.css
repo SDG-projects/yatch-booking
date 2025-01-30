@@ -1,0 +1,136 @@
+<<<<<<< HEAD
+=======
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* z-index: -1; */
+  animation-timeline: view(block 50% 100%);
+  animation-name: slideVideo;
+  animation-fill-mode: both;
+  animation-duration: 1ms;
+  animation-timing-function: linear;
+}
+
+.bgvd-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.324);
+  z-index: 1;
+}
+
+.heroContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70vh;
+  color: #fff;
+  font-family: "Playwrite AU SA", serif;
+  font-weight: bold;
+  /* z-index: 4; */
+}
+
+.heroText {
+  width: 50vw;
+  background-color: rgba(0, 0, 0, 0.529);
+  padding: 10px;
+  border-radius: 9px;
+  z-index: 2;
+}
+
+.heroText h1 {
+  font-size: 2.6rem;
+  font-weight: bold;
+}
+
+.heroText p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+}
+
+.golden {
+  color: var(--accent-color);
+}
+
+.cta-button {
+  margin-top: 2rem;
+  margin-right: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Poppins";
+  transition: all 600ms ease-in-out;
+}
+
+.cta-button:hover {
+  color: var(--accent-color);
+}
+
+.companyName {
+  color: rgba(249, 189, 38, 0.672);
+  font-size: 2.3rem;
+  animation: blink 500ms ease-in 0 infinite;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .heroText {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .heroText h1 {
+    font-size: 2rem;
+  }
+
+  .heroText p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .heroText h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroText p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+}
+>>>>>>> deva

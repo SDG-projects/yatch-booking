@@ -1,0 +1,204 @@
+<<<<<<< HEAD
+=======
+.product-section {
+  padding: 60px 10%;
+  background: var(--primary-color);
+  color: #e5e7eb;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  border-radius: 15px;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-top: -50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+}
+.section-title p {
+  font-family: "Oswald", serif;
+}
+.styled-line {
+  border: 0;
+  border-top: 2px solid var(--accent-color);
+  margin: 20px 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 2fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.product-card {
+  /* position: relative; */
+  text-align: start;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  /* margin-top: 30px;  */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-card img {
+  width: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: 15px 15px 0px 0px;
+  border-bottom: none;
+}
+
+.product-info {
+  padding: 20px;
+  border-radius: 0 0 15px 15px;
+  color: #e5e7eb;
+  letter-spacing: 2px;
+  background: var(--secondary-color);
+}
+.product-grid {
+  gap: 25px;
+}
+
+.pd-price {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.pd-ft,
+.pd-cap {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+}
+.product-name span {
+  color: var(--accent-color);
+}
+
+.product-detail {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+.product-detail i {
+  margin-right: 10px;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: -10px;
+  border-radius: 25px;
+}
+
+.btn {
+  display: flex;
+  height: 7vh;
+  width: 160px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: var(--button-color);
+  color: black;
+  font-weight: 100;
+  font-family: "Kanit", serif;
+  border: none;
+  border-radius: 40px;
+  letter-spacing: 0px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn span {
+  margin-right: 5px;
+  font-family: "Poppins", serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.btn img {
+  width: 25px;
+  height: 20px;
+  margin-right: 5px;
+  object-fit: contain;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  color: var(--secondary-color);
+  transition: 1s;
+}
+
+.product-slider .slick-prev,
+.product-slider .slick-next {
+  background: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.product-slider .slick-prev {
+  left: 15px;
+}
+
+.product-slider .slick-next {
+  right: 15px;
+}
+
+.product-slider .slick-prev:hover,
+.product-slider .slick-next:hover {
+  background: rgba(5, 5, 5, 0.701);
+  /* transform: scale(1.1); */
+}
+
+.product-slider .slick-prev:before,
+.product-slider .slick-next:before {
+  font-size: 20px;
+  content: "";
+}
+
+.product-slider .slick-prev:after,
+.product-slider .slick-next:after {
+  content: "\f104";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--accent-color);
+}
+
+.product-slider .slick-next:after {
+  content: "\f105";
+}
+>>>>>>> deva
