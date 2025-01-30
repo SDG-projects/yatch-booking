@@ -1,62 +1,35 @@
 .aboutPage {
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   padding: 40px;
-  /* background: #f4f4f4; */
+  background: var(--primary-color);
   color: #ffffff;
+  font-family: "Poppins","serif";
 }
 
 .aboutContent {
   max-width: 800px;
-  /* text-align: center; */
+  text-align: center;
   margin-bottom: 30px;
-  columns: 2;
-  column-gap: 10px;
-  /* display: grid;
-  grid-colum; */
-  /* grid-template-areas:
-    "about about about location"
-    "story story story ownerInfo"
-    "contact contact contact contact"; */
-}
-.aboutContent div {
-  -webkit-column-break-after: avoid;
-  -webkit-column-break-before: avoid-region;
-  -webkit-column-break-inside: avoid-region;
-  /* background-color: #fbc02d; */
-}
-.about {
-  grid-area: about;
-}
-.compStory {
-  grid-area: story;
-}
-.ownerInfo {
-  grid-area: ownerInfo;
-}
-.location {
-  grid-area: location;
-}
-.yUs {
-  grid-area: yUS;
 }
 
 .aboutContent h1 {
   font-size: 2.5rem;
-  /* color: var(--primary-color); */
+  font-family: "Poppins","serif";
+  color: #ffffff;
 }
 
 .aboutContent h2 {
   font-size: 1.8rem;
   margin-top: 20px;
-  /* color: #333; */
+  color: #ffffff;
 }
 
 .aboutContent p {
   font-size: 1.1rem;
   line-height: 1.6;
-  /* color: #666; */
+  color: #ffffff;
 }
 
 .aboutContent ul {
@@ -71,9 +44,8 @@
 
 .aboutContact {
   max-width: 800px;
-  grid-area: contact;
-  /* text-align: center; */
-  /* background: #ffffff; */
+  text-align: center;
+  background: #ffffff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -86,21 +58,19 @@
 
 .aboutContact p {
   font-size: 1.2rem;
-  /* color: #555; */
+  color: #555;
 }
 
-@media (max-width: 468px) {
+@media (max-width: 768px) {
   .aboutPage {
     padding: 20px;
   }
-  .aboutContent {
-    columns: 1;
-  }
+
   .aboutContent h1 {
     font-size: 2rem;
   }
 
   .aboutContent p {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
