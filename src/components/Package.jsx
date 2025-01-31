@@ -287,7 +287,7 @@ function Package({ details }) {
           detail3={pack.detail3}
           detail4={pack.detail4}
           editable={false} // No "Add Service" for standard packages
-          services={pack.services}
+          services={pack.services ? pack.services : []}
           packIncludes={pack.packIncludes}
         />
       ))}
