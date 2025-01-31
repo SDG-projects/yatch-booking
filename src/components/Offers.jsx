@@ -33,9 +33,9 @@ function Offer({ offer }) {
     offer.startTime <= new Date() && (
       <div className="offer">
         <div className="offerName">{offer.name}</div>
-        <div>
+        {/* <div>
           <img className="offerImg" src={offer.images[0]} alt={offer.name} />
-        </div>
+        </div> */}
         <div className="offerDescription">{offer.description}</div>
         <div className="offerFeatures">
           {offer.features.map((v, i) => (
@@ -88,10 +88,7 @@ function Offers() {
       {/* Popup Container */}
       {offerOpen && (
         <div className="offerContainer">
-          <button
-            className="offerCloseBtn"
-            onClick={() => setOfferOpen(false)}
-          >
+          <button className="offerCloseBtn" onClick={() => setOfferOpen(false)}>
             X
           </button>
           <div className="offerSection">
@@ -106,6 +103,5 @@ function Offers() {
     </>
   );
 }
-
 
 export default Offers;

@@ -2,18 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  /* height: 80vh; */
   background: var(--primary-color);
+  /* flex-wrap: wrap; */
 }
 
 .container {
   display: flex;
   gap: 30px;
+  /* gap: 10%; */
   padding: 20px;
   width: 90%;
-  height: 400px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  flex-wrap: wrap;
+  /* height: 400px; */
+
+  /* overflow-x: auto;
+  scroll-snap-type: x mandatory; */
 }
 
 .container::-webkit-scrollbar {
@@ -68,8 +72,8 @@
 
 .card-title {
   font-family: "PlayWrite AU SA", serif;
-  font-size: 40px;
-  margin-bottom: 10px;
+  /* font-size: 40px; */
+  /* margin-bottom: 10px; */
 }
 
 .card-button {

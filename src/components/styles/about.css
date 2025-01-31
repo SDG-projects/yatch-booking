@@ -1,22 +1,24 @@
 .aboutPage {
   display: flex;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   align-items: center;
   padding: 40px;
   background: var(--primary-color);
   color: #ffffff;
-  font-family: "Poppins","serif";
+  font-family: "Poppins", "serif";
 }
 
 .aboutContent {
   max-width: 800px;
-  text-align: center;
+  /* text-align: center; */
   margin-bottom: 30px;
 }
 
 .aboutContent h1 {
   font-size: 2.5rem;
-  font-family: "Poppins","serif";
+  font-family: "Poppins", "serif";
   color: #ffffff;
 }
 
@@ -44,8 +46,8 @@
 
 .aboutContact {
   max-width: 800px;
-  text-align: center;
-  background: #ffffff;
+  /* text-align: center;
+  background: #ffffff; */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

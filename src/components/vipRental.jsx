@@ -17,8 +17,8 @@ const VIPRental = () => {
       <h1 className="vip-title">VIP Yachts</h1>
       <hr className="styled-line" />
       <div className="vip-yachts-list">
-        {products.map((product) => (
-          <Product product={product} />
+        {products.map((product, i) => (
+          <Product key={i} product={product} />
         ))}
       </div>
     </div>

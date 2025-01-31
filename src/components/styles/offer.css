@@ -22,7 +22,7 @@
 }
 
 .offerContainer {
-  position: fixed; 
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -35,17 +35,15 @@
   z-index: 100;
 }
 
-
 .offerSection {
   background: var(--secondary-color);
-  padding: 25px;
+  padding: 15px;
   border-radius: 16px;
   width: 90%;
   max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
 }
-
 
 .offerContainer::-webkit-scrollbar,
 .offerSection::-webkit-scrollbar {
@@ -56,8 +54,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-
 
 .offerCloseBtn {
   position: absolute;
@@ -83,9 +79,10 @@
 /* Individual Offer List */
 .offers {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 20px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 /* Single Offer Styling */
@@ -93,19 +90,41 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background: var(--secondary-color);
+  position: relative;
+  flex-grow: 1;
+  /* background: var(--secondary-color); */
+  background-color: rgba(202, 165, 90, 0.966);
   border-radius: 16px;
   justify-content: center;
   text-align: center;
   align-items: center;
   padding: 20px;
-  width: 100%;
+  /* width: 100%; */
   transition: transform 0.3s ease;
+  mask-image: url("/img/scratch.png");
+  mask-mode: alpha;
+  mask-size: cover;
 }
+/* .offer::before {
+  position: absolute;
+  top: 0;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  mask-mode: alpha;
+  mask-size: cover;
+  background-color: #2424e135;
+  left: 0;
+  background-position: center;
+  mask-clip: text;
+  mask-image: url("/img/scratch.png");
+  mask-mode: alpha;
+  mask-size: cover;
+} */
 .offerImg {
   width: 100%;
   max-width: 500px;
-  height: auto;
+  height: 200px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -113,24 +132,37 @@
 
 /* Offer Name */
 .offerName {
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: var(--accent-color);
+  /* color: var(--accent-color); */
+  color: #fcd15b;
   font-family: "Playwrite AU SA", serif;
   text-align: center;
 }
 
 /* Offer Description */
 .offerDescription {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: aliceblue;
   text-align: center;
 }
 
 /* Offer Features */
+.offerFeatures {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 .offerFeatures li {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: aliceblue;
+  list-style: none;
+  background-color: red;
+  padding: 10px;
+  border-radius: 50px;
+}
+.offerFeatures li::before {
+  content: "# ";
 }
 
 /* Remaining Time Section */
@@ -142,6 +174,8 @@
   color: white;
   font-size: 1rem;
   font-weight: bold;
+  width: 200px;
+  overflow: hidden;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -174,14 +208,30 @@
   scrollbar-width: none;
 }
 @keyframes rainbowBg {
-  0% { background: #ff0000; } /* Red */
-  14% { background: #ff7f00; } /* Orange */
-  28% { background: #ffff00; } /* Yellow */
-  42% { background: #00ff00; } /* Green */
-  57% { background: #0000ff; } /* Blue */
-  71% { background: #4b0082; } /* Indigo */
-  85% { background: #9400d3; } /* Violet */
-  100% { background: #ff0000; } /* Back to Red */
+  0% {
+    background: #ff0000;
+  } /* Red */
+  14% {
+    background: #ff7f00;
+  } /* Orange */
+  28% {
+    background: #ffff00;
+  } /* Yellow */
+  42% {
+    background: #00ff00;
+  } /* Green */
+  57% {
+    background: #0000ff;
+  } /* Blue */
+  71% {
+    background: #4b0082;
+  } /* Indigo */
+  85% {
+    background: #9400d3;
+  } /* Violet */
+  100% {
+    background: #ff0000;
+  } /* Back to Red */
 }
 @media (max-width: 768px) {
   .offerContainer {
@@ -220,7 +270,7 @@
     font-size: 0.85rem;
     padding: 8px 12px;
   }
-  .offerContainer{
+  .offerContainer {
     padding: 0%;
   }
 }

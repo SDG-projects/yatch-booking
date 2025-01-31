@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { getPackages, getServices } from "../data/Services";
-import { useNavigate, useParams } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import "./styles/package.css";
 
-// import { useNavigate, useParams } from "react-router-dom";
-// import { getPackages, getPackReviews, getServices } from "../data/Services";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  getOwnerInfo,
+  getPackages,
+  getPackReviews,
+  getServices,
+} from "../data/Services";
 // import { Review } from "./Testimonials";
 // function Pack({
 //   name,
@@ -169,13 +175,30 @@ function Pack({
     // const alterPack=packServices.filter
     setPackServices(packServices.filter((v) => !(v.name == serviceName)));
   }
-  function genBookLink() {
-    const template = `hello i am interst in the ${name} package with the following services:
-    ${packServices.map((value) => value.name)}
-    is that any negosiation to get best price ?
-    `;
-    console.log(template);
-  }
+  // function genBookLink() {
+  //   const template = `hello i am interst in the ${name} package with the following services:
+  //   ${packServices.map((value) => value.name)}
+  //   is that any negosiation to get best price ?
+  //   `;
+  //   console.log(template);
+  // }
+  const handleWhatsAppRedirect = (message) => {
+    const phoneNumber = getOwnerInfo().Phone;
+
+    const encodedMessage = encodeURIComponent(message);
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    const whatsappUrl = isMobile
+      ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+    const newWindow = window.open(whatsappUrl, "_blank");
+    if (!newWindow) {
+      alert(
+        "Unable to open WhatsApp. Please enable pop-ups or copy this link: " +
+          whatsappUrl
+      );
+    }
+  };
+
   return (
     <section
       className="package"
@@ -190,56 +213,162 @@ function Pack({
           >
             {name}
           </h1>
-          <img src={imgs} alt={name} className="pack-image" />
+          <img draggable={false} src={imgs} alt={name} className="pack-image" />
         </div>
         {details && (
           <div className="pack-info">
-            <div className="pack-description">
-              <p>{description}</p>
-              <h3>Package Includes:</h3>
-              <p>{detail1}</p>
-              <p>{detail2}</p>
-              <p>{detail3}</p>
-              <p>{detail4}</p>
-            </div>
-            {editable && (
-              <div className="pack-includes">
-                <ul>
-                  {packIncludes?.map((include, i) => (
-                    <li key={i}>{include}</li>
-                  ))}
-                  {services?.map((service, i) => (
-                    <li key={`service-${i}`} className="added-service">
-                      <span>{service.name}</span>
-                      <button
-                        className="remove-service-btn"
-                        onClick={() => removeService(service.name)}
-                      >
-                        ✖
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                {/* Button to trigger Add Service - ONLY for Custom Pack */}
-                <button className="addServ-btn" onClick={addServiceButtonClick}>
-                  <i>+</i> Add Service
-                </button>
+            <div className="infoOverlay"></div>
+            {details && (
+              <div className="pack-description">
+                <p>{description}</p>
               </div>
             )}
+            {packIncludes && (
+              <div className="pack-Includes">
+                <h1>Includes</h1>
+                {packIncludes?.map((value) => {
+                  return <p>{value}</p>;
+                })}
+              </div>
+            )}
+
+            {packServices.length > 0 && (
+              <div className="pack-services">
+                <h1>Services</h1>
+                {packServices.map((service, i) => (
+                  <div key={i} className="pack-service">
+                    {details ? (
+                      <>
+                        {" "}
+                        <details>
+                          <summary>{service.name}</summary>
+                          <div>
+                            <p>{service.description}</p>
+                          </div>
+                          {/* <div>
+               {service.price && service.price.discountRate ? (
+                 <div>
+                   <span className="pack-service-discount">
+                     {service.price.rate}
+                   </span>
+                   <span className="pack-service-price">
+                     {service.price.discountRate}
+                   </span>
+                 </div>
+               ) : (
+                 <span className="pack-service-price">
+                   {service.price.rate}
+                 </span>
+               )}
+             </div> */}
+                        </details>
+                        {editable && (
+                          <button
+                            className="cancelBtn"
+                            onClick={() => {
+                              removeService(service.name);
+                            }}
+                          >
+                            x
+                          </button>
+                        )}
+                      </>
+                    ) : (
+                      <div>{service.name}</div>
+                    )}
+                  </div>
+                ))}
+                {packServices.length <= 0 && "empty"}
+              </div>
+            )}
+
+            <div className="pack-price">
+              <div
+                className="pack-price-rate"
+                style={
+                  price?.discountRate && { textDecoration: "line-through" }
+                }
+              >
+                {price?.rate}
+              </div>
+              {price?.discountRate && (
+                <div className="pack-price-discount">{price?.discountRate}</div>
+              )}
+            </div>
+            <div className="pack-action">
+              <button
+                className="pack-book-now btn"
+                onClick={() =>
+                  handleWhatsAppRedirect(`hello i am interst in the ${name} package with the following services:
+                  ${packServices.map((value) => value.name)}
+                  is that any negosiation to get best price ?
+                  `)
+                }
+              >
+                Book now
+              </button>
+              {filteredServices.length > 0 && editable && (
+                <button
+                  className="addServ-btn btn"
+                  onClick={() => {
+                    setShowServices(!showServices);
+                  }}
+                >
+                  {showServices ? (
+                    "close"
+                  ) : (
+                    <span>
+                      <i>+</i> Service
+                    </span>
+                  )}
+                </button>
+              )}
+              {showServices && (
+                <div className="remainServ">
+                  <button
+                    className="cancelBtn"
+                    onClick={() => {
+                      setShowServices(!showServices);
+                    }}
+                  >
+                    <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+                  </button>
+                  <ul>
+                    {filteredServices.map((value, i) => {
+                      return (
+                        <li
+                          key={i}
+                          onClick={() => {
+                            setPackServices([...packServices, value]);
+                          }}
+                        >
+                          {value.name}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         )}
+
+        {children}
       </div>
     </section>
   );
 }
 
-function Package({ details }) {
+function Package({ imgs, services, details }) {
   const nav = useNavigate();
   const { pack } = useParams();
   const [packages, setPackages] = useState([]);
-  const [showServiceOverlay, setShowServiceOverlay] = useState(false);
-  const [customPackServices, setCustomPackServices] = useState([]); // Store selected services for Custom Pack
-  const allServices = getServices(); // Get all available services
+  const [packageDis, setPackage] = useState({});
+  const [packReviews, setPackReviews] = useState([]);
+  // useEffect(() => {
+  //   setPackages(getPackages());
+  //   setPackage()
+  // }, []);
 
   useEffect(() => {
     if (pack) {
@@ -247,92 +376,95 @@ function Package({ details }) {
         .toLowerCase()
         .replaceAll(" ", "_")
         .replaceAll("/", "-");
-      const selectedPackage = getPackages(Number(packName.split("&")[1]));
-      setPackages(selectedPackage);
-    } else {
+
+      // setPackages();
+      setPackages([...getPackages(Number(packName.split("&")[1]))]);
+      console.log(packages);
+      // const element = document.getElementById(elementId);
+      // if (element) {
+      //   element.scrollIntoView({ behavior: "smooth", block: "center" });
+      // } else {
+      //   nav("/packages");
+      // }
+    } // : nav("/packageNotFound");
+    else {
       nav("/packages");
+      // setPackages(getPackages());
     }
-  }, [pack, nav]);
-
-  // Open the service overlay when "Add Service" is clicked
-  const openAddServiceOverlay = () => {
-    setShowServiceOverlay(true);
-  };
-
-  // Add a service to the Custom Pack
-  const addServiceToCustomPack = (service) => {
-    // Avoid duplicate services
-    if (!customPackServices.some((s) => s.name === service.name)) {
-      setCustomPackServices((prevServices) => [...prevServices, service]);
-    }
-  };
-
-  // Remove a service from the Custom Pack
-  const removeServiceFromCustomPack = (serviceName) => {
-    setCustomPackServices((prevServices) =>
-      prevServices.filter((service) => service.name !== serviceName)
-    );
-  };
-
+  }, [pack]);
+  useEffect(() => {
+    packages[0]?.id > 0 && setPackReviews(getPackReviews(packages[0]?.id));
+    console.log(packReviews);
+  }, [packages]);
   return (
     <div className="packages">
+      {/* <Pack
+        details={details}
+        name={"Birthday Pack"}
+        imgs={"/img/yacht.png"}
+        description={
+          <div>
+            Birthday pack so enought to celebrate your Birthday its inculdes the
+            followings :
+          </div>
+        }
+        services={[
+          {
+            name: "Private DJ",
+            description: "the private DJ will alote to your birthday party ",
+            info: { Name: "Ditto", rating: 3, price: 1000 },
+            timing: 2,
+            price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+          },
+          {
+            name: "Romantic Private Dinner",
+            description:
+              "the private Chef will alote to prepare foods for your party ",
+            info: { Name: "Dote", rating: 4, price: 1000 },
+            timing: 2,
+            price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+          },
+          {
+            name: "Roses/Flower decorations",
+            description:
+              "Designer and planners will decurate our Yacht to your party",
+            info: { Name: "Yacht Designers", rating: 4, price: 1000 },
+            timing: 2,
+            price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+          },
+        ]}
+        price={{ rate: 10000, discountRate: 9000, type: "negosiable" }}
+      /> */}
       {packages?.map((pack) => (
         <Pack
           key={pack.id}
           name={pack.name}
           imgs={pack.imgs}
           description={pack.description}
-          detail1={pack.detail1}
-          detail2={pack.detail2}
-          detail3={pack.detail3}
-          detail4={pack.detail4}
-          editable={false} // No "Add Service" for standard packages
           services={pack.services ? pack.services : []}
+          price={pack.price}
+          details={details}
           packIncludes={pack.packIncludes}
         />
       ))}
-
-      {/* Custom Pack */}
-      {pack === "custom_pack&-1" && (
+      {pack == "custom_pack&-1" && (
         <Pack
           details={details}
-          name={"Custom Pack"}
-          imgs={"/img/df.jpg"}
-          editable={true} // Enable "Add Service" for the Custom Pack only
-          description={"Customize your own pack"}
-          services={customPackServices} // Use custom services for the Custom Pack
-          packIncludes={[]}
-          addServiceButtonClick={openAddServiceOverlay} // Enable the "Add Service" button
-          removeService={removeServiceFromCustomPack} // Enable removing services
+          name={"custom pack"}
+          imgs={"/img/dsfs.jpg"}
+          editable
+          description={"customise your own pack"}
+          services={[]}
+          price
         />
       )}
-
-      {/* Service Overlay for Adding Services */}
-      {showServiceOverlay && (
-        <div className="service-overlay">
-          <button
-            className="close-overlay"
-            onClick={() => setShowServiceOverlay(false)}
-          >
-            <i className="fa-solid fa-xmark"></i>
-          </button>
-          <ul className="service-list">
-            {allServices.map((service, i) => (
-              <li
-                key={i}
-                className={
-                  customPackServices.some((s) => s.name === service.name)
-                    ? "service-active"
-                    : ""
-                }
-                onClick={() => addServiceToCustomPack(service)}
-              >
-                {service.name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* <Pack>Custom pack</Pack> */}
+      {/* <div className="feedBacks">
+        <h2>user feedbacks</h2>
+        {packReviews?.map((review) => (
+          <Review review={review} style={{ maxWidth: "30%" }} />
+        ))}
+      </div> */}
     </div>
   );
 }
