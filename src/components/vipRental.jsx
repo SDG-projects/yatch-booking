@@ -1,7 +1,7 @@
 import React from "react";
 import { getProducts } from "../data/Services";
 import { Link, useNavigate } from "react-router-dom";
-import "./styles/vippage.css";
+import "./vippage.css";
 import { handleWhatsAppRedirect, Product } from "./Products";
 
 const VIPRental = () => {

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
@@ -36,14 +34,18 @@ export const Product = ({ product }) => {
 
   return (
     <div key={product.id} className="product-card">
-      <h3 className="product-name">{product.name}<span> - GOLDEN YATCH</span></h3>
+      <h3 className="product-name">
+        {product.name}
+        <span> - GOLDEN YATCH</span>
+      </h3>
       <div>
         <img
           src={product.images[0]}
           alt={product.name}
           className="product-image"
           onClick={handleProductClick}
-          width={300} height={300}
+          width={300}
+          height={300}
         />
       </div>
       <div className="product-info" onClick={handleProductClick}>
@@ -85,14 +87,10 @@ const ProductSection = () => {
       <hr className="styled-line" />
       <div className="product-grid">
         {products.map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-          />
+          <Product key={product.id} product={product} />
         ))}
       </div>
     </section>
   );
 };
 export default ProductSection;
->>>>>>> deva

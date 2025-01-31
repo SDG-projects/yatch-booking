@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { useEffect, useState } from "react";
 import "./styles/navbar.css";
 import { Link, useLocation } from "react-router-dom";
@@ -158,4 +156,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
->>>>>>> deva

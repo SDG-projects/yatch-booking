@@ -3,9 +3,9 @@ import { getPackages, getServices } from "../data/Services";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styles/package.css";
 
-import { useNavigate, useParams } from "react-router-dom";
-import { getPackages, getPackReviews, getServices } from "../data/Services";
-import { Review } from "./Testimonials";
+// import { useNavigate, useParams } from "react-router-dom";
+// import { getPackages, getPackReviews, getServices } from "../data/Services";
+// import { Review } from "./Testimonials";
 // function Pack({
 //   name,
 //   imgs,
@@ -227,7 +227,7 @@ function Pack({
               </div>
             )}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
@@ -310,14 +310,21 @@ function Package({ details }) {
       {/* Service Overlay for Adding Services */}
       {showServiceOverlay && (
         <div className="service-overlay">
-          <button className="close-overlay" onClick={() => setShowServiceOverlay(false)}>
+          <button
+            className="close-overlay"
+            onClick={() => setShowServiceOverlay(false)}
+          >
             <i className="fa-solid fa-xmark"></i>
           </button>
           <ul className="service-list">
             {allServices.map((service, i) => (
               <li
                 key={i}
-                className={customPackServices.some((s) => s.name === service.name) ? "service-active" : ""}
+                className={
+                  customPackServices.some((s) => s.name === service.name)
+                    ? "service-active"
+                    : ""
+                }
                 onClick={() => addServiceToCustomPack(service)}
               >
                 {service.name}
