@@ -27,7 +27,7 @@ function Services() {
   useEffect(() => {
     const fetchedServices = getServices();
     setServices(fetchedServices);
-  }, []);
+  });
 
   useEffect(() => {
     if (service) {

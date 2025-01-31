@@ -9,7 +9,7 @@ const BackgroundVideo = () => {
     // navigate('/products');
     document
       .querySelector("#products")
-      .scrollIntoView({ behavior: "smooth", block: "center" });
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   };
   return (
     <div className="heroContainer">

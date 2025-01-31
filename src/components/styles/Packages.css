@@ -10,9 +10,11 @@
 .container {
   display: flex;
   gap: 30px;
+  justify-content: center;
+  /* align-items: center; */
   /* gap: 10%; */
   padding: 20px;
-  width: 90%;
+  /* width: 90%; */
   flex-wrap: wrap;
   /* height: 400px; */
 
@@ -25,13 +27,19 @@
 }
 
 .card {
-  flex: 0 0 300px; /* Fixed size for cards */
+  flex: 0 0 300px; /*Fixed size for cards*/
   scroll-snap-align: center; /* Snap cards to the center */
   position: relative;
   overflow: hidden;
+
+  flex-basis: max(30%, 300px, 10%);
+  /* flex-grow: 1; */
+  /* flex-shrink: 10; */
+  /* flex-flow: wrap; */
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(56, 10, 10, 0.5);
   background-color: #fff;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -57,6 +65,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   background: rgba(0, 0, 0, 0.3);
   color: white;
   font-weight: bold;
@@ -72,6 +81,7 @@
 
 .card-title {
   font-family: "PlayWrite AU SA", serif;
+  font-size: 1.5rem;
   /* font-size: 40px; */
   /* margin-bottom: 10px; */
 }
