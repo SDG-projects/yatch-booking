@@ -90,6 +90,7 @@ body {
 .pack-action {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 .pack-includes li {
   background: #0f3460;

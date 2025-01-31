@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from 'react';
 import "./styles/loading.css";  
 
@@ -12,4 +10,3 @@ function Loading() {
 }
 
 export default Loading;
->>>>>>> deva

@@ -794,37 +794,37 @@ const Packages = [
 
   {
     id: 1,
-    name: "party Pack",
+    name: "Party Pack",
     imgs: "/img/birthday.png",
     bgimgs: "/img/birthday.png",
     description: `
           Make your birthday unforgettable by celebrating on a luxurious yacht with Golden Yacht Rentals Dubai. Our exclusive birthday package offers the perfect setting for an extraordinary celebration. Cruise through Dubai's stunning waters while enjoying breathtaking views of iconic landmarks like the Burj Khalifa, Palm Jumeirah, and the Dubai Marina skyline :
           `,
-    services: [
-      {
-        name: "Private DJ",
-        description: "the private DJ will alote to your birthday party ",
-        ino: { Name: "Ditto", rating: 3, price: 1000 },
-        timing: 2,
-        price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-      },
-      {
-        name: "Romantic Private Dinner",
-        description:
-          "the private Chef will alote to prepare foods for your party ",
-        info: { Name: "Dote", rating: 4, price: 1000 },
-        timing: 2,
-        price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-      },
-      {
-        name: "Roses/Flower decorations",
-        description:
-          "Designer and planners will decurate our Yacht to your party",
-        info: { Name: "Yacht Designers", rating: 4, price: 1000 },
-        timing: 2,
-        price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-      },
-    ],
+    // services: [
+    //   {
+    //     name: "Private DJ",
+    //     description: "the private DJ will alote to your birthday party ",
+    //     ino: { Name: "Ditto", rating: 3, price: 1000 },
+    //     timing: 2,
+    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    //   },
+    //   {
+    //     name: "Romantic Private Dinner",
+    //     description:
+    //       "the private Chef will alote to prepare foods for your party ",
+    //     info: { Name: "Dote", rating: 4, price: 1000 },
+    //     timing: 2,
+    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    //   },
+    //   {
+    //     name: "Roses/Flower decorations",
+    //     description:
+    //       "Designer and planners will decurate our Yacht to your party",
+    //     info: { Name: "Yacht Designers", rating: 4, price: 1000 },
+    //     timing: 2,
+    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    //   },
+    // ],
   },
   {
     id: 2,

@@ -432,12 +432,12 @@ function Package({ imgs, services, details }) {
         />
       )}
       {/* <Pack>Custom pack</Pack> */}
-      <div className="feedBacks">
+      {/* <div className="feedBacks">
         <h2>user feedbacks</h2>
         {packReviews?.map((review) => (
           <Review review={review} style={{ maxWidth: "30%" }} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/hero.css";
@@ -43,4 +41,3 @@ const BackgroundVideo = () => {
 };
 
 export default BackgroundVideo;
->>>>>>> deva
