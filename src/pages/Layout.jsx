@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -35,7 +35,6 @@ function ScrollUP() {
     </>
   );
 }
-
 function Layout() {
   return (
     <div className="layout">

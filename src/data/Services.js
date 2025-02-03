@@ -631,8 +631,8 @@ const Products = [
     id: 6,
     name: "Jetcar ",
     images: [
-      "/img/yatch/P6/Luxury-yatch-dubai-6_1.jpg",
-      "/img/yatch/P6/Luxury-yatch-dubai-6_2.jpg",
+      "/img/yatch/P6/luxury-yatch-dubai-6_1.jpg",
+      "/img/yatch/P6/luxury-yatch-dubai-6_2.jpg",
       "/img/yatch/P6/luxury-yatch-dubai-6_3.jpg",
     ],
     price: "1550",
@@ -1060,6 +1060,164 @@ const Products = [
     Complementary:
       "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
   },
+  {
+    id: 31,
+    name: "Vogue",
+    images: [
+      "/img/yatch/P31/luxury-yatch-dubai-31_1.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_2.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_3.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_4.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_5.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_6.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_7.jpg",
+      "/img/yatch/P31/luxury-yatch-dubai-31_8.jpg",
+    ],
+    price: "799",
+    feet: "45ft ",
+    capacity: "12 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 32,
+    name: "Azimut marina",
+    images: [
+      "/img/yatch/P32/luxury-yatch-dubai-32_1.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_2.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_3.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_4.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_5.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_6.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_7.jpg",
+      "/img/yatch/P32/luxury-yatch-dubai-32_8.jpg",
+    ],
+    price: "2999",
+    feet: "95ft ",
+    capacity: "65 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 33,
+    name: "Luxury yatch",
+    images: [
+      "/img/yatch/P33/luxury-yatch-dubai-33_1.jpg",
+      "/img/yatch/P33/luxury-yatch-dubai-33_2.jpg",
+      "/img/yatch/P33/luxury-yatch-dubai-33_3.jpg",
+      "/img/yatch/P33/luxury-yatch-dubai-33_4.jpg",
+      "/img/yatch/P33/luxury-yatch-dubai-33_5.jpg",
+      "/img/yatch/P33/luxury-yatch-dubai-33_6.jpg",
+    ],
+    price: "550",
+    feet: "36ft ",
+    capacity: "36 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 34,
+    name: "Majesty3",
+    images: [
+      "/img/yatch/P34/luxury-yatch-dubai-34_1.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_2.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_3.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_4.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_5.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_6.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_7.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_8.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_9.jpg",
+      "/img/yatch/P34/luxury-yatch-dubai-34_10.jpg",
+    ],
+    price: "1399",
+    feet: "59ft ",
+    capacity: "20 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 35,
+    name: "Azimut",
+    images: [
+      "/img/yatch/P35/luxury-yatch-dubai-35_1.jpg",
+      "/img/yatch/P35/luxury-yatch-dubai-35_2.jpg",
+      "/img/yatch/P35/luxury-yatch-dubai-35_3.jpg",
+      "/img/yatch/P35/luxury-yatch-dubai-35_4.jpg",
+      "/img/yatch/P35/luxury-yatch-dubai-35_5.jpg",
+      "/img/yatch/P35/luxury-yatch-dubai-35_6.jpg",
+      "/img/yatch/P35/luxury-yatch-dubai-35_7.jpg",
+    ],
+    price: "999",
+    feet: "52ft ",
+    capacity: "20 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 36,
+    name: "Golden UD",
+    images: [
+      "/img/yatch/P36/luxury-yatch-dubai-36_1.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_2.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_3.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_4.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_5.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_6.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_7.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_8.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_9.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_10.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_11.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_12.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_13.jpg",
+      "/img/yatch/P36/luxury-yatch-dubai-36_14.jpg",
+    ],
+    price: "8999",
+    feet: "80ft ",
+    capacity: "20 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 37,
+    name: "Azimut GOLD",
+    images: [
+      "/img/yatch/P37/luxury-yatch-dubai-37_1.jpg",
+      "/img/yatch/P37/luxury-yatch-dubai-37_2.jpg",
+      "/img/yatch/P37/luxury-yatch-dubai-37_3.jpg",
+      "/img/yatch/P37/luxury-yatch-dubai-37_4.jpg",
+      "/img/yatch/P37/luxury-yatch-dubai-37_5.jpg",
+      "/img/yatch/P37/luxury-yatch-dubai-37_6.jpg",
+      "/img/yatch/P37/luxury-yatch-dubai-37_7.jpg",
+    ],
+    price: "999",
+    feet: "52ft ",
+    capacity: "13 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
+  {
+    id: 38,
+    name: "OryX",
+    images: [
+      "/img/yatch/P38/luxury-yatch-dubai-38_1.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_2.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_3.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_4.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_5.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_6.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_7.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_8.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_9.jpg",
+      "/img/yatch/P38/luxury-yatch-dubai-38_10.jpg",
+    ],
+    price: "950",
+    feet: "50ft ",
+    capacity: "13 Persons",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+  },
 ];
 
 const Packages = [
@@ -1242,7 +1400,7 @@ const Offers = [
     features: ["Free Jetski", "Fire works"],
     startTime: new Date(2025, 1 - 1, 25, 13, 0, 0),
     // new Date(year, month-1, day, hour, minute, second)
-    endTime: new Date(2025, 1 - 1, 25, 15, 24, 0),
+    endTime: new Date(2026, 1 - 1, 25, 15, 24, 0),
   },
   {
     id: 1,
@@ -1404,8 +1562,9 @@ const Reviews = {
   ],
 };
 
-export function getServices(params) {
-  return Services;
+export function getServices(id) {
+  const Data = !id ? Services : [Services[id - 1]];
+  return Data;
 }
 
 export function getProducts(id) {

@@ -33,9 +33,9 @@ function Offer({ offer }) {
     offer.startTime <= new Date() && (
       <div className="offer">
         <div className="offerName">{offer.name}</div>
-        {/* <div>
+        <div>
           <img className="offerImg" src={offer.images[0]} alt={offer.name} />
-        </div> */}
+        </div>
         <div className="offerDescription">{offer.description}</div>
         <div className="offerFeatures">
           {offer.features.map((v, i) => (
@@ -64,7 +64,7 @@ function Offer({ offer }) {
           )}
         </div>
         <div className="offerCTC">
-          <button>Book Now</button>
+          <button className="bookNowBtn">Book Now</button>
         </div>
       </div>
     )
