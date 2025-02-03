@@ -35,8 +35,8 @@ export const Product = ({ product }) => {
   return (
     <div key={product.id} className="product-card">
       <h3 className="product-name">
+      <span>GOLDEN YATCH - </span>
         {product.name}
-        <span> - GOLDEN YATCH</span>
       </h3>
       <div>
         <img

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -7,6 +7,34 @@ import AIChat from "../components/AIChat";
 import { getOffers } from "../data/Services";
 import Offers from "../components/Offers";
 
+function ScrollUP() {
+  const [scrollY, setScrollY] = useState(window.scrollY);
+  useEffect(() => {
+    const getScrollY = window.addEventListener("scroll", () =>
+      setScrollY(window.scrollY)
+    );
+    // return () => removeEventListener("scroll", getScrollY);
+  });
+  return (
+    <>
+      {scrollY > window.innerHeight && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style={{
+            position: "fixed",
+            left: 10,
+            bottom: 10,
+            backgroundColor: "blue",
+            zIndex: 10,
+            // padding: "5px",
+          }}
+        >
+          ^
+        </button>
+      )}
+    </>
+  );
+}
 function Layout() {
   return (
     <div className="layout">
@@ -17,6 +45,7 @@ function Layout() {
       {/* <AIChat /> */}
       <Offers />
       <Footer />
+      <ScrollUP />
     </div>
   );
 }

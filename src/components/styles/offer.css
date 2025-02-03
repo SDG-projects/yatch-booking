@@ -23,7 +23,7 @@
 
 .offerContainer {
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100vw;
@@ -57,8 +57,8 @@
 
 .offerCloseBtn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 85px;
+  right: 335px;
   padding: 10px;
   background: linear-gradient(145deg, orange, darkorange);
   color: white;

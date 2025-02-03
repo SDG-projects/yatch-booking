@@ -4,11 +4,11 @@ import { Link, useLocation } from "react-router-dom";
 import { getPackages, getServices } from "../data/Services";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("/home");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPackagesOpen, setIsPackagesOpen] = useState(false); // Packages dropdown state
-  const [isServicesOpen, setIsServicesOpen] = useState(false); // Services dropdown state
+  const [isPackagesOpen, setIsPackagesOpen] = useState(false); 
+  const [isServicesOpen, setIsServicesOpen] = useState(false); 
 
   const services = getServices();
   const packs = getPackages();
@@ -34,19 +34,19 @@ const Navbar = () => {
   };
 
   const handleLinkClick = () => {
-    setIsOpen(false); // Close the mobile menu
-    setIsPackagesOpen(false); // Close Packages dropdown
-    setIsServicesOpen(false); // Close Services dropdown
+    setIsOpen(false);
+    setIsPackagesOpen(false); 
+    setIsServicesOpen(false); 
   };
 
   const handlePackagesClick = () => {
-    setIsPackagesOpen(!isPackagesOpen); // Toggle Packages dropdown
-    setIsServicesOpen(false); // Close Services dropdown
+    setIsPackagesOpen(!isPackagesOpen); 
+    setIsServicesOpen(false);
   };
 
   const handleServicesClick = () => {
-    setIsServicesOpen(!isServicesOpen); // Toggle Services dropdown
-    setIsPackagesOpen(false); // Close Packages dropdown
+    setIsServicesOpen(!isServicesOpen); 
+    setIsPackagesOpen(false); 
   };
 
   return (
@@ -54,7 +54,7 @@ const Navbar = () => {
       <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" />
+            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" width={200} height={200}/>
           </Link>
         </div>
       </div>
@@ -65,11 +65,7 @@ const Navbar = () => {
         <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
       <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
-        <li
-          className={
-            activePage === "/home" || activePage === "/" ? "active" : ""
-          }
-        >
+        <li className={activePage === "/home" || activePage === "/" ? "active" : ""}>
           <Link to={"/home"} onClick={handleLinkClick}>
             Home
           </Link>
