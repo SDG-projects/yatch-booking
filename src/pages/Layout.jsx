@@ -26,7 +26,12 @@ function ScrollUP() {
             bottom: 10,
             backgroundColor: "blue",
             zIndex: 10,
+            borderRadius: "100px 100px 20px 20px ",
             // padding: "5px",
+            fontWeight: "bolder",
+            fontSize: "2rem",
+            padding: "3px 20px",
+            height: "max-contant",
           }}
         >
           ^
