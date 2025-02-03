@@ -24,21 +24,28 @@ function Services() {
   const [services, setServices] = useState([]);
   const { service } = useParams();
 
-  useEffect(() => {
-    const fetchedServices = getServices();
-    setServices(fetchedServices);
-  });
+  // useEffect(() => {
+  //   const fetchedServices = getServices(Number(service?.split("&")[1]));
+  //   setServices(fetchedServices);
+  //   console.log(fetchedServ);
+  // });
 
   useEffect(() => {
     if (service) {
-      const elementId = service
-        .toLowerCase()
-        .replaceAll(" ", "_")
-        .replaceAll("/", "-");
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      // const elementId = service
+      //   .toLowerCase()
+      //   .replaceAll(" ", "_")
+      //   .replaceAll("/", "-");
+      // const element = document.getElementById(elementId);
+      // if (element) {
+      //   element.scrollIntoView({ behavior: "smooth", block: "start" });
+      // }
+      const fetchedServices = getServices(Number(service?.split("&")[1]));
+      setServices(fetchedServices);
+      // console.log(fetchedServices);
+      // console.log(getServices(Number(service?.split("&")[1])));
+    } else {
+      setServices(getServices());
     }
   }, [service]);
 
@@ -48,7 +55,7 @@ function Services() {
       <p className="service-p">Explore the exclusive services we offer</p>
       <hr className="styled-line" />
       {services.map((service, index) => (
-        <Suspense fallback={<Loading />}>
+        <Suspense key={index} fallback={<Loading />}>
           <div
             key={index}
             id={service.name

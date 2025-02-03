@@ -7,8 +7,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activePage, setActivePage] = useState("/home");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPackagesOpen, setIsPackagesOpen] = useState(false); 
-  const [isServicesOpen, setIsServicesOpen] = useState(false); 
+  const [isPackagesOpen, setIsPackagesOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const services = getServices();
   const packs = getPackages();
@@ -35,18 +35,18 @@ const Navbar = () => {
 
   const handleLinkClick = () => {
     setIsOpen(false);
-    setIsPackagesOpen(false); 
-    setIsServicesOpen(false); 
+    setIsPackagesOpen(false);
+    setIsServicesOpen(false);
   };
 
   const handlePackagesClick = () => {
-    setIsPackagesOpen(!isPackagesOpen); 
+    setIsPackagesOpen(!isPackagesOpen);
     setIsServicesOpen(false);
   };
 
   const handleServicesClick = () => {
-    setIsServicesOpen(!isServicesOpen); 
-    setIsPackagesOpen(false); 
+    setIsServicesOpen(!isServicesOpen);
+    setIsPackagesOpen(false);
   };
 
   return (
@@ -54,7 +54,12 @@ const Navbar = () => {
       <div className="navbar-brand">
         <div className="logo">
           <Link to={"/"}>
-            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" width={200} height={200}/>
+            <img
+              src={"/img/yatchlogo.png"}
+              alt="Yacht Logo"
+              width={200}
+              height={200}
+            />
           </Link>
         </div>
       </div>
@@ -65,7 +70,11 @@ const Navbar = () => {
         <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
       <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
-        <li className={activePage === "/home" || activePage === "/" ? "active" : ""}>
+        <li
+          className={
+            activePage === "/home" || activePage === "/" ? "active" : ""
+          }
+        >
           <Link to={"/home"} onClick={handleLinkClick}>
             Home
           </Link>
@@ -125,6 +134,9 @@ const Navbar = () => {
                           .toLowerCase()
                           .replaceAll(" ", "_")
                           .replaceAll("/", "-")
+                          .replaceAll("&", "-") +
+                        "&" +
+                        (i + 1)
                       }
                       onClick={handleLinkClick}
                     >

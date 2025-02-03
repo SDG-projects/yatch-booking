@@ -226,8 +226,8 @@ function Pack({
             {packIncludes && (
               <div className="pack-Includes">
                 <h1>Includes</h1>
-                {packIncludes?.map((value) => {
-                  return <p>{value}</p>;
+                {packIncludes?.map((value, i) => {
+                  return <p key={i}>{value}</p>;
                 })}
               </div>
             )}
@@ -379,7 +379,7 @@ function Package({ imgs, services, details }) {
 
       // setPackages();
       setPackages([...getPackages(Number(packName.split("&")[1]))]);
-      console.log(packages);
+      // console.log(packages);
       // const element = document.getElementById(elementId);
       // if (element) {
       //   element.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -394,7 +394,7 @@ function Package({ imgs, services, details }) {
   }, [pack]);
   useEffect(() => {
     packages[0]?.id > 0 && setPackReviews(getPackReviews(packages[0]?.id));
-    console.log(packReviews);
+    // console.log(packReviews);
   }, [packages]);
   return (
     <div className="packages">
@@ -449,6 +449,7 @@ function Package({ imgs, services, details }) {
       ))}
       {pack == "custom_pack&-1" && (
         <Pack
+          // key={"customPack"}
           details={details}
           name={"custom pack"}
           imgs={"/img/dsfs.jpg"}

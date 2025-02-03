@@ -43,7 +43,7 @@
 }
 
 .heroText h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -53,7 +53,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
-  text-align: start;
+  text-align: center;
 }
 
 .golden {

@@ -1,4 +1,4 @@
-body{
+body {
   overflow: visible;
 }
 
@@ -7,7 +7,7 @@ body{
   top: 0;
   width: 100%;
   height: 110px;
-  z-index: 100000;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -204,7 +204,7 @@ summary:hover {
     text-align: start;
     font-size: 1.2rem;
   }
-  .navbar-menu a{
+  .navbar-menu a {
     font-size: 1.2rem;
   }
 
