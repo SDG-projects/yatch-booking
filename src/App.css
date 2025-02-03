@@ -6,7 +6,7 @@
 :root {
   /* Colors */
   --primary-color: #000000;
-  --secondary-color: linear-gradient(135deg, #000000c0 20%, #0f172a 100%);
+  --secondary-color: linear-gradient(135deg, #000000 20%, #0f172a 100%);
   --button-color: linear-gradient(135deg, #d9803f, #ffaf3f);
   --accent-color: #ffd082;
   --background-color: #ffffffc4;
