@@ -68,7 +68,7 @@ const About = () => {
             <strong>Owner: Arun Kumaran</strong>
           </p>
           <p>
-            <strong>Address: Dubai Marina, Marina Suits 1001</strong>
+            <strong>Address: Dubai Marina, Marina Suits</strong>
           </p>
           <p>
             <strong>Phone: +971555930716</strong>

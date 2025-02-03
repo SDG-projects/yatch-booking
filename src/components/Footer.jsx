@@ -81,16 +81,13 @@ function Footer() {
           <h3>Contact</h3>
           <ul>
             <li>
-              <Link to="">+91 34353 34553</Link>
-            </li>
-            <li>
-              <Link to="">+91 34353 34553</Link>
+              <Link to="">+ 971 55 593 0716</Link>
             </li>
           </ul>
         </div>
         <div className="footer-info">
           <h3>Information</h3>
-          <p>Copyright 2024 My Website</p>
+          <p>Copyright 2024 FusionDevelopers</p>
           <p>All rights reserved</p>
         </div>
       </div>
