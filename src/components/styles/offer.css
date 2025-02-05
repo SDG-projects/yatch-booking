@@ -3,8 +3,8 @@
   right: 20px;
   bottom: 20px;
   padding: 15px 20px;
-  background: linear-gradient(145deg, orange, darkorange);
-  color: white;
+  background: #000000;
+  color: #000000;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 50px;
@@ -12,8 +12,7 @@
   cursor: pointer;
   z-index: 1000;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-  animation: rainbowBg 3s linear infinite;
+  clip-path: polygon(50% 0%, 63.205% 17.901%, 76.61% 35.355%, 86.602% 50%, 93.301% 62.495%, 96.598% 73.205%, 96.598% 86.795%, 93.301% 97.505%, 86.602% 100%, 76.61% 94.645%, 63.205% 82.099%, 50% 70%);
 }
 
 .offerBtn:hover {
