@@ -1229,9 +1229,9 @@ const Products = [
       "/img/yatch/P39/luxury-yatch-dubai-39_5.jpg",
       "/img/yatch/P39/luxury-yatch-dubai-39_6.jpg",
       "/img/yatch/P39/luxury-yatch-dubai-39_7.jpg",
-      "/img/yatch/P39/luxury-yatch-dubai-39_8.jpg", 
-      "/img/yatch/P39/luxury-yatch-dubai-39_9.jpg", 
-      "/img/yatch/P39/luxury-yatch-dubai-39_10.jpg", 
+      "/img/yatch/P39/luxury-yatch-dubai-39_8.jpg",
+      "/img/yatch/P39/luxury-yatch-dubai-39_9.jpg",
+      "/img/yatch/P39/luxury-yatch-dubai-39_10.jpg",
     ],
     price: "999",
     feet: "50ft ",
@@ -1250,9 +1250,9 @@ const Products = [
       "/img/yatch/P40/luxury-yatch-dubai-40_5.jpg",
       "/img/yatch/P40/luxury-yatch-dubai-40.jpg",
       "/img/yatch/P40/luxury-yatch-dubai-40_38_7.jpg",
-      "/img/yatch/P40/luxury-yatch-dubai-40_8.jpg", 
-      "/img/yatch/P40/luxury-yatch-dubai-40_9.jpg", 
-      "/img/yatch/P40/luxury-yatch-dubai-40_10.jpg", 
+      "/img/yatch/P40/luxury-yatch-dubai-40_8.jpg",
+      "/img/yatch/P40/luxury-yatch-dubai-40_9.jpg",
+      "/img/yatch/P40/luxury-yatch-dubai-40_10.jpg",
     ],
     price: "1100",
     feet: "60ft ",
@@ -1271,16 +1271,16 @@ const Products = [
       "/img/yatch/P41/luxury-yatch-dubai-41_5.jpg",
       "/img/yatch/P41/luxury-yatch-dubai-41_6.jpg",
       "/img/yatch/P41/luxury-yatch-dubai-41_7.jpg",
-      "/img/yatch/P41/luxury-yatch-dubai-41_8.jpg", 
-      "/img/yatch/P41/luxury-yatch-dubai-41_9.jpg", 
-      "/img/yatch/P41/luxury-yatch-dubai-41_10.jpg", 
+      "/img/yatch/P41/luxury-yatch-dubai-41_8.jpg",
+      "/img/yatch/P41/luxury-yatch-dubai-41_9.jpg",
+      "/img/yatch/P41/luxury-yatch-dubai-41_10.jpg",
     ],
     price: "1299",
     feet: "68ft ",
     capacity: "30 Persons",
     Complementary:
       "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
-  },/*pending*/
+  } /*pending*/,
   {
     id: 41,
     name: "Ocean Thrill Yacht",
@@ -1292,16 +1292,16 @@ const Products = [
       "/img/yatch/P42/luxury-yatch-dubai-42_5.jpg",
       "/img/yatch/P42/luxury-yatch-dubai-42_6.jpg",
       "/img/yatch/P42/luxury-yatch-dubai-42_7.jpg",
-      "/img/yatch/P42/luxury-yatch-dubai-42_8.jpg", 
-      "/img/yatch/P42/luxury-yatch-dubai-42_9.jpg", 
-      "/img/yatch/P42/luxury-yatch-dubai-42_10.jpg", 
+      "/img/yatch/P42/luxury-yatch-dubai-42_8.jpg",
+      "/img/yatch/P42/luxury-yatch-dubai-42_9.jpg",
+      "/img/yatch/P42/luxury-yatch-dubai-42_10.jpg",
     ],
     price: "499",
     feet: "31ft ",
     capacity: "7 Persons",
     Complementary:
       "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
-  },/*pending*/
+  } /*pending*/,
   {
     id: 42,
     name: "Deep Blue Explorer",
@@ -1313,16 +1313,16 @@ const Products = [
       "/img/yatch/P43/luxury-yatch-dubai-43_5.jpg",
       "/img/yatch/P43/luxury-yatch-dubai-43_6.jpg",
       "/img/yatch/P43/luxury-yatch-dubai-43_7.jpg",
-      "/img/yatch/P43/luxury-yatch-dubai-43_8.jpg", 
-      "/img/yatch/P43/luxury-yatch-dubai-43_9.jpg", 
-      "/img/yatch/P43/luxury-yatch-dubai-4310.jpg", 
+      "/img/yatch/P43/luxury-yatch-dubai-43_8.jpg",
+      "/img/yatch/P43/luxury-yatch-dubai-43_9.jpg",
+      "/img/yatch/P43/luxury-yatch-dubai-4310.jpg",
     ],
     price: "1099",
     feet: "65ft ",
     capacity: "23 Persons",
     Complementary:
       "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
-  },/*pending*/
+  } /*pending*/,
   {
     id: 43,
     name: "Golden Wave Cruiser",
@@ -1334,14 +1334,15 @@ const Products = [
       "/img/yatch/P44/luxury-yatch-dubai-44_5.jpg",
       "/img/yatch/P44/luxury-yatch-dubai-44_6.jpg",
       "/img/yatch/P44/luxury-yatch-dubai-44_7.jpg",
-      "/img/yatch/P44/luxury-yatch-dubai-44_8.jpg", 
-      "/img/yatch/P44/luxury-yatch-dubai-44_9.jpg", 
-      "/img/yatch/P44/luxury-yatch-dubai-44_10.jpg", 
+      "/img/yatch/P44/luxury-yatch-dubai-44_8.jpg",
+      "/img/yatch/P44/luxury-yatch-dubai-44_9.jpg",
+      "/img/yatch/P44/luxury-yatch-dubai-44_10.jpg",
     ],
     price: "1200",
     feet: "55ft ",
     capacity: "20 Persons",
-    Complementary: "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
+    Complementary:
+      "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
   },
   {
     id: 44,
@@ -1390,7 +1391,7 @@ const Products = [
       "/img/yatch/P47/luxury-yatch-dubai-47_5.jpg",
       "/img/yatch/P47/luxury-yatch-dubai-47_6.jpg",
       "/img/yatch/P47/luxury-yatch-dubai-47_7.jpg",
-      "/img/yatch/P47/luxury-yatch-dubai-47_8.jpg", 
+      "/img/yatch/P47/luxury-yatch-dubai-47_8.jpg",
     ],
     price: "1100",
     feet: "56ft ",
@@ -1409,9 +1410,9 @@ const Products = [
       "/img/yatch/P48/luxury-yatch-dubai-48_5.jpg",
       "/img/yatch/P48/luxury-yatch-dubai-48_6.jpg",
       "/img/yatch/P48/luxury-yatch-dubai-48_7.jpg",
-      "/img/yatch/P48/luxury-yatch-dubai-48_8.jpg", 
-      "/img/yatch/P48/luxury-yatch-dubai-48_9.jpg", 
-      "/img/yatch/P48/luxury-yatch-dubai-48_10.jpg", 
+      "/img/yatch/P48/luxury-yatch-dubai-48_8.jpg",
+      "/img/yatch/P48/luxury-yatch-dubai-48_9.jpg",
+      "/img/yatch/P48/luxury-yatch-dubai-48_10.jpg",
     ],
     price: "950",
     feet: "50ft ",
@@ -1430,9 +1431,9 @@ const Products = [
       "/img/yatch/P49/luxury-yatch-dubai-49_5.jpg",
       "/img/yatch/P49/luxury-yatch-dubai-49_6.jpg",
       "/img/yatch/P49/luxury-yatch-dubai-49_7.jpg",
-      "/img/yatch/P49/luxury-yatch-dubai-49_8.jpg", 
-      "/img/yatch/P49/luxury-yatch-dubai-49_9.jpg", 
-      "/img/yatch/P49/luxury-yatch-dubai-49_10.jpg", 
+      "/img/yatch/P49/luxury-yatch-dubai-49_8.jpg",
+      "/img/yatch/P49/luxury-yatch-dubai-49_9.jpg",
+      "/img/yatch/P49/luxury-yatch-dubai-49_10.jpg",
     ],
     price: "950",
     feet: "50ft ",
@@ -1784,12 +1785,32 @@ const Reviews = {
   ],
 };
 
+// import { initializeApp } from 'firebase/app';
+import {
+  getDatabase,
+  ref,
+  set,
+  onValue,
+  update,
+  remove,
+} from "firebase/database";
+import { firebaseApp } from "./firebase.js";
+// const firebaseConfig = {
+//   // Your Firebase config
+// };
+// const app = initializeApp(firebaseConfig);
+const db = getDatabase(firebaseApp);
+
 export function getServices(id) {
   const Data = !id ? Services : [Services[id - 1]];
   return Data;
 }
 
 export function getProducts(id) {
+  // Read all users
+  // const productsCol = collection(db, "Products");
+  // const productSnap = await getDocs(productsCol);
+  // console.log(productSnap);
   const Data = !id ? Products : Products.filter((product) => product.id == id);
   return Data;
 }

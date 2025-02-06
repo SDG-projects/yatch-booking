@@ -1,5 +1,11 @@
-import { lazy, Suspense, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense, useState, useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Layout from "./pages/Layout";
 import Loading from "./components/Loading";
@@ -20,13 +26,46 @@ import About from "./pages/about";
 import AIChat from "./components/AIChat";
 import VIPRental from "./components/vipRental";
 import AdminPanel from "./pages/AdminPanel";
+import Login from "./components/Login";
+import ServicePanel from "./components/AdminConponents/ServicePanel";
+import Dashboard from "./components/AdminConponents/Dashboard";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
+
+const PrivateRoute = ({ Component, ...rest }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const auth = getAuth();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <Component {...rest} />;
+};
 
 function App() {
   return (
     <>
-    <AIChat />
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<ProductSection />} /> */}
@@ -98,14 +137,7 @@ function App() {
                 </Suspense>
               }
             />
-            <Route
-              path="/customPack"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <CustomPackage />
-                </Suspense>
-              }
-            />
+
             {/* <Route
               path="/products"
               element={
@@ -163,16 +195,36 @@ function App() {
                 </Suspense>
               }
             />
-            <Route
+            {/* <Route
               path="/admin"
               element={
                 <Suspense fallback={<Loading />}>
                   <AdminPanel />
                 </Suspense>
               }
-            />
-            <Route path="*" element={<Error404 />} />
+            /> */}
+            {/* <Route path="*" element={<Error404 />} /> */}
           </Route>
+          <Route
+            path="/login"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Login />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/admin"
+            element={<PrivateRoute Component={AdminPanel} />}
+          >
+            <Route path="servicePanel" element={<ServicePanel />} />
+            <Route path="" element={<Dashboard />} />
+          </Route>
+          {/* <Route path="/admin" element={<AdminPanel />}>
+            <Route path="servicePanel" element={<ServicePanel />} />
+            <Route path="" element={<Dashboard />} />
+          </Route> */}
         </Routes>
       </BrowserRouter>
     </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "./style.css";
@@ -47,7 +47,7 @@ function Layout() {
       <div style={{ minHeight: "50vh", background: "var(--primary-color)" }}>
         <Outlet />
       </div>
-      {/* <AIChat /> */}
+      <AIChat />
       <Offers />
       <Footer />
       <ScrollUP />
@@ -56,3 +56,21 @@ function Layout() {
 }
 
 export default Layout;
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDRmY73ds4KvtmlMKf1ADLUnZ1Eb9wkQaU",
+  authDomain: "goldenyacht.firebaseapp.com",
+  projectId: "goldenyacht",
+  storageBucket: "goldenyacht.firebasestorage.app",
+  messagingSenderId: "979784409844",
+  appId: "1:979784409844:web:b56520bff062b10a12b4a1",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
