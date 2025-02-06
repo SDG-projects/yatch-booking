@@ -451,8 +451,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
   {
-    img: "/img/services/yatchdc.jpg",
-    img2: "/img/services/yatchdc2.jpg",
+    img: "/img/services/yatchdecoration1.jpg",
+    img2: "/img/services/yatchdecoration2.jpg",
     name: "Yacht Decorations",
     heading: "Yacht Decorations",
     description:
