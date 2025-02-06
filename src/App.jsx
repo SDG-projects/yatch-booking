@@ -19,6 +19,7 @@ import ContactPage from "./pages/Contact";
 import About from "./pages/about";
 import AIChat from "./components/AIChat";
 import VIPRental from "./components/vipRental";
+import AdminPanel from "./pages/AdminPanel";
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
 
@@ -159,6 +160,14 @@ function App() {
               element={
                 <Suspense fallback={<Loading />}>
                   <ContactPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/admin"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <AdminPanel />
                 </Suspense>
               }
             />

@@ -27,7 +27,7 @@
 .styled-line {
   border: 0;
   border-top: 2px solid var(--accent-color);
-  margin: 20px 0;
+  margin: 50px 0;
 }
 
 .product-grid {

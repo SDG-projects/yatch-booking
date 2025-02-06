@@ -81,7 +81,7 @@ const Navbar = () => {
         </li>
         <li className={activePage === "/vipRental" ? "active" : ""}>
           <Link to={"/vipRental"} onClick={handleLinkClick}>
-            VIP Yacht Rental
+            VIPYacht
           </Link>
         </li>
         <li>
