@@ -1,0 +1,62 @@
+.product-update {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-update h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-update .form-group {
+    margin-bottom: 20px;
+}
+
+.product-update label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-update input {
+    color: black;
+}
+
+.product-update input[type="text"],
+.product-update input[type="number"],
+.product-update textarea {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.product-update input[type="text"]:focus,
+.product-update input[type="number"]:focus,
+.product-update textarea:focus {
+    outline: none;
+    border-color: #aaa;
+}
+
+.product-update button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-update button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.product-update .error {
+    color: #f00;
+    font-size: 12px;
+    margin-top: 5px;
+}

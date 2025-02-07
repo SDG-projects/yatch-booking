@@ -5,12 +5,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDRmY73ds4KvtmlMKf1ADLUnZ1Eb9wkQaU",
-  authDomain: "goldenyacht.firebaseapp.com",
-  projectId: "goldenyacht",
-  storageBucket: "goldenyacht.firebasestorage.app",
-  messagingSenderId: "979784409844",
-  appId: "1:979784409844:web:b56520bff062b10a12b4a1",
+  apiKey: "AIzaSyCfe1CXwRMyCQoBvOPVJ8UIl6Qr8s5LcaE",
+  authDomain: "goldenyacht-fc26a.firebaseapp.com",
+  projectId: "goldenyacht-fc26a",
+  storageBucket: "goldenyacht-fc26a.firebasestorage.app",
+  messagingSenderId: "463168084712",
+  appId: "1:463168084712:web:f2d4f90ab4d9c7883b875d",
+  measurementId: "G-WZ00G0X3C5",
 };
 
 // Initialize Firebase

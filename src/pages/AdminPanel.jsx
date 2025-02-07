@@ -90,8 +90,8 @@ const AdminPanel = ({ children }) => {
       });
   }
   return (
-    <div>
-      <h1>AdminPanel</h1>
+    <div style={{ display: "flex" }}>
+      {/* <h1>AdminPanel</h1> */}
 
       <nav className="dashboard-nav">
         <ul>
@@ -119,7 +119,7 @@ const AdminPanel = ({ children }) => {
         </ul>
       </nav>
 
-      <div className="PanelContainer">
+      <div className="PanelContainer" style={{ width: "100%" }}>
         <Outlet />
       </div>
     </div>

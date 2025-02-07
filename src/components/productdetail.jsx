@@ -11,14 +11,14 @@ const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const products = getProducts();
-    const selectedProduct = products.find(
-      (product) => product.id === parseInt(id)
-    );
-    setProduct(selectedProduct);
-
+    const products = getProducts().then((products) => {
+      const selectedProduct = products.filter((product) => product.id == id);
+      setProduct(selectedProduct[0]);
+      setLoading(false);
+    });
+    // console.log(product);
     // Check if there's a stored scroll position and restore it
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
@@ -26,9 +26,10 @@ const ProductDetail = () => {
     }
   }, [id]);
 
-  if (!product) {
-    return <p>Loading...</p>;
+  if (!product && !loading) {
+    return <p style={{ color: "white" }}>product not found...</p>;
   }
+  // else if (loading) <p>loading..</p>;
 
   // Slider settings
   const sliderSettings = {
@@ -56,7 +57,7 @@ const ProductDetail = () => {
       <div className="product-detail-content">
         <div className="product-detail-image-container">
           <Slider {...sliderSettings} className="product-detail-slider">
-            {product.images.map((img, index) => (
+            {product?.images.map((img, index) => (
               <div key={index}>
                 <img
                   src={img}
@@ -68,19 +69,19 @@ const ProductDetail = () => {
           </Slider>
         </div>
         <div className="product-detail-info">
-          <h1 className="product-title">{product.name}</h1>
+          <h1 className="product-title">{product?.name}</h1>
           <p>
             <strong>Price:</strong>
-            <span className="pd-detail-price">{product.price}AED</span>
+            <span className="pd-detail-price">{product?.price}AED</span>
           </p>
           <p>
-            <strong>Size:</strong> {product.feet}
+            <strong>Size:</strong> {product?.feet}
           </p>
           <p>
-            <strong>Capacity:</strong> {product.capacity}
+            <strong>Capacity:</strong> {product?.capacity}
           </p>
           <p>
-            <strong>Complementary:</strong> {product.Complementary}
+            <strong>Complementary:</strong> {product?.complementary}
           </p>
           <div className="book-now-btn">
             <button

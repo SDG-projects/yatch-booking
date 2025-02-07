@@ -1794,24 +1794,28 @@ import {
   update,
   remove,
 } from "firebase/database";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { firebaseApp } from "./firebase.js";
 // const firebaseConfig = {
 //   // Your Firebase config
 // };
 // const app = initializeApp(firebaseConfig);
-const db = getDatabase(firebaseApp);
+const db = getFirestore(firebaseApp);
 
 export function getServices(id) {
   const Data = !id ? Services : [Services[id - 1]];
   return Data;
 }
 
-export function getProducts(id) {
+export async function getProducts(id) {
   // Read all users
-  // const productsCol = collection(db, "Products");
-  // const productSnap = await getDocs(productsCol);
-  // console.log(productSnap);
-  const Data = !id ? Products : Products.filter((product) => product.id == id);
+  const productsCol = collection(db, "Products");
+  const productSnap = await getDocs(productsCol);
+  const products = [];
+  productSnap.forEach((doc) => {
+    products.push({ id: doc.id, ...doc.data() });
+  });
+  const Data = !id ? products : products.filter((product) => product.id == id);
   return Data;
 }
 

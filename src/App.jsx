@@ -30,6 +30,8 @@ import Login from "./components/Login";
 import ServicePanel from "./components/AdminConponents/ServicePanel";
 import Dashboard from "./components/AdminConponents/Dashboard";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import ProductPanel from "./components/AdminConponents/ProductPanel";
+import ProductUpdate from "./components/AdminConponents/ProductUpdate";
 
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
@@ -219,6 +221,8 @@ function App() {
             element={<PrivateRoute Component={AdminPanel} />}
           >
             <Route path="servicePanel" element={<ServicePanel />} />
+            <Route path="productPanel" element={<ProductPanel />} />
+            <Route path="productdetail/:id" element={<ProductUpdate />} />
             <Route path="" element={<Dashboard />} />
           </Route>
           {/* <Route path="/admin" element={<AdminPanel />}>

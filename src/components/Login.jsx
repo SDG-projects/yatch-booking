@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-
+import "./styles/login.css";
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -24,31 +24,33 @@ function Login() {
       });
   }
   return (
-    <div>
-      <div>
-        <div style={{ color: "black" }}>
+    <div className="loginCon">
+      <div className="loginForm">
+        <div style={{ color: "black" }} className="formItem">
           <input
-            value={email}
+            // value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             name="email"
             defaultValue=""
+            placeholder="Enter your Email"
             id=""
             style={{ color: "black" }}
           />
         </div>
-        <div>
+        <div className="formItem">
           <input
             style={{ color: "black" }}
-            value={password}
+            // value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             name=""
             defaultValue=""
+            placeholder="Enter your Password"
             id=""
           />
         </div>
-        <div>
+        <div className="formItem">
           <button type="submit" onClick={() => onSubmition(email, password)}>
             submit
           </button>
