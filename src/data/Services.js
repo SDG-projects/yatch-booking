@@ -1794,7 +1794,14 @@ import {
   update,
   remove,
 } from "firebase/database";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  addDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 import { firebaseApp } from "./firebase.js";
 // const firebaseConfig = {
 //   // Your Firebase config
@@ -1808,15 +1815,40 @@ export function getServices(id) {
 }
 
 export async function getProducts(id) {
-  // Read all users
   const productsCol = collection(db, "Products");
   const productSnap = await getDocs(productsCol);
   const products = [];
+
   productSnap.forEach((doc) => {
     products.push({ id: doc.id, ...doc.data() });
   });
   const Data = !id ? products : products.filter((product) => product.id == id);
   return Data;
+}
+export async function updateProducts(data) {
+  // Get a reference to the document you want to update
+  const docRef = doc(db, "Products", data.id);
+
+  // Create an update object with the new values
+  const updateData = {
+    name: "New Name",
+    age: 30,
+  };
+
+  // Update the document
+  return updateDoc(docRef, data);
+}
+
+export async function addProducts(data) {
+  const productsCol = collection(db, "Products"); // Get a reference to the "Products" collection
+
+  // Add the new data as a document to the collection
+  const docRef = await addDoc(productsCol, data);
+
+  // You can optionally get the document ID if needed
+  const docId = docRef.id;
+
+  return docId; // Return the document ID if you need it
 }
 
 export function getPackages(id) {

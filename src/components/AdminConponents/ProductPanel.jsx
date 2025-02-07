@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getProducts } from "../../data/Services";
 import { Product } from "../Products";
+import { Link } from "react-router-dom";
 
 function ProductPanel() {
   const [products, setProducts] = useState([]);
@@ -20,7 +21,9 @@ function ProductPanel() {
             <input type="text" name="" id="search" />
             <button>search</button>
           </div>
-          <button>+</button>
+          <button>
+            <Link to="/admin/addProduct">+</Link>
+          </button>
         </div>
         <div className="products">
           <div className="product-grid">

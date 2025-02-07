@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import "./App.css";
+import { firebaseApp } from "./data/firebase";
 import Layout from "./pages/Layout";
 import Loading from "./components/Loading";
 // const AdminPage = lazy(() => import("./pages/AdminPage"));
@@ -66,6 +67,7 @@ const PrivateRoute = ({ Component, ...rest }) => {
 };
 
 function App() {
+  firebaseApp;
   return (
     <>
       <BrowserRouter>
@@ -223,12 +225,15 @@ function App() {
             <Route path="servicePanel" element={<ServicePanel />} />
             <Route path="productPanel" element={<ProductPanel />} />
             <Route path="productdetail/:id" element={<ProductUpdate />} />
-            <Route path="" element={<Dashboard />} />
+            <Route path="addProduct" element={<ProductUpdate />} />
+
+            <Route path="*" element={<Dashboard />} />
           </Route>
           {/* <Route path="/admin" element={<AdminPanel />}>
             <Route path="servicePanel" element={<ServicePanel />} />
             <Route path="" element={<Dashboard />} />
           </Route> */}
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </>

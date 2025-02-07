@@ -96,24 +96,16 @@ const AdminPanel = ({ children }) => {
       <nav className="dashboard-nav">
         <ul>
           <li>
-            <Link to="/dashboard" activeClassName="active">
-              Dashboard
-            </Link>
+            <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
-            <Link to="/services" activeClassName="active">
-              Services
-            </Link>
+            <Link to="/services">Services</Link>
           </li>
           <li>
-            <Link to="/packages" activeClassName="active">
-              Packages
-            </Link>
+            <Link to="/packages">Packages</Link>
           </li>
           <li>
-            <Link to="/products" activeClassName="active">
-              Products
-            </Link>
+            <Link to="productPanel">Products</Link>
           </li>
           <li onClick={() => logout()}>logout</li>
         </ul>

@@ -1,89 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./form.css";
-import { getProducts } from "../../data/Services";
-const ProductUpdate = ({ onUpdateProduct }) => {
+import { addProducts, getProducts, updateProducts } from "../../data/Services";
+const ProductUpdate = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState([]);
-  getProducts(id).then((data) => setProduct(data[0]));
-  console.log(id, product);
+  const [product, setProduct] = useState({
+    isVIP: false,
+    images: [],
+    capacity: "",
+    complementary: "",
+    name: "",
+    feet: 0,
+    price: 0,
+  });
 
-  const [name, setName] = useState(product?.name);
-  const [capacity, setCapacity] = useState(product?.capacity);
-  const [complementary, setComplementary] = useState(product?.complementary);
-  const [feet, setFeet] = useState(product?.feet);
-  const [images, setImages] = useState(product?.images);
-  const [isVIP, setIsVIP] = useState(product?.isVIP);
-  const [price, setPrice] = useState(product?.price);
+  const [toster, setToster] = useState({});
+  useEffect(() => {
+    id &&
+      getProducts(id).then((data) => {
+        // console.log(data);
+        setProduct(data[0]);
+      });
+    console.log(id, product);
+    // return () => setProduct([]);
+  }, []);
 
-  const [errors, setErrors] = useState({});
+  useEffect(() => {
+    console.log(product);
+  }, [product]);
+  function onUpdateProduct() {
+    updateProducts(product)
+      .then(() => {
+        setToster({
+          message: "Document successfully updated!",
+          status: "success",
+        });
+        console.log("Document successfully updated!");
+      })
+      .catch((error) => {
+        setToster({
+          message: "Error updating document: try again (or) call Admin",
+          status: "danger",
+        });
 
-  const handleAddImage = () => {
-    setImages([...images, ""]);
-  };
-
-  const handleRemoveImage = (index) => {
-    setImages(images.filter((image, i) => i !== index));
-  };
-
-  const handleImageChange = (index, value) => {
-    setImages(images.map((image, i) => (i === index ? value : image)));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const newErrors = {};
-
-    if (!name) newErrors.name = "Name is required";
-    if (!capacity) newErrors.capacity = "Capacity is required";
-    // if (!complementary) newErrors.complementary = "Complementary is required";
-    if (!feet) newErrors.feet = "Feet is required";
-    if (!price) newErrors.price = "Price is required";
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      const updatedProduct = {
-        name,
-        capacity,
-        complementary,
-        feet,
-        images,
-        isVIP,
-        price,
-      };
-      onUpdateProduct(updatedProduct);
-    }
-  };
-
+        console.error("Error updating document: ", error);
+      });
+  }
+  function validateForm() {}
+  function onAddProduct() {
+    addProducts(product)
+      .then(() => {
+        setToster({ message: "successfuly added", status: "success" });
+      })
+      .catch(() => {
+        setToster({ message: "error while  adding", status: "success" });
+      });
+  }
   return (
     <div className="product-update">
-      <h2>Update Product</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>{id ? "Update" : "Add"} Product</h2>
+      <div>
+        {toster && <p className={"tost " + toster.status}>{toster.message}</p>}
         <div className="form-group">
           <label>Name:</label>
           <input
             type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
+            value={product?.name}
+            onChange={(e) => setProduct({ ...product, name: e.target.value })}
           />
-          {errors.name && <div className="error">{errors.name}</div>}
         </div>
         <div className="form-group">
           <label>Capacity:</label>
           <input
             type="text"
-            value={capacity}
-            onChange={(event) => setCapacity(event.target.value)}
+            onChange={(e) =>
+              setProduct({ ...product, capacity: e.target.value })
+            }
+            value={product?.capacity}
           />
-          {errors.capacity && <div className="error">{errors.capacity}</div>}
         </div>
         <div className="form-group">
           <label>Complementary:</label>
           <textarea
-            value={complementary}
-            onChange={(event) => setComplementary(event.target.value)}
+            value={product?.complementary}
+            onChange={(e) =>
+              setProduct({ ...product, complementary: e.target.value })
+            }
           />
           {/* {errors.complementary && (
             <div className="error">{errors.complementary}</div>
@@ -93,36 +95,59 @@ const ProductUpdate = ({ onUpdateProduct }) => {
           <label>Feet:</label>
           <input
             type="number"
-            value={feet}
-            onChange={(event) => setFeet(event.target.valueAsNumber)}
+            value={product?.feet}
+            onChange={(e) => setProduct({ ...product, feet: e.target.value })}
           />
-          {errors.feet && <div className="error">{errors.feet}</div>}
         </div>
         <div className="form-group">
           <label>Images:</label>
-          {images?.map((image, index) => (
+          {product?.images?.map((image, index) => (
             <div key={index}>
               <input
                 type="text"
                 value={image}
-                onChange={(event) =>
-                  handleImageChange(index, event.target.value)
+                onChange={(e) =>
+                  setProduct((prevProduct) => ({
+                    ...prevProduct,
+                    images: prevProduct.images.map((img, i) =>
+                      i === index ? e.target.value : img
+                    ),
+                  }))
                 }
               />
-              <button type="button" onClick={() => handleRemoveImage(index)}>
+              <button
+                type="button"
+                onClick={() =>
+                  setProduct((prevProduct) => ({
+                    ...prevProduct,
+                    images: prevProduct.images.filter(
+                      (image, i) => i !== index
+                    ),
+                  }))
+                }
+              >
                 Remove
               </button>
             </div>
           ))}
-          <button type="button" onClick={handleAddImage}>
+          <button
+            type="button"
+            onClick={(e) =>
+              setProduct((prevProduct) => ({
+                ...prevProduct,
+                images: [...prevProduct.images, ""],
+              }))
+            }
+          >
             Add Image
           </button>
         </div>
         <div className="form-group">
           <label>Is VIP:</label>
           <select
-            value={isVIP}
-            onChange={(event) => setIsVIP(event.target.value === "true")}
+            defaultChecked={"false"}
+            onChange={(e) => setProduct({ ...product, isVIP: e.target.value })}
+            value={product?.isVIP}
           >
             <option value="true">Yes</option>
             <option value="false">No</option>
@@ -132,13 +157,17 @@ const ProductUpdate = ({ onUpdateProduct }) => {
           <label>Price:</label>
           <input
             type="number"
-            value={price}
-            onChange={(event) => setPrice(event.target.valueAsNumber)}
+            onChange={(e) => setProduct({ ...product, price: e.target.value })}
+            value={product?.price}
           />
-          {errors.price && <div className="error">{errors.price}</div>}
         </div>
-        <button type="submit">Update Product</button>
-      </form>
+        <button
+          onClick={() => (id ? onUpdateProduct() : onAddProduct())}
+          // type="submit"
+        >
+          {id ? "Update" : "Add"} Product
+        </button>
+      </div>
     </div>
   );
 };

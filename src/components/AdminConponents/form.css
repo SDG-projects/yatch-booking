@@ -21,7 +21,8 @@
     margin-bottom: 10px;
 }
 
-.product-update input {
+.product-update input,
+textarea {
     color: black;
 }
 
@@ -59,4 +60,34 @@
     color: #f00;
     font-size: 12px;
     margin-top: 5px;
+}
+
+.tost {
+    color: blue;
+    background-color: #aaa;
+    padding: 20px;
+    border-radius: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    animation: feadin 1s ease-in-out 1;
+}
+
+@keyframes feadin {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
