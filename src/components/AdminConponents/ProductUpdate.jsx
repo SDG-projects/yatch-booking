@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./form.css";
-import { addProducts, getProducts, updateProducts } from "../../data/Services";
+import {
+  addProducts,
+  deleteProduct,
+  getProducts,
+  updateProducts,
+} from "../../data/Services";
 const ProductUpdate = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({
@@ -21,13 +26,13 @@ const ProductUpdate = () => {
         // console.log(data);
         setProduct(data[0]);
       });
-    console.log(id, product);
+    // console.log(id, product);
     // return () => setProduct([]);
   }, []);
 
-  useEffect(() => {
-    console.log(product);
-  }, [product]);
+  // useEffect(() => {
+  // console.log(product);
+  // }, [product]);
   function onUpdateProduct() {
     updateProducts(product)
       .then(() => {
@@ -46,6 +51,15 @@ const ProductUpdate = () => {
         console.error("Error updating document: ", error);
       });
   }
+  function deleteYacht() {
+    deleteProduct(id)
+      .then(() => {
+        setToster({ message: "deleted Success" });
+      })
+      .catch(() => {
+        setToster({ message: "failed on delection " });
+      });
+  }
   function validateForm() {}
   function onAddProduct() {
     addProducts(product)
@@ -59,6 +73,17 @@ const ProductUpdate = () => {
   return (
     <div className="product-update">
       <h2>{id ? "Update" : "Add"} Product</h2>
+      {id && (
+        <span>
+          <button
+            onClick={() => {
+              deleteYacht();
+            }}
+          >
+            delete
+          </button>
+        </span>
+      )}
       <div>
         {toster && <p className={"tost " + toster.status}>{toster.message}</p>}
         <div className="form-group">

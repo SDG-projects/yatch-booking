@@ -9,7 +9,8 @@ function ProductPanel() {
     getProducts().then((data) => {
       setProducts(data);
     });
-  });
+    // console.log("hi");
+  }, []);
   return (
     <div>
       <div className="title">
@@ -17,18 +18,18 @@ function ProductPanel() {
       </div>
       <div className="productsCon">
         <div className="action">
-          <div className="searchCon">
+          {/* <div className="searchCon">
             <input type="text" name="" id="search" />
             <button>search</button>
-          </div>
+          </div> */}
           <button>
             <Link to="/admin/addProduct">+</Link>
           </button>
         </div>
         <div className="products">
           <div className="product-grid">
-            {products.map((product) => (
-              <Product product={product} notNeed={true} />
+            {products.map((product, i) => (
+              <Product key={i} product={product} notNeed={true} />
             ))}
           </div>
         </div>

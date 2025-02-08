@@ -1799,6 +1799,7 @@ import {
   getDocs,
   getFirestore,
   addDoc,
+  deleteDoc,
   doc,
   updateDoc,
 } from "firebase/firestore";
@@ -1828,15 +1829,22 @@ export async function getProducts(id) {
 export async function updateProducts(data) {
   // Get a reference to the document you want to update
   const docRef = doc(db, "Products", data.id);
-
   // Create an update object with the new values
   const updateData = {
     name: "New Name",
     age: 30,
   };
-
   // Update the document
   return updateDoc(docRef, data);
+}
+export async function deleteProduct(id) {
+  try {
+    const docRef = doc(db, "Products", id);
+    return await deleteDoc(docRef);
+    console.log("Document successfully deleted!");
+  } catch (error) {
+    console.error("Error deleting document: ", error);
+  }
 }
 
 export async function addProducts(data) {

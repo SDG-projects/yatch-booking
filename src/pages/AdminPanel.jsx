@@ -78,7 +78,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const AdminPanel = ({ children }) => {
   const nav = useNavigate();
-
+  const auth = getAuth();
   function logout() {
     signOut(auth)
       .then(() => {
@@ -95,15 +95,15 @@ const AdminPanel = ({ children }) => {
 
       <nav className="dashboard-nav">
         <ul>
-          <li>
+          {/* <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
           <li>
             <Link to="/services">Services</Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/packages">Packages</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="productPanel">Products</Link>
           </li>
