@@ -34,7 +34,7 @@ function Login() {
             name="email"
             defaultValue=""
             placeholder="Enter your Email"
-            id=""
+            id="email"
             style={{ color: "black" }}
           />
         </div>
@@ -47,7 +47,7 @@ function Login() {
             name=""
             defaultValue=""
             placeholder="Enter your Password"
-            id=""
+            id="password"
           />
         </div>
         <div className="formItem">
