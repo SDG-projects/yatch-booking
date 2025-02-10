@@ -7,6 +7,7 @@ import {
   getProducts,
   updateProducts,
 } from "../../data/Services";
+import ImageUpload from "../utils/ImageUpload";
 const ProductUpdate = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({
@@ -126,7 +127,7 @@ const ProductUpdate = () => {
         </div>
         <div className="form-group">
           <label>Images:</label>
-          {product?.images?.map((image, index) => (
+          {/* {product?.images?.map((image, index) => (
             <div key={index}>
               <input
                 type="text"
@@ -165,7 +166,8 @@ const ProductUpdate = () => {
             }
           >
             Add Image
-          </button>
+          </button> */}
+          <ImageUpload />
         </div>
         <div className="form-group">
           <label>Is VIP:</label>

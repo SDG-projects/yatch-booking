@@ -3,6 +3,7 @@ import "../components/styles/service.css";
 import { useParams } from "react-router-dom";
 import { getServices } from "../data/Services";
 import Loading from "../components/Loading";
+import Image from "../components/utils/Image";
 
 export const serviceWhatsAppRedirect = (service) => {
   const phoneNumber = "971555930716";
@@ -66,13 +67,13 @@ function Services() {
           >
             <div className="serviceContent">
               <div className="serviceImgCon">
-                <img
-                  src={service.img}
+                <Image
+                  url={service.img.replace("/img/", "")}
                   className="serviceImg"
                   alt={`${service.name} Image 1`}
                 />
-                <img
-                  src={service.img2}
+                <Image
+                  url={"services/proposal2.jpg"}
                   className="serviceImg"
                   alt={`${service.name} Image 2`}
                 />
