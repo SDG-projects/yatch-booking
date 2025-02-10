@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,18 +24,18 @@ export const handleWhatsAppRedirect = (product) => {
   }
 };
 
-export const Product = ({ product }) => {
+export const Product = ({ product, notNeed }) => {
   const navigate = useNavigate();
 
   const handleProductClick = () => {
     sessionStorage.setItem("scrollPosition", window.scrollY);
-    navigate(`/productdetail/${product.id}`);
+    navigate(`${notNeed ? "/admin" : ""}/productdetail/${product.id}`);
   };
 
   return (
     <div key={product.id} className="product-card">
       <h3 className="product-name">
-      <span>GOLDEN YATCH - </span>
+        <span>GOLDEN YATCH - </span>
         {product.name}
       </h3>
       <div>
@@ -60,25 +60,32 @@ export const Product = ({ product }) => {
         <p className="product-detail">
           Capacity: Up to <span>{product.capacity}</span>
         </p>
-        <div className="product-actions">
-          <button
-            className="btn btn-primary"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleWhatsAppRedirect(product);
-            }}
-          >
-            <span>Book By</span>
-            <img src="./img/whatsapp2.png" alt="" />
-          </button>
-        </div>
+        {!notNeed && (
+          <div className="product-actions">
+            <button
+              className="btn btn-primary"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleWhatsAppRedirect(product);
+              }}
+            >
+              <span>Book By</span>
+              <img src="./img/whatsapp2.png" alt="" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 const ProductSection = () => {
-  const products = getProducts();
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    getProducts().then((data) => {
+      setProducts(data);
+    });
+  });
 
   return (
     <section id="products" className="product-section">
@@ -86,7 +93,7 @@ const ProductSection = () => {
       <p>Unforgettable Yachting Experiences at Your Fingertips</p>
       <hr className="styled-line" />
       <div className="product-grid">
-        {products.map((product) => (
+        {products?.map((product) => (
           <Product key={product.id} product={product} />
         ))}
       </div>
