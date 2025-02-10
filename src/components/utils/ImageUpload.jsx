@@ -1,68 +1,82 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
+  getDownloadURL,
   ref,
   uploadBytesResumable,
-  getDownloadURL,
   getStorage,
 } from "firebase/storage";
-import { collection, addDoc } from "firebase/firestore";
+// import { storage } from "./firebaseConfig"; // Import your Firebase storage instance
 
-function ImageUpload() {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [uploadError, setUploadError] = useState(null);
+const ImageUpload = ({ urlToUpload, afterUpload }) => {
+  const [images, setImages] = useState([]);
+  const imgTag = useRef();
+  const [uploadProgress, setUploadProgress] = useState({});
   const storage = getStorage();
-  const handleImageChange = (event) => {
-    setSelectedImage(event.target.files[0]);
+  const handleImageChange = (e) => {
+    // const files = Array.from(e.target.files);
+    // setImages((prevImages) => [...prevImages, ...files]);
+    setImages([...e.target.files]);
   };
+  useEffect(() => {
+    console.log(images);
+  }, [images]);
 
   const handleUpload = async () => {
-    if (!selectedImage) return;
+    for (const image of images) {
+      const storageRef = ref(storage, urlToUpload + Date.now().toString());
+      const uploadTask = uploadBytesResumable(storageRef, image);
 
-    setUploadError(null); // Reset error state
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setUploadProgress((prevProgress) => ({
+            ...prevProgress,
+            [image.name]: progress,
+          }));
+        },
+        (error) => {
+          console.error("Error uploading image:", error);
+        },
+        () => {
+          console.log(uploadTask.snapshot);
+          // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          //   console.log("File available at", downloadURL,);
+          //   // Store the downloadURL in your database or use it as needed
+          // });
 
-    const storageRef = ref(storage, `Products/${selectedImage.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, selectedImage);
-
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const progress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
-      },
-      (error) => {
-        setUploadError(error);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setImageUrl(downloadURL);
-
-          // Store the downloadURL in Firestore
-          const docRef = addDoc(collection(db, "images"), {
-            imageUrl: downloadURL,
-          });
-          console.log("Document written with ID:", docRef.id);
-        });
-      }
-    );
+          afterUpload(uploadTask);
+        }
+      );
+    }
   };
 
   return (
     <div>
-      <input type="file" accept="image/*" onChange={handleImageChange} />
-      <button onClick={handleUpload} disabled={!selectedImage}>
-        Upload
+      <input
+        type="file"
+        multiple
+        onChange={(e) => {
+          handleImageChange(e);
+        }}
+        ref={imgTag}
+      />
+      <button onClick={handleUpload} disabled={images.length === 0}>
+        Upload Images
       </button>
-
-      {uploadProgress > 0 && !imageUrl && <div>Upload {uploadProgress}</div>}
-
-      {uploadError && <div>Error uploading image: {uploadError.message}</div>}
-
-      {imageUrl && <img src={imageUrl} alt="Uploaded Image" />}
+      <ul>
+        {images.map((image) => (
+          <li key={image.name}>
+            {image.name} -{" "}
+            {uploadProgress[image.name]
+              ? `${uploadProgress[image.name]}%`
+              : "Pending"}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
 export default ImageUpload;

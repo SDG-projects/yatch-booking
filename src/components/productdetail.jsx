@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/productdetail.css";
 import { handleWhatsAppRedirect } from "../components/Products";
+import Image from "./utils/Image";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -59,8 +60,8 @@ const ProductDetail = () => {
           <Slider {...sliderSettings} className="product-detail-slider">
             {product?.images.map((img, index) => (
               <div key={index}>
-                <img
-                  src={img}
+                <Image
+                  url={img}
                   alt={`${product.name} ${index + 1}`}
                   className="product-detail-image"
                 />

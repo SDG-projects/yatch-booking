@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { getProducts } from "../data/Services";
 import { FaWhatsapp } from "react-icons/fa";
 import "./styles/products.css";
+import Image from "./utils/Image";
 
 export const handleWhatsAppRedirect = (product) => {
   const phoneNumber = "971555930716";
@@ -39,8 +40,8 @@ export const Product = ({ product, notNeed }) => {
         {product.name}
       </h3>
       <div>
-        <img
-          src={product.images[0]}
+        <Image
+          url={product.images[0]}
           alt={product.name}
           className="product-image"
           onClick={handleProductClick}
