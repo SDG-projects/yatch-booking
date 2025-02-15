@@ -1786,14 +1786,14 @@ const Reviews = {
 };
 
 // import { initializeApp } from 'firebase/app';
-import {
-  getDatabase,
-  ref,
-  set,
-  onValue,
-  update,
-  remove,
-} from "firebase/database";
+// import {
+//   getDatabase,
+//   ref,
+//   set,
+//   onValue,
+//   update,
+//   remove,
+// } from "firebase/database";
 import {
   collection,
   getDocs,
@@ -1809,6 +1809,12 @@ import { firebaseApp } from "./firebase.js";
 // };
 // const app = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
+
+import { getStorage, ref } from "firebase/storage";
+
+// Create a reference with an initial file path and name
+const storage = getStorage();
+// const pathReference = ref(storage, 'images/stars.jpg');
 
 export function getServices(id) {
   const Data = !id ? Services : [Services[id - 1]];
@@ -1862,7 +1868,11 @@ export async function addProducts(data) {
 export function getPackages(id) {
   // const filterData=Packages.filter((value)=>)
   // console.log((id = null));
-  const Data = isNaN(id) ? Packages : Packages.filter((pack) => pack.id == id);
+  let Data = isNaN(id)
+    ? Packages
+    : Packages.filter((pack) => {
+        return pack.id == id;
+      });
   return Data;
 }
 export function getPackagesByName(name) {

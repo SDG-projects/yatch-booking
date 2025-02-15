@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./form.css";
+
 import {
   addProducts,
   deleteProduct,
   getProducts,
   updateProducts,
 } from "../../data/Services";
+import ImageUpload from "../utils/ImageUpload";
+import Image from "../utils/Image";
 const ProductUpdate = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({
@@ -30,9 +33,9 @@ const ProductUpdate = () => {
     // return () => setProduct([]);
   }, []);
 
-  // useEffect(() => {
-  // console.log(product);
-  // }, [product]);
+  useEffect(() => {
+    console.log(product);
+  }, [product]);
   function onUpdateProduct() {
     updateProducts(product)
       .then(() => {
@@ -126,7 +129,7 @@ const ProductUpdate = () => {
         </div>
         <div className="form-group">
           <label>Images:</label>
-          {product?.images?.map((image, index) => (
+          {/* {product?.images?.map((image, index) => (
             <div key={index}>
               <input
                 type="text"
@@ -165,8 +168,46 @@ const ProductUpdate = () => {
             }
           >
             Add Image
-          </button>
+          </button> */}
+          <ImageUpload
+            urlToUpload={"Products/luxury-yacht-dubai-"}
+            afterUpload={(uploadTask) => {
+              setProduct((product) => {
+                // product.images.push(uploadTask.snapshot.ref.fullPath);
+                return {
+                  ...product,
+                  images: [...product.images, uploadTask.snapshot.ref.fullPath],
+                };
+              });
+              console.log(product);
+              // getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              //     // console.log("File available at", downloadURL,);
+              //     // Store the downloadURL in your database or use it as needed
+              //   });
+            }}
+          />
+          {product.images.map(
+            (img, i) => (
+              <div>
+                <button
+                  onClick={() => {
+                    setProduct((prevProduct) => ({
+                      ...prevProduct,
+                      images: prevProduct.images.filter(
+                        (image, index) => index !== i
+                      ),
+                    }));
+                  }}
+                >
+                  remove
+                </button>
+                <Image key={i} url={img} width={200} />
+              </div>
+            )
+            // console.log(img.fullPath)
+          )}
         </div>
+
         <div className="form-group">
           <label>Is VIP:</label>
           <select

@@ -142,47 +142,6 @@ function App() {
               }
             />
 
-            {/* <Route
-              path="/products"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <Products />
-                </Suspense>
-              }
-            />
-
-            <Route
-              path="/about"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <About />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <Contact />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <CartPage />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/rootUser"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <AdminPage />
-                </Suspense>
-              }
-            /> */}
             <Route
               path="/about"
               element={
@@ -199,15 +158,6 @@ function App() {
                 </Suspense>
               }
             />
-            {/* <Route
-              path="/admin"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <AdminPanel />
-                </Suspense>
-              }
-            /> */}
-            {/* <Route path="*" element={<Error404 />} /> */}
           </Route>
           <Route
             path="/login"

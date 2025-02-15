@@ -11,6 +11,7 @@ import {
   getPackReviews,
   getServices,
 } from "../data/Services";
+import Image from "./utils/Image";
 // import { Review } from "./Testimonials";
 // function Pack({
 //   name,
@@ -213,7 +214,18 @@ function Pack({
           >
             {name}
           </h1>
-          <img draggable={false} src={imgs} alt={name} className="pack-image" />
+          {/* <img
+            src={imageUrl}
+            draggable={false}
+            alt={name}
+            className="pack-image"
+          /> */}
+          <Image
+            draggable={false}
+            alt={name}
+            className="pack-image"
+            url={imgs.replace("/img/", "")}
+          />
         </div>
         {details && (
           <div className="pack-info">
@@ -396,6 +408,7 @@ function Package({ imgs, services, details }) {
     packages[0]?.id > 0 && setPackReviews(getPackReviews(packages[0]?.id));
     // console.log(packReviews);
   }, [packages]);
+
   return (
     <div className="packages">
       {/* <Pack

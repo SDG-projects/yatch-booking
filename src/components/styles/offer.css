@@ -2,17 +2,34 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
-  padding: 15px 20px;
+  /* padding: 0.8rem 1rem; */
   background: #000000;
-  color: #000000;
-  font-size: 1rem;
+  color: #07eeeb;
+  font-size: 20px;
   font-weight: bold;
-  border-radius: 50px;
+  border-radius: 0 0 30px 50px;
   border: none;
   cursor: pointer;
+  /* width: 200px; */
   z-index: 1000;
+  animation: rainbowBg 10s ease-in-out infinite forwards;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-  clip-path: polygon(50% 0%, 63.205% 17.901%, 76.61% 35.355%, 86.602% 50%, 93.301% 62.495%, 96.598% 73.205%, 96.598% 86.795%, 93.301% 97.505%, 86.602% 100%, 76.61% 94.645%, 63.205% 82.099%, 50% 70%);
+  /* clip-path: polygon(50% 0%, 63.205% 17.901%, 76.61% 35.355%, 86.602% 50%, 93.301% 62.495%, 96.598% 73.205%, 96.598% 86.795%, 93.301% 97.505%, 86.602% 100%, 76.61% 94.645%, 63.205% 82.099%, 50% 70%); */
+  background-color: #b07e09;
+  transform: scale(0.8);
+
+}
+
+.offerBtn::after {
+  content: " ";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 30%;
+  height: 100%;
+  background-color: #b07e09;
+  z-index: -5;
+  border-radius: 10px 0;
 }
 
 .offerBtn:hover {
@@ -32,6 +49,7 @@
   justify-content: center;
   align-items: center;
   z-index: 200;
+  transition: all 2s ease-in-out;
 }
 
 .offerSection {
@@ -42,6 +60,7 @@
   max-width: 800px;
   max-height: 90vh;
   overflow-y: auto;
+  transition: all 2s ease-in-out 1s;
 }
 
 .offerContainer::-webkit-scrollbar,
@@ -75,6 +94,7 @@
   background-color: #e67e00;
   transform: scale(1.1);
 }
+
 /* Individual Offer List */
 .offers {
   display: flex;
@@ -104,6 +124,7 @@
   mask-mode: alpha;
   mask-size: cover;
 }
+
 /* .offer::before {
   position: absolute;
   top: 0;
@@ -154,6 +175,7 @@
   flex-wrap: wrap;
   /* max-width: 50%; */
 }
+
 .offerFeatures li {
   /* font-size: 1.3rem; */
   color: aliceblue;
@@ -162,6 +184,7 @@
   padding: 10px;
   border-radius: 50px;
 }
+
 .offerFeatures li::before {
   content: "# ";
 }
@@ -212,9 +235,11 @@
   height: 100%;
   width: 100%;
 }
+
 .offer:hover .offerCTC {
   opacity: 1;
 }
+
 /* Remove Scrollbars */
 .offerContainer::-webkit-scrollbar,
 .offerSection::-webkit-scrollbar {
@@ -225,32 +250,56 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 @keyframes rainbowBg {
   0% {
-    background: #ff0000;
-  } /* Red */
-  14% {
-    background: #ff7f00;
-  } /* Orange */
-  28% {
-    background: #ffff00;
-  } /* Yellow */
-  42% {
-    background: #00ff00;
-  } /* Green */
-  57% {
-    background: #0000ff;
-  } /* Blue */
-  71% {
-    background: #4b0082;
-  } /* Indigo */
-  85% {
-    background: #9400d3;
-  } /* Violet */
+    /* background: #bbff00; */
+    right: 0%
+  }
+
+  20% {
+    transform: rotate(-10deg);
+
+  }
+
+  /* 35% {
+    transform: rotate(-20deg);
+  } */
+
+  40% {
+    transform: rotate(10deg);
+
+  }
+
+  50% {
+
+    /* color: wheat; */
+    /* background: #ff7700c2; */
+    box-shadow: 0px 0px 5px rgb(225, 225, 53);
+  }
+
+  70% {
+    transform: rotate(-10deg);
+
+  }
+
+  /* 35% {
+    transform: rotate(-20deg);
+  } */
+
+  90% {
+    transform: rotate(10deg);
+
+  }
+
   100% {
-    background: #ff0000;
-  } /* Back to Red */
+    /* background: #bbff00; */
+    right: 100%
+  }
+
+  /* Back to Red */
 }
+
 @media (max-width: 768px) {
   .offerContainer {
     width: 95%;
@@ -270,11 +319,12 @@
   }
 
   .offerCTC button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
+    /* font-size: 0.9rem;
+    padding: 8px 16px */
   }
 }
 
+;
 @media (max-width: 480px) {
   .offerName {
     font-size: 1.3rem;
@@ -285,9 +335,10 @@
   }
 
   .offerCTC button {
-    font-size: 0.85rem;
-    padding: 8px 12px;
+    font-size: 10px;
+    /* /* padding: 8px 12px; */
   }
+
   .offerContainer {
     padding: 0%;
   }
