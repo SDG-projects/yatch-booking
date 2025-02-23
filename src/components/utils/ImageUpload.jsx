@@ -60,6 +60,7 @@ const ImageUpload = ({ urlToUpload, afterUpload }) => {
         onChange={(e) => {
           handleImageChange(e);
         }}
+        accept="image/*"
         ref={imgTag}
       />
       <button onClick={handleUpload} disabled={images.length === 0}>

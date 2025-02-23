@@ -1810,7 +1810,7 @@ import { firebaseApp } from "./firebase.js";
 // const app = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, deleteObject } from "firebase/storage";
 
 // Create a reference with an initial file path and name
 const storage = getStorage();
@@ -1921,4 +1921,17 @@ export function getOwnerInfo() {
     Address: " Dubai Marina, Marina Suits 1001",
     Phone: "971555930716",
   };
+}
+
+export async function deleteFile(filePath) {
+  try {
+    const storage = getStorage(); // Get a storage instance
+    const fileRef = ref(storage, filePath); // Create a reference to the file
+
+    await deleteObject(fileRef); // Delete the file
+    console.log(`File '${filePath}' deleted successfully.`);
+  } catch (error) {
+    console.error(`Error deleting file '${filePath}': `, error);
+    // Handle the error appropriately (e.g., display a message to the user)
+  }
 }

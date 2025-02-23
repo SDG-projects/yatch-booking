@@ -123,6 +123,7 @@
   mask-image: url("/img/scratch.png");
   mask-mode: alpha;
   mask-size: cover;
+  color: wheat;
 }
 
 /* .offer::before {
