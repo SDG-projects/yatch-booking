@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./form.css";
 
 import {
   addProducts,
+  deleteFile,
   deleteProduct,
   getProducts,
   updateProducts,
@@ -12,6 +13,7 @@ import ImageUpload from "../utils/ImageUpload";
 import Image from "../utils/Image";
 const ProductUpdate = () => {
   const { id } = useParams();
+  const Nav = useNavigate();
   const [product, setProduct] = useState({
     isVIP: false,
     images: [],
@@ -27,6 +29,7 @@ const ProductUpdate = () => {
     id &&
       getProducts(id).then((data) => {
         // console.log(data);
+        !product && Nav("addProduct");
         setProduct(data[0]);
       });
     // console.log(id, product);
@@ -35,6 +38,7 @@ const ProductUpdate = () => {
 
   useEffect(() => {
     console.log(product);
+    !product && Nav("/admin/addProduct");
   }, [product]);
   function onUpdateProduct() {
     updateProducts(product)
@@ -186,11 +190,12 @@ const ProductUpdate = () => {
               //   });
             }}
           />
-          {product.images.map(
+          {product?.images.map(
             (img, i) => (
               <div>
                 <button
                   onClick={() => {
+                    deleteFile(img);
                     setProduct((prevProduct) => ({
                       ...prevProduct,
                       images: prevProduct.images.filter(
