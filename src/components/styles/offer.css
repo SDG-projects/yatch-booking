@@ -2,22 +2,20 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
-  /* padding: 0.8rem 1rem; */
-  background: #000000;
-  color: #07eeeb;
-  font-size: 20px;
+  background: #ff9800;
+  color: white;
+  font-size: 16px;
   font-weight: bold;
-  border-radius: 0 0 30px 50px;
+  padding: 10px 20px;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
-  /* width: 200px; */
   z-index: 1000;
-  animation: rainbowBg 10s ease-in-out infinite forwards;
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-  /* clip-path: polygon(50% 0%, 63.205% 17.901%, 76.61% 35.355%, 86.602% 50%, 93.301% 62.495%, 96.598% 73.205%, 96.598% 86.795%, 93.301% 97.505%, 86.602% 100%, 76.61% 94.645%, 63.205% 82.099%, 50% 70%); */
-  background-color: #b07e09;
-  transform: scale(0.8);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.offerBtn:hover {
+  background: #e68900;
 }
 
 .offerBtn::after {
@@ -32,10 +30,7 @@
   border-radius: 10px 0;
 }
 
-.offerBtn:hover {
-  background: linear-gradient(145deg, darkorange, orange);
-  transform: scale(1.1);
-}
+
 
 .offerContainer {
   position: fixed;
