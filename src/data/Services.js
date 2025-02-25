@@ -1,3 +1,5 @@
+
+
 const Services = [
   {
     img: "/img/services/romanticprivatedinner1.jpg",
@@ -1443,6 +1445,7 @@ const Products = [
   },
 ];
 
+
 const Packages = [
   {
     id: 0,
@@ -1794,76 +1797,44 @@ const Reviews = {
 //   update,
 //   remove,
 // } from "firebase/database";
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  addDoc,
-  deleteDoc,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
-import { firebaseApp } from "./firebase.js";
-// const firebaseConfig = {
-//   // Your Firebase config
-// };
-// const app = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
+import { db, collection, addDoc, updateDoc, doc, deleteDoc, getDocs } from "../data/firebase";
 
-import { getStorage, ref, deleteObject } from "firebase/storage";
-
-// Create a reference with an initial file path and name
-const storage = getStorage();
-// const pathReference = ref(storage, 'images/stars.jpg');
-
-export function getServices(id) {
-  const Data = !id ? Services : [Services[id - 1]];
-  return Data;
-}
-
-export async function getProducts(id) {
-  const productsCol = collection(db, "Products");
-  const productSnap = await getDocs(productsCol);
-  const products = [];
-
-  productSnap.forEach((doc) => {
-    products.push({ id: doc.id, ...doc.data() });
-  });
-  const Data = !id ? products : products.filter((product) => product.id == id);
-  return Data;
-}
-export async function updateProducts(data) {
-  // Get a reference to the document you want to update
-  const docRef = doc(db, "Products", data.id);
-  // Create an update object with the new values
-  const updateData = {
-    name: "New Name",
-    age: 30,
-  };
-  // Update the document
-  return updateDoc(docRef, data);
-}
-export async function deleteProduct(id) {
+// Add Product to Firestore
+export const addProducts = async (product) => {
   try {
-    const docRef = doc(db, "Products", id);
-    return await deleteDoc(docRef);
-    console.log("Document successfully deleted!");
+    const docRef = await addDoc(collection(db, "products"), product);
+    console.log("Product added with ID: ", docRef.id);
   } catch (error) {
-    console.error("Error deleting document: ", error);
+    console.error("Error adding product: ", error);
   }
-}
+};
 
-export async function addProducts(data) {
-  const productsCol = collection(db, "Products"); // Get a reference to the "Products" collection
+// Update Product
+export const updateProducts = async (id, updatedData) => {
+  try {
+    const productRef = doc(db, "products", id);
+    await updateDoc(productRef, updatedData);
+    console.log("Product updated successfully!");
+  } catch (error) {
+    console.error("Error updating product: ", error);
+  }
+};
 
-  // Add the new data as a document to the collection
-  const docRef = await addDoc(productsCol, data);
+// Delete Product
+export const deleteProduct = async (id) => {
+  try {
+    await deleteDoc(doc(db, "products", id));
+    console.log("Product deleted successfully!");
+  } catch (error) {
+    console.error("Error deleting product: ", error);
+  }
+};
 
-  // You can optionally get the document ID if needed
-  const docId = docRef.id;
-
-  return docId; // Return the document ID if you need it
-}
+// Get All Products
+export const getProducts = async () => {
+  const querySnapshot = await getDocs(collection(db, "products"));
+  return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+};
 
 export function getPackages(id) {
   // const filterData=Packages.filter((value)=>)
