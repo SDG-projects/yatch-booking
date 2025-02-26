@@ -7,9 +7,10 @@ function Offer({ offer }) {
   const [remainTime, setRemainTime] = useState(null);
 
   useEffect(() => {
+    console.log(offer.endTime);
     const timeInterval = setInterval(() => {
       const currentTime = new Date();
-      const endTime = offer.endTime;
+      const endTime = new Date(offer.endTime.seconds);
       const timeDiff = endTime.getTime() - currentTime.getTime();
 
       if (timeDiff <= 0) {
@@ -29,50 +30,52 @@ function Offer({ offer }) {
   }, [offer.endTime]);
 
   return (
-    offer.endTime >= new Date() &&
-    offer.startTime <= new Date() && (
-      <div className="offer">
-        <div className="offerName">{offer.name}</div>
-        <div>
-          <img className="offerImg" src={offer.images[0]} alt={offer.name} />
-        </div>
-        <div className="offerDescription">{offer.description}</div>
-        <div className="offerFeatures">
-          {offer.features.map((v, i) => (
-            <li key={i}>{v}</li>
-          ))}
-        </div>
-        <div className="offerTime">
-          {remainTime ? (
-            <>
-              <span className="rmHrs">
-                {remainTime.hours < 10 && "0"}
-                {remainTime.hours}{" "}
-              </span>
-
-              <span className="rmMins">
-                {remainTime.minutes < 10 && "0"}
-                {remainTime.minutes}
-              </span>
-
-              <span className="rmSec">
-                {remainTime.seconds < 10 && "0"} {remainTime.seconds}
-              </span>
-            </>
-          ) : (
-            "Time's up!"
-          )}
-        </div>
-        <div className="offerCTC">
-          <button className="bookNowBtn">Book Now</button>
-        </div>
+    <div className="offer">
+      <div className="offerName">{offer.name}</div>
+      <div>
+        <img className="offerImg" src={offer.images[0]} alt={offer.name} />
       </div>
-    )
+      <div className="offerDescription">{offer.description}</div>
+      <div className="offerFeatures">
+        {offer.features.map((v, i) => (
+          <li key={i}>{v}</li>
+        ))}
+      </div>
+      <div className="offerTime">
+        {remainTime ? (
+          <>
+            <span className="rmHrs">
+              {remainTime.hours < 10 && "0"}
+              {remainTime.hours}{" "}
+            </span>
+
+            <span className="rmMins">
+              {remainTime.minutes < 10 && "0"}
+              {remainTime.minutes}
+            </span>
+
+            <span className="rmSec">
+              {remainTime.seconds < 10 && "0"} {remainTime.seconds}
+            </span>
+          </>
+        ) : (
+          "Time's up!"
+        )}
+      </div>
+      <div className="offerCTC">
+        <button className="bookNowBtn">Book Now</button>
+      </div>
+    </div>
   );
 }
 
 function Offers() {
-  const offers = getOffers();
+  const [offers, setOffers] = useState([]);
+  useEffect(() => {
+    getOffers().then((d) => {
+      setOffers(d);
+    });
+  });
   const [offerOpen, setOfferOpen] = useState(false);
 
   return (

@@ -33,6 +33,7 @@ import Dashboard from "./components/AdminConponents/Dashboard";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import ProductPanel from "./components/AdminConponents/ProductPanel";
 import ProductUpdate from "./components/AdminConponents/ProductUpdate";
+import EditOffers from "./components/AdminConponents/Offers";
 
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
@@ -176,7 +177,7 @@ function App() {
             <Route path="productPanel" element={<ProductPanel />} />
             <Route path="productdetail/:id" element={<ProductUpdate />} />
             <Route path="addProduct" element={<ProductUpdate />} />
-
+            <Route path="offers" element={<EditOffers />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
           {/* <Route path="/admin" element={<AdminPanel />}>

@@ -1880,10 +1880,36 @@ export function getPackagesByName(name) {
   return Data[0];
 }
 
-export function getOffers(id) {
-  const Data = id ? Offers.filter((v) => v.id == id) : Offers;
+export async function getOffers(id) {
+  const offersCol = collection(db, "offers");
+  const offersSnap = await getDocs(offersCol);
+  const offers = [];
 
+  offersSnap.forEach((doc) => {
+    offers.push({ id: doc.id, ...doc.data() });
+  });
+  const Data = !id ? offers : offers.filter((offer) => offer.id == id);
   return Data;
+}
+export async function addOffer(data) {
+  const offerCol = collection(db, "offers"); // Get a reference to the "Products" collection
+
+  // Add the new data as a document to the collection
+  const docRef = await addDoc(offerCol, data);
+
+  // You can optionally get the document ID if needed
+  // const docId = docRef.id;
+
+  return docRef; // Return the document ID if you need it
+}
+export async function deleteOffers(id) {
+  try {
+    const docRef = doc(db, "offers", id);
+    return await deleteDoc(docRef);
+    console.log("Document successfully deleted!");
+  } catch (error) {
+    console.error("Error deleting document: ", error);
+  }
 }
 
 export function getReviews(id) {
