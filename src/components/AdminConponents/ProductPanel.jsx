@@ -9,7 +9,7 @@ function ProductPanel() {
     getProducts().then((data) => {
       setProducts(data);
     });
-    // console.log("hi");
+    console.log(products);
   }, []);
   return (
     <div>
