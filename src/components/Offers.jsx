@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getOffers } from "../data/Services";
 import "./styles/offer.css";
 import { CiTextAlignCenter } from "react-icons/ci";
-
+import Image from "./utils/Image";
 function Offer({ offer }) {
   const [remainTime, setRemainTime] = useState(null);
 
@@ -33,7 +33,7 @@ function Offer({ offer }) {
     <div className="offer">
       <div className="offerName">{offer.name}</div>
       <div>
-        <img className="offerImg" src={offer.image} alt={offer.name} />
+        <Image className="offerImg" url={offer.image} alt={offer.name} />
       </div>
       <div className="offerDescription">{offer.description}</div>
       <div className="offerFeatures">

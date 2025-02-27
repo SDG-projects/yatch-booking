@@ -7,6 +7,7 @@ import AIChat from "../components/AIChat";
 import { getOffers } from "../data/Services";
 import Offers from "../components/Offers";
 
+
 function ScrollUP() {
   const [scrollY, setScrollY] = useState(window.scrollY);
   useEffect(() => {
@@ -55,6 +56,7 @@ function Layout() {
       <Offers />
       <Footer />
       <ScrollUP />
+      
     </div>
   );
 }

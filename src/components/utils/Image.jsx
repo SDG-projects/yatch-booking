@@ -1,19 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import { getDownloadURL, ref, getStorage } from "firebase/storage";
 import Loading from "../Loading";
 
 function Image({ url, ...props }) {
   const [imageUrl, setImageUrl] = useState(null);
   const storage = getStorage();
+
   useEffect(() => {
+    if (!url) {
+      setImageUrl("default-image-url");
+      return;
+    }
+
     const fetchImage = async () => {
-      const storageRef = ref(storage, url);
-      const imgUrl = await getDownloadURL(storageRef);
-      setImageUrl(imgUrl);
+      try {
+        const storageRef = ref(storage, url); // Ensure correct path
+        const imgUrl = await getDownloadURL(storageRef);
+        setImageUrl(imgUrl);
+      } catch (error) {
+        console.error("Error fetching image:", error);
+        setImageUrl("default-image-url");
+      }
     };
 
-    fetchImage().catch(() => setImageUrl("null"));
-  }, []);
+    fetchImage();
+  }, [url]);
+
   return !imageUrl ? <Loading /> : <img {...props} src={imageUrl} />;
 }
 

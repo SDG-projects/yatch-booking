@@ -68,7 +68,6 @@ const PrivateRoute = ({ Component, ...rest }) => {
 };
 
 function App() {
-  firebaseApp;
   return (
     <>
       <BrowserRouter>

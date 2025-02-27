@@ -1822,7 +1822,7 @@ export function getServices(id) {
 }
 
 export async function getProducts(id) {
-  const productsCol = collection(db, "Products");
+  const productsCol = collection(db, "products");
   const productSnap = await getDocs(productsCol);
   const products = [];
 
@@ -1948,3 +1948,15 @@ export function getOwnerInfo() {
     Phone: "971555930716",
   };
 }
+export async function deleteFile(filePath) {
+  try {
+    const storage = getStorage();
+    const fileRef = ref(storage, filePath);
+
+    await deleteObject(fileRef);
+    console.log(`File '${filePath}' deleted successfully.`);
+  } catch (error) {
+    console.error(`Error deleting file '${filePath}': `, error);
+  }
+}
+// console.log("Products Data:", Products);

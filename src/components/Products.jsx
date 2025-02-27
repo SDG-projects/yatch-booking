@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../data/firebase"; // Ensure Firebase is imported
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { getProducts } from "../data/Services";
 import { FaWhatsapp } from "react-icons/fa";
 import "./styles/products.css";
 import Image from "./utils/Image";
@@ -41,7 +42,7 @@ export const Product = ({ product, notNeed }) => {
       </h3>
       <div>
         <Image
-          url={product.images[0]}
+          url={product.images && product.images.length > 0 ? product.images[0] : "/img/placeholder.jpg"}
           alt={product.name}
           className="product-image"
           onClick={handleProductClick}
@@ -82,11 +83,32 @@ export const Product = ({ product, notNeed }) => {
 
 const ProductSection = () => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data);
-    });
-  });
+    const fetchProducts = async () => {
+      try {
+        console.log("📡 Fetching products from Firestore...");
+        const querySnapshot = await getDocs(collection(db, "products"));
+        
+        if (querySnapshot.empty) {
+          console.log("❌ No products found in Firestore.");
+          return;
+        }
+
+        const productList = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setProducts(productList);
+        console.log("✅ Products Fetched Successfully:", productList);
+      } catch (error) {
+        console.error("🚨 Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <section id="products" className="product-section">
@@ -94,11 +116,14 @@ const ProductSection = () => {
       <p>Unforgettable Yachting Experiences at Your Fingertips</p>
       <hr className="styled-line" />
       <div className="product-grid">
-        {products?.map((product) => (
-          <Product key={product.id} product={product} />
-        ))}
+        {products.length === 0 ? (
+          <p>No products found</p>
+        ) : (
+          products.map((product) => <Product key={product.id} product={product} />)
+        )}
       </div>
     </section>
   );
 };
+
 export default ProductSection;
