@@ -12,9 +12,7 @@ const UploadProducts = () => {
       try {
         console.log(`📢 Total Products in Services.js: ${Products.length}`);
 
-        setUploadStatus("Fetching existing products...");
-        console.log("📡 Fetching existing products from Firestore...");
-
+        setUploadStatus("Checking existing products...");
         const querySnapshot = await getDocs(collection(db, "products"));
         const existingProducts = new Set();
         querySnapshot.forEach((doc) => {
@@ -29,8 +27,8 @@ const UploadProducts = () => {
         for (const product of Products) {
           console.log(`🔎 Checking product: ${product.name} (ID: ${product.id})`);
 
-          if (existingProducts.has(product.id)) {
-            console.log(`⏭️ Skipping ${product.id} - Already exists.`);
+          if (existingProducts.has(product.id.toString())) {
+            console.log(`⏭️ Skipping ${product.name} - Already exists.`);
             continue;
           }
 
@@ -44,13 +42,26 @@ const UploadProducts = () => {
           console.log(`📤 Uploading ${product.name}...`);
 
           const uploadedImageUrls = [];
+          let uploadFailed = false;
 
           for (let i = 0; i < product.images.length; i++) {
             const imagePath = product.images[i];
             const imageRef = ref(storage, `Products/${product.id}_img${i}.jpg`);
 
             try {
-              const response = await fetch(imagePath);
+              console.log(`📸 Uploading Image ${i + 1} for ${product.name}...`);
+
+              // Add timeout to prevent getting stuck
+              const controller = new AbortController();
+              const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 seconds timeout
+
+              const response = await fetch(imagePath, { signal: controller.signal });
+              clearTimeout(timeoutId); // Clear timeout if fetch succeeds
+
+              if (!response.ok) {
+                throw new Error(`❌ Failed to fetch image for ${product.name}`);
+              }
+
               const blob = await response.blob();
               await uploadBytes(imageRef, blob);
               const imageUrl = await getDownloadURL(imageRef);
@@ -58,8 +69,15 @@ const UploadProducts = () => {
               console.log(`✅ Uploaded image ${i + 1} for ${product.name}`);
             } catch (error) {
               console.error(`❌ Image upload failed for ${product.name}:`, error);
-              failedCount++;
+              uploadFailed = true;
+              break; // Stop trying to upload more images if one fails
             }
+          }
+
+          if (uploadFailed) {
+            console.log(`🚨 Skipping ${product.name} due to image upload failure.`);
+            failedCount++;
+            continue;
           }
 
           try {

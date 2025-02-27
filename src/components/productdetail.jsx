@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import { getProducts } from "../data/Services";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../data/firebase"; // Import Firebase
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/productdetail.css";
@@ -13,24 +14,39 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const products = getProducts().then((products) => {
-      const selectedProduct = products.filter((product) => product.id == id);
-      setProduct(selectedProduct[0]);
-      setLoading(false);
-    });
-    // console.log(product);
-    // Check if there's a stored scroll position and restore it
+    const fetchProduct = async () => {
+      try {
+        console.log(`📡 Fetching product details for ID: ${id}`);
+        const productRef = doc(db, "products", id);
+        const productSnap = await getDoc(productRef);
+
+        if (!productSnap.exists()) {
+          console.log("❌ Product not found in Firestore.");
+          setProduct(null);
+        } else {
+          setProduct(productSnap.data());
+          console.log("✅ Product details loaded:", productSnap.data());
+        }
+      } catch (error) {
+        console.error("🚨 Error fetching product details:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+
+    // Restore scroll position
     const scrollPosition = sessionStorage.getItem("scrollPosition");
     if (scrollPosition) {
       window.scrollTo(0, parseInt(scrollPosition, 10));
     }
   }, [id]);
 
-  if (!product && !loading) {
-    return <p style={{ color: "white" }}>product not found...</p>;
-  }
-  // else if (loading) <p>loading..</p>;
+  if (loading) return <p style={{ color: "white" }}>Loading...</p>;
+  if (!product) return <p style={{ color: "white" }}>Product not found...</p>;
 
   // Slider settings
   const sliderSettings = {
@@ -58,7 +74,7 @@ const ProductDetail = () => {
       <div className="product-detail-content">
         <div className="product-detail-image-container">
           <Slider {...sliderSettings} className="product-detail-slider">
-            {product?.images.map((img, index) => (
+            {product?.images?.map((img, index) => (
               <div key={index}>
                 <Image
                   url={img}
@@ -73,7 +89,7 @@ const ProductDetail = () => {
           <h1 className="product-title">{product?.name}</h1>
           <p>
             <strong>Price:</strong>
-            <span className="pd-detail-price">{product?.price}AED</span>
+            <span className="pd-detail-price">{product?.price} AED</span>
           </p>
           <p>
             <strong>Size:</strong> {product?.feet}

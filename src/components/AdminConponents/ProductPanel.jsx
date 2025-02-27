@@ -10,9 +10,19 @@ const ProductPanel = () => {
       try {
         console.log("📡 Fetching products from Firestore...");
         const querySnapshot = await getDocs(collection(db, "products"));
-        const productList = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        
+        if (querySnapshot.empty) {
+          console.log("❌ No products found in Firestore.");
+          return;
+        }
+
+        const productList = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
         setProducts(productList);
-        console.log("✅ Fetched products:", productList);
+        console.log("✅ Products Fetched Successfully:", productList);
       } catch (error) {
         console.error("🚨 Error fetching products:", error);
       }
@@ -24,19 +34,27 @@ const ProductPanel = () => {
   return (
     <div>
       <h2>Product List</h2>
-      {products.length === 0 ? <p>No products found</p> : (
-        products.map((product) => (
-          <div key={product.id}>
-            <h3>{product.name}</h3>
-            {product.images && product.images.length > 0 ? (
-              <img src={product.images[0]} alt={product.name} width="100" />
-            ) : <p>No image available</p>}
-            <p>Price: ${product.price}</p>
-          </div>
-        ))
+      {products.length === 0 ? (
+        <p>No products found</p>
+      ) : (
+        products.map((product) => {
+          console.log(`Rendering product: ${product.name}`);
+          return (
+            <div key={product.id}>
+              <h3>{product.name}</h3>
+              {product.images && product.images.length > 0 ? (
+                <img src={product.images[0]} alt={product.name} width="100" />
+              ) : (
+                <p>No image available</p>
+              )}
+              <p>Price: ${product.price}</p>
+            </div>
+          );
+        })
       )}
     </div>
   );
+  
 };
 
 export default ProductPanel;

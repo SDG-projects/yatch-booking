@@ -715,10 +715,10 @@ const Services = [
       Complementary:
         "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
     },
-  
+ 
     {
-      id: 11,
-      name: "DOMINATOR ",
+    id: 11,
+       name: "DOMINATOR ",
       images: [
         "/img/yatch/P11/luxury-yatch-dubai-11_1.jpg",
         "/img/yatch/P11/luxury-yatch-dubai-11_2.jpg",
@@ -733,6 +733,7 @@ const Services = [
       Complementary:
         "Water / SoftDrinks / Chips / Nuts / Towels / Speakers /(Plates , Spoon , Cups)",
     },
+  
     {
       id: 12,
       name: "BB Marine ",
