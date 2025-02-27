@@ -42,7 +42,8 @@ const ProductUpdate = () => {
         setToster({
           message: "Document successfully updated!",
           status: "success",
-        });
+        }); <img key={offers[-1]} src={offer.image} alt={offer.name} />
+       
         console.log("Document successfully updated!");
       })
       .catch((error) => {
