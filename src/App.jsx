@@ -28,10 +28,13 @@ import AIChat from "./components/AIChat";
 import VIPRental from "./components/vipRental";
 import AdminPanel from "./pages/AdminPanel";
 import Login from "./components/Login";
-
+import ServicePanel from "./components/AdminConponents/ServicePanel";
+import Dashboard from "./components/AdminConponents/Dashboard";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-
+import ProductPanel from "./components/AdminConponents/ProductPanel";
 import ProductUpdate from "./components/AdminConponents/ProductUpdate";
+import AutoUpload from "./components/utils/uploadProducts";
+
 
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
@@ -66,9 +69,9 @@ const PrivateRoute = ({ Component, ...rest }) => {
 };
 
 function App() {
-  firebaseApp;
-  return (
+  return(
     <>
+    <AutoUpload />
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<ProductSection />} /> */}

@@ -23,7 +23,7 @@ const ImageUpload = ({ urlToUpload, afterUpload }) => {
 
   const handleUpload = async () => {
     for (const image of images) {
-      const storageRef = ref(storage, urlToUpload + Date.now().toString());
+      const storageRef = ref(storage, `Products/${Date.now()}`);
       const uploadTask = uploadBytesResumable(storageRef, image);
 
       uploadTask.on(
