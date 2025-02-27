@@ -10,7 +10,7 @@ function Offer({ offer }) {
     console.log(offer.endTime);
     const timeInterval = setInterval(() => {
       const currentTime = new Date();
-      const endTime = new Date(offer.endTime.seconds);
+      const endTime = new Date(offer.endTime);
       const timeDiff = endTime.getTime() - currentTime.getTime();
 
       if (timeDiff <= 0) {
@@ -33,7 +33,7 @@ function Offer({ offer }) {
     <div className="offer">
       <div className="offerName">{offer.name}</div>
       <div>
-        <img className="offerImg" src={offer.images[0]} alt={offer.name} />
+        <img className="offerImg" src={offer.image} alt={offer.name} />
       </div>
       <div className="offerDescription">{offer.description}</div>
       <div className="offerFeatures">
