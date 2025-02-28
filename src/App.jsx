@@ -71,7 +71,7 @@ const PrivateRoute = ({ Component, ...rest }) => {
 function App() {
   return(
     <>
-    <AutoUpload />
+  
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<ProductSection />} /> */}
