@@ -42,7 +42,11 @@ export const Product = ({ product, notNeed }) => {
       </h3>
       <div>
         <Image
-          url={product.images && product.images.length > 0 ? product.images[0] : "/img/placeholder.jpg"}
+          url={
+            product.images && product.images.length > 0
+              ? product.images[0]
+              : "/img/placeholder.jpg"
+          }
           alt={product.name}
           className="product-image"
           onClick={handleProductClick}
@@ -89,7 +93,7 @@ const ProductSection = () => {
       try {
         console.log("📡 Fetching products from Firestore...");
         const querySnapshot = await getDocs(collection(db, "products"));
-        
+
         if (querySnapshot.empty) {
           console.log("❌ No products found in Firestore.");
           return;
@@ -101,7 +105,7 @@ const ProductSection = () => {
         }));
 
         setProducts(productList);
-        console.log("✅ Products Fetched Successfully:", productList);
+        // console.log("✅ Products Fetched Successfully:", productList);
       } catch (error) {
         console.error("🚨 Error fetching products:", error);
       }
@@ -119,7 +123,9 @@ const ProductSection = () => {
         {products.length === 0 ? (
           <p>No products found</p>
         ) : (
-          products.map((product) => <Product key={product.id} product={product} />)
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
         )}
       </div>
     </section>

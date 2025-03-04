@@ -1834,7 +1834,8 @@ export async function getProducts(id) {
 }
 export async function updateProducts(data) {
   // Get a reference to the document you want to update
-  const docRef = doc(db, "Products", data.id);
+  const docRef = doc(db, "products", data.id);
+  console.log(docRef);
   // Create an update object with the new values
   const updateData = {
     name: "New Name",

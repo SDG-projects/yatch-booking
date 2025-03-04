@@ -12,7 +12,7 @@ const VIPRental = () => {
   });
   const handleProductClick = (product) => {
     sessionStorage.setItem("scrollPosition", window.scrollY);
-    console.log(product.id);
+    // console.log(product.id);
     nav(`/productdetail/${product.id}`);
   };
   return (
