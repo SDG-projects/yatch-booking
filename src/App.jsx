@@ -33,8 +33,8 @@ import Dashboard from "./components/AdminConponents/Dashboard";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import ProductPanel from "./components/AdminConponents/ProductPanel";
 import ProductUpdate from "./components/AdminConponents/ProductUpdate";
-import AutoUpload from "./components/utils/uploadProducts";
-
+import EditOffers from "./components/AdminConponents/Offers";
+import { uploadServiceImages } from "./components/utils/uploadServices";
 
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
@@ -69,7 +69,11 @@ const PrivateRoute = ({ Component, ...rest }) => {
 };
 
 function App() {
-  return(
+
+  useEffect(() => {
+    uploadServiceImages(); // Upload services when app starts
+  }, []);
+  return (
     <>
   
       <BrowserRouter>
@@ -178,7 +182,7 @@ function App() {
             <Route path="productPanel" element={<ProductPanel />} />
             <Route path="productdetail/:id" element={<ProductUpdate />} />
             <Route path="addProduct" element={<ProductUpdate />} />
-
+            <Route path="offers" element={<EditOffers />} />
             <Route path="*" element={<Dashboard />} />
           </Route>
           {/* <Route path="/admin" element={<AdminPanel />}>

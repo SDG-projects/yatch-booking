@@ -101,9 +101,9 @@ const AdminPanel = ({ children }) => {
           <li>
             <Link to="/services">Services</Link>
           </li> */}
-          {/* <li>
-            <Link to="/packages">Packages</Link>
-          </li> */}
+          <li>
+            <Link to="offers">Offers</Link>
+          </li>
           <li>
             <Link to="productPanel">Products</Link>
           </li>

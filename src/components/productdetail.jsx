@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import { collection, doc, getDoc } from "firebase/firestore";
-import { db } from "../data/firebase"; // Import Firebase
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../data/firebase";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/productdetail.css";
 import { handleWhatsAppRedirect } from "../components/Products";
 import Image from "./utils/Image";
+import Loading from "./Loading"; // Using your existing loading component
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -45,7 +47,7 @@ const ProductDetail = () => {
     }
   }, [id]);
 
-  if (loading) return <p style={{ color: "white" }}>Loading...</p>;
+  if (loading) return <Loading />;
   if (!product) return <p style={{ color: "white" }}>Product not found...</p>;
 
   // Slider settings
@@ -75,11 +77,15 @@ const ProductDetail = () => {
         <div className="product-detail-image-container">
           <Slider {...sliderSettings} className="product-detail-slider">
             {product?.images?.map((img, index) => (
-              <div key={index}>
+              <div key={index} className="image-wrapper">
+                {!imageLoaded && (
+                  <div className="skeleton-loader"></div>
+                )}
                 <Image
                   url={img}
                   alt={`${product.name} ${index + 1}`}
-                  className="product-detail-image"
+                  className={`product-detail-image ${imageLoaded ? "loaded" : "loading"}`}
+                  onLoad={() => setImageLoaded(true)}
                 />
               </div>
             ))}
