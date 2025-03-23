@@ -1,4 +1,4 @@
-const Services = [
+export const Services = [
   {
     img: "/img/services/romanticprivatedinner1.jpg",
     img2: "/img/services/romanticprivatedinner2.jpg",
