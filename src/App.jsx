@@ -34,6 +34,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import ProductPanel from "./components/AdminConponents/ProductPanel";
 import ProductUpdate from "./components/AdminConponents/ProductUpdate";
 import EditOffers from "./components/AdminConponents/Offers";
+import { uploadServiceImages } from "./components/utils/uploadServices";
 
 // import Package from "./components/Package";
 const Package = lazy(() => import("./components/Package"));
@@ -68,6 +69,9 @@ const PrivateRoute = ({ Component, ...rest }) => {
 };
 
 function App() {
+  useEffect(() => {
+    // uploadServiceImages(); // Upload services when app starts
+  }, []);
   return (
     <>
       <BrowserRouter>

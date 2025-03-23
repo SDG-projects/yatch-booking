@@ -7,19 +7,18 @@ function Image({ url, ...props }) {
   const storage = getStorage();
 
   useEffect(() => {
-    if (!url) {
-      setImageUrl("default-image-url");
-      return;
-    }
-
     const fetchImage = async () => {
+      if (!url) {
+        setImageUrl(null);
+        return;
+      }
+
+      const storageRef = ref(storage, url);
       try {
-        const storageRef = ref(storage, url); // Ensure correct path
-        const imgUrl = await getDownloadURL(storageRef);
-        setImageUrl(imgUrl);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-        setImageUrl("default-image-url");
+        const fetchedUrl = await getDownloadURL(storageRef);
+        setImageUrl(fetchedUrl);
+      } catch {
+        setImageUrl(null);
       }
     };
 

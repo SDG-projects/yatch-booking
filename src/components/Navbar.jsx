@@ -57,8 +57,8 @@ const Navbar = () => {
             <img
               src={"/img/yatchlogo.png"}
               alt="Yacht Logo"
-              width={200}
-              height={200}
+              width={160}
+              height={160}
             />
           </Link>
         </div>

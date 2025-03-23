@@ -1,18 +1,21 @@
 import React, { Suspense, useEffect, useState } from "react";
 import "../components/styles/service.css";
 import { useParams } from "react-router-dom";
-import { getServices } from "../data/Services";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { app } from "/src/data/firebase"; // Adjust the import based on your project structure
 import Loading from "../components/Loading";
-import Image from "../components/utils/Image";
+
+const db = getFirestore(app);
 
 export const serviceWhatsAppRedirect = (service) => {
   const phoneNumber = "971555930716";
-  const message = `Hi, I am interested in booking (${service.name}) in your golden yatch rentals`;
+  const message = `Hi, I am interested in booking (${service.name}) in your Golden Yacht Rentals.`;
   const encodedMessage = encodeURIComponent(message);
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
   const whatsappUrl = isMobile
     ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+  
   const newWindow = window.open(whatsappUrl, "_blank");
   if (!newWindow) {
     alert(
@@ -21,59 +24,65 @@ export const serviceWhatsAppRedirect = (service) => {
     );
   }
 };
+
 function Services() {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { service } = useParams();
 
-  // useEffect(() => {
-  //   const fetchedServices = getServices(Number(service?.split("&")[1]));
-  //   setServices(fetchedServices);
-  //   console.log(fetchedServ);
-  // });
-
   useEffect(() => {
-    if (service) {
-      // const elementId = service
-      //   .toLowerCase()
-      //   .replaceAll(" ", "_")
-      //   .replaceAll("/", "-");
-      // const element = document.getElementById(elementId);
-      // if (element) {
-      //   element.scrollIntoView({ behavior: "smooth", block: "start" });
-      // }
-      const fetchedServices = getServices(Number(service?.split("&")[1]));
-      setServices(fetchedServices);
-      // console.log(fetchedServices);
-      // console.log(getServices(Number(service?.split("&")[1])));
-    } else {
-      setServices(getServices());
-    }
+    const fetchServices = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "services"));
+        const servicesData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        if (service) {
+          const filteredServices = servicesData.filter(
+            (s) => s.name.toLowerCase().replaceAll(" ", "_") === service
+          );
+          setServices(filteredServices);
+        } else {
+          setServices(servicesData);
+        }
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchServices();
   }, [service]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="servicesCon">
       <h1 className="service-h1">Our Services</h1>
       <p className="service-p">Explore the exclusive services we offer</p>
       <hr className="styled-line" />
+      
       {services.map((service, index) => (
         <Suspense key={index} fallback={<Loading />}>
           <div
             key={index}
-            id={service.name
-              .toLowerCase()
-              .replaceAll(" ", "_")
-              .replaceAll("/", "-")}
+            id={service.name.toLowerCase().replaceAll(" ", "_")}
             className="serviceCon"
           >
             <div className="serviceContent">
               <div className="serviceImgCon">
-                <Image
-                  url={service.img.replace("/img/", "")}
+                <img
+                  src={service.img}
                   className="serviceImg"
                   alt={`${service.name} Image 1`}
                 />
-                <Image
-                  url={"services/proposal2.jpg"}
+                <img
+                  src={service.img2}
                   className="serviceImg"
                   alt={`${service.name} Image 2`}
                 />
@@ -91,10 +100,10 @@ function Services() {
                 <p>{service.weoffer2}</p>
                 <p>{service.weoffer3}</p>
                 <p>{service.weoffer4}</p>
-                <h3>Rating: {service.info.rating}</h3>
+                <h3>Rating: {service.rating}</h3>
                 <button
                   className="bookNowBtn"
-                  onClick={serviceWhatsAppRedirect}
+                  onClick={() => serviceWhatsAppRedirect(service)}
                 >
                   Book Now
                 </button>

@@ -529,6 +529,8 @@ const Services = [
     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
   },
 ];
+
+export default Services;
 const Products = [
   {
     id: 1,

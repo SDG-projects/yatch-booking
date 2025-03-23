@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../data/firebase"; // Ensure Firebase is imported
+import { db } from "../data/firebase";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaWhatsapp } from "react-icons/fa";
 import "./styles/products.css";
 import Image from "./utils/Image";
+import Loading from "./Loading"; // Importing your existing Loading component
 
 export const handleWhatsAppRedirect = (product) => {
   const phoneNumber = "971555930716";
@@ -17,6 +18,7 @@ export const handleWhatsAppRedirect = (product) => {
   const whatsappUrl = isMobile
     ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
   const newWindow = window.open(whatsappUrl, "_blank");
   if (!newWindow) {
     alert(
@@ -87,36 +89,39 @@ export const Product = ({ product, notNeed }) => {
 
 const ProductSection = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // Full-page loading state
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log("📡 Fetching products from Firestore...");
+        setIsLoading(true); // Start full-page loading
         const querySnapshot = await getDocs(collection(db, "products"));
 
-        if (querySnapshot.empty) {
-          console.log("❌ No products found in Firestore.");
-          return;
+        if (!querySnapshot.empty) {
+          const productList = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setProducts(productList);
         }
-
-        const productList = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-
-        setProducts(productList);
-        // console.log("✅ Products Fetched Successfully:", productList);
       } catch (error) {
         console.error("🚨 Error fetching products:", error);
+      } finally {
+        setIsLoading(false); // Stop loading
       }
     };
 
     fetchProducts();
   }, []);
 
+  // 🔹 Full Page Loading Using Your Existing Component
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <section id="products" className="product-section">
-      <h1 className="section-title">Best Yatch Rental Dubai</h1>
+      <h1 className="section-title">Best Yacht Rental Dubai</h1>
       <p>Unforgettable Yachting Experiences at Your Fingertips</p>
       <hr className="styled-line" />
       <div className="product-grid">
