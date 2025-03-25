@@ -1,39 +1,46 @@
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { getFirestore, collection, doc, setDoc, getDocs } from "firebase/firestore";
-import { app } from "/src/data/firebase"; // Adjust path if needed
-import services from "/src/data/Services"; // Adjust path if needed
+import { storage, db } from "/src/data/firebase"; // Firebase config
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import Services from "/src/data/Services"; // Import services data
 
-const storage = getStorage(app);
-const db = getFirestore(app);
-
-export const uploadServiceImages = async () => {
-  console.log("Checking for existing services in Firestore...");
-
+export const uploadServices = async () => {
   try {
-    // Get existing services to prevent duplicates
+    console.log("Starting service upload...");
+
+    // Get existing services to prevent duplicate uploads
     const existingDocs = await getDocs(collection(db, "services"));
     const existingNames = existingDocs.docs.map((doc) => doc.data().name);
 
-    for (const service of services) {
+    for (const service of Services) {
       if (existingNames.includes(service.name)) {
-        console.log(`Skipping ${service.name} (Already exists)`);
+        console.log(`Skipping ${service.name} (already uploaded)`);
         continue;
       }
 
-      console.log(`Uploading ${service.name} images...`);
+      console.log(`Uploading: ${service.name}`);
 
       // Upload first image
-      const img1Ref = ref(storage, `Services/${service.img.split("/").pop()}`);
-      const img1Upload = await uploadBytesResumable(img1Ref, await (await fetch(service.img)).blob());
-      const img1URL = await getDownloadURL(img1Upload.ref);
+      const response1 = await fetch(service.img);
+      const blob1 = await response1.blob();
+      const storageRef1 = ref(
+        storage,
+        `services/${service.name.replace(/\s+/g, "_")}_1.jpg`
+      );
+      await uploadBytes(storageRef1, blob1);
+      const imageUrl1 = await getDownloadURL(storageRef1);
 
       // Upload second image
-      const img2Ref = ref(storage, `Services/${service.img2.split("/").pop()}`);
-      const img2Upload = await uploadBytesResumable(img2Ref, await (await fetch(service.img2)).blob());
-      const img2URL = await getDownloadURL(img2Upload.ref);
+      const response2 = await fetch(service.img2);
+      const blob2 = await response2.blob();
+      const storageRef2 = ref(
+        storage,
+        `services/${service.name.replace(/\s+/g, "_")}_2.jpg`
+      );
+      await uploadBytes(storageRef2, blob2);
+      const imageUrl2 = await getDownloadURL(storageRef2);
 
-      // Store service details in Firestore
-      await setDoc(doc(db, "services", service.name), {
+      // Save service data in Firestore
+      await addDoc(collection(db, "services"), {
         name: service.name,
         heading: service.heading,
         description: service.description,
@@ -41,17 +48,18 @@ export const uploadServiceImages = async () => {
         weoffer2: service.weoffer2,
         weoffer3: service.weoffer3,
         weoffer4: service.weoffer4,
-        rating: service.info.rating,
+        img: imageUrl1,
+        img2: imageUrl2,
         price: service.price,
-        img: img1URL,
-        img2: img2URL,
+        rating: service.info.rating,
       });
 
-      console.log(`Uploaded ${service.name} successfully.`);
+      console.log(`${service.name} uploaded successfully!`);
     }
-
-    console.log("All services uploaded successfully.");
   } catch (error) {
     console.error("Error uploading services:", error);
   }
 };
+
+// 🔥 **Automatically Start Uploading Services When the App Starts**
+// uploadServices();

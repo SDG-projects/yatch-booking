@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../data/firebase";
@@ -8,6 +8,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import "./styles/products.css";
 import Image from "./utils/Image";
 import Loading from "./Loading"; // Importing your existing Loading component
+import { DataContext } from "../data/context";
 
 export const handleWhatsAppRedirect = (product) => {
   const phoneNumber = "971555930716";
@@ -88,36 +89,37 @@ export const Product = ({ product, notNeed }) => {
 };
 
 const ProductSection = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+  const { products } = useContext(DataContext);
   const [isLoading, setIsLoading] = useState(true); // Full-page loading state
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setIsLoading(true); // Start full-page loading
-        const querySnapshot = await getDocs(collection(db, "products"));
+  // useEffect(() => {
+  // const fetchProducts = async () => {
+  //   try {
+  //     setIsLoading(true); // Start full-page loading
+  //     const querySnapshot = await getDocs(collection(db, "products"));
 
-        if (!querySnapshot.empty) {
-          const productList = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setProducts(productList);
-        }
-      } catch (error) {
-        console.error("🚨 Error fetching products:", error);
-      } finally {
-        setIsLoading(false); // Stop loading
-      }
-    };
+  //     if (!querySnapshot.empty) {
+  //       const productList = querySnapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       }));
+  //       setProducts(productList);
+  //     }
+  //   } catch (error) {
+  //     console.error("🚨 Error fetching products:", error);
+  //   } finally {
+  //     setIsLoading(false); // Stop loading
+  //   }
+  // };
 
-    fetchProducts();
-  }, []);
+  // fetchProducts();
+  // }, []);
 
   // 🔹 Full Page Loading Using Your Existing Component
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <section id="products" className="product-section">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -12,6 +12,7 @@ import {
   getServices,
 } from "../data/Services";
 import Image from "./utils/Image";
+import { DataContext } from "../data/context";
 // import { Review } from "./Testimonials";
 // function Pack({
 //   name,
@@ -149,7 +150,8 @@ function Pack({
   //   // "Proposal and Anniversary Decorations",
   //   // "VIP Transport",
   // ];
-  const ourServices = getServices();
+  const { services: ourServices } = useContext(DataContext);
+  // getServices();
   const [packServices, setPackServices] = useState([...services]);
   const [filteredServices, setFilteredServices] = useState(
     ourServices.filter((service) => {

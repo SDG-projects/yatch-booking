@@ -1,4 +1,4 @@
-const Services = [
+export const Services = [
   {
     img: "/img/services/romanticprivatedinner1.jpg",
     img2: "/img/services/romanticprivatedinner2.jpg",
@@ -1818,8 +1818,15 @@ import { getStorage, ref } from "firebase/storage";
 const storage = getStorage();
 // const pathReference = ref(storage, 'images/stars.jpg');
 
-export function getServices(id) {
-  const Data = !id ? Services : [Services[id - 1]];
+export async function getServices(id) {
+  const servicesCol = collection(db, "services");
+  const servicesSnap = await getDocs(servicesCol);
+  const services = [];
+
+  servicesSnap.forEach((doc) => {
+    services.push({ id: doc.id, ...doc.data() });
+  });
+  const Data = !id ? services : services.filter((service) => service.id == id);
   return Data;
 }
 
@@ -1873,7 +1880,7 @@ export function getPackages(id) {
   // console.log((id = null));
   let Data = isNaN(id)
     ? Packages
-    : Packages.filter((pack) => {
+    : Packages?.filter((pack) => {
         return pack.id == id;
       });
   return Data;
