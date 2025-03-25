@@ -1464,8 +1464,8 @@ const Packages = [
     //     description: "the private DJ will alote to your birthday party ",
     //     ino: { Name: "Ditto", rating: 3, price: 1000 },
     //     timing: 2,
-    //     price: { rate: 3000, discountRate: 2000, type: "negosiable" },
-    //   },
+    //       price: { rate: 3000, discountRate: 2000, type: "negosiable" },
+    // },
     //   {
     //     name: "Romantic Private Dinner",
     //     description:
@@ -1490,8 +1490,7 @@ const Packages = [
     name: "Party Pack",
     imgs: "/img/pack/PartyPack.png",
     bgimgs: "/img/birthday.png",
-    description: `
-         Are you ready to take your celebrations to the next level? Look no further than our Yacht Party Pack! This ultimate party package is designed to make your special occasion an unforgettable experience.          `,
+    description: `Are you ready to take your celebrations to the next level? Look no further than our Yacht Party Pack! This ultimate party package is designed to make your special occasion an unforgettable experience.          `,
     packIncludes: [
       " Luxurious yacht rental with spacious decks and stunning views",
       "Professional DJ and sound system to keep the party going",
