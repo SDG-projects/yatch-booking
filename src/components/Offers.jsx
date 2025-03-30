@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { getOffers } from "../data/Services";
 import "./styles/offer.css";
-import { CiTextAlignCenter } from "react-icons/ci";
 import Image from "./utils/Image";
 
 function Offer({ offer }) {
   const [remainTime, setRemainTime] = useState(null);
 
   useEffect(() => {
-    if (!offer || !offer.endTime) return; // Prevent errors if offer is undefined
+    if (!offer?.endTime) return;
 
-    const timeInterval = setInterval(() => {
+    const updateRemainingTime = () => {
       const currentTime = new Date();
       const endTime = new Date(offer.endTime);
-      const timeDiff = endTime.getTime() - currentTime.getTime();
+      const timeDiff = endTime - currentTime;
 
       if (timeDiff <= 0) {
         setRemainTime(null);
-        clearInterval(timeInterval);
-      } else {
-        const hours = Math.floor(timeDiff / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-        setRemainTime({ hours, minutes, seconds });
+        return;
       }
-    }, 1000);
 
-    return () => clearInterval(timeInterval);
+      setRemainTime({
+        hours: Math.floor(timeDiff / (1000 * 60 * 60)),
+        minutes: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((timeDiff % (1000 * 60)) / 1000),
+      });
+    };
+
+    updateRemainingTime(); 
+    const timeInterval = setInterval(updateRemainingTime, 1000);
+
+    return () => clearInterval(timeInterval); 
   }, [offer?.endTime]);
 
   const handleWhatsAppRedirect = () => {
@@ -45,7 +47,7 @@ function Offer({ offer }) {
       </div>
       <div className="offerDescription">{offer.description}</div>
       <ul className="offerFeatures">
-        {offer.features && offer.features.length > 0 ? (
+        {offer.features?.length > 0 ? (
           offer.features.map((feature, i) => <li key={i}>{feature}</li>)
         ) : (
           <li>No features available</li>
@@ -63,7 +65,8 @@ function Offer({ offer }) {
               {remainTime.minutes}
             </span>
             <span className="rmSec">
-              {remainTime.seconds < 10 && "0"} {remainTime.seconds}
+              {remainTime.seconds < 10 && "0"}
+              {remainTime.seconds}
             </span>
           </>
         ) : (
@@ -80,28 +83,27 @@ function Offer({ offer }) {
 }
 
 function Offers() {
-  const [offers, setOffers] = useState([]); // Ensure offers is always an array
+  const [offers, setOffers] = useState([]);
   const [offerOpen, setOfferOpen] = useState(false);
 
   useEffect(() => {
     getOffers()
       .then((data) => {
-        setOffers(data || []); // Ensure we always store an array
+        console.log("Fetched Offers:", data); 
+        setOffers(Array.isArray(data) ? data : []);
       })
       .catch((error) => {
         console.error("Error fetching offers:", error);
-        setOffers([]); // Set an empty array on error
+        setOffers([]); 
       });
-  }, []); // Run only on mount
+  }, []);
 
   return (
     <>
-      {/* Offer Button (Always Visible) */}
       <button className="offerBtn" onClick={() => setOfferOpen((prev) => !prev)}>
         {offerOpen ? "Close Offers" : "View Offers"}
       </button>
 
-      {/* Popup Container */}
       {offerOpen && (
         <div className="offerContainer">
           <button className="offerCloseBtn" onClick={() => setOfferOpen(false)}>
@@ -109,10 +111,10 @@ function Offers() {
           </button>
           <div className="offerSection">
             <div className="offers">
-              {Array.isArray(offers) && offers.length > 0 ? (
+              {offers.length > 0 ? (
                 offers.map((offer, i) => <Offer key={i} offer={offer} />)
               ) : (
-                <p>No offers available</p>
+                <p>N Offers available</p>
               )}
             </div>
           </div>

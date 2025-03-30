@@ -46,8 +46,9 @@ const ProductUpdate = () => {
         setToster({
           message: "Document successfully updated!",
           status: "success",
-        }); <img key={offers[-1]} src={offer.image} alt={offer.name} />
-       
+        });
+        // <img key={offers[-1]} src={offer.image} alt={offer.name} />;
+
         console.log("Document successfully updated!");
       })
       .catch((error) => {
@@ -71,7 +72,8 @@ const ProductUpdate = () => {
   function validateForm() {}
   function onAddProduct() {
     addProducts(product)
-      .then(() => {
+      .then((d) => {
+        console.log(d);
         setToster({ message: "successfuly added", status: "success" });
       })
       .catch(() => {
@@ -127,7 +129,7 @@ const ProductUpdate = () => {
         <div className="form-group">
           <label>Feet:</label>
           <input
-            type="number"
+            type="text"
             value={product?.feet}
             onChange={(e) => setProduct({ ...product, feet: e.target.value })}
           />

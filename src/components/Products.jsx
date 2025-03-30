@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../data/firebase";
@@ -8,6 +8,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import "./styles/products.css";
 import Image from "./utils/Image";
 import Loading from "./Loading"; // Importing your existing Loading component
+import { DataContext } from "../data/context";
 
 export const handleWhatsAppRedirect = (product) => {
   const phoneNumber = "971555930716";
@@ -18,10 +19,13 @@ export const handleWhatsAppRedirect = (product) => {
   const whatsappUrl = isMobile
     ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
-  
+
   const newWindow = window.open(whatsappUrl, "_blank");
   if (!newWindow) {
-    alert("Unable to open WhatsApp. Please enable pop-ups or copy this link: " + whatsappUrl);
+    alert(
+      "Unable to open WhatsApp. Please enable pop-ups or copy this link: " +
+        whatsappUrl
+    );
   }
 };
 
@@ -36,11 +40,16 @@ export const Product = ({ product, notNeed }) => {
   return (
     <div key={product.id} className="product-card">
       <h3 className="product-name">
-        <span>GOLDEN YATCH - </span>{product.name}
+        <span>GOLDEN YATCH - </span>
+        {product.name}
       </h3>
       <div>
         <Image
-          url={product.images && product.images.length > 0 ? product.images[0] : "/img/placeholder.jpg"}
+          url={
+            product.images && product.images.length > 0
+              ? product.images[0]
+              : "/img/placeholder.jpg"
+          }
           alt={product.name}
           className="product-image"
           onClick={handleProductClick}
@@ -80,36 +89,37 @@ export const Product = ({ product, notNeed }) => {
 };
 
 const ProductSection = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+  const { products } = useContext(DataContext);
   const [isLoading, setIsLoading] = useState(true); // Full-page loading state
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setIsLoading(true); // Start full-page loading
-        const querySnapshot = await getDocs(collection(db, "products"));
+  // useEffect(() => {
+  // const fetchProducts = async () => {
+  //   try {
+  //     setIsLoading(true); // Start full-page loading
+  //     const querySnapshot = await getDocs(collection(db, "products"));
 
-        if (!querySnapshot.empty) {
-          const productList = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setProducts(productList);
-        }
-      } catch (error) {
-        console.error("🚨 Error fetching products:", error);
-      } finally {
-        setIsLoading(false); // Stop loading
-      }
-    };
+  //     if (!querySnapshot.empty) {
+  //       const productList = querySnapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       }));
+  //       setProducts(productList);
+  //     }
+  //   } catch (error) {
+  //     console.error("🚨 Error fetching products:", error);
+  //   } finally {
+  //     setIsLoading(false); // Stop loading
+  //   }
+  // };
 
-    fetchProducts();
-  }, []);
+  // fetchProducts();
+  // }, []);
 
   // 🔹 Full Page Loading Using Your Existing Component
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <section id="products" className="product-section">
@@ -120,7 +130,9 @@ const ProductSection = () => {
         {products.length === 0 ? (
           <p>No products found</p>
         ) : (
-          products.map((product) => <Product key={product.id} product={product} />)
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
         )}
       </div>
     </section>

@@ -22,14 +22,20 @@ export const uploadServices = async () => {
       // Upload first image
       const response1 = await fetch(service.img);
       const blob1 = await response1.blob();
-      const storageRef1 = ref(storage, `services/${service.name.replace(/\s+/g, "_")}_1.jpg`);
+      const storageRef1 = ref(
+        storage,
+        `services/${service.name.replace(/\s+/g, "_")}_1.jpg`
+      );
       await uploadBytes(storageRef1, blob1);
       const imageUrl1 = await getDownloadURL(storageRef1);
 
       // Upload second image
       const response2 = await fetch(service.img2);
       const blob2 = await response2.blob();
-      const storageRef2 = ref(storage, `services/${service.name.replace(/\s+/g, "_")}_2.jpg`);
+      const storageRef2 = ref(
+        storage,
+        `services/${service.name.replace(/\s+/g, "_")}_2.jpg`
+      );
       await uploadBytes(storageRef2, blob2);
       const imageUrl2 = await getDownloadURL(storageRef2);
 
@@ -56,4 +62,4 @@ export const uploadServices = async () => {
 };
 
 // 🔥 **Automatically Start Uploading Services When the App Starts**
-uploadServices();
+// uploadServices();

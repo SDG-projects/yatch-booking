@@ -1817,8 +1817,15 @@ import { getStorage, ref } from "firebase/storage";
 const storage = getStorage();
 // const pathReference = ref(storage, 'images/stars.jpg');
 
-export function getServices(id) {
-  const Data = !id ? Services : [Services[id - 1]];
+export async function getServices(id) {
+  const servicesCol = collection(db, "services");
+  const servicesSnap = await getDocs(servicesCol);
+  const services = [];
+
+  servicesSnap.forEach((doc) => {
+    services.push({ id: doc.id, ...doc.data() });
+  });
+  const Data = !id ? services : services.filter((service) => service.id == id);
   return Data;
 }
 
@@ -1835,7 +1842,8 @@ export async function getProducts(id) {
 }
 export async function updateProducts(data) {
   // Get a reference to the document you want to update
-  const docRef = doc(db, "Products", data.id);
+  const docRef = doc(db, "products", data.id);
+  console.log(docRef);
   // Create an update object with the new values
   const updateData = {
     name: "New Name",
@@ -1846,7 +1854,7 @@ export async function updateProducts(data) {
 }
 export async function deleteProduct(id) {
   try {
-    const docRef = doc(db, "Products", id);
+    const docRef = doc(db, "products", id);
     return await deleteDoc(docRef);
     console.log("Document successfully deleted!");
   } catch (error) {
@@ -1855,7 +1863,7 @@ export async function deleteProduct(id) {
 }
 
 export async function addProducts(data) {
-  const productsCol = collection(db, "Products"); // Get a reference to the "Products" collection
+  const productsCol = collection(db, "products"); // Get a reference to the "Products" collection
 
   // Add the new data as a document to the collection
   const docRef = await addDoc(productsCol, data);
@@ -1871,7 +1879,7 @@ export function getPackages(id) {
   // console.log((id = null));
   let Data = isNaN(id)
     ? Packages
-    : Packages.filter((pack) => {
+    : Packages?.filter((pack) => {
         return pack.id == id;
       });
   return Data;

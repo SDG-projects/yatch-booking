@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import { doc, getDoc } from "firebase/firestore";
@@ -9,6 +9,7 @@ import "./styles/productdetail.css";
 import { handleWhatsAppRedirect } from "../components/Products";
 import Image from "./utils/Image";
 import Loading from "./Loading"; // Using your existing loading component
+import { DataContext } from "../data/context";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -16,37 +17,40 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { getProduct } = useContext(DataContext);
+  // useEffect(() => {
+  //   const fetchProduct = async () => {
+  //     try {
+  //       console.log(`📡 Fetching product details for ID: ${id}`);
+  //       const productRef = doc(db, "products", id);
+  //       const productSnap = await getDoc(productRef);
 
+  //       if (!productSnap.exists()) {
+  //         console.log("❌ Product not found in Firestore.");
+  //         setProduct(null);
+  //       } else {
+  //         setProduct(productSnap.data());
+  //         console.log("✅ Product details loaded:", productSnap.data());
+  //       }
+  //     } catch (error) {
+  //       console.error("🚨 Error fetching product details:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchProduct();
+
+  //   // Restore scroll position
+  //   const scrollPosition = sessionStorage.getItem("scrollPosition");
+  //   if (scrollPosition) {
+  //     window.scrollTo(0, parseInt(scrollPosition, 10));
+  //   }
+  // }, [id]);
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        console.log(`📡 Fetching product details for ID: ${id}`);
-        const productRef = doc(db, "products", id);
-        const productSnap = await getDoc(productRef);
-
-        if (!productSnap.exists()) {
-          console.log("❌ Product not found in Firestore.");
-          setProduct(null);
-        } else {
-          setProduct(productSnap.data());
-          console.log("✅ Product details loaded:", productSnap.data());
-        }
-      } catch (error) {
-        console.error("🚨 Error fetching product details:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProduct();
-
-    // Restore scroll position
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
-    if (scrollPosition) {
-      window.scrollTo(0, parseInt(scrollPosition, 10));
-    }
+    setProduct(getProduct(id));
+    setLoading(false);
   }, [id]);
-
   if (loading) return <Loading />;
   if (!product) return <p style={{ color: "white" }}>Product not found...</p>;
 
@@ -78,13 +82,13 @@ const ProductDetail = () => {
           <Slider {...sliderSettings} className="product-detail-slider">
             {product?.images?.map((img, index) => (
               <div key={index} className="image-wrapper">
-                {!imageLoaded && (
-                  <div className="skeleton-loader"></div>
-                )}
+                {!imageLoaded && <div className="skeleton-loader"></div>}
                 <Image
                   url={img}
                   alt={`${product.name} ${index + 1}`}
-                  className={`product-detail-image ${imageLoaded ? "loaded" : "loading"}`}
+                  className={`product-detail-image ${
+                    imageLoaded ? "loaded" : "loading"
+                  }`}
                   onLoad={() => setImageLoaded(true)}
                 />
               </div>

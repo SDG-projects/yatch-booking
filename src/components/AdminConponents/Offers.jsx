@@ -14,7 +14,9 @@ function EditOffers() {
     startTime: "",
     endTime: "",
   });
-
+  useEffect(() => {
+    console.log(newOffer);
+  }, [newOffer]);
   useEffect(() => {
     getOffers().then(setOffers);
   }, []);
@@ -72,7 +74,7 @@ function EditOffers() {
           </button>
         </div>
       ))}
-      <form onSubmit={handleSubmit}>
+      <form className="offer-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Name"

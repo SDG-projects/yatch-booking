@@ -4,13 +4,15 @@ import {
   Routes,
   Route,
   Navigate,
+  useNavigate,
 } from "react-router-dom";
 import "./App.css";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Layout from "./pages/Layout";
 import Loading from "./components/Loading";
-import { uploadServices } from "./components/utils/uploadServices"; // Ensure automatic upload
-
+// const AdminPage = lazy(() => import("./pages/AdminPage"));
+// const About = lazy(() => import("./pages/About"));
+// const Contact = lazy(() => import("./pages/Contact"));
 const Error404 = lazy(() => import("./pages/Errors"));
 const Home = lazy(() => import("./pages/Home"));
 const Packages = lazy(() => import("./pages/Packages"));
@@ -28,6 +30,7 @@ import Dashboard from "./components/AdminConponents/Dashboard";
 import ProductPanel from "./components/AdminConponents/ProductPanel";
 import ProductUpdate from "./components/AdminConponents/ProductUpdate";
 import EditOffers from "./components/AdminConponents/Offers";
+import { DataProvider } from "./data/context";
 const Package = lazy(() => import("./components/Package"));
 
 const PrivateRoute = ({ Component, ...rest }) => {
@@ -48,44 +51,139 @@ const PrivateRoute = ({ Component, ...rest }) => {
     return <div>Loading...</div>;
   }
 
-  return isAuthenticated ? <Component {...rest} /> : <Navigate to="/login" replace />;
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <Component {...rest} />;
 };
 
 function App() {
-  useEffect(() => {
-    uploadServices(); // Start uploading services automatically
-  }, []);
+  // useEffect(() => {
+  //   // uploadServiceImages(); // Upload services when app starts
+  // }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Suspense fallback={<Loading />}><Home /></Suspense>} />
-          <Route path="/home" element={<Suspense fallback={<Loading />}><Home /></Suspense>} />
-          <Route path="/vipRental" element={<VIPRental />} />
-          <Route path="/packages" element={<Suspense fallback={<Loading />}><Packages /></Suspense>} />
-          <Route path="/services/:service" element={<Suspense fallback={<Loading />}><Services /></Suspense>} />
-          <Route path="/services" element={<Suspense fallback={<Loading />}><Services /></Suspense>} />
-          <Route path="/productdetail/:id" element={<Suspense fallback={<Loading />}><ProductDetail /></Suspense>} />
-          <Route path="/packages/:pack" element={<Suspense fallback={<Loading />}><Package details={true} /></Suspense>} />
-          <Route path="/about" element={<Suspense fallback={<Loading />}><About /></Suspense>} />
-          <Route path="/contact" element={<Suspense fallback={<Loading />}><ContactPage /></Suspense>} />
-        </Route>
+    <>
+      <BrowserRouter>
+        <DataProvider>
+          <Routes>
+            {/* <Route path="/" element={<ProductSection />} /> */}
+            <Route path="/" element={<Layout />}>
+              <Route
+                path="/"
+                index
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Home />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Home />
+                  </Suspense>
+                }
+              />
+              <Route path="/vipRental" element={<VIPRental />} />
+              <Route
+                path="/packages"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Packages />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/services/:service"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Services />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/services"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Services />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/productdetail/:id"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <ProductDetail />
+                  </Suspense>
+                }
+              />
 
-        <Route path="/login" element={<Suspense fallback={<Loading />}><Login /></Suspense>} />
+              <Route
+                path="/packages/:pack"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Package details={true} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="index"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <Home />
+                  </Suspense>
+                }
+              />
 
-        <Route path="/admin" element={<PrivateRoute Component={AdminPanel} />}>
-          <Route path="servicePanel" element={<ServicePanel />} />
-          <Route path="productPanel" element={<ProductPanel />} />
-          <Route path="productdetail/:id" element={<ProductUpdate />} />
-          <Route path="addProduct" element={<ProductUpdate />} />
-          <Route path="offers" element={<EditOffers />} />
-          <Route path="*" element={<Dashboard />} />
-        </Route>
+              <Route
+                path="/about"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <About />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <Suspense fallback={<Loading />}>
+                    <ContactPage />
+                  </Suspense>
+                }
+              />
+            </Route>
+            <Route
+              path="/login"
+              element={
+                <Suspense fallback={<Loading />}>
+                  <Login />
+                </Suspense>
+              }
+            />
 
-        <Route path="*" element={<Error404 />} />
-      </Routes>
-    </BrowserRouter>
+            <Route
+              path="/admin"
+              element={<PrivateRoute Component={AdminPanel} />}
+            >
+              <Route path="servicePanel" element={<ServicePanel />} />
+              <Route path="productPanel" element={<ProductPanel />} />
+              <Route path="productdetail/:id" element={<ProductUpdate />} />
+              <Route path="addProduct" element={<ProductUpdate />} />
+              <Route path="offers" element={<EditOffers />} />
+              <Route path="*" element={<Dashboard />} />
+            </Route>
+            {/* <Route path="/admin" element={<AdminPanel />}>
+            <Route path="servicePanel" element={<ServicePanel />} />
+            <Route path="" element={<Dashboard />} />
+          </Route> */}
+            <Route path="*" element={<Error404 />} />
+          </Routes>
+        </DataProvider>
+      </BrowserRouter>
+    </>
   );
 }
 
