@@ -32,17 +32,25 @@ export const DataProvider = ({ children }) => {
         }));
       } catch (error) {
         console.error(`Error fetching ${collectionName}:`, error);
+
+        // Fallback to empty array in case of error
+        setData((prevState) => ({
+          ...prevState,
+          [collectionName]: [],
+        }));
       }
     };
 
-    fetchData("offers");
-    fetchData("products");
-    fetchData("services");
+    const fetchAllData = async () => {
+      await Promise.all([
+        fetchData("offers"),
+        fetchData("products"),
+        fetchData("services"),
+      ]);
+    };
+
+    fetchAllData();
   }, []);
 
-  return (
-    <DataContext.Provider value={data}>
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

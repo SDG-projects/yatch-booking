@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getPackages } from "../data/Services";
 import "../components/styles/Packages.css"; // Import the external CSS
+import Image from "../components/utils/Image";
+import { DataContext } from "../data/context";
 
 function Packages() {
   const nav = useNavigate();
-  const [packages, setPackages] = useState([]);
+  // const [packages, setPackages] = useState([]);
+  const { packages } = useContext(DataContext);
 
   useEffect(() => {
-    setPackages(getPackages());
+    // setPackages(getPackages());
   }, []);
 
   return (
     <div className="wrapper">
       <div className="container">
-        {packages.map((value, i) => (
+        {packages?.map((value, i) => (
           <div className="card" key={i}>
-            <img src={value.imgs} alt={value.name} />
+            {/* <img src={value.imgs} alt={value.name} /> */}
+            <Image url={value.imgs} alt={value.name} />
             <div className="card-overlay">
               <h1 className="card-title">{value.name}</h1>
               <button

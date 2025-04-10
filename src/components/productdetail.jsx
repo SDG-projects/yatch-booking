@@ -17,7 +17,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const { getProduct } = useContext(DataContext);
+  const { products } = useContext(DataContext);
   // useEffect(() => {
   //   const fetchProduct = async () => {
   //     try {
@@ -48,7 +48,7 @@ const ProductDetail = () => {
   //   }
   // }, [id]);
   useEffect(() => {
-    setProduct(getProduct(id));
+    setProduct(products);
     setLoading(false);
   }, [id]);
   if (loading) return <Loading />;
