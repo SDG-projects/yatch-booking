@@ -48,7 +48,7 @@ const ProductDetail = () => {
   //   }
   // }, [id]);
   useEffect(() => {
-    setProduct(products);
+    setProduct(products.filter((product) => product.id == id)[0]);
     setLoading(false);
   }, [id]);
   if (loading) return <Loading />;
