@@ -1,7 +1,7 @@
 .layout {
   background: var(--primary-color);
-  /* position: relative;
-  z-index: -10; */
+  /* position: relative; */
+  /* z-index: -10; */
 }
 .card {
   /* box-shadow: 5px 5px 5px rgb(52, 52, 62); */

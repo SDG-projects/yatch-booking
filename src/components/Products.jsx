@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../data/firebase";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { getProducts } from "../data/Services";
 import { FaWhatsapp } from "react-icons/fa";
 import "./styles/products.css";
+import Image from "./utils/Image";
+import Loading from "./Loading"; // Importing your existing Loading component
+import { DataContext } from "../data/context";
 
 export const handleWhatsAppRedirect = (product) => {
   const phoneNumber = "971555930716";
@@ -15,6 +19,7 @@ export const handleWhatsAppRedirect = (product) => {
   const whatsappUrl = isMobile
     ? `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
   const newWindow = window.open(whatsappUrl, "_blank");
   if (!newWindow) {
     alert(
@@ -24,24 +29,32 @@ export const handleWhatsAppRedirect = (product) => {
   }
 };
 
-export const Product = ({ product }) => {
+export const Product = ({ product, notNeed }) => {
   const navigate = useNavigate();
 
   const handleProductClick = () => {
     sessionStorage.setItem("scrollPosition", window.scrollY);
-    navigate(`/productdetail/${product.id}`);
+    navigate(`${notNeed ? "/admin" : ""}/productdetail/${product.id}`);
   };
 
   return (
     <div key={product.id} className="product-card">
-      <h3 className="product-name">{product.name}<span> - GOLDEN YATCH</span></h3>
+      <h3 className="product-name">
+        <span>GOLDEN YATCH - </span>
+        {product.name}
+      </h3>
       <div>
-        <img
-          src={product.images[0]}
+        <Image
+          url={
+            product.images && product.images.length > 0
+              ? product.images[0]
+              : "/img/placeholder.jpg"
+          }
           alt={product.name}
           className="product-image"
           onClick={handleProductClick}
-          width={300} height={300}
+          width={300}
+          height={300}
         />
       </div>
       <div className="product-info" onClick={handleProductClick}>
@@ -56,40 +69,74 @@ export const Product = ({ product }) => {
         <p className="product-detail">
           Capacity: Up to <span>{product.capacity}</span>
         </p>
-        <div className="product-actions">
-          <button
-            className="btn btn-primary"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleWhatsAppRedirect(product);
-            }}
-          >
-            <span>Book By</span>
-            <img src="./img/whatsapp2.png" alt="" />
-          </button>
-        </div>
+        {!notNeed && (
+          <div className="product-actions">
+            <button
+              className="btn btn-primary"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleWhatsAppRedirect(product);
+              }}
+            >
+              <span>Book By</span>
+              <img src="./img/whatsapp2.png" alt="" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 const ProductSection = () => {
-  const products = getProducts();
+  // const [products, setProducts] = useState([]);
+  const { products } = useContext(DataContext);
+  const [isLoading, setIsLoading] = useState(true); // Full-page loading state
+
+  // useEffect(() => {
+  // const fetchProducts = async () => {
+  //   try {
+  //     setIsLoading(true); // Start full-page loading
+  //     const querySnapshot = await getDocs(collection(db, "products"));
+
+  //     if (!querySnapshot.empty) {
+  //       const productList = querySnapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       }));
+  //       setProducts(productList);
+  //     }
+  //   } catch (error) {
+  //     console.error("🚨 Error fetching products:", error);
+  //   } finally {
+  //     setIsLoading(false); // Stop loading
+  //   }
+  // };
+
+  // fetchProducts();
+  // }, []);
+
+  // 🔹 Full Page Loading Using Your Existing Component
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <section id="products" className="product-section">
-      <h1 className="section-title">Best Yatch Rental Dubai</h1>
+      <h1 className="section-title">Best Yacht Rental Dubai</h1>
       <p>Unforgettable Yachting Experiences at Your Fingertips</p>
       <hr className="styled-line" />
       <div className="product-grid">
-        {products.map((product) => (
-          <Product
-            key={product.id}
-            product={product}
-          />
-        ))}
+        {products.length === 0 ? (
+          <p>No products found</p>
+        ) : (
+          products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))
+        )}
       </div>
     </section>
   );
 };
+
 export default ProductSection;

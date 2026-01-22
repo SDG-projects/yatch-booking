@@ -9,7 +9,6 @@ function Home() {
   return (
     <div>
       <BackgroundVideo />
-      {/* <Products /> */}
       <ProductSection />
     </div>
   );

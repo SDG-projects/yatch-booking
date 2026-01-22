@@ -3,36 +3,6 @@ import "./styles/footer.css";
 import { Link } from "react-router-dom";
 
 function Footer() {
-  const service = [
-    "Romantic Private Dinner",
-    "Private chef",
-    "Yacht Catering",
-    "Live BBQ with private chef",
-    "Private DJ",
-    "Private Fishing",
-    "Luxury video and photoshoot",
-    "Private Artist Singer",
-    "Private Saxophone Artist",
-    "Private Dancers",
-    "Private Bartender",
-    "Private Magician",
-    "Private Professional Massage Therapists",
-    "Private Tour Guide",
-    "Private Hostesses",
-    "Private Waiters",
-    "Professional Hospitality Crew",
-    "Live Seafood BBQ and Private Chef",
-    "Sushi Menus and a Private Chef",
-    "Vegetarian Menus Crafted by a Private Chef",
-    "Premium Alcoholic Drinks",
-    "Exclusive Champagnes",
-    "Open Bar",
-    "Yacht Decorations",
-    "Birthday Decorations",
-    "Proposal and Anniversary Decorations",
-    "Roses/Flower decorations",
-    "VIP Transport",
-  ];
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -71,7 +41,11 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="https://www.instagram.com/golden_yatch_rentals_dubai?igsh=MTI5dmJtODloMnoybA==" target="_blank" rel="noopener noreferrer">
+              <Link
+                to="https://www.instagram.com/golden_yatch_rentals_dubai?igsh=MTI5dmJtODloMnoybA=="
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fa fa-instagram" />
               </Link>
             </li>
@@ -81,16 +55,16 @@ function Footer() {
           <h3>Contact</h3>
           <ul>
             <li>
-              <Link to="">+91 34353 34553</Link>
+              <Link to="tel:+971555930716">+971555930716</Link>
             </li>
             <li>
-              <Link to="">+91 34353 34553</Link>
+              <Link to="tel:+971552018128">+971552018128</Link>
             </li>
           </ul>
         </div>
         <div className="footer-info">
           <h3>Information</h3>
-          <p>Copyright 2024 My Website</p>
+          <p>Copyright 2024 FusionDevelopers</p>
           <p>All rights reserved</p>
         </div>
       </div>
