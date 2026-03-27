@@ -1,34 +1,58 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import { getProducts } from "../data/Services";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../data/firebase";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./styles/productdetail.css";
 import { handleWhatsAppRedirect } from "../components/Products";
+import Image from "./utils/Image";
+import Loading from "./Loading"; // Using your existing loading component
+import { DataContext } from "../data/context";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const { products } = useContext(DataContext);
+  // useEffect(() => {
+  //   const fetchProduct = async () => {
+  //     try {
+  //       console.log(`📡 Fetching product details for ID: ${id}`);
+  //       const productRef = doc(db, "products", id);
+  //       const productSnap = await getDoc(productRef);
 
+  //       if (!productSnap.exists()) {
+  //         console.log("❌ Product not found in Firestore.");
+  //         setProduct(null);
+  //       } else {
+  //         setProduct(productSnap.data());
+  //         console.log("✅ Product details loaded:", productSnap.data());
+  //       }
+  //     } catch (error) {
+  //       console.error("🚨 Error fetching product details:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchProduct();
+
+  //   // Restore scroll position
+  //   const scrollPosition = sessionStorage.getItem("scrollPosition");
+  //   if (scrollPosition) {
+  //     window.scrollTo(0, parseInt(scrollPosition, 10));
+  //   }
+  // }, [id]);
   useEffect(() => {
-    const products = getProducts();
-    const selectedProduct = products.find(
-      (product) => product.id === parseInt(id)
-    );
-    setProduct(selectedProduct);
-
-    // Check if there's a stored scroll position and restore it
-    const scrollPosition = sessionStorage.getItem("scrollPosition");
-    if (scrollPosition) {
-      window.scrollTo(0, parseInt(scrollPosition, 10));
-    }
+    setProduct(products.filter((product) => product.id == id)[0]);
+    setLoading(false);
   }, [id]);
-
-  if (!product) {
-    return <p>Loading...</p>;
-  }
+  if (loading) return <Loading />;
+  if (!product) return <p style={{ color: "white" }}>Product not found...</p>;
 
   // Slider settings
   const sliderSettings = {
@@ -56,31 +80,35 @@ const ProductDetail = () => {
       <div className="product-detail-content">
         <div className="product-detail-image-container">
           <Slider {...sliderSettings} className="product-detail-slider">
-            {product.images.map((img, index) => (
-              <div key={index}>
-                <img
-                  src={img}
+            {product?.images?.map((img, index) => (
+              <div key={index} className="image-wrapper">
+                {!imageLoaded && <div className="skeleton-loader"></div>}
+                <Image
+                  url={img}
                   alt={`${product.name} ${index + 1}`}
-                  className="product-detail-image"
+                  className={`product-detail-image ${
+                    imageLoaded ? "loaded" : "loading"
+                  }`}
+                  onLoad={() => setImageLoaded(true)}
                 />
               </div>
             ))}
           </Slider>
         </div>
         <div className="product-detail-info">
-          <h1 className="product-title">{product.name}</h1>
+          <h1 className="product-title">{product?.name}</h1>
           <p>
             <strong>Price:</strong>
-            <span className="pd-detail-price">{product.price}AED</span>
+            <span className="pd-detail-price">{product?.price} AED</span>
           </p>
           <p>
-            <strong>Size:</strong> {product.feet}
+            <strong>Size:</strong> {product?.feet}
           </p>
           <p>
-            <strong>Capacity:</strong> {product.capacity}
+            <strong>Capacity:</strong> {product?.capacity}
           </p>
           <p>
-            <strong>Complementary:</strong> {product.Complementary}
+            <strong>Complementary:</strong> {product?.complementary}
           </p>
           <div className="book-now-btn">
             <button

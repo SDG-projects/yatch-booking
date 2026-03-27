@@ -1,0 +1,33 @@
+.loginCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('img/yatch/P1/luxury-yatch-dubai-1_10.jpg');
+    background-size: cover;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* align-items: center; */
+    background-color: rgba(0, 255, 255, 0.286);
+    backdrop-filter: 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.formItem input {
+    outline: none;
+    color: rgb(0, 3, 5);
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+    border-right: 0.5px solid rgb(47, 43, 43);
+    box-shadow: 2px 2px 10px black;
+}
+
+.formItem button {
+
+    width: 100%;
+}

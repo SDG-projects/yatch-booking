@@ -5,7 +5,24 @@
   <meta charset="UTF-8" />
   <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Golden Yacht</title>
+  <title>Golden Yacht Rentals Dubai | Luxury Yacht Charters & VIP Services</title>
+  <meta name="description"
+    content="Golden yacht &amp; boat rental in Dubai Marina and Dubai Harbour offers watersports &amp; luxury yachts for cruising, party &amp; holiday in Dubai.">
+  <meta name="keywords"
+    content="yacht rental dubai, luxury yacht, yacht in dubai, yacht party, yacht booking dubai, Dubai Marina yacht, Golden Yacht Rental, rent a yacht">
+  <meta name="description" content="yacht rental dubai offers the best yacht rentals in Dubai. Enjoy luxury yacht experiences with exclusive services." />
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "dubai yacht booking",
+      "url": "https://dubaiyatchbooking.com",
+      "logo": "https://dubaiyatchbooking.com/logo.png"
+    }
+    </script>
+    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/brands.min.css"
     integrity="sha512-7rXIvd/xj1FnI2zKQjjXzDFxC4twqBByp8yxOgEQJs4C/aNzNyoQsOO7VxH0RgYNhbAYLJLwzqslaP50KTTHIQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -33,6 +50,31 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBfl_TPKrJyhjwMnFfhYGGjsurj0ZO3tMo",
+      authDomain: "goldenyacht-720d1.firebaseapp.com",
+      projectId: "goldenyacht-720d1",
+      storageBucket: "goldenyacht-720d1.firebasestorage.app",
+      messagingSenderId: "390296462067",
+      appId: "1:390296462067:web:c078085636005035874d86",
+      measurementId: "G-BDW2G5BXSH"
+    };
+
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+  </script>
 </body>
 
 </html>

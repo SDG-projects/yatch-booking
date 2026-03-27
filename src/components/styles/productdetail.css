@@ -17,14 +17,12 @@
   flex: 2;
   max-width: 700px;
   width: 100%;
-  height: 50vh;
 }
 
 .product-detail-image {
   width: 100%;
-  height: 500px;
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -125,7 +123,7 @@
 
 .product-detail-slider .slick-prev,
 .product-detail-slider .slick-next {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.2);
   color: #fff;
   border-radius: 5px;
   width: 50px;
@@ -142,16 +140,16 @@
 }
 
 .product-detail-slider .slick-prev {
-  left: 15px;
+  left: 5px;
 }
 
 .product-detail-slider .slick-next {
-  right: 15px;
+  right: 5px;
 }
 
 .product-detail-slider .slick-prev:hover,
 .product-detail-slider .slick-next:hover {
-  background: rgba(5, 5, 5, 0.686);
+  background: rgba(5, 5, 5, 0.4);
   /* transform: scale(1.1); */
 }
 @media (max-width: 1024px) {
@@ -231,3 +229,39 @@
     font-size: 0.8rem;
   }
 }
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-detail-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.product-detail-image.loaded {
+  opacity: 1;
+}
+
+.skeleton-loader {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(90deg, #ddd 25%, #eee 50%, #ddd 75%);
+  background-size: 400% 100%;
+  animation: loading 1.5s infinite;
+  position: absolute;
+}
+
+@keyframes loading {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+

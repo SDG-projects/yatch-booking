@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com"; 
-import "../components/styles/Contact.css"
+import emailjs from "emailjs-com";
+import "../components/styles/Contact.css";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,8 +28,8 @@ const ContactPage = () => {
     };
     emailjs
       .send(
-        "service_lwaukmh", 
-        "template_u2hooha", 
+        "service_lwaukmh",
+        "template_u2hooha",
         templateParams,
         "NbkN4OM23omF2CKKi"
       )
@@ -51,10 +51,18 @@ const ContactPage = () => {
       <div className="contact-info">
         <h2>Contact Information</h2>
         <div className="info">
-          <p><strong>Address:</strong> Dubai Marina ,Marina suits 1001</p>
-          <p><strong>Phone:</strong> + 971 55 593 0716</p>
-          <p><strong>Email:</strong> goldenyatchrentals@gmail.com</p>
-          <p><strong>Time:</strong> Sun - Sat: 8 AM - 12 PM</p>
+          <p>
+            <strong>Address:</strong> Dubai Marina ,Marina suits
+          </p>
+          <p>
+            <strong>Phone:</strong> + 971555930716 , +971552018128
+          </p>
+          <p>
+            <strong>Email:</strong> goldenyatchrentals@gmail.com
+          </p>
+          <p>
+            <strong>Time:</strong> Sun - Sat: 8 AM - 12 PM
+          </p>
         </div>
       </div>
       <div className="contact-form">
@@ -69,7 +77,8 @@ const ContactPage = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              required/>
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="phone">Phone Number:</label>
@@ -80,7 +89,8 @@ const ContactPage = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Enter your phone number"
-              required />
+              required
+            />
           </div>
           <div className="form-group">
             <label htmlFor="preferredTime">Preferred Time:</label>
@@ -102,7 +112,7 @@ const ContactPage = () => {
               placeholder="Optional message"
             ></textarea>
           </div>
-           <button type="submit" className="ct-btn btn-primary">
+          <button type="submit" className="ct-btn btn-primary">
             Submit Request
           </button>
         </form>
@@ -112,4 +122,3 @@ const ContactPage = () => {
   );
 };
 export default ContactPage;
-

@@ -1,27 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./styles/navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import { getPackages, getServices } from "../data/Services";
+import { DataContext } from "../data/context";
+
+// /*************  ✨ Codeium Command 🌟  *************/
+// import React, { useEffect, useState, useContext } from "react";
+// import "./styles/navbar.css";
+// import { Link, useLocation } from "react-router-dom";
+// import { getPackages } from "../data/Services";
+// import { DataContext } from "../data/context";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("/home");
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isPackagesOpen, setIsPackagesOpen] = useState(false); // Packages dropdown state
-  const [isServicesOpen, setIsServicesOpen] = useState(false); // Services dropdown state
-
-  const services = getServices();
-  const packs = getPackages();
+  const [isScrolled, setScrolled] = useState(false);
+  const [isPackagesDropdownOpen, setPackagesDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const { services } = useContext(DataContext);
+  console.log(services);
+  const packages = getPackages();
   const location = useLocation();
 
   useEffect(() => {
-    const path = location.pathname.toLowerCase();
-    setActivePage(path);
+    setActivePage(location.pathname.toLowerCase());
   }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -29,85 +36,82 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
   };
 
-  const handleLinkClick = () => {
-    setIsOpen(false); // Close the mobile menu
-    setIsPackagesOpen(false); // Close Packages dropdown
-    setIsServicesOpen(false); // Close Services dropdown
+  const closeDropdowns = () => {
+    setMenuOpen(false);
+    setPackagesDropdownOpen(false);
+    setServicesDropdownOpen(false);
   };
 
-  const handlePackagesClick = () => {
-    setIsPackagesOpen(!isPackagesOpen); // Toggle Packages dropdown
-    setIsServicesOpen(false); // Close Services dropdown
+  const togglePackagesDropdown = () => {
+    setPackagesDropdownOpen(!isPackagesDropdownOpen);
+    setServicesDropdownOpen(false);
   };
 
-  const handleServicesClick = () => {
-    setIsServicesOpen(!isServicesOpen); // Toggle Services dropdown
-    setIsPackagesOpen(false); // Close Packages dropdown
+  const toggleServicesDropdown = () => {
+    setServicesDropdownOpen(!isServicesDropdownOpen);
+    setPackagesDropdownOpen(false);
   };
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-brand">
         <div className="logo">
-          <Link to={"/"}>
-            <img src={"/img/yatchlogo.png"} alt="Yacht Logo" />
+          <Link to="/">
+            <img
+              src="/img/yatchlogo.png"
+              alt="Yacht Logo"
+              width={160}
+              height={160}
+            />
           </Link>
         </div>
       </div>
       <button
-        className={`navbar-toggle ${isOpen ? "open" : ""}`}
-        onClick={handleToggle}
+        className={`navbar-toggle ${isMenuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
       >
-        <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}`}></i>
+        <i className={`fa-solid ${isMenuOpen ? "fa-xmark" : "fa-bars"}`}></i>
       </button>
-      <ul className={`navbar-menu ${isOpen ? "open" : ""}`}>
+      <ul className={`navbar-menu ${isMenuOpen ? "open" : ""}`}>
         <li
           className={
             activePage === "/home" || activePage === "/" ? "active" : ""
           }
         >
-          <Link to={"/home"} onClick={handleLinkClick}>
+          <Link to="/home" onClick={closeDropdowns}>
             Home
           </Link>
         </li>
         <li className={activePage === "/vipRental" ? "active" : ""}>
-          <Link to={"/vipRental"} onClick={handleLinkClick}>
-            VIP Yacht Rental
+          <Link to="/vipRental" onClick={closeDropdowns}>
+            VIPYacht
           </Link>
         </li>
         <li>
-          <div className={`services ${isPackagesOpen ? "open" : ""}`}>
-            <summary onClick={handlePackagesClick}>Packages</summary>
-            {isPackagesOpen && (
+          <div className={`services ${isPackagesDropdownOpen ? "open" : ""}`}>
+            <summary onClick={togglePackagesDropdown}>Packages</summary>
+            {isPackagesDropdownOpen && (
               <ul className="serviceList">
-                {packs.map((value, i) => (
-                  <li key={i} className="service">
+                {packages.map((pack, index) => (
+                  <li key={index} className="service">
                     <Link
-                      to={
-                        "/packages/" +
-                        value.name
-                          .toLowerCase()
-                          .replaceAll(" ", "_")
-                          .replaceAll("/", "-")
-                          .replaceAll("&", "-") +
-                        "&" +
-                        i
-                      }
-                      onClick={handleLinkClick}
+                      to={`/packages/${pack.name
+                        .toLowerCase()
+                        .replaceAll(" ", "_")
+                        .replaceAll("/", "-")
+                        .replaceAll("&", "-")}&${index}`}
+                      onClick={closeDropdowns}
                     >
-                      {value.name}
+                      {pack.name}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link
-                    to={"/packages/custom_pack&-1"}
-                    onClick={handleLinkClick}
-                  >
+                  <Link to="/packages/custom_pack&-1" onClick={closeDropdowns}>
                     Custom Package
                   </Link>
                 </li>
@@ -116,23 +120,17 @@ const Navbar = () => {
           </div>
         </li>
         <li>
-          <div className={`services ${isServicesOpen ? "open" : ""}`}>
-            <summary onClick={handleServicesClick}>Services</summary>
-            {isServicesOpen && (
+          <div className={`services ${isServicesDropdownOpen ? "open" : ""}`}>
+            <summary onClick={toggleServicesDropdown}>Services</summary>
+            {isServicesDropdownOpen && (
               <ul className="serviceList">
-                {services.map((value, i) => (
-                  <li key={i} className="service">
+                {services?.map((service, index) => (
+                  <li key={index} className="service">
                     <Link
-                      to={
-                        "/services/" +
-                        value.name
-                          .toLowerCase()
-                          .replaceAll(" ", "_")
-                          .replaceAll("/", "-")
-                      }
-                      onClick={handleLinkClick}
+                      to={`/services/${service.name}`}
+                      onClick={closeDropdowns}
                     >
-                      {value.name}
+                      {service.name}
                     </Link>
                   </li>
                 ))}
@@ -141,12 +139,12 @@ const Navbar = () => {
           </div>
         </li>
         <li className={activePage === "/about" ? "active" : ""}>
-          <Link to={"/about"} onClick={handleLinkClick}>
+          <Link to="/about" onClick={closeDropdowns}>
             About
           </Link>
         </li>
         <li className={activePage === "/contact" ? "active" : ""}>
-          <Link to={"/contact"} onClick={handleLinkClick}>
+          <Link to="/contact" onClick={closeDropdowns}>
             Contact
           </Link>
         </li>
@@ -156,3 +154,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+/******  0ab1361f-28df-4bc3-8c01-c823efcda3af  *******/

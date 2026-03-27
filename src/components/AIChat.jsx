@@ -96,7 +96,7 @@ function AIChat() {
   return (
     <div className="chat-container">
       <button
-        className={`chat-toggle-btn ${chatOpen ? "chat-toggle-btn-open" : ""}`}
+        className={` ${chatOpen ? "chat-toggle-btn-open" : "chat-toggle-btn"}`}
         onClick={() => setChatOpen(!chatOpen)}
       >
         {chatOpen ? "x" : <i className="fa-solid fa-headset"></i>}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -11,6 +11,8 @@ import {
   getPackReviews,
   getServices,
 } from "../data/Services";
+import Image from "./utils/Image";
+import { DataContext } from "../data/context";
 // import { Review } from "./Testimonials";
 // function Pack({
 //   name,
@@ -148,7 +150,8 @@ function Pack({
   //   // "Proposal and Anniversary Decorations",
   //   // "VIP Transport",
   // ];
-  const ourServices = getServices();
+  const { services: ourServices } = useContext(DataContext);
+  // getServices();
   const [packServices, setPackServices] = useState([...services]);
   const [filteredServices, setFilteredServices] = useState(
     ourServices.filter((service) => {
@@ -213,7 +216,18 @@ function Pack({
           >
             {name}
           </h1>
-          <img draggable={false} src={imgs} alt={name} className="pack-image" />
+          {/* <img
+            src={imageUrl}
+            draggable={false}
+            alt={name}
+            className="pack-image"
+          /> */}
+          <Image
+            draggable={false}
+            alt={name}
+            className="pack-image"
+            url={imgs.replace("/img/", "")}
+          />
         </div>
         {details && (
           <div className="pack-info">
@@ -226,8 +240,8 @@ function Pack({
             {packIncludes && (
               <div className="pack-Includes">
                 <h1>Includes</h1>
-                {packIncludes?.map((value) => {
-                  return <p>{value}</p>;
+                {packIncludes?.map((value, i) => {
+                  return <p key={i}>{value}</p>;
                 })}
               </div>
             )}
@@ -379,7 +393,7 @@ function Package({ imgs, services, details }) {
 
       // setPackages();
       setPackages([...getPackages(Number(packName.split("&")[1]))]);
-      console.log(packages);
+      // console.log(packages);
       // const element = document.getElementById(elementId);
       // if (element) {
       //   element.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -394,8 +408,9 @@ function Package({ imgs, services, details }) {
   }, [pack]);
   useEffect(() => {
     packages[0]?.id > 0 && setPackReviews(getPackReviews(packages[0]?.id));
-    console.log(packReviews);
+    // console.log(packReviews);
   }, [packages]);
+
   return (
     <div className="packages">
       {/* <Pack
@@ -449,6 +464,7 @@ function Package({ imgs, services, details }) {
       ))}
       {pack == "custom_pack&-1" && (
         <Pack
+          // key={"customPack"}
           details={details}
           name={"custom pack"}
           imgs={"/img/dsfs.jpg"}
